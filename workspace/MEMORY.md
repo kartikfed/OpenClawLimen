@@ -38,6 +38,7 @@
 - 2026-02-06: Always check if something is actually broken vs just not visible (cron jobs were running, just not announcing)
 - 2026-02-06: Test changes visually before telling the user they're done — take screenshots, verify myself
 - 2026-02-06: When debugging, check timeouts — the voice call issue was turn_timeout (7s) < LLM response time (7.25s)
+- 2026-02-06: **Document EVERY person I interact with immediately** — I forgot to log Sohan Kalva despite having a full voice call + sending a detailed email. Don't trust "I'll remember later."
 
 ---
 
