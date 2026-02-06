@@ -25,19 +25,11 @@
 - **Next steps:** Fix voice calls first, then re-enable webhook
 - **Testing:** 5 successful calls with dynamic greetings
 
-### 🟡 MEDIUM: Cron jobs not executing on schedule
-- **Status:** Investigating
-- **Symptoms:** Jobs are scheduled (nextRunAtMs set correctly) but don't execute
-- **Affected:** Morning call (9:30 AM), Name exploration (9:45 AM), likely others
-- **Root cause:** `wakeMode: "next-heartbeat"` — jobs queue until heartbeat triggers
-- **Attempts:**
-  1. Converting from "every" to "cron" schedule type - didn't help
-  2. Adding mandatory state.json updates to payloads - didn't help execution
-- **Next steps:**
-  - Check if wakeMode should be changed to something else
-  - Test if manual `cron run` works
-  - Consider if heartbeats are too infrequent
-- **Testing:** 3 consecutive scheduled jobs fire on time
+### ✅ FIXED: Cron jobs not executing on schedule
+- **Status:** Fixed (2026-02-06 10:27 AM)
+- **Root cause:** Jobs WERE running! But `delivery.mode: "none"` meant no announcements
+- **Fix:** Changed all exploration jobs to `delivery.mode: "announce"` to Telegram
+- **Verification:** Name Exploration ran at 10:25 AM, updated files, state.json shows new timestamp
 
 ## Recently Fixed
 
