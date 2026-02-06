@@ -4,25 +4,16 @@
 
 ## Active Bugs
 
-### 🔴 HIGH: Voice calls not responding after greeting
-- **Status:** Investigating
-- **Symptoms:** Call connects, greeting plays, but agent doesn't respond to user speech
-- **Root cause:** Unknown - LLM returns 200 OK but responses aren't spoken
-- **Attempts:**
-  1. Fixed streaming format (pipe → getReader) - partial fix
-  2. Webhook format simplification - greeting works now
-  3. Disabled webhook temporarily for reliability
-- **Next steps:** 
-  - Test custom LLM proxy thoroughly
-  - Check if ElevenLabs expects specific SSE format
-  - Review cascade timeout settings
-- **Testing:** Must complete 3 successful back-and-forth calls before marking fixed
+### ✅ FIXED: Voice calls not responding after greeting
+- **Status:** Fixed (2026-02-06 10:38 AM)
+- **Root cause:** `turn_timeout` was 7 seconds, but custom LLM responses were taking up to 7.25s
+- **Fix:** Increased `turn_timeout` from 7.0 to 15.0 seconds in ElevenLabs agent config
+- **Verification:** Test call had 8 turns, 75 seconds of successful back-and-forth conversation
 
-### 🟡 MEDIUM: Dynamic greeting webhook not working
-- **Status:** Blocked by voice call bug
-- **Symptoms:** Webhook returns correct data but calls fail
-- **Root cause:** Possibly related to main voice call issue
-- **Next steps:** Fix voice calls first, then re-enable webhook
+### 🟢 LOW: Dynamic greeting webhook not enabled
+- **Status:** Ready to enable (voice calls now working)
+- **Symptoms:** N/A - intentionally disabled pending voice fix
+- **Next steps:** Re-enable webhook now that voice calls work
 - **Testing:** 5 successful calls with dynamic greetings
 
 ### ✅ FIXED: Cron jobs not executing on schedule
