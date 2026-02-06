@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.openclaw.dashboard</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/kartikkrishnan/.nvm/versions/node/v22.22.0/bin/node</string>
+        <string>/Users/kartikkrishnan/projects/openclaw-dashboard/server/index.js</string>
+    </array>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/kartikkrishnan/projects/openclaw-dashboard</string>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>NODE_ENV</key>
+        <string>production</string>
+        <key>PORT</key>
+        <string>3001</string>
+        <key>DASHBOARD_USER</key>
+        <string>kartik</string>
+        <key>DASHBOARD_PASS</key>
+        <string>openclaw2026</string>
+        <key>OPENCLAW_WORKSPACE</key>
+        <string>/Users/kartikkrishnan/.openclaw/workspace</string>
+        <key>OPENCLAW_DIR</key>
+        <string>/Users/kartikkrishnan/.openclaw</string>
+    </dict>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>KeepAlive</key>
+    <true/>
+    
+    <key>StandardOutPath</key>
+    <string>/tmp/openclaw-dashboard.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/tmp/openclaw-dashboard.log</string>
+</dict>
+</plist>

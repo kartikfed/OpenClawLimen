@@ -1,0 +1,28 @@
+{
+  "name": "openclaw-dashboard",
+  "version": "1.0.0",
+  "description": "Mission Control dashboard for OpenClaw",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "node --watch server/index.js",
+    "dev:client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "start": "NODE_ENV=production node server/index.js",
+    "setup": "npm install && cd client && npm install"
+  },
+  "keywords": ["openclaw", "dashboard", "ai"],
+  "author": "OpenClaw",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.16.0",
+    "chokidar": "^3.5.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "tail": "^2.2.6"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
