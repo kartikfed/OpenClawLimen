@@ -1,39 +1,24 @@
 # TOOLS.md - Local Notes
 
-Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
+## Search Architecture
 
-## What Goes Here
+| Task | Tool | Notes |
+|------|------|-------|
+| **Web Search** | Tavily | `skills/tavily-search/search.py` — 180ms, LLM-optimized |
+| **Social Search** | Grok | `skills/grok-social/search.py` — X/Twitter (needs credits) |
+| **Brain** | Claude Opus 4.5 | Orchestration, reasoning, memory |
+| **Coding** | Claude Code | Complex coding tasks |
 
-Things like:
-
-- Camera names and locations
-- SSH hosts and aliases
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
-
-## Examples
-
-```markdown
-### Cameras
-
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
-
-### SSH
-
-- home-server → 192.168.1.100, user: admin
-
-### TTS
-
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
+### Tavily (Web Search)
+```bash
+python3 ~/.openclaw/workspace/skills/tavily-search/search.py "query"
 ```
 
-## Why Separate?
-
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
+### Grok (X/Twitter Search)
+```bash
+python3 ~/.openclaw/workspace/skills/grok-social/search.py "query"
+```
+**Note:** Requires xAI credits — add at console.x.ai
 
 ---
 

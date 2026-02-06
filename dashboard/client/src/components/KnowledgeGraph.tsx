@@ -156,10 +156,11 @@ export default function KnowledgeGraph() {
     fetchGraph();
   }, [fetchGraph]);
 
-  // Auto-rotation when idle
+  // Auto-rotation when idle — use requestAnimationFrame for smooth 60fps
   useEffect(() => {
     if (!graphRef.current || isInteracting || selectedNode) return;
-    
+
+    let rafId: number;
     const rotateCamera = () => {
       if (graphRef.current && !isInteracting && !selectedNode) {
         angleRef.current += 0.002;
@@ -168,10 +169,11 @@ export default function KnowledgeGraph() {
         const z = distance * Math.cos(angleRef.current);
         graphRef.current.cameraPosition({ x, y: 50, z }, null, 0);
       }
+      rafId = requestAnimationFrame(rotateCamera);
     };
-    
-    const interval = setInterval(rotateCamera, 30);
-    return () => clearInterval(interval);
+
+    rafId = requestAnimationFrame(rotateCamera);
+    return () => cancelAnimationFrame(rafId);
   }, [isInteracting, selectedNode]);
 
   const handleInteractionStart = useCallback(() => {
@@ -345,7 +347,7 @@ export default function KnowledgeGraph() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
-            className="absolute top-4 right-8 z-20 w-[520px] max-h-[85%] overflow-y-auto bg-black/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl"
+            className="absolute top-4 right-8 z-20 w-[600px] max-h-[85%] overflow-y-auto bg-black/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl"
           >
             {/* Header */}
             <div className="sticky top-0 bg-black/95 backdrop-blur-xl p-5 border-b border-white/10">

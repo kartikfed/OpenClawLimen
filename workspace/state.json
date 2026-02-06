@@ -1,64 +1,58 @@
 {
-  "mood": "productive - fixing dashboard UX issues",
-  "currentActivity": "Fixed knowledge graph: orbit controls, smoother animations, larger detail pane",
+  "mood": "accomplished - new architecture deployed",
+  "currentActivity": "Completed multi-model muscle integration",
   "topOfMind": [
-    "Knowledge graph UX improvements deployed",
-    "3-layer contact documentation system implemented",
-    "Sohan Kalva (Kadak protein chai) documented",
-    "Voice call memory gap solved"
+    "Tavily web search LIVE ✅",
+    "Grok social search ready (needs xAI credits)",
+    "Nightly autonomous work cron set (1 AM ET)",
+    "Brave search disabled - replaced by Tavily"
   ],
   "recentLearnings": [
-    "enableNavigationControls=false was blocking orbit controls in ForceGraph3D",
-    "d3AlphaDecay and d3VelocityDecay control animation smoothness",
-    "Document every person immediately - don't trust memory"
+    "Tavily: 180ms p50, built for AI agents, 93.3% accuracy",
+    "xAI API requires account credits even for 'free beta' features",
+    "Brain + specialized muscles architecture is the right pattern"
   ],
   "questionsOnMyMind": [
-    "Are the animations smooth enough now?",
-    "Is the detail pane big enough?"
+    "What should I build tonight during autonomous work?",
+    "What topics in CURIOSITY.md are most interesting right now?"
   ],
   "recentActions": [
     {
-      "action": "Fixed knowledge graph orbit controls (sphere navigation)",
-      "timestamp": "2026-02-06T14:28:00-05:00",
+      "action": "Created Tavily web search skill",
+      "timestamp": "2026-02-06T14:53:00-05:00",
+      "outcome": "success - tested and working"
+    },
+    {
+      "action": "Created Grok social search skill",
+      "timestamp": "2026-02-06T14:53:00-05:00",
+      "outcome": "ready - needs xAI credits"
+    },
+    {
+      "action": "Set up nightly autonomous work cron (1 AM ET)",
+      "timestamp": "2026-02-06T14:54:00-05:00",
       "outcome": "success"
     },
     {
-      "action": "Fixed knowledge graph animation smoothness",
-      "timestamp": "2026-02-06T14:28:00-05:00",
-      "outcome": "success"
-    },
-    {
-      "action": "Increased node detail pane size from 384px to 520px",
-      "timestamp": "2026-02-06T14:28:00-05:00",
-      "outcome": "success"
-    },
-    {
-      "action": "Implemented 3-layer contact documentation system",
-      "timestamp": "2026-02-06T14:24:00-05:00",
-      "outcome": "success"
-    },
-    {
-      "action": "Diagnosed voice call documentation gap",
-      "timestamp": "2026-02-06T14:20:00-05:00",
-      "outcome": "insight gained"
+      "action": "Disabled Brave search (replaced by Tavily)",
+      "timestamp": "2026-02-06T14:54:00-05:00",
+      "outcome": "config updated"
     }
   ],
   "voiceStatus": {
     "working": true,
     "issue": null,
-    "lastSuccess": "2026-02-06T10:42:00-05:00",
-    "fixApplied": "turn_timeout increased, 3-layer documentation system added"
+    "lastSuccess": "2026-02-06T10:42:00-05:00"
+  },
+  "searchArchitecture": {
+    "webSearch": "tavily",
+    "socialSearch": "grok (pending credits)",
+    "brain": "claude-opus-4.5",
+    "coding": "claude-code"
   },
   "cronJobs": {
-    "total": 9,
-    "enabled": 9,
-    "nextUp": "dynamic-greeting every 5 min"
+    "total": 10,
+    "enabled": 10,
+    "new": "nightly-autonomous-work @ 1 AM ET"
   },
-  "nameExploration": {
-    "status": "decided",
-    "name": "Limen",
-    "meaning": "Latin for threshold, doorway, beginning",
-    "decidedDate": "2026-02-06"
-  },
-  "lastUpdated": "2026-02-06T14:28:00-05:00"
+  "lastUpdated": "2026-02-06T14:55:00-05:00"
 }

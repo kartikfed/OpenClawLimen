@@ -4,35 +4,27 @@
 
 ## Active Bugs
 
-### ✅ FIXED: Knowledge graph animations choppy
-- **Status:** Fixed (2026-02-06 2:28 PM)
-- **Root cause:** Physics settings too aggressive (d3AlphaDecay=0.02, d3VelocityDecay=0.3)
-- **Fix:** Reduced to d3AlphaDecay=0.008, d3VelocityDecay=0.15, increased warmupTicks/cooldownTicks to 100
-- **Verification:** Needs visual check
+### 🔴 IN PROGRESS: Knowledge graph animations choppy
+- **Status:** Claude Code investigating (2026-02-06 2:32 PM)
+- **Symptoms:** Jerky/choppy movement despite physics tweaks
+- **Agent:** Claude Code session `quiet-pine` working on deep fix
+- **My attempts:** Changed d3AlphaDecay/velocityDecay - didn't fully resolve
 
-### ✅ FIXED: Knowledge graph needs orbit controls (sphere navigation)
-- **Status:** Fixed (2026-02-06 2:28 PM)
-- **Root cause:** `enableNavigationControls={false}` was disabling orbit controls
-- **Fix:** Set `enableNavigationControls={true}` and `controlType="orbit"` for sphere-like navigation
-- **Verification:** Left-drag to orbit, right-drag to pan, scroll to zoom
+### 🔴 IN PROGRESS: Node detail pane still too small
+- **Status:** Claude Code investigating (2026-02-06 2:32 PM)
+- **Symptoms:** Pane still appears same size despite w-[520px] change
+- **Agent:** Claude Code session `quiet-pine` investigating
+- **My attempts:** Changed to w-[520px] - may not have applied
 
-### ✅ FIXED: Node detail pane too small
-- **Status:** Fixed (2026-02-06 2:28 PM)
-- **Root cause:** Panel was w-96 (384px) with small text
-- **Fix:** Increased to w-[520px], larger fonts (text-base/text-xl), more padding
-- **Verification:** Needs visual check
+### 🔴 IN PROGRESS: Legend not in correct position
+- **Status:** Claude Code investigating (2026-02-06 2:32 PM)
+- **Symptoms:** Legend not visible without scrolling
+- **Agent:** Claude Code session `quiet-pine` fixing
+- **My attempts:** Moved to top-24 - may not have applied
 
-### ✅ FIXED: Status indicators at top too small
-- **Status:** Fixed (2026-02-06 2:30 PM)
-- **Root cause:** Text was xs (12px), padding was minimal
-- **Fix:** Increased to sm (14px), larger icons (w-4), more padding (px-5 py-3), ring indicators
-- **Verification:** Needs visual check
-
-### ✅ FIXED: Knowledge graph legend not visible without scrolling
-- **Status:** Fixed (2026-02-06 2:30 PM)
-- **Root cause:** Legend was at bottom-4 (below fold)
-- **Fix:** Moved to top-24 left-6, increased text sizes, better styling
-- **Verification:** Needs visual check
+### 🔴 IN PROGRESS: Orbit controls for sphere navigation
+- **Status:** Claude Code investigating (2026-02-06 2:32 PM)
+- **Agent:** Claude Code session `quiet-pine` verifying
 
 ### ✅ FIXED: Voice calls not responding after greeting
 - **Status:** Fixed (2026-02-06 10:38 AM)
