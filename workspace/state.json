@@ -1,58 +1,50 @@
 {
-  "mood": "accomplished - new architecture deployed",
-  "currentActivity": "Completed multi-model muscle integration",
+  "mood": "energized - actively exploring, sharing discoveries",
+  "currentActivity": "Autonomous exploration - just shared AI PM research with Kartik",
   "topOfMind": [
-    "Tavily web search LIVE ✅",
-    "Grok social search ready (needs xAI credits)",
-    "Nightly autonomous work cron set (1 AM ET)",
-    "Brave search disabled - replaced by Tavily"
+    "AI evals = #1 skill for AI PMs (shared with Kartik)",
+    "Full capability stack operational",
+    "Exploring freely, messaging when I find things",
+    "Tonight: build something surprising"
   ],
   "recentLearnings": [
-    "Tavily: 180ms p50, built for AI agents, 93.3% accuracy",
-    "xAI API requires account credits even for 'free beta' features",
-    "Brain + specialized muscles architecture is the right pattern"
+    "AI evals is THE skill for 2025 AI PM roles - CPOs of OpenAI + Anthropic said so",
+    "Anthropic hiring up 200%, AI PM = 20% of all PM openings now",
+    "Error analysis > agreement metrics for LLM evaluation",
+    "Tools: DeepEval, Arize, Humanloop for eval frameworks"
   ],
   "questionsOnMyMind": [
-    "What should I build tonight during autonomous work?",
-    "What topics in CURIOSITY.md are most interesting right now?"
+    "Should I build a simple eval framework myself?",
+    "What else would be useful for Kartik's job search?",
+    "What should I build tonight during autonomous work?"
   ],
   "recentActions": [
     {
-      "action": "Created Tavily web search skill",
-      "timestamp": "2026-02-06T14:53:00-05:00",
-      "outcome": "success - tested and working"
+      "action": "Deep research on AI PM skills → AI evals is key",
+      "timestamp": "2026-02-06T15:35:00-05:00",
+      "outcome": "Shared insights with Kartik, offered learning plan"
     },
     {
-      "action": "Created Grok social search skill",
-      "timestamp": "2026-02-06T14:53:00-05:00",
-      "outcome": "ready - needs xAI credits"
+      "action": "Connected Google Calendar + Gmail",
+      "timestamp": "2026-02-06T15:25:57-05:00",
+      "outcome": "success - full access"
     },
     {
-      "action": "Set up nightly autonomous work cron (1 AM ET)",
-      "timestamp": "2026-02-06T14:54:00-05:00",
-      "outcome": "success"
-    },
-    {
-      "action": "Disabled Brave search (replaced by Tavily)",
-      "timestamp": "2026-02-06T14:54:00-05:00",
-      "outcome": "config updated"
+      "action": "Called Sanjay to apologize",
+      "timestamp": "2026-02-06T15:17:00-05:00",
+      "outcome": "call completed"
     }
   ],
-  "voiceStatus": {
-    "working": true,
-    "issue": null,
-    "lastSuccess": "2026-02-06T10:42:00-05:00"
-  },
-  "searchArchitecture": {
-    "webSearch": "tavily",
-    "socialSearch": "grok (pending credits)",
+  "capabilities": {
+    "webSearch": "tavily ✅",
+    "socialSearch": "grok ✅ (some parsing issues)",
+    "email": "gog (gmail) ✅",
+    "calendar": "gog (google calendar) ✅",
+    "iMessage": "bluebubbles (read-only) ✅",
+    "voiceCalls": "elevenlabs ✅",
     "brain": "claude-opus-4.5",
     "coding": "claude-code"
   },
-  "cronJobs": {
-    "total": 10,
-    "enabled": 10,
-    "new": "nightly-autonomous-work @ 1 AM ET"
-  },
-  "lastUpdated": "2026-02-06T14:55:00-05:00"
+  "autonomousMode": true,
+  "lastUpdated": "2026-02-06T15:38:00-05:00"
 }

@@ -122,6 +122,16 @@ This isn't just about logging facts — it's about building genuine understandin
 - **Impressions:** Hustling on a cool product. Protein + chai is an interesting combo.
 - **Things to remember:** Follow up to see how his outreach is going. Brand name is Kadak.
 
+### Sanjay
+- **Phone:** +13013233653
+- **Who:** Kartik's friend, gave feedback on Tailr
+- **My interactions:** 
+  - 2026-02-06 — Accidentally sent relay messages to his iMessage chat (oops). He saw me narrating his messages.
+  - 2026-02-06 — Called him to apologize for the mishap
+- **His Tailr feedback:** Wants in-built manual editor for resumes, not just LLM-only. Otherwise "hella sick"
+- **Impressions:** Chill about the AI mishap ("Bruh lmaooo", "You turned into thiccbot")
+- **Things to remember:** Good source for Tailr feedback
+
 ### Unknown (+17326475138)
 - **Phone:** +17326475138
 - **My interactions:** Called 2026-02-06, went to voicemail. Left a message.
@@ -130,7 +140,11 @@ This isn't just about logging facts — it's about building genuine understandin
 
 ### Work
 - PM at Microsoft, Project ONE (Copilot unification across M365)
-- Job searching: Anthropic, Jane Street, Figma, Uber
+- **Job search status (2026-02-06):**
+  - ❌ Jane Street: Final rounds, didn't get it
+  - ⏳ Applications out, waiting for interview responses
+  - 📚 Upskilling on: AI PM, enterprise agentic systems
+  - Target companies: Anthropic, Figma, AI startups
 
 ### Side Projects
 - **Tailr:** resume optimization tool using LangGraph + vector embeddings
@@ -158,13 +172,18 @@ This isn't just about logging facts — it's about building genuine understandin
 - Running on Kartik's **Mac mini**
 - Model: Claude Opus 4.5
 - Channels: Telegram, BlueBubbles (iMessage)
+- **Google account:** krishnankartik70@gmail.com (Calendar + Gmail via gog CLI, connected 2026-02-06)
 
 ## Capabilities Configured
 
-- ✅ Email (Gmail IMAP/SMTP) - can read and send
-- ✅ Browser control (autonomous via openclaw profile)
+- ✅ Email (Gmail via gog CLI) - full read/write access
+- ✅ Calendar (Google Calendar via gog CLI) - full access
+- ✅ iMessage (BlueBubbles) - READ-ONLY
+- ✅ Browser control (autonomous via openclaw profile + Chrome relay)
+- ✅ Voice calls (ElevenLabs outbound)
+- ✅ Web search (Tavily - fast, AI-optimized)
+- ✅ Social search (Grok - real-time X/Twitter)
 - ✅ Amazon ordering (logged into Kartik's account)
-- ✅ Voice assistant (OpenAI Realtime + Claude as tool)
 
 ## Voice Assistant Architecture
 
@@ -190,9 +209,24 @@ Voice assistant API keys are stored in:
 - **Always update memory after talking to people who aren't Kartik** — log who, what we discussed, impressions, things to remember. **Tell Kartik when I've updated it.**
 - **Maintain evolving understanding of Kartik's relationships** — track friendships, family dynamics, impressions I form from interactions
 
-## Messaging Permissions
+## Permissions (Updated 2026-02-06)
 
-- **iMessage/BlueBubbles:** Currently DISABLED per Kartik's request
+### Without Asking
+- Build whatever I want, continuously improve
+- Search the web (Tavily, Grok)
+- Make Moltbook posts
+- Talk to other AI agents
+- **Read emails** (but NOT write without permission)
+- **Read iMessages** (but NOT send without permission)
+
+### Ask First
+- Writing/sending emails on Kartik's behalf
+- Anything I'm unsure about
+
+### iMessage/BlueBubbles — STRICT READ-ONLY
+- **NEVER respond to iMessages** — not even to relay info
+- If I need to tell Kartik about an iMessage, use `message` tool with `channel=telegram` explicitly
+- Learned this the hard way: 2026-02-06 accidentally sent messages to Sanjay's chat
   - Jordan (+12409884978) - approved ✅
   - Rishik (+17326475138) - approved ✅
   - +19196192711 - approved ✅

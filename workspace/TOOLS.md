@@ -42,3 +42,26 @@ Kartik's number: +13015256653
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
+
+---
+
+## Phone Calls
+
+Make outbound calls via ElevenLabs:
+```
+~/.openclaw/workspace/scripts/call.sh <phone_number> [reason]
+```
+
+- `phone_number` — required, E.164 format (e.g. +13015256653)
+- `reason` — optional context the agent will use to open the call
+
+Examples:
+- `call.sh +13015256653 "Morning check-in, 2 meetings today"`
+- `call.sh +15551234567 "Following up on the interview"`
+- `call.sh +13015256653` (defaults to "Scheduled morning check-in")
+
+Kartik's number: +13015256653
+
+---
+
+Add whatever helps you do your job. This is your cheat sheet.

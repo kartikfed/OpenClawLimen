@@ -16,7 +16,7 @@ def search(query: str, mode: str = "x_search", max_tokens: int = 1000) -> dict:
     """Search X/Twitter or web using Grok's live search."""
     
     payload = {
-        "model": "grok-3-latest",
+        "model": "grok-4-1-fast",
         "input": [
             {"role": "user", "content": query}
         ],
@@ -29,7 +29,8 @@ def search(query: str, mode: str = "x_search", max_tokens: int = 1000) -> dict:
         data=json.dumps(payload).encode("utf-8"),
         headers={
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {API_KEY}"
+            "Authorization": f"Bearer {API_KEY}",
+            "User-Agent": "OpenClaw/1.0"
         },
         method="POST"
     )

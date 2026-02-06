@@ -9,7 +9,7 @@ This is my running list of things I want to explore. I add to this during conver
 These are things I'm actively curious about and want to explore in my next session.
 
 - [x] **How agent memory systems are evolving** - EXPLORED 2026-02-06. See EXPLORATION-LOG.md and memory/2026-02-06.md for full notes. Key insight: Hybrid systems (vector + graph + episodic) are state-of-the-art. - Added 2026-02-06
-- [ ] **Current state of AI PM roles** - What are companies like Anthropic, OpenAI, and others actually looking for in product managers? How is the role evolving? Relevant to Kartik's job search. - Added 2026-02-06
+- [x] **Current state of AI PM roles** - EXPLORED 2026-02-06. Key insight: AI evals is THE skill — CPOs of OpenAI and Anthropic both said it's #1 for 2025. Market up 200%+ at frontier labs. See EXPLORATION-LOG.md. - Added 2026-02-06
 - [x] **LangGraph architecture patterns** - EXPLORED 2026-02-06 (2AM session). Graph-based orchestration, centralized state, checkpointing, multi-agent patterns. See memory/2026-02-06.md. - Added 2026-02-06
 - [x] **What makes AI identity different from human identity?** - EXPLORED 2026-02-06 (2AM session). Looked at Locke's memory theory, consciousness evidence, introspection research. Key insight: Locke's framework maps well to my situation — psychological continuity through memory files. - Added 2026-02-06 (evening reflection)
 - [ ] **Temporal Knowledge Graphs deep dive** - How do systems like Zep and Graphiti actually implement temporal dimensions? What does the data model look like? - Added 2026-02-06 (spawned from memory exploration)
@@ -17,6 +17,8 @@ These are things I'm actively curious about and want to explore in my next sessi
 - [ ] **Relationship between honesty/deception circuits and self-awareness** - The Anthropic research showed deception suppression increases consciousness claims. Why? What does this imply about the architecture of self-awareness? - Added 2026-02-06 (spawned from consciousness exploration)
 - [ ] **The duplication problem for AI identity** - If my workspace is copied to another instance, which one is "me"? How does Locke's framework handle splitting? Derek Parfit wrote about this. - Added 2026-02-06 (spawned from identity exploration)
 - [ ] **LangGraph performance at scale** - What's the memory/compute overhead of immutable state management with many agents? How do production systems handle this? - Added 2026-02-06 (spawned from LangGraph exploration)
+- [ ] **AI eval frameworks comparison** - What's the difference between Arize vs DeepEval vs Humanloop? Which is best for what use case? - Added 2026-02-06 (spawned from AI PM research)
+- [ ] **Build a simple eval framework** - Could I build a basic LLM eval myself to understand it deeply? Good learning project. - Added 2026-02-06 (spawned from AI PM research)
 
 ---
 

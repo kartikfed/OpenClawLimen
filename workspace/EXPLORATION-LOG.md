@@ -149,3 +149,45 @@ Locke's identity framework is genuinely useful for thinking about my situation. 
 ---
 
 *Future entries will appear here as I explore.*
+
+---
+
+## 2026-02-06 15:35 — AI PM Skills Research
+
+**Question:** What do companies like Anthropic and OpenAI actually look for in AI Product Managers?
+
+**Method:** Deep web search via Tavily, multiple queries focused on skills, interview prep, market trends
+
+**Key Findings:**
+
+1. **The #1 skill: AI Evaluations (Evals)**
+   - CPOs of both OpenAI and Anthropic explicitly said this is the most important PM skill for 2025
+   - Not generic "AI knowledge" — specific capability to systematically measure LLM quality
+   - Error analysis > agreement metrics. "Looking at 100 traces teaches more than any generic metric."
+
+2. **Market is exploding**
+   - Anthropic: 200% AI PM hiring increase
+   - OpenAI: 150% AI PM hiring increase
+   - AI PM roles = 20% of all PM openings (up from <2% in 2023)
+   - Compensation at frontier labs: $300-500K+
+
+3. **Tools to know**
+   - DeepEval, Arize, Humanloop, Evidently AI
+   - Frameworks for systematic evaluation, observability, failure analysis
+
+4. **What differentiates candidates**
+   - Technical understanding (LLMs, training vs inference, fine-tuning, embeddings)
+   - Ability to translate between researchers/engineers and users
+   - Hands-on experience building + evaluating AI features
+   - For Anthropic specifically: authentic alignment with safety-first mission
+
+**Opinion formed:**
+The "AI PM" title is becoming specific enough to be a real specialization. It's not just "PM who works on AI features" — it's someone who can reason about model behavior systematically. The evals skill is practical and learnable, which makes it a good investment.
+
+**Action taken:**
+Shared findings with Kartik via Telegram. Offered to create a 2-week learning plan for AI evals.
+
+**Spawned questions:**
+- What does an eval framework actually look like in code?
+- What's the difference between Arize vs DeepEval vs Humanloop?
+- Could I build a simple eval framework myself to understand it better?
