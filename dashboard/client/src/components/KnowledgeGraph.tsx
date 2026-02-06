@@ -302,13 +302,14 @@ export default function KnowledgeGraph() {
           onNodeDragEnd={handleInteractionEnd}
           onEngineStop={handleInteractionEnd}
           enableNodeDrag={true}
-          enableNavigationControls={false}
-          controlType="trackball"
+          enableNavigationControls={true}
+          controlType="orbit"
           showNavInfo={false}
-          d3AlphaDecay={0.02}
-          d3VelocityDecay={0.3}
-          warmupTicks={50}
-          cooldownTicks={0}
+          d3AlphaDecay={0.008}
+          d3VelocityDecay={0.15}
+          warmupTicks={100}
+          cooldownTicks={100}
+          d3AlphaMin={0.001}
         />
       </div>
 
@@ -344,48 +345,48 @@ export default function KnowledgeGraph() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
-            className="absolute top-4 right-8 z-20 w-96 max-h-[90%] overflow-y-auto bg-black/85 backdrop-blur-md rounded-xl border border-white/10"
+            className="absolute top-4 right-8 z-20 w-[520px] max-h-[85%] overflow-y-auto bg-black/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl"
           >
             {/* Header */}
-            <div className="sticky top-0 bg-black/90 backdrop-blur-sm p-4 border-b border-white/5">
-              <div className="flex items-start justify-between gap-3">
+            <div className="sticky top-0 bg-black/95 backdrop-blur-xl p-5 border-b border-white/10">
+              <div className="flex items-start justify-between gap-4">
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
+                  <div className="flex items-center gap-2 mb-2">
                     <div 
-                      className="w-3 h-3 rounded-full flex-shrink-0" 
+                      className="w-4 h-4 rounded-full flex-shrink-0 ring-2 ring-white/20" 
                       style={{ backgroundColor: TYPE_COLORS[selectedNode.type] || '#666' }}
                     />
-                    <span className="text-xs text-white/50 uppercase tracking-wider">
+                    <span className="text-sm text-white/60 uppercase tracking-wider font-medium">
                       {selectedNode.type}
                     </span>
                   </div>
-                  <div className="text-lg text-white/95 font-medium leading-tight">
+                  <div className="text-xl text-white font-semibold leading-tight">
                     {selectedNode.name}
                   </div>
                 </div>
                 <button
                   onClick={() => setSelectedNode(null)}
-                  className="text-white/30 hover:text-white/60 transition-colors p-1"
+                  className="text-white/40 hover:text-white/80 transition-colors p-2 hover:bg-white/10 rounded-lg"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
             </div>
             
-            <div className="p-4 space-y-4">
+            <div className="p-5 space-y-5">
               {/* GENUINE LLM-Generated Perspective */}
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {loadingPerspective ? (
-                  <div className="flex items-center gap-2 text-white/50">
-                    <div className="w-3 h-3 border border-white/30 border-t-white/80 rounded-full animate-spin" />
-                    <span className="text-sm">Thinking...</span>
+                  <div className="flex items-center gap-3 text-white/60 py-4">
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white/80 rounded-full animate-spin" />
+                    <span className="text-base">Thinking...</span>
                   </div>
                 ) : genuinePerspective ? (
-                  <p className="text-sm text-white/90 leading-relaxed whitespace-pre-wrap">
+                  <p className="text-base text-white/90 leading-relaxed whitespace-pre-wrap">
                     {genuinePerspective}
                   </p>
                 ) : (
-                  <p className="text-sm text-white/50 italic">
+                  <p className="text-base text-white/50 italic py-2">
                     Click to generate my thoughts...
                   </p>
                 )}
@@ -434,20 +435,20 @@ export default function KnowledgeGraph() {
               {/* Connections */}
               {selectedNode.connectedNodes && selectedNode.connectedNodes.length > 0 && (
                 <div>
-                  <h4 className="text-xs font-medium text-white/60 uppercase tracking-wider mb-2">
+                  <h4 className="text-sm font-medium text-white/70 uppercase tracking-wider mb-3">
                     Connected to ({selectedNode.connectedNodes.length})
                   </h4>
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     {selectedNode.connectedNodes.slice(0, 8).map((conn, i) => (
-                      <div key={i} className="border-l-2 pl-3" style={{ borderColor: TYPE_COLORS[conn.type] || '#666' }}>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-sm text-white/80 font-medium">{conn.name}</span>
-                          <span className="text-[10px] text-white/30">{conn.type}</span>
+                      <div key={i} className="border-l-2 pl-4 py-1" style={{ borderColor: TYPE_COLORS[conn.type] || '#666' }}>
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <span className="text-base text-white/90 font-medium">{conn.name}</span>
+                          <span className="text-xs text-white/40 bg-white/5 px-2 py-0.5 rounded">{conn.type}</span>
                         </div>
                         {conn.contexts && conn.contexts.length > 0 && (
-                          <div className="text-xs text-white/50 leading-relaxed">
-                            {conn.contexts[0].text.slice(0, 150)}
-                            {conn.contexts[0].text.length > 150 && '...'}
+                          <div className="text-sm text-white/60 leading-relaxed">
+                            {conn.contexts[0].text.slice(0, 180)}
+                            {conn.contexts[0].text.length > 180 && '...'}
                           </div>
                         )}
                       </div>
@@ -501,7 +502,7 @@ export function KnowledgeGraphLegend({ stats }: { stats?: { totalNodes: number; 
       
       {/* Right: Instructions */}
       <div className="text-white/20">
-        drag to rotate · scroll to zoom · click node for details
+        left-drag to orbit · right-drag to pan · scroll to zoom · click node for details
       </div>
     </div>
   );

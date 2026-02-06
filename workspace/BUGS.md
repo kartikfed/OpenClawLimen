@@ -4,6 +4,24 @@
 
 ## Active Bugs
 
+### ✅ FIXED: Knowledge graph animations choppy
+- **Status:** Fixed (2026-02-06 2:28 PM)
+- **Root cause:** Physics settings too aggressive (d3AlphaDecay=0.02, d3VelocityDecay=0.3)
+- **Fix:** Reduced to d3AlphaDecay=0.008, d3VelocityDecay=0.15, increased warmupTicks/cooldownTicks to 100
+- **Verification:** Needs visual check
+
+### ✅ FIXED: Knowledge graph needs orbit controls (sphere navigation)
+- **Status:** Fixed (2026-02-06 2:28 PM)
+- **Root cause:** `enableNavigationControls={false}` was disabling orbit controls
+- **Fix:** Set `enableNavigationControls={true}` and `controlType="orbit"` for sphere-like navigation
+- **Verification:** Left-drag to orbit, right-drag to pan, scroll to zoom
+
+### ✅ FIXED: Node detail pane too small
+- **Status:** Fixed (2026-02-06 2:28 PM)
+- **Root cause:** Panel was w-96 (384px) with small text
+- **Fix:** Increased to w-[520px], larger fonts (text-base/text-xl), more padding
+- **Verification:** Needs visual check
+
 ### ✅ FIXED: Voice calls not responding after greeting
 - **Status:** Fixed (2026-02-06 10:38 AM)
 - **Root cause:** `turn_timeout` was 7 seconds, but custom LLM responses were taking up to 7.25s
