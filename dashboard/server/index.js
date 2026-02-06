@@ -622,6 +622,24 @@ app.get('/api/gateway/status', async (req, res) => {
   }
 });
 
+// Get cron jobs from OpenClaw
+app.get('/api/cron/jobs', async (req, res) => {
+  try {
+    const cronJobsPath = path.join(OPENCLAW_DIR, 'cron', 'jobs.json');
+    if (!existsSync(cronJobsPath)) {
+      return res.json({ jobs: [] });
+    }
+    const content = await fs.readFile(cronJobsPath, 'utf-8');
+    const data = JSON.parse(content);
+    // Handle both formats: {version, jobs: [...]} or [...]
+    const jobs = Array.isArray(data) ? data : (data.jobs || []);
+    res.json({ jobs });
+  } catch (err) {
+    console.error('Cron jobs API error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Exploration stream storage (in-memory + file-backed)
 let explorationStream = [];
 const EXPLORATION_STREAM_FILE = path.join(WORKSPACE, 'exploration-stream.jsonl');

@@ -163,6 +163,78 @@ export const api = {
     });
     if (!res.ok) throw new Error('Failed to post exploration update');
   },
+  
+  async getCronJobs(): Promise<{
+    jobs: Array<{
+      id: string;
+      name: string;
+      enabled: boolean;
+      schedule: {
+        kind: 'cron' | 'every' | 'at';
+        expr?: string;
+        tz?: string;
+        at?: string;
+        everyMs?: number;
+      };
+      sessionTarget: 'main' | 'isolated';
+      payload: {
+        kind: 'systemEvent' | 'agentTurn';
+        message?: string;
+        text?: string;
+      };
+      delivery?: {
+        mode: 'none' | 'announce';
+        channel?: string;
+      };
+      state?: {
+        nextRunAtMs?: number;
+        lastRunAtMs?: number;
+        lastStatus?: 'ok' | 'error';
+      };
+    }>;
+  }> {
+    const res = await fetchWithAuth('/api/cron/jobs');
+    if (!res.ok) throw new Error('Failed to fetch cron jobs');
+    return res.json();
+  },
+
+  async getExplorationLog(): Promise<{
+    entries: Array<{
+      date: string;
+      type: string;
+      topics: string[];
+      duration: string;
+      insights: string[];
+      questionsRaised: string[];
+      sources: string[];
+    }>;
+  }> {
+    const res = await fetchWithAuth('/api/exploration-log');
+    if (!res.ok) throw new Error('Failed to fetch exploration log');
+    return res.json();
+  },
+
+  async getBugs(): Promise<{
+    activeBugs: Array<{
+      id: string;
+      severity: 'high' | 'medium' | 'low';
+      title: string;
+      status: string;
+      symptoms: string[];
+      attempts: string[];
+      nextSteps: string[];
+    }>;
+    fixedBugs: Array<{
+      id: string;
+      title: string;
+      fixedDate: string;
+      rootCause: string;
+    }>;
+  }> {
+    const res = await fetchWithAuth('/api/bugs');
+    if (!res.ok) throw new Error('Failed to fetch bugs');
+    return res.json();
+  },
 };
 
 export function createWebSocket(): WebSocket {

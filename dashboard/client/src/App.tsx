@@ -8,6 +8,7 @@ import MindSynthesis from './components/MindSynthesis';
 import MoltbookActivity from './components/MoltbookActivity';
 import ExplorationLog from './components/ExplorationLog';
 import BugTracker from './components/BugTracker';
+import UpcomingTasks from './components/UpcomingTasks';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Activity, Brain, FileText, Phone, Search, Terminal,
@@ -1295,6 +1296,7 @@ export default function App() {
               
               {/* Operations */}
               <div className="space-y-4">
+                <UpcomingTasks />
                 <BugTracker />
                 <MemoryView mainMemory={files['MEMORY.md']} memoryFiles={memoryFiles} />
                 <CallHistory calls={calls} />
