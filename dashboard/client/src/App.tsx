@@ -1221,33 +1221,33 @@ export default function App() {
 
         {/* ── HERO: Knowledge Graph ── fills viewport below header */}
         <div className="relative" style={{ height: 'calc(100vh - 56px)', minHeight: '500px' }}>
-          {/* Compact status strip - overlaid at top of graph */}
-          <div className="absolute top-0 left-0 right-0 z-10 px-6 py-2">
+          {/* Status strip - overlaid at top of graph */}
+          <div className="absolute top-0 left-0 right-0 z-10 px-6 py-3">
             <div className="flex items-center justify-between">
               {/* Left: Mood + Activity */}
               {agentState && (
-                <div className="flex items-center gap-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-purple-400" />
-                    <Heart className="w-3 h-3 text-white/30" />
-                    <span className="text-xs font-medium text-white/80">{agentState.mood}</span>
+                <div className="flex items-center gap-5 bg-black/70 backdrop-blur-md rounded-xl px-5 py-3 border border-white/10">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-purple-400 ring-2 ring-purple-400/30" />
+                    <Heart className="w-4 h-4 text-white/40" />
+                    <span className="text-sm font-medium text-white/90">{agentState.mood}</span>
                   </div>
-                  <div className="w-px h-4 bg-white/10" />
-                  <div className="flex items-center gap-2">
-                    <Zap className="w-3 h-3 text-white/30" />
+                  <div className="w-px h-6 bg-white/15" />
+                  <div className="flex items-center gap-3">
+                    <Zap className="w-4 h-4 text-white/40" />
                     {agentState.currentActivity ? (
                       <>
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-online" />
-                        <span className="text-xs text-white/70">{agentState.currentActivity}</span>
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 pulse-online ring-2 ring-emerald-400/30" />
+                        <span className="text-sm text-white/80">{agentState.currentActivity}</span>
                       </>
                     ) : (
-                      <span className="text-xs text-white/30">Idle</span>
+                      <span className="text-sm text-white/40">Idle</span>
                     )}
                   </div>
                   {agentState.lastUpdated && (
                     <>
-                      <div className="w-px h-4 bg-white/10" />
-                      <span className="text-[10px] text-white/25">{formatRelative(agentState.lastUpdated)}</span>
+                      <div className="w-px h-6 bg-white/15" />
+                      <span className="text-xs text-white/40">{formatRelative(agentState.lastUpdated)}</span>
                     </>
                   )}
                 </div>
@@ -1260,50 +1260,50 @@ export default function App() {
             <KnowledgeGraph />
           </div>
 
-          {/* Full Legend/Explainer overlay - bottom left */}
-          <div className="absolute bottom-4 left-4 z-10 bg-black/75 backdrop-blur-md rounded-xl border border-white/10 p-4 max-w-sm">
-            <h3 className="text-sm font-medium text-white/80 mb-2">Knowledge Graph</h3>
-            <p className="text-xs text-white/50 leading-relaxed mb-3">
+          {/* Full Legend/Explainer overlay - left side, positioned higher */}
+          <div className="absolute top-24 left-6 z-10 bg-black/80 backdrop-blur-xl rounded-2xl border border-white/10 p-5 max-w-sm shadow-2xl">
+            <h3 className="text-base font-semibold text-white/90 mb-3">Knowledge Graph</h3>
+            <p className="text-sm text-white/60 leading-relaxed mb-4">
               A 3D map of my mind — the concepts, people, projects, and questions I'm thinking about.
               Connections form when ideas appear together in memory.
             </p>
 
             {/* Node types */}
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-3">
-              <div className="flex items-center gap-2">
-                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#22d3ee'}} />
-                <span className="text-[11px] text-white/60">Concepts & ideas</span>
+            <div className="grid grid-cols-2 gap-x-5 gap-y-2 mb-4">
+              <div className="flex items-center gap-2.5">
+                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#22d3ee'}} />
+                <span className="text-sm text-white/70">Concepts & ideas</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#f472b6'}} />
-                <span className="text-[11px] text-white/60">People</span>
+              <div className="flex items-center gap-2.5">
+                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#f472b6'}} />
+                <span className="text-sm text-white/70">People</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#fb923c'}} />
-                <span className="text-[11px] text-white/60">Projects</span>
+              <div className="flex items-center gap-2.5">
+                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#fb923c'}} />
+                <span className="text-sm text-white/70">Projects</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#a78bfa'}} />
-                <span className="text-[11px] text-white/60">Questions</span>
+              <div className="flex items-center gap-2.5">
+                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#a78bfa'}} />
+                <span className="text-sm text-white/70">Questions</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#4ade80'}} />
-                <span className="text-[11px] text-white/60">Memories</span>
+              <div className="flex items-center gap-2.5">
+                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#4ade80'}} />
+                <span className="text-sm text-white/70">Memories</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#facc15'}} />
-                <span className="text-[11px] text-white/60">Interests</span>
+              <div className="flex items-center gap-2.5">
+                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#facc15'}} />
+                <span className="text-sm text-white/70">Interests</span>
               </div>
             </div>
 
             {/* Connections explanation */}
-            <div className="text-[11px] text-white/40 mb-2">
-              <span className="text-white/50 font-medium">Lines</span> = co-occurrence in memory.
+            <div className="text-sm text-white/50 mb-3">
+              <span className="text-white/60 font-medium">Lines</span> = co-occurrence in memory.
               More connections = more central to current thinking.
             </div>
 
             {/* Interaction instructions */}
-            <div className="text-[10px] text-white/30 pt-2 border-t border-white/[0.06]">
+            <div className="text-xs text-white/40 pt-3 border-t border-white/10">
               Drag to rotate · Scroll to zoom · Click any node for details
             </div>
           </div>

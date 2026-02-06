@@ -22,6 +22,18 @@
 - **Fix:** Increased to w-[520px], larger fonts (text-base/text-xl), more padding
 - **Verification:** Needs visual check
 
+### ✅ FIXED: Status indicators at top too small
+- **Status:** Fixed (2026-02-06 2:30 PM)
+- **Root cause:** Text was xs (12px), padding was minimal
+- **Fix:** Increased to sm (14px), larger icons (w-4), more padding (px-5 py-3), ring indicators
+- **Verification:** Needs visual check
+
+### ✅ FIXED: Knowledge graph legend not visible without scrolling
+- **Status:** Fixed (2026-02-06 2:30 PM)
+- **Root cause:** Legend was at bottom-4 (below fold)
+- **Fix:** Moved to top-24 left-6, increased text sizes, better styling
+- **Verification:** Needs visual check
+
 ### ✅ FIXED: Voice calls not responding after greeting
 - **Status:** Fixed (2026-02-06 10:38 AM)
 - **Root cause:** `turn_timeout` was 7 seconds, but custom LLM responses were taking up to 7.25s
