@@ -3,7 +3,7 @@ import type { ErrorInfo, ReactNode } from 'react';
 import { api, setAuth, getAuth, clearAuth, createWebSocket } from './lib/api';
 import { cn, parseLogLine, formatRelative } from './lib/utils';
 import ReactMarkdown from 'react-markdown';
-import KnowledgeGraph, { KnowledgeGraphExplainer } from './components/KnowledgeGraph';
+import KnowledgeGraph from './components/KnowledgeGraph';
 import MindSynthesis from './components/MindSynthesis';
 import MoltbookActivity from './components/MoltbookActivity';
 import ExplorationLog from './components/ExplorationLog';
@@ -345,22 +345,13 @@ function CommandBar({
 // ─── Hero Section (Agent State) ───
 
 function HeroSection({ state }: { state: AgentState | null }) {
-  const moodEmoji = !state ? null
-    : state.mood.includes('curious') ? '?'
-    : state.mood.includes('happy') || state.mood.includes('good') ? ':)'
-    : state.mood.includes('tired') ? 'zzz'
-    : state.mood.includes('focused') ? '>'
-    : state.mood.includes('excited') ? '!'
-    : '.';
-
   if (!state) {
     return (
-      <motion.div {...fadeIn} className="glass rounded-2xl p-8">
-        <div className="flex items-center gap-3 mb-4">
+      <motion.div {...fadeIn} className="glass rounded-2xl p-4">
+        <div className="flex items-center gap-3">
           <div className="w-2 h-2 rounded-full bg-white/30 shimmer" />
           <span className="text-sm text-white/40">Loading state...</span>
         </div>
-        <div className="h-16 shimmer rounded-xl" />
       </motion.div>
     );
   }
@@ -371,69 +362,48 @@ function HeroSection({ state }: { state: AgentState | null }) {
       transition={{ duration: 0.5 }}
       className="relative overflow-hidden rounded-2xl"
     >
-      {/* Ambient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/[0.06] via-transparent to-blue-500/[0.04]" />
-      <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/[0.04] rounded-full blur-[80px]" />
 
-      <div className="relative glass rounded-2xl p-6 sm:p-8">
-        {/* Top bar */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-purple-400" />
-            <span className="text-xs font-medium text-white/30 uppercase tracking-wider">Status</span>
+      <div className="relative glass rounded-2xl p-4">
+        {/* Status bar: mood + activity inline */}
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-purple-400" />
+              <Heart className="w-3 h-3 text-white/30" />
+              <span className="text-sm font-medium text-white/80">{state.mood}</span>
+            </div>
+            <div className="w-px h-4 bg-white/10" />
+            <div className="flex items-center gap-2">
+              <Zap className="w-3 h-3 text-white/30" />
+              {state.currentActivity ? (
+                <>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-online" />
+                  <span className="text-sm text-white/70">{state.currentActivity}</span>
+                </>
+              ) : (
+                <span className="text-sm text-white/30">Idle</span>
+              )}
+            </div>
           </div>
           {state.lastUpdated && (
-            <span className="text-xs text-white/25">
+            <span className="text-[10px] text-white/25">
               {formatRelative(state.lastUpdated)}
             </span>
           )}
         </div>
 
-        {/* Main hero content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {/* Mood */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-xs text-white/30">
-              <Heart className="w-3 h-3" />
-              Mood
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="text-2xl font-mono text-purple-300/60">{moodEmoji}</span>
-              <span className="text-lg font-medium text-white/80">{state.mood}</span>
-            </div>
-          </div>
-
-          {/* Current activity */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-xs text-white/30">
-              <Zap className="w-3 h-3" />
-              Activity
-            </div>
-            <div className="flex items-center gap-3">
-              {state.currentActivity ? (
-                <>
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 pulse-online" />
-                  <span className="text-lg font-medium text-white/80">{state.currentActivity}</span>
-                </>
-              ) : (
-                <span className="text-lg text-white/30">Idle</span>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* Cards row */}
-        <motion.div variants={stagger} initial="initial" animate="animate" className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        {/* Compact cards row */}
+        <motion.div variants={stagger} initial="initial" animate="animate" className="grid grid-cols-1 sm:grid-cols-3 gap-2">
           {/* Top of mind */}
           {state.topOfMind.length > 0 && (
-            <motion.div variants={fadeIn} className="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]">
-              <div className="flex items-center gap-2 text-xs text-white/30 mb-3">
-                <Brain className="w-3 h-3" />
+            <motion.div variants={fadeIn} className="bg-white/[0.02] rounded-lg px-3 py-2 border border-white/[0.04]">
+              <div className="flex items-center gap-1.5 text-[10px] text-white/30 mb-1.5">
+                <Brain className="w-2.5 h-2.5" />
                 On my mind
               </div>
-              <div className="space-y-1.5">
-                {state.topOfMind.slice(0, 3).map((item, i) => (
-                  <p key={i} className="text-xs text-white/60 leading-relaxed">{item}</p>
+              <div className="space-y-0.5">
+                {state.topOfMind.slice(0, 2).map((item, i) => (
+                  <p key={i} className="text-[11px] text-white/60 leading-snug truncate">{item}</p>
                 ))}
               </div>
             </motion.div>
@@ -441,14 +411,14 @@ function HeroSection({ state }: { state: AgentState | null }) {
 
           {/* Recent learnings */}
           {state.recentLearnings.length > 0 && (
-            <motion.div variants={fadeIn} className="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]">
-              <div className="flex items-center gap-2 text-xs text-white/30 mb-3">
-                <Lightbulb className="w-3 h-3" />
+            <motion.div variants={fadeIn} className="bg-white/[0.02] rounded-lg px-3 py-2 border border-white/[0.04]">
+              <div className="flex items-center gap-1.5 text-[10px] text-white/30 mb-1.5">
+                <Lightbulb className="w-2.5 h-2.5" />
                 Learnings
               </div>
-              <div className="space-y-1.5">
-                {state.recentLearnings.slice(0, 3).map((item, i) => (
-                  <p key={i} className="text-xs text-amber-300/60 leading-relaxed">{item}</p>
+              <div className="space-y-0.5">
+                {state.recentLearnings.slice(0, 2).map((item, i) => (
+                  <p key={i} className="text-[11px] text-amber-300/60 leading-snug truncate">{item}</p>
                 ))}
               </div>
             </motion.div>
@@ -456,14 +426,14 @@ function HeroSection({ state }: { state: AgentState | null }) {
 
           {/* Questions */}
           {state.questionsOnMyMind.length > 0 && (
-            <motion.div variants={fadeIn} className="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]">
-              <div className="flex items-center gap-2 text-xs text-white/30 mb-3">
-                <MessageCircle className="w-3 h-3" />
+            <motion.div variants={fadeIn} className="bg-white/[0.02] rounded-lg px-3 py-2 border border-white/[0.04]">
+              <div className="flex items-center gap-1.5 text-[10px] text-white/30 mb-1.5">
+                <MessageCircle className="w-2.5 h-2.5" />
                 Pondering
               </div>
-              <div className="space-y-1.5">
-                {state.questionsOnMyMind.slice(0, 3).map((item, i) => (
-                  <p key={i} className="text-xs text-cyan-300/60 italic leading-relaxed">{item}</p>
+              <div className="space-y-0.5">
+                {state.questionsOnMyMind.slice(0, 2).map((item, i) => (
+                  <p key={i} className="text-[11px] text-cyan-300/60 italic leading-snug truncate">{item}</p>
                 ))}
               </div>
             </motion.div>
@@ -480,20 +450,20 @@ function ActionTimeline({ actions }: { actions: AgentState['recentActions'] }) {
   if (!actions || actions.length === 0) return null;
 
   return (
-    <motion.div {...fadeIn} className="glass rounded-2xl p-5">
-      <div className="flex items-center gap-2 mb-4">
-        <Activity className="w-4 h-4 text-white/30" />
-        <span className="text-sm font-medium text-white/60">Recent Actions</span>
-        <span className="text-xs text-white/20 ml-auto">{actions.length} total</span>
+    <motion.div {...fadeIn} className="glass rounded-2xl p-3">
+      <div className="flex items-center gap-2 mb-2">
+        <Activity className="w-3.5 h-3.5 text-white/30" />
+        <span className="text-xs font-medium text-white/60">Recent Actions</span>
+        <span className="text-[10px] text-white/20 ml-auto">{actions.length}</span>
       </div>
 
       <div className="relative timeline-line">
-        <motion.div variants={stagger} initial="initial" animate="animate" className="space-y-1">
-          {actions.slice(0, 8).map((action, i) => (
+        <motion.div variants={stagger} initial="initial" animate="animate" className="space-y-0">
+          {actions.slice(0, 5).map((action, i) => (
             <motion.div
               key={`${action.timestamp}-${i}`}
               variants={fadeIn}
-              className="flex items-center gap-3 py-2 pl-8 group"
+              className="flex items-center gap-3 py-1 pl-8 group"
             >
               {/* Dot */}
               <div className={cn(
@@ -1249,35 +1219,108 @@ export default function App() {
         {/* Command Bar */}
         <CommandBar identity={identity} online={online} onRefresh={loadData} />
 
-        {/* Top Section */}
-        <div className="px-8 py-6">
-          <motion.div initial="initial" animate="animate" variants={stagger}>
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-              <div className="xl:col-span-2">
-                <HeroSection state={agentState} />
+        {/* ── HERO: Knowledge Graph ── fills viewport below header */}
+        <div className="relative" style={{ height: 'calc(100vh - 56px)', minHeight: '500px' }}>
+          {/* Compact status strip - overlaid at top of graph */}
+          <div className="absolute top-0 left-0 right-0 z-10 px-6 py-2">
+            <div className="flex items-center justify-between">
+              {/* Left: Mood + Activity */}
+              {agentState && (
+                <div className="flex items-center gap-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-purple-400" />
+                    <Heart className="w-3 h-3 text-white/30" />
+                    <span className="text-xs font-medium text-white/80">{agentState.mood}</span>
+                  </div>
+                  <div className="w-px h-4 bg-white/10" />
+                  <div className="flex items-center gap-2">
+                    <Zap className="w-3 h-3 text-white/30" />
+                    {agentState.currentActivity ? (
+                      <>
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-online" />
+                        <span className="text-xs text-white/70">{agentState.currentActivity}</span>
+                      </>
+                    ) : (
+                      <span className="text-xs text-white/30">Idle</span>
+                    )}
+                  </div>
+                  {agentState.lastUpdated && (
+                    <>
+                      <div className="w-px h-4 bg-white/10" />
+                      <span className="text-[10px] text-white/25">{formatRelative(agentState.lastUpdated)}</span>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Knowledge Graph - full area */}
+          <div className="absolute inset-0 rounded-none bg-black/20">
+            <KnowledgeGraph />
+          </div>
+
+          {/* Full Legend/Explainer overlay - bottom left */}
+          <div className="absolute bottom-4 left-4 z-10 bg-black/75 backdrop-blur-md rounded-xl border border-white/10 p-4 max-w-sm">
+            <h3 className="text-sm font-medium text-white/80 mb-2">Knowledge Graph</h3>
+            <p className="text-xs text-white/50 leading-relaxed mb-3">
+              A 3D map of my mind — the concepts, people, projects, and questions I'm thinking about.
+              Connections form when ideas appear together in memory.
+            </p>
+
+            {/* Node types */}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#22d3ee'}} />
+                <span className="text-[11px] text-white/60">Concepts & ideas</span>
               </div>
-              <div className="space-y-4">
-                <ActionTimeline actions={agentState?.recentActions || []} />
-                <UpcomingTasks />
+              <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#f472b6'}} />
+                <span className="text-[11px] text-white/60">People</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#fb923c'}} />
+                <span className="text-[11px] text-white/60">Projects</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#a78bfa'}} />
+                <span className="text-[11px] text-white/60">Questions</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#4ade80'}} />
+                <span className="text-[11px] text-white/60">Memories</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full" style={{backgroundColor: '#facc15'}} />
+                <span className="text-[11px] text-white/60">Interests</span>
               </div>
             </div>
-          </motion.div>
-        </div>
-        
-        {/* Knowledge Graph - Full Viewport Width, Like Google Maps */}
-        <div className="relative">
-          <KnowledgeGraph />
-          
-          {/* Explanation - Overlaid, blends into background */}
-          <div className="absolute top-6 left-8 z-10 max-w-xs pointer-events-none">
-            <KnowledgeGraphExplainer />
+
+            {/* Connections explanation */}
+            <div className="text-[11px] text-white/40 mb-2">
+              <span className="text-white/50 font-medium">Lines</span> = co-occurrence in memory.
+              More connections = more central to current thinking.
+            </div>
+
+            {/* Interaction instructions */}
+            <div className="text-[10px] text-white/30 pt-2 border-t border-white/[0.06]">
+              Drag to rotate · Scroll to zoom · Click any node for details
+            </div>
           </div>
         </div>
-        
-        {/* Bottom Section */}
-        <div className="px-8 py-6">
-          <motion.div initial="initial" animate="animate" variants={stagger}>
-            {/* Three Column Grid */}
+
+        {/* ── Below the fold: Status + Operations ── */}
+        <div className="px-6 py-6">
+          <motion.div initial="initial" animate="animate" variants={stagger} className="space-y-6">
+            {/* Row: Status cards + Recent Actions */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              <div className="lg:col-span-2">
+                <HeroSection state={agentState} />
+              </div>
+              <ActionTimeline actions={agentState?.recentActions || []} />
+            </div>
+
+            {/* Three Column Grid: Primary content */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Mind Synthesis */}
               <MindSynthesis
@@ -1287,16 +1330,17 @@ export default function App() {
                 memory={files['MEMORY.md'] || ''}
                 onOpenFiles={() => setShowFilesPanel(true)}
               />
-              
+
               {/* Exploration + Activity */}
               <div className="space-y-4">
                 <ExplorationLog />
                 <ExplorationStream entries={explorationEntries} isActive={explorationActive} />
                 <LiveLogs logs={logs} filter={logFilter} setFilter={setLogFilter} />
               </div>
-              
-              {/* Operations */}
+
+              {/* Operations + Scheduled Tasks (moved here) */}
               <div className="space-y-4">
+                <UpcomingTasks />
                 <BugTracker />
                 <MemoryView mainMemory={files['MEMORY.md']} memoryFiles={memoryFiles} />
                 <CallHistory calls={calls} />

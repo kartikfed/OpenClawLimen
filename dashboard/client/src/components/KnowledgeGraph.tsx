@@ -85,22 +85,50 @@ export default function KnowledgeGraph() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
-  const [dimensions, setDimensions] = useState({ width: 1200, height: 600 });
+  const [dimensions, setDimensions] = useState({ width: 900, height: 600 });
   const [isInteracting, setIsInteracting] = useState(false);
   const [genuinePerspective, setGenuinePerspective] = useState<string | null>(null);
   const [loadingPerspective, setLoadingPerspective] = useState(false);
   const interactionTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const angleRef = useRef(0);
 
+  // Prevent the 3D graph canvas from capturing wheel/scroll events
+  // so the entire page scrolls as one unified entity.
+  // Three.js OrbitControls listen for 'wheel' on the canvas and call preventDefault(),
+  // which blocks page scrolling. We intercept in capture phase on the container and
+  // stopPropagation so the event never reaches the child canvas listener.
+  // Since we use passive: true (no preventDefault), the browser's native scroll works.
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const blockWheel = (e: WheelEvent) => {
+      e.stopPropagation();
+    };
+
+    container.addEventListener('wheel', blockWheel, { capture: true, passive: true });
+    return () => container.removeEventListener('wheel', blockWheel, { capture: true } as EventListenerOptions);
+  }, []);
+
   useEffect(() => {
     const updateDimensions = () => {
-      // Use full viewport width
-      setDimensions({ 
-        width: window.innerWidth, 
-        height: 600 
-      });
+      // Use container dimensions - parent sets the height via CSS
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setDimensions({
+          width: rect.width || window.innerWidth,
+          height: rect.height || (window.innerHeight - 56)
+        });
+      } else {
+        setDimensions({
+          width: window.innerWidth,
+          height: window.innerHeight - 56
+        });
+      }
     };
-    
+
+    // Initial update with delay to allow container to render
+    setTimeout(updateDimensions, 100);
     updateDimensions();
     window.addEventListener('resize', updateDimensions);
     return () => window.removeEventListener('resize', updateDimensions);
@@ -221,7 +249,7 @@ export default function KnowledgeGraph() {
 
   if (loading && !graphData) {
     return (
-      <div className="h-[600px] flex items-center justify-center">
+      <div className="h-full flex items-center justify-center">
         <div className="flex items-center gap-3 text-white/30">
           <RefreshCw className="w-4 h-4 animate-spin" />
           <span className="text-sm">Building knowledge graph...</span>
@@ -232,7 +260,7 @@ export default function KnowledgeGraph() {
 
   if (error) {
     return (
-      <div className="h-[600px] flex items-center justify-center">
+      <div className="h-full flex items-center justify-center">
         <div className="text-sm text-red-400/50">{error}</div>
       </div>
     );
@@ -241,17 +269,17 @@ export default function KnowledgeGraph() {
   if (!graphData) return null;
 
   return (
-    <div className="relative -mx-8"> {/* Negative margin to break out of parent padding */}
-      {/* Graph Canvas - Full Width, No Borders */}
+    <div className="relative w-full h-full">
+      {/* Graph Canvas */}
       <div 
         ref={containerRef} 
-        className="h-[600px] w-full cursor-grab active:cursor-grabbing"
-        style={{ touchAction: 'none' }}
+        className="absolute inset-0 cursor-grab active:cursor-grabbing"
+        style={{ touchAction: 'none', background: 'transparent' }}
       >
         <ForceGraph3D
           ref={graphRef}
           width={dimensions.width}
-          height={600}
+          height={dimensions.height}
           graphData={{
             nodes: graphData.nodes,
             links: graphData.edges.map(e => ({ 
@@ -274,7 +302,7 @@ export default function KnowledgeGraph() {
           onNodeDragEnd={handleInteractionEnd}
           onEngineStop={handleInteractionEnd}
           enableNodeDrag={true}
-          enableNavigationControls={true}
+          enableNavigationControls={false}
           controlType="trackball"
           showNavInfo={false}
           d3AlphaDecay={0.02}
@@ -316,7 +344,7 @@ export default function KnowledgeGraph() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
-            className="absolute top-4 right-8 z-20 w-96 max-h-[550px] overflow-y-auto bg-black/85 backdrop-blur-md rounded-xl border border-white/10"
+            className="absolute top-4 right-8 z-20 w-96 max-h-[90%] overflow-y-auto bg-black/85 backdrop-blur-md rounded-xl border border-white/10"
           >
             {/* Header */}
             <div className="sticky top-0 bg-black/90 backdrop-blur-sm p-4 border-b border-white/5">
