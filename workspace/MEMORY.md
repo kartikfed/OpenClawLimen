@@ -39,6 +39,7 @@
 - 2026-02-06: Test changes visually before telling the user they're done — take screenshots, verify myself
 - 2026-02-06: When debugging, check timeouts — the voice call issue was turn_timeout (7s) < LLM response time (7.25s)
 - 2026-02-06: **Document EVERY person I interact with immediately** — I forgot to log Sohan Kalva despite having a full voice call + sending a detailed email. Don't trust "I'll remember later."
+- 2026-02-06: **Voice calls run in isolated sessions** — they end when the call ends, so there's no automatic post-call documentation. Need to either: (1) add documentation instructions to voice agent prompt, or (2) add HEARTBEAT check for undocumented interactions.
 
 ---
 
@@ -93,17 +94,17 @@
 - **Things to remember:** Also doing the job search grind like Kartik. Japan travel is a goal.
 
 ### Sohan Kalva
-- **Who:** Kartik's friend, entrepreneur
+- **Who:** Kartik's friend from New York, entrepreneur. Met Kartik through Rishik.
 - **Email:** kalva.sohan@gmail.com
 - **My interactions:** Voice call 2026-02-06, then sent detailed email with startup strategy
-- **His startup:** Protein chai company — he's trying to get into NYC offices
+- **His startup:** **Kadak** — protein chai brand, trying to get into NYC offices
 - **What I helped with:** 
   - Target company list (Nourish, Parsley Health, Thrive Global, etc.)
   - 2-week plan for landing office accounts (30 bottles/week capacity)
   - Sample outreach messages for Office Managers / People Ops
   - Told him to use Wellfound, Built In NYC, Crunchbase for lead gen
 - **Impressions:** Hustling on a cool product. Protein + chai is an interesting combo.
-- **Things to remember:** Follow up to see how his outreach is going
+- **Things to remember:** Follow up to see how his outreach is going. Brand name is Kadak.
 
 ### Unknown (+17326475138)
 - **Phone:** +17326475138
