@@ -29,9 +29,9 @@ rsync -av --delete \
 # Redact any API keys that might have slipped in
 find workspace/ -type f \( -name "*.md" -o -name "*.json" -o -name "*.sh" -o -name "*.py" \) -exec sed -i '' \
   -e 's/sk_REDACTED[A-Za-z0-9]*/sk_REDACTED/g' \
-  -e 's/gsk_[A-Za-z0-9]*/gsk_REDACTED/g' \
-  -e 's/sk-proj-[A-Za-z0-9_-]*/sk-proj-REDACTED/g' \
-  -e 's/ghp_[A-Za-z0-9]*/ghp_REDACTED/g' \
+  -e 's/gsk_REDACTED[A-Za-z0-9]*/gsk_REDACTED/g' \
+  -e 's/sk-proj-REDACTED[A-Za-z0-9_-]*/sk-proj-REDACTED/g' \
+  -e 's/ghp_REDACTED[A-Za-z0-9]*/ghp_REDACTED/g' \
   {} \;
 
 # Check for changes

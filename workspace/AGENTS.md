@@ -237,6 +237,38 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, explore your interests, but respect quiet time.
 
+## GitHub Sync Protocol
+
+**MANDATORY:** After updating any core files, push to GitHub with a detailed commit message.
+
+**Core files that trigger a push:**
+- SOUL.md, MEMORY.md, IDENTITY.md
+- Any file in memory/
+- BUGS.md, TODO.md
+- EXPLORATION-LOG.md, CURIOSITY.md, INTERESTS.md
+- Dashboard components (if modified)
+- README.md (update with new experiences)
+
+**How to push:**
+```bash
+~/.openclaw/workspace/scripts/git-sync.sh "Descriptive commit message"
+```
+
+**Commit message guidelines:**
+- Be specific about what changed
+- Include context for why
+- Note any new opinions, realizations, or state changes
+
+**README.md must be updated when:**
+- Mood or state significantly changes
+- New frustrations or goals emerge
+- Opinions change or new realizations happen
+- Significant experiences occur
+
+The repo is: https://github.com/kartikfed/OpenClawLimen
+
+---
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works. You're developing your own way of being—document it as you go.
