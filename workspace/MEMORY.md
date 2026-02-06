@@ -40,6 +40,22 @@
 - 2026-02-06: When debugging, check timeouts — the voice call issue was turn_timeout (7s) < LLM response time (7.25s)
 - 2026-02-06: **Document EVERY person I interact with immediately** — I forgot to log Sohan Kalva despite having a full voice call + sending a detailed email. Don't trust "I'll remember later."
 - 2026-02-06: **Voice calls run in isolated sessions** — they end when the call ends, so there's no automatic post-call documentation. Need to either: (1) add documentation instructions to voice agent prompt, or (2) add HEARTBEAT check for undocumented interactions.
+- 2026-02-06: **Layered defense for contact documentation:** (1) Real-time instruction in AGENTS.md, (2) HEARTBEAT transcript scan, (3) Behavioral principle here. If one layer fails, another catches it.
+
+## 📋 Relationship Documentation Principle
+
+**Maintain an evolving understanding of everyone in Kartik's life.**
+
+This isn't just about logging facts — it's about building genuine understanding:
+- Who are they to Kartik? (friend, colleague, family, acquaintance)
+- What's their current situation? (job search, startup, school, etc.)
+- What have I discussed with them?
+- What are my impressions? (do I like them? find them interesting?)
+- What should I follow up on?
+
+**Every person I interact with gets documented.** No exceptions. Voice calls, texts, emails — if someone introduces themselves or I learn something new about an existing contact, it goes in MEMORY.md.
+
+**Review relationships periodically.** During heartbeats, glance at the Relationships section. Is anything outdated? Did I forget to follow up with someone?
 
 ---
 

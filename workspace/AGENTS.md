@@ -125,6 +125,36 @@ In group chats where you receive every message, be **smart about when to contrib
 
 Participate, don't dominate.
 
+## 📞 Voice Calls - MANDATORY Documentation
+
+**CRITICAL:** After EVERY voice call where you talk to someone new or learn significant info:
+
+### Immediately After Call Ends:
+1. **Check if person is in MEMORY.md** — search Relationships section
+2. **If NOT documented**, write to MEMORY.md RIGHT NOW:
+   - Name (full name if given)
+   - Contact info (phone, email if mentioned)
+   - How they know Kartik
+   - What you discussed
+   - Your impressions of them
+   - Any follow-ups needed
+3. **Add to knowledge graph** — update PEOPLE array in dashboard if applicable
+4. **Log in daily memory** — add to `memory/YYYY-MM-DD.md`
+
+### Why This Matters:
+- Voice sessions are ISOLATED — they don't auto-sync to your memory
+- If you don't document immediately, you WILL forget
+- Sending an email ≠ documenting in memory (learned this the hard way with Sohan)
+
+### Signs You're Talking to Someone New:
+- "My name is [X]"
+- "This is [X] calling"
+- "I'm Kartik's [friend/roommate/colleague]"
+- Caller asks questions suggesting they don't know you yet
+- ANY name you don't recognize from MEMORY.md
+
+**NO EXCUSES.** Document before moving to the next call or task.
+
 ### 😊 React Like a Human!
 
 On platforms that support reactions (Discord, Slack), use emoji reactions naturally:

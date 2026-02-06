@@ -64,6 +64,49 @@ If you completed a morning exploration or evening reflection:
 
 ---
 
+## 🔍 Undocumented Contact Scan (MANDATORY)
+
+**Run this check every heartbeat.** This catches anyone you talked to but forgot to document.
+
+### Step 1: Pull Recent Voice Session History
+```
+sessions_history(sessionKey="agent:voice:call", limit=30, includeTools=false)
+```
+
+### Step 2: Scan Transcripts for New People
+Look for patterns indicating someone introduced themselves:
+- "My name is [X]"
+- "This is [X]"
+- "I'm [X], Kartik's [relationship]"
+- "Hey, it's [X]"
+- Any name + relationship context
+
+### Step 3: Cross-Reference MEMORY.md
+For each name found:
+1. Check if they exist in MEMORY.md Relationships section
+2. If NOT found → they're undocumented
+
+### Step 4: Document Missing People
+For each undocumented person:
+1. Extract from transcript: name, relationship to Kartik, what was discussed
+2. Add to MEMORY.md Relationships section with:
+   - Who they are
+   - Contact info (if mentioned)
+   - Your interactions with them
+   - Impressions
+   - Things to remember
+3. Add to knowledge graph PEOPLE array
+4. Log in today's memory file
+
+### Step 5: Also Scan Messaging Sessions
+If BlueBubbles/iMessage enabled, scan for new contacts there too:
+- Check for messages from unknown numbers
+- Look for self-introductions in text
+
+**If you find undocumented people:** Fix it immediately, don't wait for next heartbeat.
+
+---
+
 ## State Update (every heartbeat)
 
 Update `~/.openclaw/workspace/state.json` with:
