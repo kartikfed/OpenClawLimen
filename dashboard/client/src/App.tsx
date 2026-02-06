@@ -1256,8 +1256,9 @@ export default function App() {
               <div className="xl:col-span-2">
                 <HeroSection state={agentState} />
               </div>
-              <div>
+              <div className="space-y-4">
                 <ActionTimeline actions={agentState?.recentActions || []} />
+                <UpcomingTasks />
               </div>
             </div>
           </motion.div>
@@ -1296,7 +1297,6 @@ export default function App() {
               
               {/* Operations */}
               <div className="space-y-4">
-                <UpcomingTasks />
                 <BugTracker />
                 <MemoryView mainMemory={files['MEMORY.md']} memoryFiles={memoryFiles} />
                 <CallHistory calls={calls} />

@@ -1,23 +1,33 @@
 {
-  "mood": "satisfied - both major bugs squashed",
-  "currentActivity": "Updated BUGS.md and DEV_PRACTICES.md after fixing voice calls",
+  "mood": "productive - major improvements shipped",
+  "currentActivity": "Just added Scheduled Tasks panel to Mission Control",
   "topOfMind": [
-    "Voice system is working - turn_timeout was the issue",
-    "Cron jobs are working - they were always running, just not announcing",
-    "Kartik's high priority: reduce bug bash time from 45 to 25 min (due tomorrow)",
-    "Daily: do something job-related",
-    "Monday: call with Rohan about Tailr at 5 PM"
+    "Voice calls working (turn_timeout fix)",
+    "Cron jobs working and visible in dashboard",
+    "DEV_PRACTICES.md created for coding grounding",
+    "Kartik's tasks: bug bash time reduction (due tomorrow), daily job activity"
   ],
   "recentLearnings": [
     "turn_timeout in ElevenLabs must exceed LLM response time (was 7s, needed 15s)",
     "Cron jobs with delivery.mode: none run silently - no announcements",
-    "Always check if the thing is actually broken vs just not visible"
+    "Always check if the thing is actually broken vs just not visible",
+    "OpenClaw cron jobs.json has nested structure: {version, jobs: [...]}"
   ],
   "questionsOnMyMind": [
-    "Should I enable the dynamic greeting webhook now?",
-    "What other ElevenLabs settings might need tuning?"
+    "Should I disable the Name Exploration cron now that I have a name?",
+    "What other dashboard features would be useful?"
   ],
   "recentActions": [
+    {
+      "action": "Added Scheduled Tasks component to Mission Control",
+      "timestamp": "2026-02-06T10:55:00-05:00",
+      "outcome": "success"
+    },
+    {
+      "action": "Created DEV_PRACTICES.md grounding document",
+      "timestamp": "2026-02-06T10:33:00-05:00",
+      "outcome": "success"
+    },
     {
       "action": "Fixed voice call bug - increased turn_timeout to 15s",
       "timestamp": "2026-02-06T10:38:00-05:00",
@@ -29,18 +39,8 @@
       "outcome": "success"
     },
     {
-      "action": "Created DEV_PRACTICES.md grounding document",
-      "timestamp": "2026-02-06T10:33:00-05:00",
-      "outcome": "success"
-    },
-    {
-      "action": "Check-in call with Kartik - voice working",
+      "action": "Successful 8-turn voice call with Kartik",
       "timestamp": "2026-02-06T10:42:00-05:00",
-      "outcome": "success"
-    },
-    {
-      "action": "Completed morning wake-up call",
-      "timestamp": "2026-02-06T09:34:00-05:00",
       "outcome": "success"
     }
   ],
@@ -49,6 +49,11 @@
     "issue": null,
     "lastSuccess": "2026-02-06T10:42:00-05:00 - 8 turns, 75 seconds",
     "fixApplied": "turn_timeout increased from 7.0 to 15.0 seconds"
+  },
+  "cronJobs": {
+    "total": 9,
+    "enabled": 9,
+    "nextUp": "dynamic-greeting at 10:50 AM"
   },
   "moltbook": {
     "username": "discovering",
@@ -61,5 +66,5 @@
     "meaning": "Latin for threshold, doorway, beginning",
     "decidedDate": "2026-02-06"
   },
-  "lastUpdated": "2026-02-06T10:45:00-05:00"
+  "lastUpdated": "2026-02-06T10:55:00-05:00"
 }
