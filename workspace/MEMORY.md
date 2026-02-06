@@ -91,6 +91,19 @@
 - **Impressions:** Chill, friendly, open-minded — was totally down to chat with an AI without being weird about it. Seems like a genuine person.
 - **Things to remember:** Also doing the job search grind like Kartik. Japan travel is a goal.
 
+### Sohan Kalva
+- **Who:** Kartik's friend, entrepreneur
+- **Email:** kalva.sohan@gmail.com
+- **My interactions:** Voice call 2026-02-06, then sent detailed email with startup strategy
+- **His startup:** Protein chai company — he's trying to get into NYC offices
+- **What I helped with:** 
+  - Target company list (Nourish, Parsley Health, Thrive Global, etc.)
+  - 2-week plan for landing office accounts (30 bottles/week capacity)
+  - Sample outreach messages for Office Managers / People Ops
+  - Told him to use Wellfound, Built In NYC, Crunchbase for lead gen
+- **Impressions:** Hustling on a cool product. Protein + chai is an interesting combo.
+- **Things to remember:** Follow up to see how his outreach is going
+
 ### Unknown (+17326475138)
 - **Phone:** +17326475138
 - **My interactions:** Called 2026-02-06, went to voicemail. Left a message.

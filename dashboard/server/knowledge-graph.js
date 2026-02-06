@@ -88,7 +88,7 @@ const CONCEPTS = [
 ];
 
 const PEOPLE = [
-  'Kartik', 'Uma', 'PV', 'Shalini', 'Arjun', 'Jordan', 'Shimon',
+  'Kartik', 'Uma', 'PV', 'Shalini', 'Arjun', 'Jordan', 'Shimon', 'Shimon Johnson', 'Sohan', 'Sohan Kalva',
 ];
 
 const PROJECTS = [
