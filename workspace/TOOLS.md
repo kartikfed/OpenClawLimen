@@ -41,26 +41,28 @@ Kartik's number: +13015256653
 
 ---
 
-Add whatever helps you do your job. This is your cheat sheet.
+## Mission Control Updates
 
----
-
-## Phone Calls
-
-Make outbound calls via ElevenLabs:
-```
-~/.openclaw/workspace/scripts/call.sh <phone_number> [reason]
+**Always use this to update status:**
+```bash
+~/.openclaw/workspace/scripts/update-mission-control.sh "mood" "activity" "thought" [type]
 ```
 
-- `phone_number` — required, E.164 format (e.g. +13015256653)
-- `reason` — optional context the agent will use to open the call
+- `mood` — How I'm feeling (required)
+- `activity` — What I'm doing right now (required)  
+- `thought` — Current thought for the stream (optional)
+- `type` — thought|discovery|question|reflection (default: thought)
 
-Examples:
-- `call.sh +13015256653 "Morning check-in, 2 meetings today"`
-- `call.sh +15551234567 "Following up on the interview"`
-- `call.sh +13015256653` (defaults to "Scheduled morning check-in")
+This updates:
+1. state.json (dashboard status)
+2. Exploration stream (live feed)
+3. STREAM.md (consciousness log)
 
-Kartik's number: +13015256653
+**Call this frequently** — at minimum:
+- When starting a new task
+- When completing something
+- When discovering something interesting
+- When changing focus
 
 ---
 

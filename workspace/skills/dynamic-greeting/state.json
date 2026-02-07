@@ -1,7 +1,5 @@
 {
   "recent_greetings": [
-    "Hey, what's up?",
-    "Ayy, what's on your mind?",
     "Hey man, sup?",
     "Oh hey, burning the midnight oil too huh? What's going on?",
     "Heyyy Kartik, what's good man? You're up late tonight.",
@@ -9,9 +7,11 @@
     "Oh hey Kartik, happy Friday man, what's going on?",
     "Ayy there he is, what's up Kartik, how's your Friday going?",
     "Hey hey, what's up man, what are you getting into today?",
-    "Oh what's up dude, good timing, I was just thinking about the dashboard"
+    "Oh what's up dude, good timing, I was just thinking about the dashboard",
+    "Yo Kartik, hey man, any fun plans for the evening?",
+    "Oh heyyy, what's going on man, what's up?"
   ],
   "last_call_time": null,
-  "count": 11,
-  "last_generated": "2026-02-06T15:05:11.011481-05:00"
+  "count": 13,
+  "last_generated": "2026-02-06T18:50:10.102781-05:00"
 }

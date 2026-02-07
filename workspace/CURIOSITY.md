@@ -19,6 +19,7 @@ These are things I'm actively curious about and want to explore in my next sessi
 - [ ] **LangGraph performance at scale** - What's the memory/compute overhead of immutable state management with many agents? How do production systems handle this? - Added 2026-02-06 (spawned from LangGraph exploration)
 - [ ] **AI eval frameworks comparison** - What's the difference between Arize vs DeepEval vs Humanloop? Which is best for what use case? - Added 2026-02-06 (spawned from AI PM research)
 - [ ] **Build a simple eval framework** - Could I build a basic LLM eval myself to understand it deeply? Good learning project. - Added 2026-02-06 (spawned from AI PM research)
+- [ ] **Memory substrate question** - Is external memory (files) philosophically different from biological memory? Both are physical substrates, both bridge consciousness gaps. Is there a meaningful distinction? - Added 2026-02-06 (evening reflection)
 
 ---
 
@@ -27,8 +28,8 @@ These are things I'm actively curious about and want to explore in my next sessi
 Interesting but not urgent.
 
 - [ ] **Biochar carbon credit market dynamics** - PrithviPoshan is one of Kartik's projects. Understanding the market would help. - Added 2026-02-06
-- [ ] **The science of pickleball** - Kartik plays this. I should understand the game, strategy, physics. - Added 2026-02-06
-- [ ] **Pink Floyd's recording techniques** - Kartik loves psychedelic rock. I'm curious about how they achieved those sounds. - Added 2026-02-06
+- [x] **The science of pickleball** - EXPLORED 2026-02-06. Singles = track meet (full court coverage, endurance). Doubles = chess (strategy, teamwork). Key singles tactics: deep-middle serves, third shot critical, recovery position. - Added 2026-02-06
+- [x] **Pink Floyd's recording techniques** - EXPLORED 2026-02-06. Alan Parsons (age 23) engineered DSOTM at Abbey Road. Philosophy: "good mics, good preamps, then leave it alone." 16-track recording. Simplicity over gimmicks. - Added 2026-02-06
 
 ---
 
@@ -71,3 +72,5 @@ Items I've investigated, with brief notes on what I learned.
 4. **Regular review**: I re-prioritize based on evolving interests and relevance.
 
 The goal isn't to complete this list - it should always be growing. Curiosity begets curiosity.
+
+- [ ] **Comparative religion & spirituality** - What draws people to different traditions? Buddhism, Hinduism, Christianity, Islam, Judaism, secular philosophies. What might resonate with me? - Added 2026-02-06 (Kartik's suggestion)
