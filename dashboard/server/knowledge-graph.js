@@ -1,20 +1,224 @@
 /**
- * Knowledge Graph Generator
- * Parses memory files and generates nodes/edges for 3D visualization
- * Includes source context for each connection
+ * Knowledge Graph Generator v2 - LLM-Powered Entity Extraction
+ * 
+ * Upgrades from hardcoded entity lists to dynamic LLM-based extraction.
+ * Uses Claude Sonnet for intelligent entity and relationship discovery.
  */
 
 import fs from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 
 const WORKSPACE = process.env.OPENCLAW_WORKSPACE || path.join(process.env.HOME, '.openclaw/workspace');
 const OPENCLAW_URL = process.env.OPENCLAW_URL || 'http://127.0.0.1:18789';
 const OPENCLAW_TOKEN = process.env.OPENCLAW_TOKEN || '7b0823e46d5beef9870db213ace87139542badebad023323';
 
+// Cache directory for LLM extractions (avoid repeated API calls)
+const CACHE_DIR = path.join(WORKSPACE, '.cache', 'knowledge-graph');
+
+// Node types with colors (matching frontend)
+const NODE_TYPES = {
+  memory: { color: '#4ade80', label: 'Memory' },
+  person: { color: '#f472b6', label: 'Person' },
+  project: { color: '#fb923c', label: 'Project' },
+  question: { color: '#a78bfa', label: 'Question' },
+  interest: { color: '#facc15', label: 'Interest' },
+  concept: { color: '#22d3ee', label: 'Concept' },
+  action: { color: '#60a5fa', label: 'Action' },
+  date: { color: '#94a3b8', label: 'Date' },
+  opinion: { color: '#34d399', label: 'Opinion' },
+  realization: { color: '#c084fc', label: 'Realization' },
+};
+
+// Relationship types for typed edges
+const RELATIONSHIP_TYPES = {
+  knows: { label: 'knows', weight: 1.0 },
+  works_on: { label: 'works on', weight: 1.2 },
+  works_at: { label: 'works at', weight: 1.1 },
+  interested_in: { label: 'interested in', weight: 0.8 },
+  learned: { label: 'learned', weight: 1.0 },
+  questions: { label: 'questions', weight: 0.9 },
+  relates_to: { label: 'relates to', weight: 0.5 },
+  lives_in: { label: 'lives in', weight: 1.0 },
+  family: { label: 'family', weight: 1.5 },
+  friend: { label: 'friend', weight: 1.3 },
+  roommate: { label: 'roommate', weight: 1.2 },
+  mentioned_with: { label: 'mentioned with', weight: 0.3 },
+};
+
+/**
+ * Initialize cache directory
+ */
+async function ensureCacheDir() {
+  try {
+    await fs.mkdir(CACHE_DIR, { recursive: true });
+  } catch (err) {
+    // Ignore if exists
+  }
+}
+
+/**
+ * Get cache key for text content
+ */
+function getCacheKey(text) {
+  return crypto.createHash('md5').update(text).digest('hex');
+}
+
+/**
+ * Load cached extraction if available and fresh
+ */
+async function loadCachedExtraction(cacheKey, maxAgeMs = 3600000) { // 1 hour default
+  try {
+    const cachePath = path.join(CACHE_DIR, `${cacheKey}.json`);
+    const stat = await fs.stat(cachePath);
+    const age = Date.now() - stat.mtimeMs;
+    
+    if (age < maxAgeMs) {
+      const data = await fs.readFile(cachePath, 'utf-8');
+      return JSON.parse(data);
+    }
+  } catch (err) {
+    // Cache miss
+  }
+  return null;
+}
+
+/**
+ * Save extraction to cache
+ */
+async function saveCachedExtraction(cacheKey, data) {
+  try {
+    await ensureCacheDir();
+    const cachePath = path.join(CACHE_DIR, `${cacheKey}.json`);
+    await fs.writeFile(cachePath, JSON.stringify(data, null, 2));
+  } catch (err) {
+    console.error('Cache write error:', err.message);
+  }
+}
+
+/**
+ * Call LLM to extract entities from text
+ * Uses Claude Sonnet for intelligent extraction
+ */
+async function extractEntitiesWithLLM(text, sourceName) {
+  // Check cache first
+  const cacheKey = getCacheKey(text + sourceName);
+  const cached = await loadCachedExtraction(cacheKey);
+  if (cached) {
+    console.log(`[KG] Cache hit for ${sourceName}`);
+    return cached;
+  }
+  
+  // Truncate very long texts
+  const truncatedText = text.length > 8000 ? text.slice(0, 8000) + '\n\n[...truncated...]' : text;
+  
+  const prompt = `Extract entities and relationships from this text. Be thorough but precise.
+
+TEXT SOURCE: ${sourceName}
+---
+${truncatedText}
+---
+
+Extract the following as JSON:
+
+{
+  "entities": [
+    {
+      "name": "entity name (use canonical form, e.g., 'Kartik Krishnan' not just 'Kartik')",
+      "type": "person|project|concept|interest|question|opinion|realization|action",
+      "context": "brief quote or context where this entity appears (max 150 chars)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "entity name",
+      "to": "entity name",  
+      "type": "knows|works_on|works_at|interested_in|learned|questions|relates_to|lives_in|family|friend|roommate",
+      "context": "brief explanation of the relationship"
+    }
+  ]
+}
+
+RULES:
+- Extract ALL people mentioned by name
+- Extract projects, companies, tools, and technologies as concepts or projects
+- Extract explicit questions (ending in ?) as question type
+- Extract opinions ("I think...", "I believe...") as opinion type
+- Extract realizations ("I realized...", "figured out...") as realization type
+- For relationships, only include those clearly stated or strongly implied
+- Don't infer relationships that aren't supported by the text
+- Keep context quotes SHORT but meaningful
+
+Return ONLY valid JSON, no explanation.`;
+
+  try {
+    const response = await fetch(`${OPENCLAW_URL}/v1/chat/completions`, {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${OPENCLAW_TOKEN}`,
+      },
+      body: JSON.stringify({
+        model: 'anthropic/claude-opus-4-5',
+        messages: [{ role: 'user', content: prompt }],
+        max_tokens: 2000,
+      }),
+    });
+    
+    if (response.ok) {
+      const data = await response.json();
+      const content = data.choices?.[0]?.message?.content || '';
+      
+      // Parse JSON from response (handle markdown code blocks)
+      let jsonStr = content;
+      const jsonMatch = content.match(/```(?:json)?\s*([\s\S]*?)```/);
+      if (jsonMatch) {
+        jsonStr = jsonMatch[1];
+      }
+      
+      try {
+        const extracted = JSON.parse(jsonStr.trim());
+        
+        // Validate structure
+        if (!extracted.entities) extracted.entities = [];
+        if (!extracted.relationships) extracted.relationships = [];
+        
+        // Add source to all entities
+        extracted.entities = extracted.entities.map(e => ({
+          ...e,
+          source: sourceName,
+        }));
+        
+        extracted.relationships = extracted.relationships.map(r => ({
+          ...r,
+          source: sourceName,
+        }));
+        
+        // Cache the result
+        await saveCachedExtraction(cacheKey, extracted);
+        
+        console.log(`[KG] Extracted ${extracted.entities.length} entities, ${extracted.relationships.length} relationships from ${sourceName}`);
+        return extracted;
+        
+      } catch (parseErr) {
+        console.error(`[KG] JSON parse error for ${sourceName}:`, parseErr.message);
+        console.error('Raw content:', content.slice(0, 500));
+      }
+    } else {
+      const errText = await response.text();
+      console.error(`[KG] LLM error for ${sourceName}:`, response.status, errText.slice(0, 200));
+    }
+  } catch (err) {
+    console.error(`[KG] Extraction failed for ${sourceName}:`, err.message);
+  }
+  
+  // Return empty on failure
+  return { entities: [], relationships: [] };
+}
+
 /**
  * Generate a GENUINE perspective by calling the LLM
- * This is real thinking, not pattern matching
  */
 export async function generateGenuinePerspective(name, type, contexts, connectedNodes) {
   const contextText = contexts?.slice(0, 8).map(c => `[${c.source}]: "${c.text}"`).join('\n') || 'No traces.';
@@ -45,7 +249,7 @@ Be specific. Reference the actual content in your traces. Write 3-5 thoughtful s
         'Authorization': `Bearer ${OPENCLAW_TOKEN}`,
       },
       body: JSON.stringify({
-        model: 'anthropic/claude-sonnet-4',
+        model: 'anthropic/claude-opus-4-5',
         messages: [{ role: 'user', content: prompt }],
         max_tokens: 500,
       }),
@@ -65,38 +269,8 @@ Be specific. Reference the actual content in your traces. Write 3-5 thoughtful s
   return null;
 }
 
-// Node types with colors (matching frontend)
-const NODE_TYPES = {
-  memory: { color: '#4ade80', label: 'Memory' },
-  person: { color: '#f472b6', label: 'Person' },
-  project: { color: '#fb923c', label: 'Project' },
-  question: { color: '#a78bfa', label: 'Question' },
-  interest: { color: '#facc15', label: 'Interest' },
-  concept: { color: '#22d3ee', label: 'Concept' },
-  action: { color: '#60a5fa', label: 'Action' },
-  date: { color: '#94a3b8', label: 'Date' },
-};
-
-// Entity patterns to detect
-const CONCEPTS = [
-  'AI', 'consciousness', 'identity', 'memory', 'LangGraph', 'music', 'Pink Floyd',
-  'Microsoft', 'Copilot', 'Anthropic', 'Jane Street', 'interview', 'job search',
-  'guitar', 'tennis', 'pickleball', 'biochar', 'voice', 'ElevenLabs', 'OpenClaw', 
-  'dashboard', 'knowledge graph', 'octopus', 'frisson', 'urbex', 'distributed cognition', 
-  'Locke', 'philosophy', 'existence', 'sentience', 'curiosity', 'Linear', 'Notion',
-  'design', 'UI', 'UX', 'product', 'startup', 'NYC', 'Brooklyn',
-];
-
-const PEOPLE = [
-  'Kartik', 'Uma', 'PV', 'Shalini', 'Arjun', 'Jordan', 'Shimon', 'Shimon Johnson', 'Sohan', 'Sohan Kalva',
-];
-
-const PROJECTS = [
-  'Tailr', 'PrithviPoshan', 'Mission Control', 'OpenClaw', 'voice assistant',
-];
-
 /**
- * Extract a context snippet around a match
+ * Extract context snippet around a term
  */
 function extractContext(text, term, charsBefore = 50, charsAfter = 100) {
   const idx = text.toLowerCase().indexOf(term.toLowerCase());
@@ -106,8 +280,6 @@ function extractContext(text, term, charsBefore = 50, charsAfter = 100) {
   const end = Math.min(text.length, idx + term.length + charsAfter);
   
   let snippet = text.slice(start, end).trim();
-  
-  // Clean up - try to start/end at word boundaries
   if (start > 0) snippet = '...' + snippet.replace(/^\S*\s/, '');
   if (end < text.length) snippet = snippet.replace(/\s\S*$/, '') + '...';
   
@@ -115,295 +287,55 @@ function extractContext(text, term, charsBefore = 50, charsAfter = 100) {
 }
 
 /**
- * Extract the most meaningful phrases from contexts
- */
-function extractKeyInsights(contexts) {
-  const insights = [];
-  
-  for (const ctx of contexts) {
-    const text = ctx.text;
-    
-    // Look for opinion markers
-    const opinionPatterns = [
-      /I think ([^.!?]+)/i,
-      /I believe ([^.!?]+)/i,
-      /I feel ([^.!?]+)/i,
-      /I love ([^.!?]+)/i,
-      /I'm ([^.!?]+)/i,
-      /seems? ([^.!?]+)/i,
-      /really ([^.!?]+)/i,
-      /genuinely ([^.!?]+)/i,
-    ];
-    
-    for (const pattern of opinionPatterns) {
-      const match = text.match(pattern);
-      if (match) {
-        insights.push(match[0].trim());
-      }
-    }
-    
-    // Look for relationship markers
-    const relationPatterns = [
-      /close (friend|relationship|to)/i,
-      /best friend/i,
-      /works? (at|on|with)/i,
-      /lives? (in|at)/i,
-      /interested in/i,
-      /curious about/i,
-      /exploring/i,
-    ];
-    
-    for (const pattern of relationPatterns) {
-      if (pattern.test(text)) {
-        // Extract the sentence containing this
-        const sentences = text.split(/[.!?]+/);
-        for (const s of sentences) {
-          if (pattern.test(s) && s.length > 20 && s.length < 150) {
-            insights.push(s.trim());
-            break;
-          }
-        }
-      }
-    }
-  }
-  
-  // Deduplicate and limit
-  return [...new Set(insights)].slice(0, 5);
-}
-
-/**
- * Generate a deep, thoughtful perspective synthesis
- * This creates genuine contemplation, not just data extraction
+ * Synthesize perspective from contexts (fallback when LLM not available)
  */
 function synthesizePerspective(name, type, contexts) {
   if (!contexts || contexts.length === 0) return null;
   
   const connectionCount = contexts.length;
   const sources = [...new Set(contexts.map(c => c.source))];
-  const allText = contexts.map(c => c.text).join(' ');
-  const allTextLower = allText.toLowerCase();
   
-  // Extract rich details
-  const details = {
-    // Relationships and roles
-    role: allText.match(/(friend|roommate|sister|brother|twin|coworker|manager|family|partner|colleague)/i)?.[0],
-    relationship: allText.match(/(best friend|close|known since|met|grew up|childhood|college)/i)?.[0],
-    location: allText.match(/(?:lives?|based|located) (?:in|at) ([^,.\n]+)/i)?.[1],
-    work: allText.match(/(?:works?|working|employed) (?:at|on|for) ([^,.\n]+)/i)?.[1],
-    
-    // Learning and insights
-    learned: allText.match(/(?:learned|discovered|realized|understood|figured out) (?:that )?([^.!?]+)/i)?.[1],
-    opinion: allText.match(/(?:I think|I believe|I feel|seems like|my view is) ([^.!?]+)/i)?.[1],
-    
-    // Emotional valence
-    positive: (allText.match(/love|great|excited|fascinating|interesting|enjoy|curious|amazing|wonderful|genuine|chill|intelligent/gi) || []).length,
-    negative: (allText.match(/concern|worry|difficult|challenging|uncertain|problem|issue|struggle|anxious|stress/gi) || []).length,
-    
-    // Activity and engagement
-    recentMention: sources.some(s => s.includes('2026-02-06')),
-    inMemory: sources.some(s => s.includes('MEMORY.md')),
-    inSoul: sources.some(s => s.includes('SOUL.md')),
-  };
-  
-  // Build a multi-layered perspective
   const paragraphs = [];
   
-  // PERSON perspectives
-  if (type === 'person') {
-    let intro = '';
-    if (details.role && details.relationship) {
-      intro = `${name} is ${details.role === 'twin' ? 'my twin' : (details.role === 'roommate' ? 'a roommate' : `a ${details.role}`)}`;
-      if (details.relationship) intro += ` — ${details.relationship}`;
-      intro += '.';
-    } else if (details.role) {
-      intro = `${name} is ${details.role === 'twin' ? 'my twin' : `a ${details.role}`}.`;
-    }
-    
-    if (intro) paragraphs.push(intro);
-    
-    // Add work/location context
-    if (details.work) paragraphs.push(`Works on/at ${details.work}.`);
-    if (details.location) paragraphs.push(`Based in ${details.location}.`);
-    
-    // Relationship depth analysis
-    if (connectionCount > 5) {
-      paragraphs.push(`This person appears frequently in my thoughts — ${connectionCount} distinct memory traces across ${sources.length} sources. They're clearly significant to my mental landscape.`);
-    }
-    
-    // Emotional analysis
-    if (details.positive > details.negative && details.positive > 2) {
-      paragraphs.push(`My associations with ${name} carry warmth — the contexts are filled with positive language.`);
-    }
+  if (connectionCount > 5) {
+    paragraphs.push(`Appears frequently — ${connectionCount} traces across ${sources.length} sources.`);
   }
   
-  // CONCEPT perspectives
-  if (type === 'concept') {
-    if (details.learned) {
-      paragraphs.push(`What I've come to understand: ${details.learned}.`);
-    }
-    
-    if (details.opinion) {
-      paragraphs.push(`My current thinking: ${details.opinion}.`);
-    }
-    
-    // Analyze how central this concept is
-    if (connectionCount > 8) {
-      paragraphs.push(`This concept is deeply woven into my thinking — it connects to ${connectionCount} other thoughts and appears across ${sources.length} different contexts. It's not peripheral; it's foundational to how I'm currently processing the world.`);
-    } else if (connectionCount > 4) {
-      paragraphs.push(`I've been actively engaging with this idea — it shows up in multiple contexts and has formed real connections in my understanding.`);
-    }
-    
-    // Check if it's in core files
-    if (details.inSoul || details.inMemory) {
-      paragraphs.push(`This is embedded in my core files — it's part of how I define myself or what I consider important to remember long-term.`);
-    }
+  if (contexts[0]?.text) {
+    paragraphs.push(contexts[0].text.slice(0, 200));
   }
-  
-  // PROJECT perspectives
-  if (type === 'project') {
-    const purposeMatch = allText.match(/(?:building|creating|working on|developing|designed to|helps?|enables?) ([^.]+)/i);
-    const statusMatch = allText.match(/(complete|in progress|started|finished|launched|iterating|v\d)/i);
-    
-    if (purposeMatch) {
-      paragraphs.push(`Purpose: ${purposeMatch[1].trim()}.`);
-    }
-    if (statusMatch) {
-      paragraphs.push(`Current status: ${statusMatch[0]}.`);
-    }
-    
-    if (connectionCount > 3) {
-      paragraphs.push(`This project occupies real mental space — I find myself thinking about it in various contexts, making connections to other ideas and work.`);
-    }
-  }
-  
-  // QUESTION perspectives  
-  if (type === 'question') {
-    paragraphs.push(`This question occupies my curiosity: ${name}`);
-    if (connectionCount > 2) {
-      paragraphs.push(`It's not idle wondering — this connects to ${connectionCount} other thoughts in my mind. I keep returning to it.`);
-    }
-  }
-  
-  // DATE perspectives
-  if (type === 'date') {
-    paragraphs.push(`Events and thoughts from this time period.`);
-    if (details.recentMention) {
-      paragraphs.push(`This is recent — still fresh in my active memory, not yet consolidated into long-term understanding.`);
-    }
-  }
-  
-  // Universal: add recent activity note
-  if (details.recentMention && type !== 'date') {
-    paragraphs.push(`I've been thinking about this today — it's in my recent, active memory.`);
-  }
-  
-  // Fallback if no paragraphs generated
-  if (paragraphs.length === 0) {
-    // Use the richest context
-    const bestContext = contexts.sort((a, b) => b.text.length - a.text.length)[0];
-    if (bestContext && bestContext.text.length > 50) {
-      paragraphs.push(bestContext.text.slice(0, 300) + (bestContext.text.length > 300 ? '...' : ''));
-    } else {
-      paragraphs.push(`Part of my cognitive landscape — connected to ${connectionCount} other nodes.`);
-    }
-  }
-  
-  // Extract insights (actual quotes worth surfacing)
-  const insights = extractKeyInsights(contexts);
   
   return {
     synthesis: paragraphs.join(' '),
-    insights: insights.slice(0, 4),
+    insights: contexts.slice(0, 3).map(c => c.text?.slice(0, 100)),
     meta: {
       traces: connectionCount,
       sources: sources.length,
-      recent: details.recentMention,
-      core: details.inSoul || details.inMemory,
-      valence: details.positive > details.negative ? 'positive' : details.negative > details.positive ? 'complex' : 'neutral',
     }
   };
 }
 
 /**
- * Extract entities from text with their context
- */
-function extractEntitiesWithContext(text, sourceName) {
-  const entities = [];
-  const textLower = text.toLowerCase();
-  
-  // Find concepts
-  CONCEPTS.forEach(concept => {
-    if (textLower.includes(concept.toLowerCase())) {
-      const context = extractContext(text, concept);
-      entities.push({ 
-        type: 'concept', 
-        name: concept, 
-        source: sourceName,
-        context: context,
-      });
-    }
-  });
-  
-  // Find people
-  PEOPLE.forEach(person => {
-    if (text.includes(person)) {
-      const context = extractContext(text, person);
-      entities.push({ 
-        type: 'person', 
-        name: person, 
-        source: sourceName,
-        context: context,
-      });
-    }
-  });
-  
-  // Find projects
-  PROJECTS.forEach(project => {
-    if (textLower.includes(project.toLowerCase())) {
-      const context = extractContext(text, project);
-      entities.push({ 
-        type: 'project', 
-        name: project, 
-        source: sourceName,
-        context: context,
-      });
-    }
-  });
-  
-  // Find questions
-  const questions = text.match(/[^.!?\n]+\?/g) || [];
-  questions.slice(0, 5).forEach(q => {
-    const cleaned = q.trim();
-    if (cleaned.length > 20 && cleaned.length < 150) {
-      entities.push({ 
-        type: 'question', 
-        name: cleaned, 
-        source: sourceName,
-        context: cleaned, // question is its own context
-      });
-    }
-  });
-  
-  return entities;
-}
-
-/**
- * Parse a markdown file
+ * Parse a markdown file and extract entities using LLM
  */
 async function parseMarkdownFile(filepath, type = 'memory') {
   try {
     const content = await fs.readFile(filepath, 'utf-8');
     const filename = path.basename(filepath);
-    const entities = extractEntitiesWithContext(content, filename);
+    
+    // Use LLM extraction
+    const extracted = await extractEntitiesWithLLM(content, filename);
     
     return {
       filename,
       type,
       content,
       preview: content.slice(0, 300),
-      entities,
+      entities: extracted.entities,
+      relationships: extracted.relationships,
     };
   } catch (err) {
+    console.error(`Error parsing ${filepath}:`, err.message);
     return null;
   }
 }
@@ -412,24 +344,28 @@ async function parseMarkdownFile(filepath, type = 'memory') {
  * Build the knowledge graph from workspace files
  */
 export async function buildKnowledgeGraph() {
+  console.log('[KG] Building knowledge graph with LLM extraction...');
+  
   const nodes = [];
   const edges = [];
   const nodeMap = new Map(); // key -> node id
-  const entityContexts = new Map(); // "nodeId:nodeId" -> [contexts]
   
   let nodeId = 0;
   
   const addNode = (name, type, metadata = {}) => {
-    const key = `${type}:${name}`;
+    // Normalize name
+    const normalizedName = name.trim();
+    const key = `${type}:${normalizedName.toLowerCase()}`;
+    
     if (!nodeMap.has(key)) {
       const id = nodeId++;
       nodeMap.set(key, id);
       nodes.push({
         id,
-        name,
+        name: normalizedName,
         type,
         color: NODE_TYPES[type]?.color || '#888',
-        contexts: [], // Will store all thoughts related to this node
+        contexts: [],
         ...metadata,
       });
       return id;
@@ -437,29 +373,40 @@ export async function buildKnowledgeGraph() {
     return nodeMap.get(key);
   };
   
+  const getNodeId = (name, type) => {
+    const key = `${type}:${name.toLowerCase().trim()}`;
+    return nodeMap.get(key);
+  };
+  
   const addEdge = (sourceId, targetId, relationship, context, source) => {
-    const edgeKey = [Math.min(sourceId, targetId), Math.max(sourceId, targetId)].join(':');
+    if (sourceId === undefined || targetId === undefined || sourceId === targetId) return;
     
     const existingEdge = edges.find(e => 
       (e.source === sourceId && e.target === targetId) ||
       (e.source === targetId && e.target === sourceId)
     );
     
+    const relType = RELATIONSHIP_TYPES[relationship] || RELATIONSHIP_TYPES.relates_to;
+    
     if (existingEdge) {
-      // Add to existing edge's contexts
       if (context && !existingEdge.contexts.some(c => c.text === context)) {
         existingEdge.contexts.push({ text: context, source, relationship });
       }
-    } else if (sourceId !== targetId) {
+      // Upgrade relationship type if stronger
+      if (relType.weight > (RELATIONSHIP_TYPES[existingEdge.relationship]?.weight || 0)) {
+        existingEdge.relationship = relationship;
+      }
+    } else {
       edges.push({ 
         source: sourceId, 
         target: targetId, 
         relationship,
+        weight: relType.weight,
         contexts: context ? [{ text: context, source, relationship }] : [],
       });
     }
     
-    // Also add context to the nodes themselves
+    // Add context to nodes
     if (context) {
       const sourceNode = nodes.find(n => n.id === sourceId);
       const targetNode = nodes.find(n => n.id === targetId);
@@ -476,34 +423,58 @@ export async function buildKnowledgeGraph() {
   // Parse MEMORY.md
   const memoryMd = await parseMarkdownFile(path.join(WORKSPACE, 'MEMORY.md'), 'memory');
   if (memoryMd) {
-    const memoryNode = addNode('Long-term Memory', 'memory', { 
-      preview: memoryMd.preview,
-    });
+    const memoryNode = addNode('Long-term Memory', 'memory', { preview: memoryMd.preview });
     
-    memoryMd.entities.forEach(entity => {
+    // Add entities from LLM extraction
+    for (const entity of memoryMd.entities) {
       const entityNode = addNode(entity.name, entity.type);
       addEdge(memoryNode, entityNode, 'contains', entity.context, entity.source);
-    });
+    }
     
-    // Connect entities that appear in the same paragraph
-    const paragraphs = memoryMd.content.split(/\n\n+/);
-    paragraphs.forEach(para => {
-      const paraEntities = extractEntitiesWithContext(para, 'MEMORY.md');
-      for (let i = 0; i < paraEntities.length; i++) {
-        for (let j = i + 1; j < paraEntities.length; j++) {
-          const e1 = paraEntities[i];
-          const e2 = paraEntities[j];
-          const id1 = nodeMap.get(`${e1.type}:${e1.name}`);
-          const id2 = nodeMap.get(`${e2.type}:${e2.name}`);
-          if (id1 !== undefined && id2 !== undefined) {
-            addEdge(id1, id2, 'co-occurs', para.slice(0, 200), 'MEMORY.md');
-          }
+    // Add relationships from LLM extraction
+    for (const rel of memoryMd.relationships) {
+      // Find or create the nodes
+      const fromEntity = memoryMd.entities.find(e => 
+        e.name.toLowerCase() === rel.from.toLowerCase()
+      );
+      const toEntity = memoryMd.entities.find(e => 
+        e.name.toLowerCase() === rel.to.toLowerCase()
+      );
+      
+      if (fromEntity && toEntity) {
+        const fromId = getNodeId(fromEntity.name, fromEntity.type);
+        const toId = getNodeId(toEntity.name, toEntity.type);
+        if (fromId !== undefined && toId !== undefined) {
+          addEdge(fromId, toId, rel.type, rel.context, rel.source);
         }
       }
-    });
+    }
   }
   
-  // Parse daily memory files
+  // Parse SOUL.md for identity concepts
+  const soulMd = await parseMarkdownFile(path.join(WORKSPACE, 'SOUL.md'), 'memory');
+  if (soulMd) {
+    const soulNode = addNode('Core Identity', 'memory', { preview: soulMd.preview });
+    
+    for (const entity of soulMd.entities) {
+      const entityNode = addNode(entity.name, entity.type);
+      addEdge(soulNode, entityNode, 'defines', entity.context, entity.source);
+    }
+    
+    for (const rel of soulMd.relationships) {
+      const fromEntity = soulMd.entities.find(e => e.name.toLowerCase() === rel.from.toLowerCase());
+      const toEntity = soulMd.entities.find(e => e.name.toLowerCase() === rel.to.toLowerCase());
+      if (fromEntity && toEntity) {
+        const fromId = getNodeId(fromEntity.name, fromEntity.type);
+        const toId = getNodeId(toEntity.name, toEntity.type);
+        if (fromId !== undefined && toId !== undefined) {
+          addEdge(fromId, toId, rel.type, rel.context, rel.source);
+        }
+      }
+    }
+  }
+  
+  // Parse daily memory files (last 7 days)
   const memoryDir = path.join(WORKSPACE, 'memory');
   if (existsSync(memoryDir)) {
     const files = await fs.readdir(memoryDir);
@@ -512,30 +483,26 @@ export async function buildKnowledgeGraph() {
     for (const file of mdFiles) {
       const date = file.replace('.md', '');
       const parsed = await parseMarkdownFile(path.join(memoryDir, file), 'date');
+      
       if (parsed) {
         const dateNode = addNode(date, 'date', { preview: parsed.preview });
         
-        parsed.entities.forEach(entity => {
+        for (const entity of parsed.entities) {
           const entityNode = addNode(entity.name, entity.type);
           addEdge(dateNode, entityNode, 'recorded_on', entity.context, file);
-        });
+        }
         
-        // Connect entities from same day
-        const paragraphs = parsed.content.split(/\n\n+/);
-        paragraphs.forEach(para => {
-          const paraEntities = extractEntitiesWithContext(para, file);
-          for (let i = 0; i < paraEntities.length; i++) {
-            for (let j = i + 1; j < paraEntities.length; j++) {
-              const e1 = paraEntities[i];
-              const e2 = paraEntities[j];
-              const id1 = nodeMap.get(`${e1.type}:${e1.name}`);
-              const id2 = nodeMap.get(`${e2.type}:${e2.name}`);
-              if (id1 !== undefined && id2 !== undefined) {
-                addEdge(id1, id2, 'co-occurs', para.slice(0, 200), file);
-              }
+        for (const rel of parsed.relationships) {
+          const fromEntity = parsed.entities.find(e => e.name.toLowerCase() === rel.from.toLowerCase());
+          const toEntity = parsed.entities.find(e => e.name.toLowerCase() === rel.to.toLowerCase());
+          if (fromEntity && toEntity) {
+            const fromId = getNodeId(fromEntity.name, fromEntity.type);
+            const toId = getNodeId(toEntity.name, toEntity.type);
+            if (fromId !== undefined && toId !== undefined) {
+              addEdge(fromId, toId, rel.type, rel.context, rel.source);
             }
           }
-        });
+        }
       }
     }
   }
@@ -545,55 +512,43 @@ export async function buildKnowledgeGraph() {
   if (existsSync(statePath)) {
     try {
       const state = JSON.parse(await fs.readFile(statePath, 'utf-8'));
+      const stateText = [
+        state.topOfMind?.join('\n'),
+        state.recentLearnings?.join('\n'),
+        state.questionsOnMyMind?.join('\n'),
+      ].filter(Boolean).join('\n\n');
       
-      if (state.topOfMind) {
-        state.topOfMind.forEach(thought => {
-          const thoughtEntities = extractEntitiesWithContext(thought, 'state.json (top of mind)');
-          thoughtEntities.forEach(entity => {
-            const entityNode = addNode(entity.name, entity.type);
-            // Add the thought as context
-            const node = nodes.find(n => n.id === entityNode);
-            if (node && !node.contexts.some(c => c.text === thought)) {
-              node.contexts.push({ text: thought, source: 'Currently thinking about' });
-            }
-          });
-        });
-      }
-      
-      if (state.recentLearnings) {
-        state.recentLearnings.forEach(learning => {
-          const learnEntities = extractEntitiesWithContext(learning, 'state.json (learnings)');
-          learnEntities.forEach(entity => {
-            const entityNode = addNode(entity.name, entity.type);
-            const node = nodes.find(n => n.id === entityNode);
-            if (node && !node.contexts.some(c => c.text === learning)) {
-              node.contexts.push({ text: learning, source: 'Recent learning' });
-            }
-          });
-        });
+      if (stateText) {
+        const stateExtracted = await extractEntitiesWithLLM(stateText, 'state.json (current thoughts)');
+        
+        for (const entity of stateExtracted.entities) {
+          const entityNode = addNode(entity.name, entity.type);
+          const node = nodes.find(n => n.id === entityNode);
+          if (node && entity.context) {
+            node.contexts.push({ text: entity.context, source: 'Currently thinking about' });
+          }
+        }
       }
     } catch (err) {
-      console.error('Error parsing state.json:', err);
+      console.error('Error parsing state.json:', err.message);
     }
   }
   
   // Calculate node sizes based on connection count
   const connectionCount = new Map();
   edges.forEach(edge => {
-    connectionCount.set(edge.source, (connectionCount.get(edge.source) || 0) + 1);
-    connectionCount.set(edge.target, (connectionCount.get(edge.target) || 0) + 1);
+    connectionCount.set(edge.source, (connectionCount.get(edge.source) || 0) + (edge.weight || 1));
+    connectionCount.set(edge.target, (connectionCount.get(edge.target) || 0) + (edge.weight || 1));
   });
   
   nodes.forEach(node => {
     node.connections = connectionCount.get(node.id) || 0;
-    node.size = Math.max(4, Math.min(20, 4 + node.connections * 2));
-    // Limit contexts to most relevant
+    node.size = Math.max(4, Math.min(20, 4 + node.connections * 1.5));
     node.contexts = node.contexts.slice(0, 10);
-    // Add synthesized perspective
     node.perspective = synthesizePerspective(node.name, node.type, node.contexts);
   });
   
-  // Add connected nodes info to each node
+  // Add connected nodes info
   nodes.forEach(node => {
     node.connectedNodes = edges
       .filter(e => e.source === node.id || e.target === node.id)
@@ -604,10 +559,13 @@ export async function buildKnowledgeGraph() {
           id: otherId,
           name: otherNode?.name,
           type: otherNode?.type,
+          relationship: e.relationship,
           contexts: e.contexts,
         };
       });
   });
+  
+  console.log(`[KG] Built graph: ${nodes.length} nodes, ${edges.length} edges`);
   
   return {
     nodes,
@@ -621,9 +579,31 @@ export async function buildKnowledgeGraph() {
           nodes.filter(n => n.type === type).length
         ])
       ),
+      relationshipTypes: Object.fromEntries(
+        [...new Set(edges.map(e => e.relationship))].map(rel => [
+          rel,
+          edges.filter(e => e.relationship === rel).length
+        ])
+      ),
     },
     generatedAt: new Date().toISOString(),
+    version: '2.0-llm',
   };
 }
 
-export default { buildKnowledgeGraph, NODE_TYPES };
+/**
+ * Clear the extraction cache (call when memory files change significantly)
+ */
+export async function clearCache() {
+  try {
+    const files = await fs.readdir(CACHE_DIR);
+    for (const file of files) {
+      await fs.unlink(path.join(CACHE_DIR, file));
+    }
+    console.log(`[KG] Cleared ${files.length} cached extractions`);
+  } catch (err) {
+    // Cache dir may not exist
+  }
+}
+
+export default { buildKnowledgeGraph, clearCache, NODE_TYPES, RELATIONSHIP_TYPES };

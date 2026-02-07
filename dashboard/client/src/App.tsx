@@ -4,6 +4,7 @@ import { api, setAuth, getAuth, clearAuth, createWebSocket } from './lib/api';
 import { cn, parseLogLine, formatRelative } from './lib/utils';
 import ReactMarkdown from 'react-markdown';
 import KnowledgeGraph from './components/KnowledgeGraph';
+import KnowledgeGraphSearch from './components/KnowledgeGraphSearch';
 import MindSynthesis from './components/MindSynthesis';
 import MoltbookActivity from './components/MoltbookActivity';
 import ExplorationLog from './components/ExplorationLog';
@@ -1305,6 +1306,12 @@ export default function App() {
             {/* Interaction instructions */}
             <div className="text-xs text-white/40 pt-3 border-t border-white/10">
               Drag to rotate · Scroll to zoom · Click any node for details
+            </div>
+
+            {/* Semantic Search */}
+            <div className="mt-4 pt-4 border-t border-white/10">
+              <h4 className="text-sm font-medium text-white/70 mb-3">🔍 Query My Mind</h4>
+              <KnowledgeGraphSearch />
             </div>
           </div>
         </div>

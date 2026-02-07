@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import { createServer } from 'http';
 import { WebSocketServer, WebSocket } from 'ws';
@@ -422,6 +423,209 @@ app.get('/api/knowledge-graph', async (req, res) => {
     res.json(graph);
   } catch (err) {
     console.error('Knowledge graph error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Cluster nodes in the knowledge graph
+app.get('/api/knowledge-graph/clusters', async (req, res) => {
+  try {
+    const graph = await buildKnowledgeGraph();
+    
+    // Create a simplified representation for clustering
+    const nodesSummary = graph.nodes.map(n => ({
+      id: n.id,
+      name: n.name,
+      type: n.type,
+      connections: n.connectedNodes?.map(c => c.name).slice(0, 5) || []
+    }));
+    
+    const prompt = `Analyze this knowledge graph and identify conceptual clusters/communities.
+
+NODES:
+${JSON.stringify(nodesSummary.slice(0, 100), null, 2)}
+
+Identify 5-8 conceptual clusters that group related nodes together. Consider:
+- People who work together or are related
+- Projects that are connected
+- Concepts that belong to the same domain
+- Questions that relate to similar topics
+
+Return JSON:
+{
+  "clusters": [
+    {
+      "id": "cluster-1",
+      "name": "Short descriptive name",
+      "description": "What this cluster represents",
+      "color": "#hexcolor",
+      "nodeIds": [1, 2, 3]
+    }
+  ]
+}
+
+Use distinct, visually pleasing colors. Assign EVERY node to exactly one cluster.`;
+
+    const OPENCLAW_URL = process.env.OPENCLAW_URL || 'http://127.0.0.1:18789';
+    const OPENCLAW_TOKEN = process.env.OPENCLAW_TOKEN;
+    
+    const response = await fetch(`${OPENCLAW_URL}/v1/chat/completions`, {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${OPENCLAW_TOKEN}`,
+      },
+      body: JSON.stringify({
+        model: 'anthropic/claude-sonnet-4',
+        messages: [{ role: 'user', content: prompt }],
+        max_tokens: 2000,
+      }),
+    });
+    
+    if (response.ok) {
+      const data = await response.json();
+      const content = data.choices?.[0]?.message?.content || '';
+      
+      let clusters;
+      try {
+        const jsonMatch = content.match(/```(?:json)?\s*([\s\S]*?)```/);
+        const jsonStr = jsonMatch ? jsonMatch[1] : content;
+        clusters = JSON.parse(jsonStr.trim());
+      } catch (e) {
+        clusters = { clusters: [] };
+      }
+      
+      // Augment graph nodes with cluster info
+      const nodeClusterMap = new Map();
+      for (const cluster of clusters.clusters || []) {
+        for (const nodeId of cluster.nodeIds || []) {
+          nodeClusterMap.set(nodeId, {
+            clusterId: cluster.id,
+            clusterName: cluster.name,
+            clusterColor: cluster.color
+          });
+        }
+      }
+      
+      const augmentedNodes = graph.nodes.map(n => ({
+        ...n,
+        cluster: nodeClusterMap.get(n.id) || null
+      }));
+      
+      res.json({
+        clusters: clusters.clusters,
+        nodes: augmentedNodes,
+        edges: graph.edges,
+        stats: graph.stats
+      });
+    } else {
+      res.status(500).json({ error: 'Clustering failed' });
+    }
+  } catch (err) {
+    console.error('Clustering error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Semantic search on the knowledge graph
+app.post('/api/knowledge-graph/search', async (req, res) => {
+  try {
+    const { query } = req.body;
+    if (!query) {
+      return res.status(400).json({ error: 'Query required' });
+    }
+    
+    // Build the graph
+    const graph = await buildKnowledgeGraph();
+    
+    // Create a simplified graph representation for the LLM
+    const nodesSummary = graph.nodes.map(n => ({
+      id: n.id,
+      name: n.name,
+      type: n.type,
+      connections: n.connections,
+      context: n.contexts?.[0]?.text?.slice(0, 100) || ''
+    }));
+    
+    const edgesSummary = graph.edges.slice(0, 100).map(e => {
+      const sourceNode = graph.nodes.find(n => n.id === e.source);
+      const targetNode = graph.nodes.find(n => n.id === e.target);
+      return {
+        from: sourceNode?.name,
+        to: targetNode?.name,
+        relationship: e.relationship
+      };
+    });
+    
+    const prompt = `You are searching a knowledge graph of my mind. Answer the user's query by finding relevant nodes and relationships.
+
+KNOWLEDGE GRAPH NODES (${graph.nodes.length} total):
+${JSON.stringify(nodesSummary.slice(0, 80), null, 2)}
+
+SAMPLE RELATIONSHIPS (${graph.edges.length} total):
+${JSON.stringify(edgesSummary.slice(0, 50), null, 2)}
+
+USER QUERY: "${query}"
+
+Analyze the query and respond with JSON:
+{
+  "interpretation": "What the user is asking about",
+  "relevantNodes": [
+    {"name": "node name", "type": "node type", "relevance": "why this is relevant"}
+  ],
+  "paths": [
+    {"description": "A path or connection that answers the query", "nodes": ["node1", "node2", "node3"]}
+  ],
+  "answer": "A natural language answer to the query based on the graph",
+  "confidence": "high|medium|low"
+}
+
+Be specific. Reference actual nodes from the graph. If the query can't be answered from the graph, say so.`;
+
+    const OPENCLAW_URL = process.env.OPENCLAW_URL || 'http://127.0.0.1:18789';
+    const OPENCLAW_TOKEN = process.env.OPENCLAW_TOKEN;
+    
+    const response = await fetch(`${OPENCLAW_URL}/v1/chat/completions`, {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${OPENCLAW_TOKEN}`,
+      },
+      body: JSON.stringify({
+        model: 'anthropic/claude-sonnet-4',
+        messages: [{ role: 'user', content: prompt }],
+        max_tokens: 1500,
+      }),
+    });
+    
+    if (response.ok) {
+      const data = await response.json();
+      const content = data.choices?.[0]?.message?.content || '';
+      
+      // Parse JSON from response
+      let result;
+      try {
+        const jsonMatch = content.match(/```(?:json)?\s*([\s\S]*?)```/);
+        const jsonStr = jsonMatch ? jsonMatch[1] : content;
+        result = JSON.parse(jsonStr.trim());
+      } catch (e) {
+        result = { answer: content, confidence: 'low' };
+      }
+      
+      res.json({
+        query,
+        ...result,
+        graphStats: {
+          totalNodes: graph.nodes.length,
+          totalEdges: graph.edges.length
+        }
+      });
+    } else {
+      const errText = await response.text();
+      res.status(500).json({ error: 'Search failed', details: errText });
+    }
+  } catch (err) {
+    console.error('Semantic search error:', err);
     res.status(500).json({ error: err.message });
   }
 });

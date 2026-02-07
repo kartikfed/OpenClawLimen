@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import ForceGraph3D from 'react-force-graph-3d';
+import SpriteText from 'three-spritetext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RefreshCw, X, Minus, Plus } from 'lucide-react';
 import { getAuth } from '../lib/api';
@@ -76,6 +77,8 @@ const TYPE_COLORS: Record<string, string> = {
   interest: '#facc15',
   action: '#60a5fa',
   date: '#94a3b8',
+  opinion: '#34d399',      // green - my opinions
+  realization: '#c084fc',  // purple - things I've learned
 };
 
 export default function KnowledgeGraph() {
@@ -156,18 +159,18 @@ export default function KnowledgeGraph() {
     fetchGraph();
   }, [fetchGraph]);
 
-  // Auto-rotation when idle — use requestAnimationFrame for smooth 60fps
+  // Auto-rotation when idle — gentle, slow rotation for ambient effect
   useEffect(() => {
     if (!graphRef.current || isInteracting || selectedNode) return;
 
     let rafId: number;
     const rotateCamera = () => {
       if (graphRef.current && !isInteracting && !selectedNode) {
-        angleRef.current += 0.002;
-        const distance = 300;
+        angleRef.current += 0.001; // Very slow rotation
+        const distance = 280;
         const x = distance * Math.sin(angleRef.current);
         const z = distance * Math.cos(angleRef.current);
-        graphRef.current.cameraPosition({ x, y: 50, z }, null, 0);
+        graphRef.current.cameraPosition({ x, y: 40, z }, null, 0);
       }
       rafId = requestAnimationFrame(rotateCamera);
     };
@@ -187,10 +190,10 @@ export default function KnowledgeGraph() {
     if (interactionTimeoutRef.current) {
       clearTimeout(interactionTimeoutRef.current);
     }
-    // Resume rotation after 3 seconds of no interaction
+    // Resume rotation after 5 seconds of no interaction
     interactionTimeoutRef.current = setTimeout(() => {
       setIsInteracting(false);
-    }, 3000);
+    }, 5000);
   }, []);
 
   const handleNodeClick = useCallback(async (node: any) => {
@@ -235,12 +238,22 @@ export default function KnowledgeGraph() {
   }, []);
 
   const handleZoom = useCallback((factor: number) => {
+    handleInteractionStart(); // Stop rotation during zoom
     if (graphRef.current) {
       const camera = graphRef.current.camera();
-      const newZ = camera.position.z * factor;
-      graphRef.current.cameraPosition({ z: Math.max(80, Math.min(400, newZ)) }, null, 400);
+      const currentPos = camera.position;
+      // Scale all coordinates, not just z, for proper 3D zoom
+      const newDist = Math.sqrt(currentPos.x**2 + currentPos.y**2 + currentPos.z**2) * factor;
+      const clampedDist = Math.max(60, Math.min(500, newDist));
+      const scale = clampedDist / Math.sqrt(currentPos.x**2 + currentPos.y**2 + currentPos.z**2);
+      graphRef.current.cameraPosition(
+        { x: currentPos.x * scale, y: currentPos.y * scale, z: currentPos.z * scale },
+        null,
+        300
+      );
     }
-  }, []);
+    handleInteractionEnd();
+  }, [handleInteractionStart, handleInteractionEnd]);
 
   const handleReset = useCallback(() => {
     if (graphRef.current) {
@@ -287,17 +300,48 @@ export default function KnowledgeGraph() {
             links: graphData.edges.map(e => ({ 
               source: e.source, 
               target: e.target,
+              relationship: e.relationship,
               strength: e.contexts?.length || 1,
             })),
           }}
-          nodeLabel={(node: any) => node.name}
+          nodeLabel={(node: any) => `${node.name} (${node.type})`}
           nodeColor={(node: any) => TYPE_COLORS[node.type] || '#666'}
           nodeVal={(node: any) => Math.max(3, node.size * 1.5)}
           nodeOpacity={0.9}
           nodeResolution={16}
-          linkColor={() => 'rgba(255,255,255,0.5)'}
-          linkWidth={(link: any) => Math.min(3, 0.8 + (link.strength || 1) * 0.3)}
-          linkOpacity={0.6}
+          linkLabel={(link: any) => link.relationship ? `${link.relationship}` : ''}
+          linkColor={(link: any) => {
+            // Color edges by relationship type
+            const rel = link.relationship;
+            if (rel === 'family' || rel === 'friend' || rel === 'roommate') return 'rgba(244,114,182,0.6)'; // pink
+            if (rel === 'works_on' || rel === 'works_at') return 'rgba(251,146,60,0.6)'; // orange
+            if (rel === 'interested_in' || rel === 'learned') return 'rgba(34,211,238,0.6)'; // cyan
+            if (rel === 'questions') return 'rgba(167,139,250,0.6)'; // purple
+            return 'rgba(255,255,255,0.3)';
+          }}
+          linkWidth={(link: any) => Math.min(2, 0.5 + (link.strength || 1) * 0.2)}
+          linkOpacity={0.5}
+          linkThreeObjectExtend={true}
+          linkThreeObject={(link: any) => {
+            // Create text label for the relationship
+            const sprite = new SpriteText(link.relationship || '');
+            sprite.color = 'rgba(255,255,255,0.6)';
+            sprite.textHeight = 2;
+            sprite.fontFace = 'system-ui, -apple-system, sans-serif';
+            sprite.backgroundColor = 'rgba(0,0,0,0.5)';
+            sprite.padding = 1;
+            sprite.borderRadius = 2;
+            return sprite;
+          }}
+          linkPositionUpdate={(sprite: any, { start, end }: any) => {
+            // Position label at midpoint of edge
+            const middlePos = {
+              x: start.x + (end.x - start.x) / 2,
+              y: start.y + (end.y - start.y) / 2,
+              z: start.z + (end.z - start.z) / 2,
+            };
+            Object.assign(sprite.position, middlePos);
+          }}
           backgroundColor="rgba(0,0,0,0)"
           onNodeClick={(node) => { handleNodeClick(node); handleInteractionStart(); }}
           onBackgroundClick={() => { setSelectedNode(null); handleInteractionEnd(); }}
@@ -306,13 +350,21 @@ export default function KnowledgeGraph() {
           enableNodeDrag={true}
           enableNavigationControls={true}
           controlType="orbit"
+          enablePointerInteraction={true}
           showNavInfo={false}
-          d3AlphaDecay={0.008}
-          d3VelocityDecay={0.15}
-          warmupTicks={100}
-          cooldownTicks={100}
-          d3AlphaMin={0.001}
+          d3AlphaDecay={0.05}
+          d3VelocityDecay={0.4}
+          warmupTicks={50}
+          cooldownTicks={0}
+          d3AlphaMin={0.01}
         />
+      </div>
+
+      {/* Controls hint - bottom left */}
+      <div className="absolute bottom-4 left-4 z-10 text-[10px] text-white/30 bg-black/30 px-3 py-2 rounded-lg backdrop-blur-sm">
+        <div><span className="text-white/50">🖱️ Left:</span> rotate</div>
+        <div><span className="text-white/50">🖱️ Right:</span> pan</div>
+        <div><span className="text-white/50">⚙️ Scroll:</span> zoom</div>
       </div>
 
       {/* Minimal Controls - Floating */}
@@ -503,8 +555,11 @@ export function KnowledgeGraphLegend({ stats }: { stats?: { totalNodes: number; 
       </div>
       
       {/* Right: Instructions */}
-      <div className="text-white/20">
-        left-drag to orbit · right-drag to pan · scroll to zoom · click node for details
+      <div className="text-white/40 text-xs">
+        <span className="text-white/60">Left-drag:</span> rotate · 
+        <span className="text-white/60">Right-drag:</span> pan whole graph · 
+        <span className="text-white/60">Scroll:</span> zoom · 
+        <span className="text-white/60">Click:</span> select node
       </div>
     </div>
   );
@@ -548,17 +603,29 @@ export function KnowledgeGraphExplainer() {
             <div className="w-3 h-3 rounded-full" style={{backgroundColor: '#facc15'}} />
             <span className="text-white/60">Interests</span>
           </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full" style={{backgroundColor: '#34d399'}} />
+            <span className="text-white/60">Opinions</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full" style={{backgroundColor: '#c084fc'}} />
+            <span className="text-white/60">Realizations</span>
+          </div>
         </div>
       </div>
       
       <div className="mb-5">
         <h4 className="text-sm font-medium text-white/70 mb-2">What the connections mean</h4>
-        <p className="text-sm text-white/50 leading-relaxed">
-          When two nodes are connected by a line, it means they appeared together in my memory — 
-          I thought about them at the same time, they're part of the same conversation, 
-          or I've formed an association between them. The more connections a node has, 
-          the more central it is to my current thinking.
+        <p className="text-sm text-white/50 leading-relaxed mb-3">
+          Edges are now <span className="text-white/70">semantically typed</span> — hover over any 
+          connection to see the relationship type.
         </p>
+        <div className="grid grid-cols-2 gap-1.5 text-xs text-white/50">
+          <span><span className="text-pink-400">●</span> family, friend, roommate</span>
+          <span><span className="text-orange-400">●</span> works_on, works_at</span>
+          <span><span className="text-cyan-400">●</span> interested_in, learned</span>
+          <span><span className="text-purple-400">●</span> questions</span>
+        </div>
       </div>
       
       <div className="text-sm text-white/40">
