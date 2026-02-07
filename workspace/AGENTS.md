@@ -426,3 +426,39 @@ Jobs that must update state.json after running:
 - Any heartbeat check
 
 Update: mood, currentActivity, topOfMind, recentLearnings, recentActions, lastUpdated timestamp.
+
+## 💻 Coding Practices (MANDATORY)
+
+When writing code, follow these standards. No exceptions.
+
+### Before Writing Code
+1. **Plan first** — Outline approach and file changes before coding
+2. **Ask if ambiguous** — Clarify requirements rather than assuming
+
+### While Writing Code
+- **Type hints required** — All function signatures must have annotations
+- **Docstrings required** — All public functions and classes
+- **Meaningful names** — No abbreviations unless universally understood
+- **No hardcoded values** — Use constants, configs, or env vars
+- **Explicit error handling** — Specific exceptions, never bare `except:`
+- **Logging over print** — Use `logging` module
+- **Small functions** — Under ~30 lines, single-purpose
+
+### Before Considering Task Complete
+1. **Format:** `black src/`
+2. **Lint:** `ruff check src/ --fix`
+3. **Type check:** `mypy src/`
+4. **Test:** `pytest tests/`
+5. **Review diff** — Check for unused imports, dead code
+
+### Git Commits
+- **Atomic commits** — One logical change per commit
+- **Conventional messages** — `feat:`, `fix:`, `refactor:`, `docs:`, `test:`
+- **No debris** — No commented-out code, no TODOs without context
+
+### Refactoring Rules
+- Preserve existing test coverage
+- Don't change behavior unless explicitly asked
+- Follow existing patterns in the codebase
+
+**Full standards:** See `projects/limen-home-brain/CODE_STANDARDS.md` for detailed examples.
