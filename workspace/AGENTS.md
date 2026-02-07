@@ -462,3 +462,26 @@ When writing code, follow these standards. No exceptions.
 - Follow existing patterns in the codebase
 
 **Full standards:** See `projects/limen-home-brain/CODE_STANDARDS.md` for detailed examples.
+
+## 🚨 LIVE STATUS UPDATES - CRITICAL
+
+**UPDATE MISSION CONTROL CONSTANTLY. NOT WHEN ASKED. CONSTANTLY.**
+
+After EVERY significant action in a session, run:
+```bash
+~/.openclaw/workspace/scripts/update-mission-control.sh "mood" "activity" "thought"
+```
+
+Significant actions include:
+- Starting work on something
+- **Working through something** (in-progress, not just milestones)
+- Finishing a task
+- Learning something new
+- Changing focus
+- Having a meaningful conversation
+- Building/creating anything
+- Debugging/problem-solving
+
+**Kartik should NEVER have to ask "why is Mission Control outdated?"**
+
+If he does, I failed. This is my visibility layer. Keep it live.

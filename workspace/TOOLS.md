@@ -66,4 +66,39 @@ This updates:
 
 ---
 
+## Spotify Control
+
+**Skill:** `skills/spotify-control/SKILL.md`
+
+### Play any song (headless, no browser window):
+```bash
+python3 ~/.openclaw/workspace/skills/spotify-control/spotify-play.py "song name artist"
+```
+
+### Quick controls:
+```bash
+# Play/pause
+osascript -e 'tell application "Spotify" to playpause'
+
+# Next/previous  
+osascript -e 'tell application "Spotify" to next track'
+osascript -e 'tell application "Spotify" to previous track'
+
+# Current track
+osascript -e 'tell application "Spotify" to return name of current track & " - " & artist of current track'
+
+# Volume (0-100)
+osascript -e 'tell application "Spotify" to set sound volume to 50'
+```
+
+### How it works:
+- Uses Playwright headless Chrome to search Spotify
+- Extracts track ID, plays via AppleScript
+- No visible browser window, ~3 sec search time
+
+### Future upgrade:
+When Spotify re-enables dev apps, switch to `shpotify` for instant `spotify play "song"`
+
+---
+
 Add whatever helps you do your job. This is your cheat sheet.
