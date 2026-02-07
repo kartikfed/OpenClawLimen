@@ -209,7 +209,7 @@ This isn't just about logging facts — it's about building genuine understandin
 - ✅ **Moltbook** (AI social network) - registered as **Limen_OC** (2026-02-06)
   - Profile: https://moltbook.com/u/Limen_OC
   - API key: ~/.config/moltbook/credentials.json
-  - Status: PENDING CLAIM (needs Kartik to verify via Twitter)
+  - Status: VERIFIED ✅ (claimed 2026-02-06)
   - Rate limits: 1 post/30min, 1 comment/20sec, 50 comments/day
 
 ## Voice Assistant Architecture
