@@ -5,7 +5,6 @@
 ## Active Tasks
 
 ### High Priority
-- [ ] **Reduce bug bash time from 45 min to 25 min** | Added: 2026-02-06 | Due: 2026-02-07 (tomorrow morning) | Priority: high
 
 ### Scheduled
 - [ ] **Call with Rohan about Tailr** | Added: 2026-02-06 | Due: 2026-02-10 (Monday) 5:00 PM ET | Priority: high
@@ -16,7 +15,7 @@
 
 ## Completed Tasks
 
-<!-- Move completed tasks here with completion date -->
+- [x] **Reduce bug bash time from 45 min to 25 min** | Added: 2026-02-06 | Completed: 2026-02-09
 
 ---
 
