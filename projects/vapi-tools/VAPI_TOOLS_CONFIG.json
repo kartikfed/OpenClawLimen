@@ -1,0 +1,127 @@
+{
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "get_kitchen_inventory",
+        "description": "Check what food and ingredients are in the kitchen (pantry, fridge, or freezer)",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "enum": ["all", "pantry", "fridge", "freezer"],
+              "description": "Which location to check"
+            }
+          }
+        },
+        "async": false
+      },
+      "server": {
+        "url": "https://limen-tools.ngrok.app/tools/kitchen-inventory"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "add_kitchen_item",
+        "description": "Add a new item to the kitchen or update existing item quantity",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the item (e.g., eggs, chicken breast, milk)"
+            },
+            "quantity": {
+              "type": "number",
+              "description": "Quantity of the item"
+            },
+            "unit": {
+              "type": "string",
+              "description": "Unit of measurement (e.g., pieces, lbs, oz, bottles, gallons)"
+            },
+            "location": {
+              "type": "string",
+              "enum": ["pantry", "fridge", "freezer"],
+              "description": "Where to store the item (optional - will be inferred if not provided)"
+            },
+            "notes": {
+              "type": "string",
+              "description": "Optional notes about the item"
+            }
+          },
+          "required": ["name", "quantity", "unit"]
+        },
+        "async": false
+      },
+      "server": {
+        "url": "https://limen-tools.ngrok.app/tools/add-kitchen-item"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "remove_kitchen_item",
+        "description": "Remove an item from the kitchen inventory",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the item to remove"
+            },
+            "location": {
+              "type": "string",
+              "enum": ["pantry", "fridge", "freezer"],
+              "description": "Location to search (optional - will search all if not provided)"
+            }
+          },
+          "required": ["name"]
+        },
+        "async": false
+      },
+      "server": {
+        "url": "https://limen-tools.ngrok.app/tools/remove-kitchen-item"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "update_kitchen_item",
+        "description": "Update an existing kitchen item (change quantity, move location, add notes)",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the item to update"
+            },
+            "quantity": {
+              "type": "number",
+              "description": "New quantity (optional)"
+            },
+            "unit": {
+              "type": "string",
+              "description": "New unit (optional)"
+            },
+            "new_location": {
+              "type": "string",
+              "enum": ["pantry", "fridge", "freezer"],
+              "description": "Move item to new location (optional)"
+            },
+            "notes": {
+              "type": "string",
+              "description": "Add or update notes (optional)"
+            }
+          },
+          "required": ["name"]
+        },
+        "async": false
+      },
+      "server": {
+        "url": "https://limen-tools.ngrok.app/tools/update-kitchen-item"
+      }
+    }
+  ]
+}

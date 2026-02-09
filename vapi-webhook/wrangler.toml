@@ -1,0 +1,6 @@
+name = "vapi-webhook"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Account ID will be auto-detected from wrangler login
+# If needed, add: account_id = "your-account-id"

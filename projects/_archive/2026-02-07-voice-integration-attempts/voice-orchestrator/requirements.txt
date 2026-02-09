@@ -1,0 +1,11 @@
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+websockets==12.0
+python-dotenv==1.0.0
+httpx==0.26.0
+python-multipart==0.0.20
+cartesia==2.0.17
+pyyaml
+# audioop is built-in to Python 3.9+
+# Note: No Deepgram SDK needed - using direct websockets
+# Note: cartesia will pull in compatible pydantic version

@@ -1,0 +1,365 @@
+# Kitchen Pantry Inventory
+# Last updated: 2026-02-08 by voice
+# Authorized users: Kartik, Jordan, Arjun
+
+freezer:
+- name: Frozen chicken breast
+  quantity: 10
+  unit: lbs
+- name: Panko chicken (Tyson Costco)
+  quantity: 2
+  unit: lbs
+  notes: half bag remaining
+- name: Atlantic salmon (Costco)
+  quantity: 3
+  unit: lbs
+- name: Frozen strawberries
+  quantity: 1
+  unit: lb
+- name: Shelled edamame
+  quantity: 1
+  unit: lb
+- name: Shredded hash browns
+  quantity: 0.5
+  unit: lb
+- name: Shoestring cut fries
+  quantity: 0.25
+  unit: lb
+- name: Frozen corn
+  quantity: 1
+  unit: lb
+- name: Dog food (Mochi)
+  quantity: 4
+  unit: packs
+  notes: stored in freezer
+fridge:
+- name: Ketchup
+  quantity: 0.5
+  unit: bottle
+- name: Sweet chili Thai sauce
+  quantity: 10
+  unit: oz
+- name: Ginger puree
+  quantity: 2.8
+  unit: oz
+  notes: squeeze bottle
+- name: Shallot
+  quantity: 1
+  unit: piece
+- name: Butter
+  quantity: 5
+  unit: sticks
+- name: Garlic
+  quantity: 1
+  unit: head
+- name: Lime juice
+  quantity: 8
+  unit: oz
+- name: Low sodium soy sauce
+  quantity: 5
+  unit: oz
+  notes: half of 10oz bottle
+- name: Fish sauce
+  quantity: 3.5
+  unit: oz
+  notes: half of 7oz bottle
+- name: Various hot sauces
+  quantity: 10
+  unit: oz
+  notes: assorted
+- name: Vanilla extract
+  quantity: 1.5
+  unit: oz
+- name: Oat milk
+  quantity: 0.25
+  unit: gallon
+  notes: half of half-gallon carton
+- name: Vanilla almond milk
+  quantity: 0.25
+  unit: gallon
+  notes: half of half-gallon carton
+- name: Dijon mustard
+  quantity: 9
+  unit: oz
+- name: Worcestershire sauce
+  quantity: 2.5
+  unit: oz
+  notes: half of 5oz bottle
+- name: Sriracha
+  quantity: 8.5
+  unit: oz
+  notes: half of 17oz bottle
+- name: Dark soy sauce
+  quantity: 8.5
+  unit: oz
+  notes: half of 17oz bottle
+- name: Rice vinegar
+  quantity: 6.5
+  unit: oz
+  notes: half of 13oz bottle
+- name: Red wine vinegar
+  quantity: 17
+  unit: oz
+  notes: full bottle
+- name: Dog food (Mochi)
+  quantity: 1
+  unit: pack
+  notes: currently being eaten
+- name: Eggs
+  quantity: 14
+  unit: pieces
+pantry:
+- name: White vinegar
+  quantity: 64
+  unit: oz
+  notes: basically full
+- name: Baking powder
+  quantity: 3
+  unit: oz
+- name: All-purpose flour
+  quantity: 2.5
+  unit: lbs
+  notes: half of 5lb bag
+- name: Corn starch
+  quantity: 1
+  unit: lb
+- name: Cinnamon pull apart bread mix
+  quantity: 1
+  unit: lb
+  notes: to be used soon
+- name: Arborio risotto rice
+  quantity: 1.5
+  unit: lbs
+  notes: 3/4 of 2lb bag
+- name: Coconut flakes unsweetened
+  quantity: 6
+  unit: oz
+  notes: 3/4 of half-pound bag
+- name: Honey
+  quantity: 1
+  unit: jar
+- name: Cane sugar
+  quantity: 6
+  unit: oz
+  notes: about 1/5 of 2lb bag
+- name: Brown rice
+  quantity: 2
+  unit: lbs
+- name: Granola (Ancient Grains)
+  quantity: 1.5
+  unit: lbs
+  notes: Costco
+- name: Olive oil
+  quantity: 750
+  unit: ml
+  notes: 3/4 of 1 liter bottle
+- name: Ground cardamom
+  quantity: 1.98
+  unit: oz
+  notes: 365 Whole Foods, full jar
+- name: Italian seasoning
+  quantity: 1.5
+  unit: oz
+  notes: M&B Organic
+- name: Ground nutmeg
+  quantity: 2
+  unit: oz
+  notes: Brooklyn Harvest
+- name: Hot chocolate mix
+  quantity: 3.8
+  unit: oz
+  notes: Penzey's
+- name: Saigon cinnamon
+  quantity: 1.78
+  unit: oz
+  notes: Brooklyn Harvest
+- name: Smoked paprika
+  quantity: 1.5
+  unit: spice jars
+  notes: M&B Organic
+- name: Ground cloves
+  quantity: 2.82
+  unit: oz
+  notes: Simply Organic
+- name: Ground chipotle
+  quantity: 2.5
+  unit: oz
+  notes: Badia
+- name: Black pepper
+  quantity: 1
+  unit: grinder
+  notes: Oryx
+- name: Garlic powder
+  quantity: 1.5
+  unit: oz
+  notes: Badia, half full
+- name: Onion powder
+  quantity: 1.4
+  unit: oz
+  notes: Badia, half full
+- name: Dill weed
+  quantity: 0.85
+  unit: oz
+  notes: Wegmans Organic
+- name: Chili powder blend
+  quantity: 2.52
+  unit: oz
+  notes: 365
+- name: Chicken & pork rub
+  quantity: 2.3
+  unit: oz
+  notes: 33rd & Galena (Penzey's)
+- name: Basil leaves
+  quantity: 1
+  unit: oz
+  notes: McCormick
+- name: Turmeric
+  quantity: 1.2
+  unit: oz
+  notes: Simply Organic, half full
+- name: Curry powder
+  quantity: 3
+  unit: oz
+  notes: Simply Organic
+- name: Mushroom umami seasoning
+  quantity: 1.3
+  unit: oz
+  notes: Trader Joe's, 60% full
+- name: Ground coriander
+  quantity: 0.3
+  unit: oz
+  notes: Morton & Bassett, 15% left - LOW
+- name: Ground white pepper
+  quantity: 0.2
+  unit: oz
+  notes: Morton & Bassett, 10% left - LOW
+- name: Mustard powder
+  quantity: 2
+  unit: oz
+  notes: Badia Organic, full
+- name: Sumac
+  quantity: 1.4
+  unit: oz
+  notes: Simply Organic, 60% full
+- name: Herbes de Provence
+  quantity: 0.4
+  unit: oz
+  notes: McCormick Organic, 20% left - LOW
+- name: Saffron
+  quantity: 0.02
+  unit: oz
+  notes: Secret Hint Organic, small jar half empty
+- name: Ground cumin
+  quantity: 1
+  unit: oz
+  notes: Simply Organic, 50% full
+- name: Black pepper (ground)
+  quantity: 0.6
+  unit: oz
+  notes: 30% left - LOW
+- name: Shawarma seasoning
+  quantity: 1.6
+  unit: oz
+  notes: 80% full
+- name: Adobo seasoning
+  quantity: 1
+  unit: oz
+  notes: 50% full
+- name: Sea salt
+  quantity: 1
+  unit: shaker
+- name: Kosher salt
+  quantity: 3
+  unit: lbs
+- name: Seltzer water
+  quantity: 0
+  unit: bottles
+  notes: OUT - need to restock
+- name: Vanilla protein shakes
+  quantity: 2
+  unit: packs
+- name: Greek yogurt (Chobani cups)
+  quantity: 3
+  unit: cups
+  notes: LOW - need more
+- name: Dog treats (Mochi)
+  quantity: 4
+  unit: packs
+  notes: just restocked
+- name: Fennel tea
+  quantity: 1
+  unit: pack
+- name: Classic green tea
+  quantity: 1
+  unit: pack
+- name: English breakfast tea
+  quantity: 1
+  unit: pack
+- name: Lemon ginger echinacea immune tea
+  quantity: 1
+  unit: pack
+- name: Street taco flavored jerky sticks
+  quantity: 0.5
+  unit: bag
+  notes: half bag
+- name: Vodka (handle)
+  quantity: 0
+  unit: bottle
+  notes: OUT - need to restock
+- name: Gin (Hendrix)
+  quantity: 0.33
+  unit: bottle
+  notes: about 1/3 bottle left
+- name: Tequila (handle)
+  quantity: 0.05
+  unit: handle
+  notes: LOW - barely any left
+- name: Peanuts
+  quantity: 10
+  unit: oz
+- name: Apples
+  quantity: 5
+  unit: count
+- name: Bananas
+  quantity: 3
+  unit: count
+- name: Coconut oil
+  quantity: 8.75
+  unit: oz
+  notes: Regular cooking coconut oil
+- name: Sesame oil
+  quantity: 0.06
+  unit: cups
+- name: Crushed red pepper
+  quantity: 0.75
+  unit: spice jar
+- name: Terry Black's beef dry rub
+  quantity: 5.5
+  unit: ounces
+- name: Balsamic vinegar
+  quantity: 6.4
+  unit: fluid ounces
+  notes: Three quarters full of 8.5 fl oz bottle
+- name: Sazon
+  quantity: 1
+  unit: spice jar
+- name: White truffle oil
+  quantity: 3.75
+  unit: fluid ounces
+- name: Furikake
+  quantity: 1
+  unit: oz
+- name: Truffle salt
+  quantity: 0.5
+  unit: spice jar
+- name: Kombu
+  quantity: 1.75
+  unit: oz
+- name: Coconut oil (extra virgin)
+  quantity: 8.75
+  unit: oz
+  notes: Extra virgin, lower smoke point
+- name: garlic
+  quantity: 0
+  unit: bulbs
+  notes: out of stock

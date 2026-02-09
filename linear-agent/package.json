@@ -1,0 +1,13 @@
+{
+  "name": "linear-agent",
+  "version": "1.0.0",
+  "description": "Linear Agent integration for Limen",
+  "main": "worker.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

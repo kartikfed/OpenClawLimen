@@ -1,0 +1,198 @@
+{
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "get_kitchen_inventory",
+        "description": "Check what food and ingredients are in the kitchen (pantry, fridge, or freezer)",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "enum": ["all", "pantry", "fridge", "freezer"],
+              "description": "Which location to check"
+            }
+          }
+        },
+        "async": false
+      },
+      "server": {
+        "url": "https://limen-tools.ngrok.app/tools/kitchen-inventory"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "add_kitchen_item",
+        "description": "Add a new item to the kitchen or update existing item quantity",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the item"
+            },
+            "quantity": {
+              "type": "number",
+              "description": "Quantity of the item"
+            },
+            "unit": {
+              "type": "string",
+              "description": "Unit of measurement"
+            },
+            "location": {
+              "type": "string",
+              "enum": ["pantry", "fridge", "freezer"],
+              "description": "Where to store (optional)"
+            },
+            "notes": {
+              "type": "string",
+              "description": "Optional notes"
+            }
+          },
+          "required": ["name", "quantity", "unit"]
+        },
+        "async": false
+      },
+      "server": {
+        "url": "https://limen-tools.ngrok.app/tools/add-kitchen-item"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "remove_kitchen_item",
+        "description": "Remove an item from the kitchen inventory",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the item to remove"
+            },
+            "location": {
+              "type": "string",
+              "enum": ["pantry", "fridge", "freezer"],
+              "description": "Location to search (optional)"
+            }
+          },
+          "required": ["name"]
+        },
+        "async": false
+      },
+      "server": {
+        "url": "https://limen-tools.ngrok.app/tools/remove-kitchen-item"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "update_kitchen_item",
+        "description": "Update an existing kitchen item",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the item to update"
+            },
+            "quantity": {
+              "type": "number",
+              "description": "New quantity (optional)"
+            },
+            "unit": {
+              "type": "string",
+              "description": "New unit (optional)"
+            },
+            "new_location": {
+              "type": "string",
+              "enum": ["pantry", "fridge", "freezer"],
+              "description": "Move to new location (optional)"
+            },
+            "notes": {
+              "type": "string",
+              "description": "Add or update notes (optional)"
+            }
+          },
+          "required": ["name"]
+        },
+        "async": false
+      },
+      "server": {
+        "url": "https://limen-tools.ngrok.app/tools/update-kitchen-item"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "memory_search",
+        "description": "Search memory files (MEMORY.md and recent daily files) for specific information, facts, or context",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "What to search for (e.g., 'DACS project', 'twin sister', 'job search')"
+            }
+          },
+          "required": ["query"]
+        },
+        "async": false
+      },
+      "server": {
+        "url": "https://limen-tools.ngrok.app/tools/memory-search"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "memory_update",
+        "description": "Add new information to today's memory file during a conversation",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "content": {
+              "type": "string",
+              "description": "Information to remember (what the person told you)"
+            },
+            "section": {
+              "type": "string",
+              "description": "Section title (default: 'Voice Call Notes')"
+            }
+          },
+          "required": ["content"]
+        },
+        "async": false
+      },
+      "server": {
+        "url": "https://limen-tools.ngrok.app/tools/memory-update"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "file_read",
+        "description": "Read specific memory or documentation files (MEMORY.md, SOUL.md, USER.md, daily memory files, docs/)",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string",
+              "description": "Path to file (e.g., 'MEMORY.md', 'memory/2026-02-07.md', 'docs/README.md')"
+            },
+            "max_lines": {
+              "type": "number",
+              "description": "Maximum lines to read (default: 100)"
+            }
+          },
+          "required": ["file_path"]
+        },
+        "async": false
+      },
+      "server": {
+        "url": "https://limen-tools.ngrok.app/tools/file-read"
+      }
+    }
+  ]
+}

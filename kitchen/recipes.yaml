@@ -1,0 +1,50 @@
+# Saved Recipes
+# Parsed from images/text sent by roommates
+# Last updated: 2026-02-07
+
+recipes:
+  - id: miso-labne-onion-dip
+    name: Miso and Labne Onion Dip
+    source: image
+    servings: 2 cups
+    ingredients:
+      - item: olive oil
+        quantity: 0.25
+        unit: cup
+        notes: extra-virgin, plus more as needed
+      - item: yellow onions
+        quantity: 2
+        unit: count
+        notes: thinly sliced
+      - item: kosher salt
+        quantity: 1
+        unit: pinch
+        notes: to taste
+      - item: white miso
+        quantity: 2
+        unit: tbsp
+      - item: red wine vinegar
+        quantity: 1
+        unit: tbsp
+        notes: or aged sherry vinegar
+      - item: labne
+        quantity: 1.5
+        unit: cups
+      - item: onion powder
+        quantity: 1.5
+        unit: tsp
+      - item: fresh chives
+        quantity: 3
+        unit: tbsp
+        notes: minced, plus more for garnish
+      - item: black pepper
+        quantity: 1
+        unit: pinch
+        notes: freshly ground
+      - item: sugar
+        quantity: 1
+        unit: tsp
+        notes: optional
+    added: 2026-02-07
+    last_made: null
+    times_made: 0

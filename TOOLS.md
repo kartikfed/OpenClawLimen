@@ -22,24 +22,79 @@ python3 ~/.openclaw/workspace/skills/grok-social/search.py "query"
 
 ---
 
-## Phone Calls
+## Phone Calls (VAPI)
 
-Make outbound calls via Vapi:
+### Outbound Calls
+
+Make outbound calls with context-aware greetings:
+```bash
+~/.openclaw/workspace/scripts/call.sh <phone> <name> <reason> [context] [recipient_info]
 ```
-~/.openclaw/workspace/scripts/call.sh <phone_number> [reason]
+
+**Arguments:**
+- `phone` — Required. E.164 format (e.g., +13015256653)
+- `name` — Required. Who you're calling
+- `reason` — Required. Why you're calling (affects opening line)
+- `context` — Optional. Relevant info (calendar, todos, etc.)
+- `recipient_info` — Optional. Who they are (for non-Kartik calls)
+
+**Examples:**
+```bash
+# Morning briefing
+call.sh +13015256653 "Kartik" "Morning check-in" "2 meetings, urgent email from Anthropic"
+
+# Urgent
+call.sh +13015256653 "Kartik" "Urgent - recruiter deadline" "Jane Street response due 5pm"
+
+# Follow-up with non-Kartik
+call.sh +15854654046 "Shimon" "Following up" "" "Former Microsoft coworker, on sabbatical"
+
+# Simple check-in
+call.sh +13015256653 "Kartik" "Quick check-in"
 ```
 
-- `phone_number` — required, E.164 format (e.g. +13015256653)
-- `reason` — optional context (stored in call metadata)
+**Auto-generated opening lines:**
+- "morning" or "briefing" → "Hey [name], good morning! Got your day briefing ready."
+- "urgent" or "important" → "Hey [name], something came up I need to tell you about."
+- "follow" → "Hey [name], wanted to follow up on something."
+- Default → "Hey [name], got a minute? Wanted to chat about something."
 
-Examples:
-- `call.sh +13015256653 "Morning check-in, 2 meetings today"`
-- `call.sh +15551234567 "Following up on the interview"`
-- `call.sh +13015256653` (defaults to "Just calling to check in")
-
-**Setup:** API key stored in `~/.openclaw/workspace/secrets/vapi-api-key.txt`
+**Setup:** API key at `~/.openclaw/workspace/secrets/vapi-api-key.txt`
 
 Kartik's number: +13015256653
+
+---
+
+### VAPI Post-Call Webhook (Memory Updates)
+
+**✅ Auto-triggers memory updates after every call**
+
+**How it works:**
+1. Call ends (inbound or outbound)
+2. VAPI sends end-of-call report to webhook
+3. Webhook sends transcript + metadata to me via Telegram
+4. I process it, update MEMORY.md, log in daily file
+
+**Webhook URL:** https://vapi-webhook.krishnankartik70.workers.dev
+**Code:** `~/.openclaw/workspace/vapi-webhook/worker.js`
+**Deploy:** `cd ~/.openclaw/workspace/vapi-webhook && npx wrangler deploy`
+
+**VAPI Dashboard Setup:**
+1. Go to Assistant settings
+2. Set "Server URL" to the webhook URL
+3. Enable `end-of-call-report` events
+
+**Known contacts** (in worker.js `KNOWN_CONTACTS`):
+- +13015256653 (Kartik)
+- +12409884978 (Jordan)
+- +17326475138 (Rishik)
+- +15854654046 (Shimon)
+- +13015006661 (PV)
+- +13013233653 (Sanjay)
+
+**To add new contacts:** Edit `KNOWN_CONTACTS` in worker.js, redeploy.
+
+**Testing:** `~/.openclaw/workspace/vapi-webhook/test-webhook.sh`
 
 ---
 
@@ -68,38 +123,40 @@ This updates:
 
 ---
 
-## Spotify Control
+## Spotify (Web API)
 
-**Skill:** `skills/spotify-control/SKILL.md`
+**Skill:** `skills/spotify-api/SKILL.md`
 
-### Play any song (headless, no browser window):
+### Play a song:
 ```bash
-python3 ~/.openclaw/workspace/skills/spotify-control/spotify-play.py "song name artist"
+python3 ~/.openclaw/workspace/skills/spotify-api/spotify.py play "song name artist"
+```
+
+### Play on a specific device:
+```bash
+python3 ~/.openclaw/workspace/skills/spotify-api/spotify.py play "song name" --device "MacBook Pro"
 ```
 
 ### Quick controls:
 ```bash
-# Play/pause
-osascript -e 'tell application "Spotify" to playpause'
+python3 ~/.openclaw/workspace/skills/spotify-api/spotify.py pause
+python3 ~/.openclaw/workspace/skills/spotify-api/spotify.py resume
+python3 ~/.openclaw/workspace/skills/spotify-api/spotify.py next
+python3 ~/.openclaw/workspace/skills/spotify-api/spotify.py prev
+python3 ~/.openclaw/workspace/skills/spotify-api/spotify.py volume 50
+python3 ~/.openclaw/workspace/skills/spotify-api/spotify.py status
+```
 
-# Next/previous  
-osascript -e 'tell application "Spotify" to next track'
-osascript -e 'tell application "Spotify" to previous track'
-
-# Current track
-osascript -e 'tell application "Spotify" to return name of current track & " - " & artist of current track'
-
-# Volume (0-100)
-osascript -e 'tell application "Spotify" to set sound volume to 50'
+### Device management:
+```bash
+python3 ~/.openclaw/workspace/skills/spotify-api/spotify.py devices
+python3 ~/.openclaw/workspace/skills/spotify-api/spotify.py device "Echo Dot"
 ```
 
 ### How it works:
-- Uses Playwright headless Chrome to search Spotify
-- Extracts track ID, plays via AppleScript
-- No visible browser window, ~3 sec search time
-
-### Future upgrade:
-When Spotify re-enables dev apps, switch to `shpotify` for instant `spotify play "song"`
+- Uses Spotify Web API with OAuth 2.0 (auto-refreshing tokens)
+- Supports multi-device playback (any Spotify Connect device)
+- Requires Spotify Premium for playback control
 
 ---
 
@@ -141,22 +198,40 @@ Add whatever helps you do your job. This is your cheat sheet.
 
 ---
 
-## ElevenLabs Voice Integration (2026-02-07)
+## Linear Integration (Task Management)
 
-**✅ Caller-specific greetings working!**
+**Full agent integration — I appear in Linear as "Limen"**
 
-**Quick reference:**
-- Webhook: https://elevenlabs-webhook.krishnankartik70.workers.dev
-- Code: `~/.openclaw/workspace/elevenlabs-webhook/worker.js`
-- Deploy: `cd ~/.openclaw/workspace/elevenlabs-webhook && npx wrangler deploy`
+### Quick CLI Usage
+```bash
+# List open issues
+python3 ~/.openclaw/workspace/scripts/linear.py list
 
-**Current greetings:**
-- +13015256653 (Kartik) → "Hey Kartik, what's up?"
-- +12409884978 (Jordan) → "Hey Jordan, what's up?"
-- +17326475138 (Rishik) → "Hey Rishik, what's up?"
-- Unknown → "Hey there, what's up?"
+# Create issue
+python3 ~/.openclaw/workspace/scripts/linear.py create "Task title" --priority 2
 
-**📚 Full guide:** `~/.openclaw/workspace/docs/elevenlabs-webhook-guide.md`  
-Comprehensive documentation of what works, what doesn't, and how to debug.
+# Mark done
+python3 ~/.openclaw/workspace/scripts/linear.py done THI-XX
 
-**To add new numbers:** Edit `PHONE_TO_GREETING_NAME` in worker.js, redeploy.
+# Add comment
+python3 ~/.openclaw/workspace/scripts/linear.py comment THI-XX "Progress update"
+```
+
+**Priority levels:** 1=Urgent, 2=High, 3=Medium, 4=Low
+
+### Webhook Notifications
+When someone @mentions me or assigns issues to me in Linear, I receive notifications via Telegram.
+
+**Webhook URL:** https://linear-agent.krishnankartik70.workers.dev/webhook
+
+### When I Update Linear Autonomously
+- When Kartik mentions a task → create issue
+- When I complete something → mark done + comment
+- When blocked/waiting → update status
+- When discovering sub-tasks → create linked issues
+- When priority changes → update issue
+
+### Workspace Info
+- **Team:** Thicc LLC
+- **Agent ID:** 0b19adc9-9a91-4eca-943a-c469a5a6c45b
+- **View issues:** https://linear.app/thicc-llc

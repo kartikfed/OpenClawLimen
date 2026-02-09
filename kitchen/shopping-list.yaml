@@ -1,0 +1,11 @@
+# Current Shopping List
+# Items to buy (not tied to a specific recipe)
+# Last updated: 2026-02-07
+
+items:
+  - name: granola
+    quantity: 1
+    unit: lb
+    added_by: Jordan
+    added: 2026-02-07
+    notes: null

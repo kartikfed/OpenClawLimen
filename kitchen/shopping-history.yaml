@@ -1,0 +1,13 @@
+# Shopping History
+# Record of shopping trips and what was bought
+# Last updated: 2026-02-07
+
+trips: []
+# Trip schema:
+#   id: string
+#   date: date
+#   for_recipes: list of recipe names (or null if general restock)
+#   items_needed: list of {item, quantity, unit}
+#   items_bought: list of {item, quantity, unit, price} (from receipt)
+#   receipt_image: string (path or null)
+#   notes: string

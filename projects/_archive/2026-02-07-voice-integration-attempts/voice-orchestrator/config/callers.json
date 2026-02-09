@@ -1,0 +1,18 @@
+{
+  "+13015256653": {
+    "name": "Kartik",
+    "greeting": "Hey Kartik, what's up?"
+  },
+  "+12409884978": {
+    "name": "Jordan",
+    "greeting": "Hey Jordan, what's up?"
+  },
+  "+17326475138": {
+    "name": "Rishik",
+    "greeting": "Hey Rishik, what's up?"
+  },
+  "default": {
+    "name": "there",
+    "greeting": "Hey there, what's up?"
+  }
+}
