@@ -55,7 +55,38 @@ Links to concept notes as they emerge:
 
 | Date | Focus | Key Learnings |
 |------|-------|---------------|
-| [2026-02-08](./sessions/2026-02-08.md) | Project kickoff, scoping | — |
+| [2026-02-08](./sessions/2026-02-08.md) | Kickoff + Foundations | Agent definition, ReAct pattern, Tools |
+
+---
+
+## Current Status
+
+**Last session:** 2026-02-08
+**Concepts locked:** 3 (Agent basics, ReAct, Tools)
+**Next:** Multi-agent patterns → Architecture design → Build M1
+
+---
+
+## 🚀 Resume Protocol (for next session)
+
+When Kartik says "let's continue the research agent project":
+
+### Step 1: Quick Review (5 min)
+Confirm retention of locked concepts with quick questions:
+
+1. "What's the key difference between a basic LLM and an agent?"
+   - Expected: Loop (observe-act), goal-directed, tools, autonomy
+
+2. "What does ReAct stand for and why does the Thought step matter?"
+   - Expected: Reasoning + Acting; metacognition, debuggability, context continuity
+
+3. "What makes a good tool definition?"
+   - Expected: Not just WHAT but WHEN; description is a contract; semantics matter
+
+### Step 2: Continue Where We Left Off
+- Next concept: Multi-agent patterns (delegation, orchestration)
+- Then: Design research agent architecture together
+- Then: Build M1 (basic search + summarize)
 
 ---
 
