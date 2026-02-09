@@ -57,21 +57,72 @@ Book grooming appointments for Mochi at Now You're Clean.
 
 ## Booking Flow
 
+### Step 0: Use Isolated Browser
+Use `profile="openclaw"` for all grooming bookings — keeps it separate from Kartik's Chrome.
+
+```
+browser action=start profile=openclaw
+browser action=open profile=openclaw targetUrl="https://www.nowyoureclean.com/pages/groomer-booking"
+```
+
+### Step 1: Find Available Slots
 1. Navigate to https://www.nowyoureclean.com/pages/groomer-booking
 2. Verify logged in as Kartik (if not, go to /account and check)
 3. Select package (Bath Package default)
-4. Fill dog details:
-   - Select "Mochi" from saved dogs
-   - Verify weight/matting/coat settings
-   - Check add-on boxes per configuration
-5. Click Next → Confirm Details → Confirm
-6. Select location (Williamsburg default)
-7. Select groomer (first available or specified)
-8. Select date (earliest or specified)
-9. Select time slot
-10. Apply promo code if active
-11. Accept terms, Complete Booking
-12. Verify "Appointment Created Successfully"
+4. Fill dog details, select add-ons
+5. Browse available dates/times at preferred location
+
+### Step 2: Confirm with Buttons (REQUIRED)
+
+Before completing any booking, send a confirmation message with buttons:
+
+```
+🐕 **Mochi Grooming Appointment**
+
+📍 **Location:** NYC Williamsburg (228 Berry St)
+📅 **Date:** Saturday, Feb 15, 2026
+🕐 **Time:** 2:30 PM
+✂️ **Groomer:** Tati
+
+**Services:**
+• Bath Package ($89)
+• Nail Grinding ($10)
+• Berry Facial ($10)  
+• Whitening Treatment ($10)
+
+💰 **Total:** ~$119 + tax
+
+Book this appointment?
+```
+
+Use inline buttons:
+```json
+{
+  "buttons": [[
+    {"text": "🐕 Confirm", "callback_data": "mochi_book_confirm"},
+    {"text": "❌ Change", "callback_data": "mochi_book_change"}
+  ]]
+}
+```
+
+### Step 3: Handle Response
+
+**If user clicks "🐕 Confirm"** (message matches `mochi_book_confirm`):
+- Complete the booking on the website
+- Apply promo code if active
+- Accept terms, click Complete Booking
+- Verify "Appointment Created Successfully"
+- Send confirmation: "✅ Booked! Confirmation email sent to krishnankartik70@gmail.com"
+
+**If user clicks "❌ Change"** (message matches `mochi_book_change`):
+- Ask: "What would you like to change? (date/time, location, services, groomer)"
+- Adjust based on response and show new confirmation with buttons
+
+### Step 4: Completion
+1. Apply promo code if active
+2. Accept terms, Complete Booking
+3. Verify "Appointment Created Successfully"
+4. Report success with appointment details
 
 ## Account Details
 - **Website:** nowyoureclean.com
