@@ -1,0 +1,19 @@
+# Concepts
+
+As concepts emerge from learning projects, I'll document them here.
+
+Each concept note will include:
+- What it is (simple explanation)
+- Why it matters
+- How Kartik encountered it (which project)
+- Code examples from our builds
+- Kartik's questions and evolving understanding
+
+---
+
+*Concepts to expect from Research Agent project:*
+- Multi-agent orchestration
+- Tool use patterns
+- Information synthesis
+- Agent delegation
+- Self-evaluation / critique
