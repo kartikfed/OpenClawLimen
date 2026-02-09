@@ -20,7 +20,7 @@ Kartik's hands-on learning projects. Each project teaches concepts by building s
 
 | Project | Status | Concepts | Started |
 |---------|--------|----------|---------|
-| [Research Agent](./research-agent/) | 🟡 Starting | Multi-agent, tool use, orchestration | 2026-02-08 |
+| [Research Agent](./research-agent/) | 🟢 M1-M3 Complete | ReAct, tool use, multi-step research | 2026-02-08 |
 
 ## Completed Projects
 

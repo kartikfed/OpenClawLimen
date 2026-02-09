@@ -20,9 +20,9 @@
 
 ## Milestones
 
-- [ ] **M1:** Basic agent that can search + summarize a single topic
-- [ ] **M2:** Multi-step research (follow-up searches based on initial findings)
-- [ ] **M3:** Source tracking and citation
+- [x] **M1:** Basic agent that can search + summarize a single topic ✅ *Built 2026-02-09*
+- [x] **M2:** Multi-step research (follow-up searches based on initial findings) ✅ *Built 2026-02-09*
+- [x] **M3:** Source tracking and citation ✅ *Built 2026-02-09*
 - [ ] **M4:** Integration with Limen (delegation pattern)
 - [ ] **M5:** Quality evaluation (self-critique, confidence scores)
 
