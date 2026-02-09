@@ -11,7 +11,7 @@ MOOD="$1"
 ACTIVITY="$2"
 THOUGHT="$3"
 THOUGHT_TYPE="${4:-thought}"
-TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%S-05:00")
+TIMESTAMP=$(date +"%Y-%m-%dT%H:%M:%S%z" | sed 's/\([0-9][0-9]\)$/:\1/')
 TIMESTAMP_DISPLAY=$(date +"%H:%M")
 
 # Validate inputs
