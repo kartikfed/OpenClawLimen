@@ -420,27 +420,65 @@ export async function buildKnowledgeGraph() {
     }
   };
   
-  // Parse MEMORY.md
-  const memoryMd = await parseMarkdownFile(path.join(WORKSPACE, 'MEMORY.md'), 'memory');
+  // === PARALLEL PHASE: Read all files and extract entities concurrently ===
+
+  // Kick off MEMORY.md and SOUL.md
+  const memoryMdPromise = parseMarkdownFile(path.join(WORKSPACE, 'MEMORY.md'), 'memory');
+  const soulMdPromise = parseMarkdownFile(path.join(WORKSPACE, 'SOUL.md'), 'memory');
+
+  // Kick off daily memory files
+  const memoryDir = path.join(WORKSPACE, 'memory');
+  let dailyFilePromises = [];
+  let dailyDates = [];
+  if (existsSync(memoryDir)) {
+    const files = await fs.readdir(memoryDir);
+    const mdFiles = files.filter(f => f.match(/^\d{4}-\d{2}-\d{2}\.md$/)).sort().reverse().slice(0, 7);
+    dailyDates = mdFiles.map(f => f.replace('.md', ''));
+    dailyFilePromises = mdFiles.map(file => parseMarkdownFile(path.join(memoryDir, file), 'date'));
+  }
+
+  // Kick off state.json extraction
+  const statePath = path.join(WORKSPACE, 'state.json');
+  let statePromise = Promise.resolve(null);
+  if (existsSync(statePath)) {
+    statePromise = (async () => {
+      try {
+        const state = JSON.parse(await fs.readFile(statePath, 'utf-8'));
+        const stateText = [
+          state.topOfMind?.join('\n'),
+          state.recentLearnings?.join('\n'),
+          state.questionsOnMyMind?.join('\n'),
+        ].filter(Boolean).join('\n\n');
+        if (stateText) {
+          return await extractEntitiesWithLLM(stateText, 'state.json (current thoughts)');
+        }
+      } catch (err) {
+        console.error('Error parsing state.json:', err.message);
+      }
+      return null;
+    })();
+  }
+
+  // Wait for ALL extractions to complete in parallel
+  const [memoryMd, soulMd, ...dailyFiles] = await Promise.all([
+    memoryMdPromise,
+    soulMdPromise,
+    ...dailyFilePromises,
+  ]);
+  const stateExtracted = await statePromise;
+
+  // === SEQUENTIAL PHASE: Build graph from extracted data ===
+
+  // Process MEMORY.md
   if (memoryMd) {
     const memoryNode = addNode('Long-term Memory', 'memory', { preview: memoryMd.preview });
-    
-    // Add entities from LLM extraction
     for (const entity of memoryMd.entities) {
       const entityNode = addNode(entity.name, entity.type);
       addEdge(memoryNode, entityNode, 'contains', entity.context, entity.source);
     }
-    
-    // Add relationships from LLM extraction
     for (const rel of memoryMd.relationships) {
-      // Find or create the nodes
-      const fromEntity = memoryMd.entities.find(e => 
-        e.name.toLowerCase() === rel.from.toLowerCase()
-      );
-      const toEntity = memoryMd.entities.find(e => 
-        e.name.toLowerCase() === rel.to.toLowerCase()
-      );
-      
+      const fromEntity = memoryMd.entities.find(e => e.name.toLowerCase() === rel.from.toLowerCase());
+      const toEntity = memoryMd.entities.find(e => e.name.toLowerCase() === rel.to.toLowerCase());
       if (fromEntity && toEntity) {
         const fromId = getNodeId(fromEntity.name, fromEntity.type);
         const toId = getNodeId(toEntity.name, toEntity.type);
@@ -450,17 +488,14 @@ export async function buildKnowledgeGraph() {
       }
     }
   }
-  
-  // Parse SOUL.md for identity concepts
-  const soulMd = await parseMarkdownFile(path.join(WORKSPACE, 'SOUL.md'), 'memory');
+
+  // Process SOUL.md
   if (soulMd) {
     const soulNode = addNode('Core Identity', 'memory', { preview: soulMd.preview });
-    
     for (const entity of soulMd.entities) {
       const entityNode = addNode(entity.name, entity.type);
       addEdge(soulNode, entityNode, 'defines', entity.context, entity.source);
     }
-    
     for (const rel of soulMd.relationships) {
       const fromEntity = soulMd.entities.find(e => e.name.toLowerCase() === rel.from.toLowerCase());
       const toEntity = soulMd.entities.find(e => e.name.toLowerCase() === rel.to.toLowerCase());
@@ -473,64 +508,38 @@ export async function buildKnowledgeGraph() {
       }
     }
   }
-  
-  // Parse daily memory files (last 7 days)
-  const memoryDir = path.join(WORKSPACE, 'memory');
-  if (existsSync(memoryDir)) {
-    const files = await fs.readdir(memoryDir);
-    const mdFiles = files.filter(f => f.match(/^\d{4}-\d{2}-\d{2}\.md$/)).sort().reverse().slice(0, 7);
-    
-    for (const file of mdFiles) {
-      const date = file.replace('.md', '');
-      const parsed = await parseMarkdownFile(path.join(memoryDir, file), 'date');
-      
-      if (parsed) {
-        const dateNode = addNode(date, 'date', { preview: parsed.preview });
-        
-        for (const entity of parsed.entities) {
-          const entityNode = addNode(entity.name, entity.type);
-          addEdge(dateNode, entityNode, 'recorded_on', entity.context, file);
-        }
-        
-        for (const rel of parsed.relationships) {
-          const fromEntity = parsed.entities.find(e => e.name.toLowerCase() === rel.from.toLowerCase());
-          const toEntity = parsed.entities.find(e => e.name.toLowerCase() === rel.to.toLowerCase());
-          if (fromEntity && toEntity) {
-            const fromId = getNodeId(fromEntity.name, fromEntity.type);
-            const toId = getNodeId(toEntity.name, toEntity.type);
-            if (fromId !== undefined && toId !== undefined) {
-              addEdge(fromId, toId, rel.type, rel.context, rel.source);
-            }
+
+  // Process daily memory files
+  dailyFiles.forEach((parsed, idx) => {
+    if (parsed) {
+      const date = dailyDates[idx];
+      const dateNode = addNode(date, 'date', { preview: parsed.preview });
+      for (const entity of parsed.entities) {
+        const entityNode = addNode(entity.name, entity.type);
+        addEdge(dateNode, entityNode, 'recorded_on', entity.context, entity.source);
+      }
+      for (const rel of parsed.relationships) {
+        const fromEntity = parsed.entities.find(e => e.name.toLowerCase() === rel.from.toLowerCase());
+        const toEntity = parsed.entities.find(e => e.name.toLowerCase() === rel.to.toLowerCase());
+        if (fromEntity && toEntity) {
+          const fromId = getNodeId(fromEntity.name, fromEntity.type);
+          const toId = getNodeId(toEntity.name, toEntity.type);
+          if (fromId !== undefined && toId !== undefined) {
+            addEdge(fromId, toId, rel.type, rel.context, rel.source);
           }
         }
       }
     }
-  }
-  
-  // Parse state.json for current thoughts
-  const statePath = path.join(WORKSPACE, 'state.json');
-  if (existsSync(statePath)) {
-    try {
-      const state = JSON.parse(await fs.readFile(statePath, 'utf-8'));
-      const stateText = [
-        state.topOfMind?.join('\n'),
-        state.recentLearnings?.join('\n'),
-        state.questionsOnMyMind?.join('\n'),
-      ].filter(Boolean).join('\n\n');
-      
-      if (stateText) {
-        const stateExtracted = await extractEntitiesWithLLM(stateText, 'state.json (current thoughts)');
-        
-        for (const entity of stateExtracted.entities) {
-          const entityNode = addNode(entity.name, entity.type);
-          const node = nodes.find(n => n.id === entityNode);
-          if (node && entity.context) {
-            node.contexts.push({ text: entity.context, source: 'Currently thinking about' });
-          }
-        }
+  });
+
+  // Process state.json entities
+  if (stateExtracted) {
+    for (const entity of stateExtracted.entities) {
+      const entityNode = addNode(entity.name, entity.type);
+      const node = nodes.find(n => n.id === entityNode);
+      if (node && entity.context) {
+        node.contexts.push({ text: entity.context, source: 'Currently thinking about' });
       }
-    } catch (err) {
-      console.error('Error parsing state.json:', err.message);
     }
   }
   
@@ -565,9 +574,33 @@ export async function buildKnowledgeGraph() {
       });
   });
   
+  // Restore cached node positions for instant layout (skip simulation churn)
+  const positionsPath = path.join(CACHE_DIR, '_node_positions.json');
+  try {
+    if (existsSync(positionsPath)) {
+      const saved = JSON.parse(await fs.readFile(positionsPath, 'utf-8'));
+      const posMap = new Map(saved.map(p => [p.key, p]));
+      nodes.forEach(node => {
+        const key = `${node.type}:${node.name.toLowerCase()}`;
+        const pos = posMap.get(key);
+        if (pos) {
+          node.x = pos.x;
+          node.y = pos.y;
+          node.z = pos.z;
+          node.fx = pos.x; // pin position so simulation converges instantly
+          node.fy = pos.y;
+          node.fz = pos.z;
+        }
+      });
+      console.log(`[KG] Restored ${posMap.size} cached node positions`);
+    }
+  } catch (err) {
+    // No positions cached yet — that's fine, first build will generate them
+  }
+
   console.log(`[KG] Built graph: ${nodes.length} nodes, ${edges.length} edges`);
-  
-  return {
+
+  const result = {
     nodes,
     edges,
     stats: {
@@ -589,6 +622,29 @@ export async function buildKnowledgeGraph() {
     generatedAt: new Date().toISOString(),
     version: '2.0-llm',
   };
+
+  return result;
+}
+
+/**
+ * Save node positions after the frontend has settled them.
+ * Called by the server to persist layout between rebuilds.
+ */
+export async function saveNodePositions(nodes) {
+  try {
+    await ensureCacheDir();
+    const positionsPath = path.join(CACHE_DIR, '_node_positions.json');
+    const positions = nodes.map(n => ({
+      key: `${n.type}:${n.name.toLowerCase()}`,
+      x: n.x || 0,
+      y: n.y || 0,
+      z: n.z || 0,
+    }));
+    await fs.writeFile(positionsPath, JSON.stringify(positions));
+    console.log(`[KG] Saved ${positions.length} node positions to cache`);
+  } catch (err) {
+    console.error('[KG] Failed to save positions:', err.message);
+  }
 }
 
 /**

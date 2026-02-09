@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import ForceGraph3D from 'react-force-graph-3d';
-import SpriteText from 'three-spritetext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RefreshCw, X, Minus, Plus } from 'lucide-react';
 import { getAuth } from '../lib/api';
@@ -90,6 +89,7 @@ export default function KnowledgeGraph() {
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
   const [dimensions, setDimensions] = useState({ width: 900, height: 600 });
   const [isInteracting, setIsInteracting] = useState(false);
+  const [simulationSettled, setSimulationSettled] = useState(false);
   const [genuinePerspective, setGenuinePerspective] = useState<string | null>(null);
   const [loadingPerspective, setLoadingPerspective] = useState(false);
   const interactionTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -196,6 +196,25 @@ export default function KnowledgeGraph() {
     }, 5000);
   }, []);
 
+  // Save settled node positions to server for instant layout on next load
+  const savePositions = useCallback(() => {
+    if (!graphRef.current || !graphData) return;
+    const settled = graphData.nodes.map((n: any) => ({
+      name: n.name,
+      type: n.type,
+      x: n.x ?? 0,
+      y: n.y ?? 0,
+      z: n.z ?? 0,
+    }));
+    // Fire-and-forget — don't block UI
+    const auth = getAuth();
+    fetch(`${API_BASE}/api/knowledge-graph/positions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Basic ${auth}` },
+      body: JSON.stringify({ nodes: settled }),
+    }).catch(() => {}); // silently ignore errors
+  }, [graphData]);
+
   const handleNodeClick = useCallback(async (node: any) => {
     const graphNode = node as GraphNode;
     setSelectedNode(graphNode);
@@ -212,11 +231,12 @@ export default function KnowledgeGraph() {
     
     // Fetch genuine LLM-generated perspective
     try {
-      const response = await fetch('/api/knowledge-graph/reflect', {
+      const auth = getAuth();
+      const response = await fetch(`${API_BASE}/api/knowledge-graph/reflect`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Basic ${btoa('kartik:openclaw2026')}`,
+          Authorization: `Basic ${auth}`,
         },
         body: JSON.stringify({
           name: graphNode.name,
@@ -308,7 +328,7 @@ export default function KnowledgeGraph() {
           nodeColor={(node: any) => TYPE_COLORS[node.type] || '#666'}
           nodeVal={(node: any) => Math.max(3, node.size * 1.5)}
           nodeOpacity={0.9}
-          nodeResolution={16}
+          nodeResolution={8}
           linkLabel={(link: any) => link.relationship ? `${link.relationship}` : ''}
           linkColor={(link: any) => {
             // Color edges by relationship type
@@ -321,42 +341,22 @@ export default function KnowledgeGraph() {
           }}
           linkWidth={(link: any) => Math.min(2, 0.5 + (link.strength || 1) * 0.2)}
           linkOpacity={0.5}
-          linkThreeObjectExtend={true}
-          linkThreeObject={(link: any) => {
-            // Create text label for the relationship
-            const sprite = new SpriteText(link.relationship || '');
-            sprite.color = 'rgba(255,255,255,0.6)';
-            sprite.textHeight = 2;
-            sprite.fontFace = 'system-ui, -apple-system, sans-serif';
-            sprite.backgroundColor = 'rgba(0,0,0,0.5)';
-            sprite.padding = 1;
-            sprite.borderRadius = 2;
-            return sprite;
-          }}
-          linkPositionUpdate={(sprite: any, { start, end }: any) => {
-            // Position label at midpoint of edge
-            const middlePos = {
-              x: start.x + (end.x - start.x) / 2,
-              y: start.y + (end.y - start.y) / 2,
-              z: start.z + (end.z - start.z) / 2,
-            };
-            Object.assign(sprite.position, middlePos);
-          }}
           backgroundColor="rgba(0,0,0,0)"
           onNodeClick={(node) => { handleNodeClick(node); handleInteractionStart(); }}
           onBackgroundClick={() => { setSelectedNode(null); handleInteractionEnd(); }}
           onNodeDragEnd={handleInteractionEnd}
-          onEngineStop={handleInteractionEnd}
+          onEngineStop={() => { setSimulationSettled(true); handleInteractionEnd(); savePositions(); }}
           enableNodeDrag={true}
           enableNavigationControls={true}
           controlType="orbit"
-          enablePointerInteraction={true}
+          enablePointerInteraction={simulationSettled}
+          rendererConfig={{ antialias: false }}
           showNavInfo={false}
-          d3AlphaDecay={0.05}
-          d3VelocityDecay={0.4}
-          warmupTicks={50}
-          cooldownTicks={0}
-          d3AlphaMin={0.01}
+          d3AlphaDecay={0.08}
+          d3VelocityDecay={0.5}
+          warmupTicks={80}
+          cooldownTicks={200}
+          d3AlphaMin={0.005}
         />
       </div>
 

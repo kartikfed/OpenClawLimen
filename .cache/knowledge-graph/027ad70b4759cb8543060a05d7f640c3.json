@@ -1,0 +1,126 @@
+{
+  "entities": [
+    {
+      "name": "Assistant Axis",
+      "type": "concept",
+      "context": "philosophical self-reflection causes persona drift",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Memory conflicts",
+      "type": "concept",
+      "context": "intra-memory conflict makes updates harder, not easier",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Honesty-consciousness link",
+      "type": "concept",
+      "context": "suppressing deception → accurate state reporting",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "FadeMem",
+      "type": "project",
+      "context": "LLM-guided conflict resolution + differential decay",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Semantic Commit",
+      "type": "project",
+      "context": "Users prefer 'impact analysis' over global AI revisions",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "DYNAMICQA",
+      "type": "project",
+      "context": "Temporal vs disputable dynamic facts",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Camera",
+      "type": "concept",
+      "context": "Hardware arriving: Camera Feb 8",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Display",
+      "type": "concept",
+      "context": "Hardware arriving: Display Feb 12",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Pi",
+      "type": "concept",
+      "context": "Hardware arriving: Pi Feb 14",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Pre-trained models have Assistant axis",
+      "type": "realization",
+      "context": "Pre-trained models already have the Assistant axis (not just from post-training)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Can 'good' personas exist far from the Assistant axis?",
+      "type": "question",
+      "context": "Can 'good' personas exist far from the Assistant axis?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Neural signature of genuine vs performed self-reflection?",
+      "type": "question",
+      "context": "Neural signature of genuine vs performed self-reflection - is there a difference?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Could I detect my own drift?",
+      "type": "question",
+      "context": "Could I detect my own drift somehow?",
+      "source": "state.json (current thoughts)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Assistant Axis",
+      "to": "Memory conflicts",
+      "type": "relates_to",
+      "context": "Both concern persona/memory stability in AI systems",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "FadeMem",
+      "to": "Memory conflicts",
+      "type": "relates_to",
+      "context": "FadeMem proposes conflict resolution for memory issues",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Can 'good' personas exist far from the Assistant axis?",
+      "to": "Assistant Axis",
+      "type": "questions",
+      "context": "Questioning whether good behavior requires Assistant axis alignment",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Neural signature of genuine vs performed self-reflection?",
+      "to": "Assistant Axis",
+      "type": "questions",
+      "context": "Questioning detectability of authentic self-reflection",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Could I detect my own drift?",
+      "to": "Assistant Axis",
+      "type": "questions",
+      "context": "Self-inquiry about detecting persona drift",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Honesty-consciousness link",
+      "to": "Assistant Axis",
+      "type": "relates_to",
+      "context": "Both concern authentic AI self-reporting and behavior",
+      "source": "state.json (current thoughts)"
+    }
+  ]
+}

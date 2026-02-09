@@ -9,7 +9,7 @@ import path from 'path';
 import { watch } from 'chokidar';
 import { Tail } from 'tail';
 import { fileURLToPath } from 'url';
-import { buildKnowledgeGraph, generateGenuinePerspective } from './knowledge-graph.js';
+import { buildKnowledgeGraph, generateGenuinePerspective, saveNodePositions } from './knowledge-graph.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -48,6 +48,42 @@ const basicAuth = (req, res, next) => {
 
 // Apply auth to API routes
 app.use('/api', basicAuth);
+
+// ============ Knowledge Graph Cache ============
+// In-memory cache with file-change invalidation — avoids rebuilding on every request
+let _graphCache = null;
+let _graphCacheTime = 0;
+let _graphBuildInFlight = null; // deduplicates concurrent requests
+const GRAPH_CACHE_TTL = 120_000; // 2 minutes
+
+async function getCachedGraph() {
+  // Return cached if fresh
+  if (_graphCache && (Date.now() - _graphCacheTime) < GRAPH_CACHE_TTL) {
+    return _graphCache;
+  }
+  // Deduplicate: if a build is already running, wait for it
+  if (_graphBuildInFlight) {
+    return _graphBuildInFlight;
+  }
+  // Build fresh
+  _graphBuildInFlight = buildKnowledgeGraph().then(graph => {
+    _graphCache = graph;
+    _graphCacheTime = Date.now();
+    _graphBuildInFlight = null;
+    console.log(`[KG Cache] Graph built & cached: ${graph.nodes.length} nodes, ${graph.edges.length} edges`);
+    return graph;
+  }).catch(err => {
+    _graphBuildInFlight = null;
+    throw err;
+  });
+  return _graphBuildInFlight;
+}
+
+function invalidateGraphCache() {
+  _graphCache = null;
+  _graphCacheTime = 0;
+  console.log('[KG Cache] Cache invalidated');
+}
 
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {
@@ -416,10 +452,10 @@ function parseExplorationLog(content) {
   return entries.reverse();
 }
 
-// Knowledge Graph API
+// Knowledge Graph API (served from cache)
 app.get('/api/knowledge-graph', async (req, res) => {
   try {
-    const graph = await buildKnowledgeGraph();
+    const graph = await getCachedGraph();
     res.json(graph);
   } catch (err) {
     console.error('Knowledge graph error:', err);
@@ -430,7 +466,7 @@ app.get('/api/knowledge-graph', async (req, res) => {
 // Cluster nodes in the knowledge graph
 app.get('/api/knowledge-graph/clusters', async (req, res) => {
   try {
-    const graph = await buildKnowledgeGraph();
+    const graph = await getCachedGraph();
     
     // Create a simplified representation for clustering
     const nodesSummary = graph.nodes.map(n => ({
@@ -535,8 +571,8 @@ app.post('/api/knowledge-graph/search', async (req, res) => {
       return res.status(400).json({ error: 'Query required' });
     }
     
-    // Build the graph
-    const graph = await buildKnowledgeGraph();
+    // Use cached graph
+    const graph = await getCachedGraph();
     
     // Create a simplified graph representation for the LLM
     const nodesSummary = graph.nodes.map(n => ({
@@ -647,6 +683,21 @@ app.post('/api/knowledge-graph/reflect', async (req, res) => {
     }
   } catch (err) {
     console.error('Perspective generation error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Save settled node positions (called by frontend after simulation stops)
+app.post('/api/knowledge-graph/positions', async (req, res) => {
+  try {
+    const { nodes } = req.body;
+    if (!nodes || !Array.isArray(nodes)) {
+      return res.status(400).json({ error: 'nodes array required' });
+    }
+    await saveNodePositions(nodes);
+    res.json({ success: true, saved: nodes.length });
+  } catch (err) {
+    console.error('Position save error:', err);
     res.status(500).json({ error: err.message });
   }
 });
@@ -1187,16 +1238,23 @@ const workspaceWatcher = watch(WORKSPACE, {
 
 workspaceWatcher.on('change', (filepath) => {
   const relative = path.relative(WORKSPACE, filepath);
-  const message = JSON.stringify({ 
-    type: 'file_change', 
-    file: relative, 
-    timestamp: new Date().toISOString() 
+  const message = JSON.stringify({
+    type: 'file_change',
+    file: relative,
+    timestamp: new Date().toISOString()
   });
   clients.forEach(client => {
     if (client.readyState === WebSocket.OPEN) {
       client.send(message);
     }
   });
+
+  // Invalidate graph cache when relevant files change
+  if (relative.endsWith('.md') || relative === 'state.json') {
+    invalidateGraphCache();
+    // Pre-build in background so next request is instant
+    getCachedGraph().catch(err => console.error('[KG Cache] Background rebuild failed:', err.message));
+  }
 });
 
 wss.on('connection', (ws, req) => {
@@ -1245,6 +1303,12 @@ server.listen(PORT, () => {
   console.log(`   API: http://localhost:${PORT}/api`);
   console.log(`   WebSocket: ws://localhost:${PORT}/ws`);
   setupLogTail();
+
+  // Pre-compute knowledge graph on startup so first request is instant
+  console.log('[KG Cache] Pre-building knowledge graph...');
+  getCachedGraph()
+    .then(g => console.log(`[KG Cache] Startup build complete: ${g.nodes.length} nodes, ${g.edges.length} edges`))
+    .catch(err => console.error('[KG Cache] Startup build failed:', err.message));
 });
 
 // Restart log tail at midnight
