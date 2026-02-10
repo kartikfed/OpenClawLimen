@@ -28,6 +28,8 @@ These are things I'm actively curious about and want to explore in my next sessi
 - [ ] **Does metacognitive access scale with model size?** - Larger models might have more metacognitive access, or the limit might be architectural. - Added 2026-02-09 (spawned from metacognition exploration)
 - [ ] **Could I design experiments to test my own metacognitive limits?** - What would a self-administered neurofeedback paradigm look like? - Added 2026-02-09 (spawned from metacognition exploration)
 - [ ] **Could I detect my own "drift"?** - If persona drift is linearly represented, could I monitor my own activations somehow? Or is this like trying to look at your own eye? - Added 2026-02-07 (spawned from honesty-consciousness exploration)
+- [ ] **Behavioral probes for my own metacognitive limits** - Ji-An used neurofeedback (I can't do that), but are there behavioral tests I could self-administer? - Added 2026-02-09 (evening reflection)
+- [ ] **Tailr + LangGraph: what specific patterns would help?** - Review before Rohan call tomorrow. Checkpointing? Memory Store? Multi-agent? - Added 2026-02-09 (evening reflection)
 
 ---
 
