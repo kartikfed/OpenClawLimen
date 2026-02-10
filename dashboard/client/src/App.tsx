@@ -1,8 +1,31 @@
-import { useState, useEffect, useCallback, useRef, Component } from 'react';
+/**
+ * Mission Control — Premium Dashboard for OpenClaw
+ * 
+ * A modern, visually-rich dashboard inspired by FiQ, FreshFizi, and production SaaS patterns.
+ * 
+ * Design principles:
+ * - Strong visual hierarchy with big numbers and clear labels
+ * - Purple/blue/coral gradient palette for visual interest
+ * - Sidebar navigation for easy section switching
+ * - Card-based layout with subtle glass morphism
+ * - Tasteful motion: entrance animations, hover states, micro-interactions
+ * - Dark theme optimized for extended use
+ */
+
+import { useState, useEffect, useCallback, Component } from 'react';
 import type { ErrorInfo, ReactNode } from 'react';
 import { api, setAuth, getAuth, clearAuth, createWebSocket } from './lib/api';
 import { cn, parseLogLine, formatRelative } from './lib/utils';
 import ReactMarkdown from 'react-markdown';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Command, RefreshCw, LogOut, Wifi, WifiOff, Search, ChevronDown,
+  Edit2, Save, X, FileText, Heart, User, Activity, Brain, Phone,
+  Terminal, Sparkles, Settings, LayoutDashboard, Calendar, Bug,
+  MessageCircle
+} from 'lucide-react';
+
+// Components
 import KnowledgeGraph from './components/KnowledgeGraph';
 import KnowledgeGraphSearch from './components/KnowledgeGraphSearch';
 import MindSynthesis from './components/MindSynthesis';
@@ -10,34 +33,40 @@ import MoltbookActivity from './components/MoltbookActivity';
 import ExplorationLog from './components/ExplorationLog';
 import BugTracker from './components/BugTracker';
 import UpcomingTasks from './components/UpcomingTasks';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Activity, Brain, FileText, Phone, Search, Terminal,
-  RefreshCw, Wifi, WifiOff, User, Heart,
-  ChevronDown, Edit2, Save, X, LogOut,
-  Sparkles, Lightbulb, AlertTriangle, CheckCircle, Clock,
-  MessageCircle, Zap, Bug, Command
-} from 'lucide-react';
+import Sidebar from './components/Sidebar';
+import DashboardView from './components/DashboardView';
+import MoodCard from './components/MoodCard';
+import { ActionTimeline } from './components/ActionTimeline';
 
-// ─── Animation Variants ───
+// ═══════════════════════════════════════════════════════════════════════════
+// Types
+// ═══════════════════════════════════════════════════════════════════════════
 
-const fadeIn = {
-  initial: { opacity: 0, y: 8 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -4 },
-};
+interface LogEntry { type: string; content: string; timestamp?: string; }
+interface MemoryFile { name: string; date: string; modified: string; preview: string; content: string; }
+interface Identity { name: string; vibe: string; emoji: string; }
+interface AgentState {
+  lastUpdated: string | null;
+  mood: string;
+  topOfMind: string[];
+  recentLearnings: string[];
+  currentActivity: string | null;
+  recentActions: Array<{ action: string; target?: string; timestamp: string; outcome: string; notes?: string }>;
+  questionsOnMyMind: string[];
+}
+interface ExplorationEntry {
+  timestamp: string;
+  sessionId: string;
+  type: string;
+  content: string;
+  metadata: Record<string, unknown>;
+}
 
-const stagger = {
-  animate: { transition: { staggerChildren: 0.04 } },
-};
+type View = 'dashboard' | 'mind' | 'activity' | 'exploration' | 'memory' | 'calls' | 'tasks' | 'bugs' | 'search' | 'settings';
 
-const cardSpring = {
-  type: 'spring' as const,
-  stiffness: 400,
-  damping: 30,
-};
-
-// ─── Error Boundary ───
+// ═══════════════════════════════════════════════════════════════════════════
+// Error Boundary
+// ═══════════════════════════════════════════════════════════════════════════
 
 interface ErrorBoundaryProps { children: ReactNode; }
 interface ErrorBoundaryState { hasError: boolean; error: Error | null; errorInfo: ErrorInfo | null; }
@@ -61,7 +90,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="glass rounded-2xl p-8 max-w-2xl border-red-500/20"
+            className="glass-card rounded-2xl p-8 max-w-2xl border-red-500/20"
           >
             <h1 className="text-2xl font-semibold text-red-400 mb-4">Dashboard Error</h1>
             <p className="text-red-300/80 mb-4 text-sm">Something went wrong loading the dashboard.</p>
@@ -83,94 +112,9 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 }
 
-// ─── Types ───
-
-interface LogEntry { type: string; content: string; timestamp?: string; }
-interface MemoryFile { name: string; date: string; modified: string; preview: string; content: string; }
-interface Identity { name: string; vibe: string; emoji: string; }
-interface AgentState {
-  lastUpdated: string | null;
-  mood: string;
-  topOfMind: string[];
-  recentLearnings: string[];
-  currentActivity: string | null;
-  recentActions: Array<{ action: string; target?: string; timestamp: string; outcome: string; notes?: string }>;
-  questionsOnMyMind: string[];
-}
-interface DebugAction {
-  type: string;
-  startTime: string;
-  steps: Array<{ time: string; event: string; detail: string }>;
-  status: string;
-}
-interface ExplorationEntry {
-  timestamp: string;
-  sessionId: string;
-  type: string;
-  content: string;
-  metadata: Record<string, unknown>;
-}
-
-// ─── Reusable Glass Section ───
-
-function GlassSection({
-  title,
-  icon: Icon,
-  children,
-  defaultOpen = false,
-  badge,
-  headerRight,
-}: {
-  title: string;
-  icon: React.ComponentType<{ className?: string }>;
-  children: ReactNode;
-  defaultOpen?: boolean;
-  badge?: ReactNode;
-  headerRight?: ReactNode;
-}) {
-  const [open, setOpen] = useState(defaultOpen);
-  return (
-    <motion.div
-      layout
-      transition={cardSpring}
-      className="glass rounded-2xl overflow-hidden"
-    >
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full p-4 flex items-center justify-between hover:bg-white/[0.02] transition-colors"
-      >
-        <div className="flex items-center gap-3">
-          <Icon className="w-4 h-4 text-white/40" />
-          <span className="text-sm font-medium text-white/80">{title}</span>
-          {badge}
-        </div>
-        <div className="flex items-center gap-2">
-          {headerRight}
-          <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronDown className="w-4 h-4 text-white/30" />
-          </motion.div>
-        </div>
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="px-4 pb-4 border-t border-white/[0.04]">
-              {children}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-}
-
-// ─── Login ───
+// ═══════════════════════════════════════════════════════════════════════════
+// Login Screen
+// ═══════════════════════════════════════════════════════════════════════════
 
 function Login({ onLogin }: { onLogin: () => void }) {
   const [username, setUsername] = useState('');
@@ -197,8 +141,9 @@ function Login({ onLogin }: { onLogin: () => void }) {
     <div className="min-h-screen flex items-center justify-center bg-background mesh-gradient noise">
       {/* Ambient orbs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/[0.04] rounded-full blur-[128px] float-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/[0.03] rounded-full blur-[128px] float-slow" style={{ animationDelay: '-3s' }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/[0.08] rounded-full blur-[128px] float-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/[0.06] rounded-full blur-[128px] float-slow" style={{ animationDelay: '-3s' }} />
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-pink-500/[0.04] rounded-full blur-[100px] float-slow" style={{ animationDelay: '-5s' }} />
       </div>
 
       <motion.div
@@ -213,28 +158,28 @@ function Login({ onLogin }: { onLogin: () => void }) {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring', stiffness: 300 }}
-              className="w-12 h-12 mx-auto rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center"
+              className="w-14 h-14 mx-auto rounded-2xl gradient-purple-blue flex items-center justify-center"
             >
-              <Command className="w-6 h-6 text-emerald-400" />
+              <Command className="w-7 h-7 text-white" />
             </motion.div>
-            <h1 className="text-lg font-semibold text-white/90">Mission Control</h1>
-            <p className="text-xs text-white/40">OpenClaw Dashboard</p>
+            <h1 className="text-xl font-semibold text-white/90">Mission Control</h1>
+            <p className="text-sm text-white/40">Sign in to your dashboard</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white/90 placeholder:text-white/25"
+              className="w-full px-4 py-3 rounded-xl glass-input text-sm text-white/90 placeholder:text-white/25"
             />
             <input
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white/90 placeholder:text-white/25"
+              className="w-full px-4 py-3 rounded-xl glass-input text-sm text-white/90 placeholder:text-white/25"
             />
             <AnimatePresence>
               {error && (
@@ -242,7 +187,7 @@ function Login({ onLogin }: { onLogin: () => void }) {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="text-red-400/80 text-xs"
+                  className="text-red-400/80 text-sm"
                 >
                   {error}
                 </motion.p>
@@ -253,11 +198,11 @@ function Login({ onLogin }: { onLogin: () => void }) {
               whileTap={{ scale: 0.99 }}
               type="submit"
               disabled={loading}
-              className="w-full py-2.5 rounded-xl bg-emerald-500/20 text-emerald-300 font-medium text-sm hover:bg-emerald-500/30 transition-colors disabled:opacity-40 border border-emerald-500/20"
+              className="w-full py-3 rounded-xl gradient-purple-blue text-white font-medium text-sm hover:opacity-90 transition-opacity disabled:opacity-40"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
-                  <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                  <RefreshCw className="w-4 h-4 animate-spin" />
                   Connecting...
                 </span>
               ) : 'Sign in'}
@@ -269,448 +214,124 @@ function Login({ onLogin }: { onLogin: () => void }) {
   );
 }
 
-// ─── Command Bar (Status Header) ───
+// ═══════════════════════════════════════════════════════════════════════════
+// Header Bar
+// ═══════════════════════════════════════════════════════════════════════════
 
-function CommandBar({
-  identity,
-  online,
-  onRefresh,
-}: {
-  identity: Identity | null;
-  online: boolean;
-  onRefresh: () => void;
-}) {
+function Header({ online, onRefresh }: { online: boolean; onRefresh: () => void }) {
   return (
     <motion.header
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="sticky top-0 z-50 glass-strong border-b border-white/[0.04]"
+      className="h-16 px-6 flex items-center justify-between border-b border-white/[0.06] bg-[hsl(230,25%,7%)]/80 backdrop-blur-xl"
     >
-      <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-        {/* Left: identity */}
-        <div className="flex items-center gap-3">
-          <div className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-sm">
-            {identity?.emoji || <Command className="w-3.5 h-3.5 text-emerald-400" />}
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-white/80">
-              {identity?.name === '(discovering)' ? 'Mission Control' : identity?.name || 'Mission Control'}
-            </span>
-            <span className="text-white/20">/</span>
-            <span className="text-xs text-white/40 hidden sm:inline truncate max-w-[200px]">
-              {identity?.vibe || 'Dashboard'}
-            </span>
-          </div>
+      {/* Search */}
+      <div className="flex-1 max-w-md">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+          <input
+            type="text"
+            placeholder="Search..."
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl glass-input text-sm text-white/70 placeholder:text-white/30"
+          />
+        </div>
+      </div>
+
+      {/* Right side */}
+      <div className="flex items-center gap-3">
+        {/* Status badge */}
+        <div className={cn(
+          'flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium',
+          online
+            ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+            : 'bg-red-500/10 text-red-400 border border-red-500/20'
+        )}>
+          {online ? <Wifi className="w-3.5 h-3.5" /> : <WifiOff className="w-3.5 h-3.5" />}
+          {online ? 'Online' : 'Offline'}
+          {online && <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full pulse-online" />}
         </div>
 
-        {/* Right: status + actions */}
-        <div className="flex items-center gap-2">
-          {/* Online status */}
-          <div className={cn(
-            'flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium transition-colors',
-            online
-              ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'bg-red-500/10 text-red-400 border border-red-500/20'
-          )}>
-            {online ? <Wifi className="w-3 h-3" /> : <WifiOff className="w-3 h-3" />}
-            <span className="hidden sm:inline">{online ? 'Online' : 'Offline'}</span>
-            {online && <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full pulse-online" />}
-          </div>
+        <div className="w-px h-6 bg-white/[0.08]" />
 
-          <div className="w-px h-5 bg-white/[0.06] mx-1" />
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={onRefresh}
-            className="p-2 rounded-lg hover:bg-white/[0.04] transition-colors"
-            title="Refresh"
-          >
-            <RefreshCw className="w-3.5 h-3.5 text-white/40" />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => { clearAuth(); window.location.reload(); }}
-            className="p-2 rounded-lg hover:bg-white/[0.04] transition-colors"
-            title="Logout"
-          >
-            <LogOut className="w-3.5 h-3.5 text-white/40" />
-          </motion.button>
-        </div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={onRefresh}
+          className="icon-btn"
+          title="Refresh"
+        >
+          <RefreshCw className="w-4 h-4" />
+        </motion.button>
+        
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => { clearAuth(); window.location.reload(); }}
+          className="icon-btn"
+          title="Logout"
+        >
+          <LogOut className="w-4 h-4" />
+        </motion.button>
       </div>
     </motion.header>
   );
 }
 
-// ─── Hero Section (Agent State) ───
+// ═══════════════════════════════════════════════════════════════════════════
+// Collapsible Section (for detail views)
+// ═══════════════════════════════════════════════════════════════════════════
 
-function HeroSection({ state }: { state: AgentState | null }) {
-  if (!state) {
-    return (
-      <motion.div {...fadeIn} className="glass rounded-2xl p-4">
-        <div className="flex items-center gap-3">
-          <div className="w-2 h-2 rounded-full bg-white/30 shimmer" />
-          <span className="text-sm text-white/40">Loading state...</span>
-        </div>
-      </motion.div>
-    );
-  }
-
-  return (
-    <motion.div
-      {...fadeIn}
-      transition={{ duration: 0.5 }}
-      className="relative overflow-hidden rounded-2xl"
-    >
-
-      <div className="relative glass rounded-2xl p-4">
-        {/* Status bar: mood + activity inline */}
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-purple-400" />
-              <Heart className="w-3 h-3 text-white/30" />
-              <span className="text-sm font-medium text-white/80">{state.mood}</span>
-            </div>
-            <div className="w-px h-4 bg-white/10" />
-            <div className="flex items-center gap-2">
-              <Zap className="w-3 h-3 text-white/30" />
-              {state.currentActivity ? (
-                <>
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-online" />
-                  <span className="text-sm text-white/70">{state.currentActivity}</span>
-                </>
-              ) : (
-                <span className="text-sm text-white/30">Idle</span>
-              )}
-            </div>
-          </div>
-          {state.lastUpdated && (
-            <span className="text-[10px] text-white/25">
-              {formatRelative(state.lastUpdated)}
-            </span>
-          )}
-        </div>
-
-        {/* Compact cards row */}
-        <motion.div variants={stagger} initial="initial" animate="animate" className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-          {/* Top of mind */}
-          {state.topOfMind.length > 0 && (
-            <motion.div variants={fadeIn} className="bg-white/[0.02] rounded-lg px-3 py-2 border border-white/[0.04]">
-              <div className="flex items-center gap-1.5 text-[10px] text-white/30 mb-1.5">
-                <Brain className="w-2.5 h-2.5" />
-                On my mind
-              </div>
-              <div className="space-y-0.5">
-                {state.topOfMind.slice(0, 2).map((item, i) => (
-                  <p key={i} className="text-[11px] text-white/60 leading-snug truncate">{item}</p>
-                ))}
-              </div>
-            </motion.div>
-          )}
-
-          {/* Recent learnings */}
-          {state.recentLearnings.length > 0 && (
-            <motion.div variants={fadeIn} className="bg-white/[0.02] rounded-lg px-3 py-2 border border-white/[0.04]">
-              <div className="flex items-center gap-1.5 text-[10px] text-white/30 mb-1.5">
-                <Lightbulb className="w-2.5 h-2.5" />
-                Learnings
-              </div>
-              <div className="space-y-0.5">
-                {state.recentLearnings.slice(0, 2).map((item, i) => (
-                  <p key={i} className="text-[11px] text-amber-300/60 leading-snug truncate">{item}</p>
-                ))}
-              </div>
-            </motion.div>
-          )}
-
-          {/* Questions */}
-          {state.questionsOnMyMind.length > 0 && (
-            <motion.div variants={fadeIn} className="bg-white/[0.02] rounded-lg px-3 py-2 border border-white/[0.04]">
-              <div className="flex items-center gap-1.5 text-[10px] text-white/30 mb-1.5">
-                <MessageCircle className="w-2.5 h-2.5" />
-                Pondering
-              </div>
-              <div className="space-y-0.5">
-                {state.questionsOnMyMind.slice(0, 2).map((item, i) => (
-                  <p key={i} className="text-[11px] text-cyan-300/60 italic leading-snug truncate">{item}</p>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-}
-
-// ─── Action Timeline ───
-
-function ActionTimeline({ actions }: { actions: AgentState['recentActions'] }) {
-  if (!actions || actions.length === 0) return null;
-
-  return (
-    <motion.div {...fadeIn} className="glass rounded-2xl p-3">
-      <div className="flex items-center gap-2 mb-2">
-        <Activity className="w-3.5 h-3.5 text-white/30" />
-        <span className="text-xs font-medium text-white/60">Recent Actions</span>
-        <span className="text-[10px] text-white/20 ml-auto">{actions.length}</span>
-      </div>
-
-      <div className="relative timeline-line">
-        <motion.div variants={stagger} initial="initial" animate="animate" className="space-y-0">
-          {actions.slice(0, 5).map((action, i) => (
-            <motion.div
-              key={`${action.timestamp}-${i}`}
-              variants={fadeIn}
-              className="flex items-center gap-3 py-1 pl-8 group"
-            >
-              {/* Dot */}
-              <div className={cn(
-                'absolute left-[11px] w-[9px] h-[9px] rounded-full border-2 bg-background z-10',
-                action.outcome === 'success' ? 'border-emerald-400' :
-                action.outcome === 'error' ? 'border-red-400' :
-                'border-yellow-400'
-              )} />
-
-              {/* Content */}
-              <div className="flex-1 flex items-center justify-between min-w-0">
-                <div className="flex items-center gap-2 min-w-0">
-                  {action.outcome === 'success' ? (
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-400/60 shrink-0" />
-                  ) : action.outcome === 'error' ? (
-                    <AlertTriangle className="w-3.5 h-3.5 text-red-400/60 shrink-0" />
-                  ) : (
-                    <Clock className="w-3.5 h-3.5 text-yellow-400/60 shrink-0" />
-                  )}
-                  <span className="text-xs text-white/70 truncate">
-                    {(action.action || '').replace(/_/g, ' ')}
-                  </span>
-                  {action.target && (
-                    <span className="text-xs text-white/25 truncate hidden sm:inline">
-                      {action.target}
-                    </span>
-                  )}
-                </div>
-                <span className="text-[10px] text-white/20 shrink-0 ml-2 tabular-nums">
-                  {new Date(action.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-}
-
-// ─── Live Exploration Stream ───
-
-function ExplorationStream({ entries, isActive }: { entries: ExplorationEntry[]; isActive: boolean }) {
-  const streamEndRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (streamEndRef.current) {
-      streamEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [entries]);
-
-  const getTypeColor = (type: string) => {
-    // Subtle, monochrome styling - no color carnival
-    switch (type) {
-      case 'start':
-      case 'end': return 'border-l-white/20';
-      case 'discovery': return 'border-l-emerald-500/40';
-      default: return 'border-l-white/10';
-    }
-  };
-
-  const getTypeLabel = (type: string) => {
-    // Simple, lowercase labels
-    const labels: Record<string, string> = {
-      thought: 'thinking',
-      tool_call: 'action',
-      tool_result: 'result',
-      discovery: 'insight',
-      question: 'question',
-      reflection: 'reflection',
-      start: 'started',
-      end: 'finished',
-    };
-    return labels[type] || type;
-  };
-
-  // Group entries by session
-  const sessions = entries.reduce((acc, entry) => {
-    if (!acc[entry.sessionId]) acc[entry.sessionId] = [];
-    acc[entry.sessionId].push(entry);
-    return acc;
-  }, {} as Record<string, ExplorationEntry[]>);
-
-  return (
-    <GlassSection
-      title="Exploration"
-      icon={Sparkles}
-      defaultOpen={false}
-      badge={isActive ? (
-        <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 text-emerald-400">
-          <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-          Active
-        </span>
-      ) : undefined}
-      headerRight={
-        <span className="text-[10px] text-white/20 tabular-nums">{entries.length}</span>
-      }
-    >
-      <div className="mt-3 max-h-[420px] overflow-y-auto">
-        {entries.length === 0 ? (
-          <div className="text-center py-12">
-            <Sparkles className="w-8 h-8 mx-auto mb-3 text-white/10" />
-            <p className="text-sm text-white/25">No exploration in progress</p>
-            <p className="text-xs text-white/15 mt-1">Stream of consciousness appears here in real-time</p>
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {Object.entries(sessions).map(([sessionId, sessionEntries]) => (
-              <div key={sessionId} className="space-y-1.5">
-                <div className="flex items-center gap-3 text-[10px] text-white/20 uppercase tracking-widest py-1">
-                  <span className="w-6 h-px bg-white/[0.06]" />
-                  {sessionId}
-                  <span className="flex-1 h-px bg-white/[0.06]" />
-                </div>
-                {sessionEntries.map((entry, i) => (
-                  <motion.div
-                    key={`${entry.timestamp}-${i}`}
-                    initial={{ opacity: 0, x: -4 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className={cn('p-3 rounded-lg border-l-2', getTypeColor(entry.type))}
-                  >
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[10px] text-white/30">
-                        {getTypeLabel(entry.type)}
-                      </span>
-                      <span className="text-[10px] text-white/15 tabular-nums">
-                        {new Date(entry.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-                      </span>
-                    </div>
-                    <p className="text-xs text-white/60 whitespace-pre-wrap break-words leading-relaxed">
-                      {entry.content}
-                    </p>
-                    {entry.metadata && Object.keys(entry.metadata).length > 0 && (
-                      <div className="mt-1.5 flex gap-3 text-[10px] text-white/20">
-                        {entry.metadata.tool ? <span>tool: {String(entry.metadata.tool)}</span> : null}
-                        {entry.metadata.source ? <span>src: {String(entry.metadata.source)}</span> : null}
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
-              </div>
-            ))}
-            <div ref={streamEndRef} />
-          </div>
-        )}
-      </div>
-    </GlassSection>
-  );
-}
-
-// ─── Live Logs ───
-
-function LiveLogs({ logs, filter, setFilter }: {
-  logs: LogEntry[];
-  filter: string;
-  setFilter: (f: string) => void;
+function GlassSection({
+  title,
+  icon: Icon,
+  children,
+  defaultOpen = false,
+  badge,
+}: {
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  children: ReactNode;
+  defaultOpen?: boolean;
+  badge?: ReactNode;
 }) {
-  const [search, setSearch] = useState('');
-  const [paused, setPaused] = useState(false);
-  const filters = ['all', 'message', 'tool', 'error', 'heartbeat'];
-
-  const filteredLogs = logs.filter(log => {
-    if (filter !== 'all' && log.type !== filter) return false;
-    if (search && !log.content.toLowerCase().includes(search.toLowerCase())) return false;
-    return true;
-  });
-
+  const [open, setOpen] = useState(defaultOpen);
   return (
-    <GlassSection
-      title="Activity Log"
-      icon={Terminal}
-      defaultOpen={false}
-      headerRight={
-        <motion.button
-          whileTap={{ scale: 0.95 }}
-          onClick={(e) => { e.stopPropagation(); setPaused(!paused); }}
-          className={cn(
-            'px-2 py-0.5 rounded-md text-[10px] font-medium transition-colors',
-            paused ? 'bg-amber-500/15 text-amber-400 border border-amber-500/20' : 'bg-white/[0.04] text-white/30'
-          )}
-        >
-          {paused ? 'Paused' : 'Pause'}
-        </motion.button>
-      }
-    >
-      <div className="mt-3 space-y-3">
-        {/* Filters */}
-        <div className="flex gap-1.5 flex-wrap">
-          {filters.map(f => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              className={cn(
-                'px-2.5 py-1 rounded-lg text-[11px] capitalize transition-all',
-                filter === f
-                  ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/20'
-                  : 'bg-white/[0.03] text-white/30 hover:text-white/50 border border-transparent'
-              )}
-            >
-              {f}
-            </button>
-          ))}
+    <motion.div layout className="glass-card rounded-2xl overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full p-4 flex items-center justify-between hover:bg-white/[0.02] transition-colors"
+      >
+        <div className="flex items-center gap-3">
+          <Icon className="w-4 h-4 text-white/40" />
+          <span className="text-sm font-medium text-white/80">{title}</span>
+          {badge}
         </div>
-
-        {/* Search */}
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/20" />
-          <input
-            type="text"
-            placeholder="Filter logs..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 rounded-lg glass-input text-xs text-white/70 placeholder:text-white/20"
-          />
-        </div>
-
-        {/* Log entries */}
-        <div className="h-72 overflow-y-auto font-mono text-xs space-y-px terminal-lines rounded-lg bg-black/20 p-3">
-          {filteredLogs.length === 0 ? (
-            <p className="text-white/20 text-center py-8">No logs to display</p>
-          ) : (
-            filteredLogs.slice(-200).map((log, i) => (
-              <div key={i} className={cn(
-                'py-0.5 border-l-2 pl-2.5 hover:bg-white/[0.02] transition-colors',
-                log.type === 'error' ? 'border-red-400/50 log-error' :
-                log.type === 'heartbeat' ? 'border-emerald-400/50 log-heartbeat' :
-                log.type === 'tool' ? 'border-amber-400/50 log-tool' :
-                log.type === 'message' ? 'border-blue-400/50 log-message' :
-                'border-white/10 log-system'
-              )}>
-                {log.timestamp && (
-                  <span className="text-white/15 mr-2 tabular-nums">
-                    {new Date(log.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-                  </span>
-                )}
-                <span className="break-all">{log.content}</span>
-              </div>
-            ))
-          )}
-        </div>
-      </div>
-    </GlassSection>
+        <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
+          <ChevronDown className="w-4 h-4 text-white/30" />
+        </motion.div>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="px-4 pb-4 border-t border-white/[0.04]">
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 
-// ─── Memory View ───
+// ═══════════════════════════════════════════════════════════════════════════
+// Memory View
+// ═══════════════════════════════════════════════════════════════════════════
 
 function MemoryView({ mainMemory, memoryFiles }: {
   mainMemory: string | null;
@@ -720,381 +341,219 @@ function MemoryView({ mainMemory, memoryFiles }: {
   const selectedFile = selectedDate ? memoryFiles.find(f => f.date === selectedDate) : null;
 
   return (
-    <GlassSection title="Memory & World Model" icon={Brain} defaultOpen={false}>
-      <div className="mt-3 space-y-4">
-        {/* Timeline pills */}
-        <div className="flex gap-1.5 overflow-x-auto pb-1">
-          {memoryFiles.slice(0, 14).map(file => (
-            <button
-              key={file.date}
-              onClick={() => setSelectedDate(selectedDate === file.date ? null : file.date)}
-              className={cn(
-                'px-2.5 py-1 rounded-lg text-[11px] whitespace-nowrap transition-all shrink-0',
-                selectedDate === file.date
-                  ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/20'
-                  : 'bg-white/[0.03] text-white/30 hover:text-white/50 border border-transparent'
-              )}
-            >
-              {new Date(file.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-            </button>
-          ))}
-        </div>
+    <div className="p-6 space-y-6">
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <h1 className="text-2xl font-bold text-white/90 mb-2">Memory</h1>
+        <p className="text-white/50">Long-term memory and daily journals</p>
+      </motion.div>
 
-        {/* Content */}
-        <div className="prose prose-invert prose-sm max-w-none max-h-80 overflow-y-auto text-xs leading-relaxed">
+      {/* Timeline pills */}
+      <div className="flex gap-2 overflow-x-auto pb-2">
+        {memoryFiles.slice(0, 14).map((file, i) => (
+          <motion.button
+            key={file.date}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.03 }}
+            onClick={() => setSelectedDate(selectedDate === file.date ? null : file.date)}
+            className={cn(
+              'px-4 py-2 rounded-xl text-sm whitespace-nowrap transition-all shrink-0',
+              selectedDate === file.date
+                ? 'gradient-purple-blue text-white'
+                : 'bg-white/[0.04] text-white/50 hover:text-white/80 border border-white/[0.06]'
+            )}
+          >
+            {new Date(file.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+          </motion.button>
+        ))}
+      </div>
+
+      {/* Content */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="glass-card rounded-2xl p-6"
+      >
+        <div className="prose prose-invert prose-sm max-w-none max-h-[70vh] overflow-y-auto">
           {selectedFile ? (
             <>
-              <h3 className="text-emerald-400/80 text-sm">{selectedFile.date}</h3>
+              <h3 className="text-purple-400 text-lg">{selectedFile.date}</h3>
               <ReactMarkdown>{selectedFile.content}</ReactMarkdown>
             </>
           ) : mainMemory ? (
             <ReactMarkdown>{mainMemory}</ReactMarkdown>
           ) : (
-            <p className="text-white/20">Loading memory...</p>
+            <p className="text-white/30">Loading memory...</p>
           )}
         </div>
-      </div>
-    </GlassSection>
+      </motion.div>
+    </div>
   );
 }
 
-// ─── File Editor ───
+// ═══════════════════════════════════════════════════════════════════════════
+// Live Logs
+// ═══════════════════════════════════════════════════════════════════════════
 
-function FileEditor({
-  title,
-  icon: Icon,
-  content,
-  onSave,
-}: {
-  title: string;
-  icon: React.ComponentType<{ className?: string }>;
-  content: string | null;
-  onSave: (content: string) => Promise<void>;
-}) {
-  const [editing, setEditing] = useState(false);
-  const [editContent, setEditContent] = useState('');
-  const [saving, setSaving] = useState(false);
-  const [expanded, setExpanded] = useState(false);
+function LiveLogs({ logs }: { logs: LogEntry[] }) {
+  const [filter, setFilter] = useState('all');
+  const [search, setSearch] = useState('');
+  const filters = ['all', 'message', 'tool', 'error', 'heartbeat'];
 
-  const handleEdit = () => {
-    setEditContent(content || '');
-    setEditing(true);
-    setExpanded(true);
-  };
-
-  const handleSave = async () => {
-    setSaving(true);
-    try {
-      await onSave(editContent);
-      setEditing(false);
-    } catch (err) {
-      console.error('Failed to save:', err);
-    }
-    setSaving(false);
-  };
+  const filteredLogs = logs.filter(log => {
+    if (filter !== 'all' && log.type !== filter) return false;
+    if (search && !log.content.toLowerCase().includes(search.toLowerCase())) return false;
+    return true;
+  });
 
   return (
-    <motion.div layout transition={cardSpring} className="glass rounded-2xl overflow-hidden">
-      <button
-        onClick={() => !editing && setExpanded(!expanded)}
-        className="w-full p-4 flex items-center justify-between hover:bg-white/[0.02] transition-colors"
-      >
-        <div className="flex items-center gap-3">
-          <Icon className="w-4 h-4 text-white/40" />
-          <span className="text-sm font-medium text-white/80">{title}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          {!editing && (
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={(e) => { e.stopPropagation(); handleEdit(); }}
-              className="p-1.5 rounded-md hover:bg-white/[0.06] transition-colors"
-            >
-              <Edit2 className="w-3 h-3 text-white/30" />
-            </motion.button>
-          )}
-          {!editing && (
-            <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-              <ChevronDown className="w-4 h-4 text-white/30" />
-            </motion.div>
-          )}
-        </div>
-      </button>
+    <div className="p-6 space-y-6">
+      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
+        <h1 className="text-2xl font-bold text-white/90 mb-2">Activity Logs</h1>
+        <p className="text-white/50">Real-time agent activity</p>
+      </motion.div>
 
-      <AnimatePresence initial={false}>
-        {(expanded || editing) && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="px-4 pb-4 border-t border-white/[0.04]">
-              {editing ? (
-                <div className="mt-3 space-y-3">
-                  <textarea
-                    value={editContent}
-                    onChange={(e) => setEditContent(e.target.value)}
-                    className="w-full h-80 p-3 rounded-xl glass-input font-mono text-xs text-white/70 resize-none leading-relaxed"
-                  />
-                  <div className="flex gap-2 justify-end">
-                    <motion.button
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => setEditing(false)}
-                      className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-white/40 text-xs hover:bg-white/[0.06] transition-colors flex items-center gap-1.5"
-                    >
-                      <X className="w-3 h-3" />
-                      Cancel
-                    </motion.button>
-                    <motion.button
-                      whileTap={{ scale: 0.95 }}
-                      onClick={handleSave}
-                      disabled={saving}
-                      className="px-3 py-1.5 rounded-lg bg-emerald-500/15 text-emerald-300 text-xs hover:bg-emerald-500/25 transition-colors disabled:opacity-40 flex items-center gap-1.5 border border-emerald-500/20"
-                    >
-                      <Save className="w-3 h-3" />
-                      {saving ? 'Saving...' : 'Save'}
-                    </motion.button>
-                  </div>
-                </div>
-              ) : (
-                <div className="mt-3 prose prose-invert prose-sm max-w-none max-h-64 overflow-y-auto text-xs">
-                  {content ? (
-                    <ReactMarkdown>{content}</ReactMarkdown>
-                  ) : (
-                    <p className="text-white/20">Loading...</p>
-                  )}
-                </div>
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-}
-
-// ─── Call History ───
-
-function CallHistory({ calls }: { calls: Array<{ date: string; target: string; context: string }> }) {
-  return (
-    <GlassSection title="Call History" icon={Phone} defaultOpen={false}>
-      <div className="mt-3 max-h-64 overflow-y-auto">
-        {calls.length === 0 ? (
-          <p className="text-white/20 text-xs text-center py-6">No calls recorded</p>
-        ) : (
-          <div className="space-y-2">
-            {calls.map((call, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: i * 0.03 }}
-                className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:bg-white/[0.03] transition-colors"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-medium text-white/70">{call.target}</span>
-                  <span className="text-[10px] text-white/20 tabular-nums">{call.date}</span>
-                </div>
-                <p className="text-[11px] text-white/35 mt-1 leading-relaxed">{call.context}</p>
-              </motion.div>
-            ))}
-          </div>
-        )}
-      </div>
-    </GlassSection>
-  );
-}
-
-// ─── Search Panel ───
-
-function SearchPanel() {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState<Array<{ file: string; matches: Array<{ line: string; num: number }> }>>([]);
-  const [searching, setSearching] = useState(false);
-
-  const handleSearch = async () => {
-    if (!query.trim()) return;
-    setSearching(true);
-    try {
-      const data = await api.search(query);
-      setResults(data.results);
-    } catch (err) {
-      console.error('Search failed:', err);
-    }
-    setSearching(false);
-  };
-
-  return (
-    <GlassSection title="Search" icon={Search} defaultOpen={false}>
-      <div className="mt-3 space-y-3">
+      <div className="flex flex-wrap gap-3">
+        {/* Filters */}
         <div className="flex gap-2">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/20" />
-            <input
-              type="text"
-              placeholder="Search across all files..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-              className="w-full pl-9 pr-3 py-2 rounded-lg glass-input text-xs text-white/70 placeholder:text-white/20"
-            />
-          </div>
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={handleSearch}
-            disabled={searching}
-            className="px-3 py-2 rounded-lg bg-emerald-500/15 text-emerald-300 text-xs hover:bg-emerald-500/25 transition-colors disabled:opacity-40 border border-emerald-500/20"
-          >
-            {searching ? '...' : 'Go'}
-          </motion.button>
+          {filters.map(f => (
+            <button
+              key={f}
+              onClick={() => setFilter(f)}
+              className={cn(
+                'px-3 py-1.5 rounded-lg text-sm capitalize transition-all',
+                filter === f
+                  ? 'gradient-purple-blue text-white'
+                  : 'bg-white/[0.04] text-white/40 hover:text-white/70'
+              )}
+            >
+              {f}
+            </button>
+          ))}
         </div>
 
-        {results.length > 0 && (
-          <div className="max-h-64 overflow-y-auto space-y-3">
-            {results.map((result, i) => (
-              <div key={i}>
-                <h3 className="text-xs font-medium text-emerald-400/70 mb-1.5 font-mono">{result.file}</h3>
-                {result.matches.map((match, j) => (
-                  <div key={j} className="text-[11px] py-0.5 border-l border-emerald-500/20 pl-2.5 text-white/50 mb-0.5">
-                    <span className="text-white/20 mr-1.5 tabular-nums">L{match.num}</span>
-                    {match.line}
-                  </div>
-                ))}
+        {/* Search */}
+        <div className="relative flex-1 min-w-[200px]">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
+          <input
+            type="text"
+            placeholder="Filter logs..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full pl-10 pr-4 py-2 rounded-lg glass-input text-sm text-white/70 placeholder:text-white/20"
+          />
+        </div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="glass-card rounded-2xl overflow-hidden"
+      >
+        <div className="h-[60vh] overflow-y-auto font-mono text-sm terminal-lines bg-black/30 p-4">
+          {filteredLogs.length === 0 ? (
+            <p className="text-white/20 text-center py-12">No logs to display</p>
+          ) : (
+            filteredLogs.slice(-300).map((log, i) => (
+              <div key={i} className={cn(
+                'py-1 border-l-2 pl-3 hover:bg-white/[0.02] transition-colors',
+                log.type === 'error' ? 'border-red-400/50 log-error' :
+                log.type === 'heartbeat' ? 'border-emerald-400/50 log-heartbeat' :
+                log.type === 'tool' ? 'border-purple-400/50 log-tool' :
+                log.type === 'message' ? 'border-blue-400/50 log-message' :
+                'border-white/10 log-system'
+              )}>
+                {log.timestamp && (
+                  <span className="text-white/20 mr-3 tabular-nums">
+                    {new Date(log.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+                  </span>
+                )}
+                <span className="break-all">{log.content}</span>
               </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </GlassSection>
+            ))
+          )}
+        </div>
+      </motion.div>
+    </div>
   );
 }
 
-// ─── Debug Console ───
+// ═══════════════════════════════════════════════════════════════════════════
+// Knowledge Graph View (Full Screen)
+// ═══════════════════════════════════════════════════════════════════════════
 
-function DebugConsole({ actions }: { actions: DebugAction[] }) {
-  const [selectedAction, setSelectedAction] = useState<DebugAction | null>(null);
-
+function KnowledgeGraphView({ state }: { state: AgentState | null }) {
   return (
-    <GlassSection
-      title="Debug Console"
-      icon={Bug}
-      defaultOpen={false}
-      badge={
-        <span className="text-[9px] font-medium uppercase tracking-wider text-amber-400/50 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/10">
-          Infra
-        </span>
-      }
-    >
-      <div className="mt-3">
-        {actions.length === 0 ? (
-          <p className="text-white/20 text-xs text-center py-8">
-            No recent actions to debug
-          </p>
-        ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-            {/* Action List */}
-            <div className="space-y-1.5 max-h-72 overflow-y-auto">
-              {actions.map((action, i) => (
-                <button
-                  key={i}
-                  onClick={() => setSelectedAction(selectedAction === action ? null : action)}
-                  className={cn(
-                    'w-full text-left p-3 rounded-xl transition-all text-xs',
-                    selectedAction === action
-                      ? 'bg-emerald-500/10 border border-emerald-500/20'
-                      : 'bg-white/[0.02] border border-white/[0.04] hover:bg-white/[0.04]'
-                  )}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      {action.status === 'success' ? (
-                        <CheckCircle className="w-3 h-3 text-emerald-400/60" />
-                      ) : action.status === 'error' ? (
-                        <AlertTriangle className="w-3 h-3 text-red-400/60" />
-                      ) : (
-                        <Clock className="w-3 h-3 text-amber-400/60 animate-pulse" />
-                      )}
-                      <span className="font-medium text-white/60 capitalize">{(action.type || '').replace(/_/g, ' ')}</span>
-                    </div>
-                    <span className="text-[10px] text-white/20 tabular-nums">
-                      {new Date(action.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                    </span>
-                  </div>
-                  <div className="text-[10px] text-white/25 mt-1">
-                    {action.steps.length} steps
-                  </div>
-                </button>
-              ))}
+    <div className="relative h-[calc(100vh-64px)]">
+      {/* Status overlay */}
+      {state && (
+        <div className="absolute top-4 left-4 z-10 bg-black/70 backdrop-blur-xl rounded-xl p-4 border border-white/10">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-purple-400" />
+              <Heart className="w-4 h-4 text-white/40" />
+              <span className="text-sm text-white/80">{state.mood}</span>
             </div>
-
-            {/* Step Detail */}
-            <div className="bg-black/20 rounded-xl p-3 max-h-72 overflow-y-auto">
-              {selectedAction ? (
-                <div className="space-y-1.5 font-mono text-[11px]">
-                  {selectedAction.steps.map((step, i) => (
-                    <div
-                      key={i}
-                      className={cn(
-                        'p-2 rounded-lg border-l-2',
-                        step.event === 'error' ? 'border-red-400/50 bg-red-500/[0.04]' :
-                        step.event === 'completed' ? 'border-emerald-400/50 bg-emerald-500/[0.04]' :
-                        step.event === 'initiated' ? 'border-blue-400/50 bg-blue-500/[0.04]' :
-                        'border-white/10 bg-white/[0.02]'
-                      )}
-                    >
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <span className={cn(
-                          'px-1 py-px rounded text-[9px] uppercase font-bold',
-                          step.event === 'error' ? 'bg-red-500/20 text-red-300/70' :
-                          step.event === 'completed' ? 'bg-emerald-500/20 text-emerald-300/70' :
-                          step.event === 'initiated' ? 'bg-blue-500/20 text-blue-300/70' :
-                          'bg-white/10 text-white/40'
-                        )}>
-                          {step.event}
-                        </span>
-                        <span className="text-white/20 tabular-nums">
-                          {new Date(step.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-                        </span>
-                      </div>
-                      <div className="text-white/40 break-all leading-relaxed">
-                        {step.detail.length > 150 ? step.detail.slice(0, 150) + '...' : step.detail}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-12">
-                  <Bug className="w-6 h-6 mx-auto mb-2 text-white/10" />
-                  <p className="text-[11px] text-white/20">Select an action to trace</p>
-                </div>
-              )}
-            </div>
+            {state.currentActivity && (
+              <>
+                <div className="w-px h-4 bg-white/20" />
+                <span className="text-sm text-emerald-400">{state.currentActivity}</span>
+              </>
+            )}
           </div>
-        )}
+        </div>
+      )}
+
+      {/* Legend */}
+      <div className="absolute top-4 right-4 z-10 bg-black/70 backdrop-blur-xl rounded-xl p-4 border border-white/10 max-w-xs">
+        <h3 className="text-sm font-medium text-white/80 mb-3">Node Types</h3>
+        <div className="grid grid-cols-2 gap-2 text-xs">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-cyan-400" />
+            <span className="text-white/60">Concepts</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-pink-400" />
+            <span className="text-white/60">People</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-orange-400" />
+            <span className="text-white/60">Projects</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-purple-400" />
+            <span className="text-white/60">Questions</span>
+          </div>
+        </div>
+        <div className="mt-4 pt-3 border-t border-white/10">
+          <KnowledgeGraphSearch />
+        </div>
       </div>
-    </GlassSection>
+
+      {/* Graph */}
+      <KnowledgeGraph />
+    </div>
   );
 }
 
-// ─── Main App ───
+// ═══════════════════════════════════════════════════════════════════════════
+// Main App
+// ═══════════════════════════════════════════════════════════════════════════
 
 export default function App() {
-  const [authenticated, setAuthenticated] = useState(!!getAuth());
+  const [authenticated, setAuthenticated] = useState(() => !!getAuth());
+  const [currentView, setCurrentView] = useState<View>('dashboard');
   const [online, setOnline] = useState(false);
   const [identity, setIdentity] = useState<Identity | null>(null);
-  const [logs, setLogs] = useState<LogEntry[]>([]);
-  const [logFilter, setLogFilter] = useState('all');
+  const [agentState, setAgentState] = useState<AgentState | null>(null);
   const [files, setFiles] = useState<Record<string, string>>({});
   const [memoryFiles, setMemoryFiles] = useState<MemoryFile[]>([]);
+  const [logs, setLogs] = useState<LogEntry[]>([]);
   const [calls, setCalls] = useState<Array<{ date: string; target: string; context: string }>>([]);
-  const [agentState, setAgentState] = useState<AgentState | null>(null);
-  const [debugActions, setDebugActions] = useState<DebugAction[]>([]);
   const [explorationEntries, setExplorationEntries] = useState<ExplorationEntry[]>([]);
-  const [explorationActive, setExplorationActive] = useState(false);
-  const [showFilesPanel, setShowFilesPanel] = useState(false);
 
   const parseIdentity = (content: string): Identity => {
     const lines = content.split('\n');
@@ -1130,7 +589,7 @@ export default function App() {
       setMemoryFiles(memory.files);
 
       const logsData = await api.getLogs();
-      setLogs(logsData.lines.map(line => parseLogLine(line)));
+      setLogs(logsData.lines.map((line: string) => parseLogLine(line)));
 
       const callsData = await api.getCalls();
       setCalls(callsData.calls);
@@ -1141,14 +600,8 @@ export default function App() {
       } catch {}
 
       try {
-        const debugData = await api.getDebugActions();
-        setDebugActions(debugData.actions);
-      } catch {}
-
-      try {
         const explorationData = await api.getExplorationStream(200);
         setExplorationEntries(explorationData.entries);
-        setExplorationActive(explorationData.activeSession);
       } catch {}
     } catch (err) {
       console.error('Failed to load data:', err);
@@ -1177,7 +630,6 @@ export default function App() {
             setAgentState(msg.state);
           } else if (msg.type === 'exploration_update') {
             setExplorationEntries(prev => [...prev.slice(-199), msg.entry]);
-            setExplorationActive(true);
           }
         } catch {}
       };
@@ -1192,7 +644,6 @@ export default function App() {
     };
 
     connect();
-
     const interval = setInterval(loadData, 30000);
 
     return () => {
@@ -1202,193 +653,156 @@ export default function App() {
     };
   }, [authenticated, loadData]);
 
-  const handleSaveFile = async (filename: string, content: string) => {
-    await api.saveFile(filename, content);
-    setFiles(prev => ({ ...prev, [filename]: content }));
-    if (filename === 'IDENTITY.md') {
-      setIdentity(parseIdentity(content));
-    }
-  };
-
   if (!authenticated) {
     return <Login onLogin={() => setAuthenticated(true)} />;
   }
 
+  // Generate activity data for chart (mock for now, could be derived from actions)
+  const activityData = agentState?.recentActions 
+    ? [4, 6, 5, 8, 7, 9, agentState.recentActions.length]
+    : [3, 5, 4, 7, 6, 8, 9];
+
+  // Render the current view
+  const renderView = () => {
+    switch (currentView) {
+      case 'dashboard':
+        return (
+          <DashboardView
+            state={agentState}
+            identity={identity}
+            memoryFileCount={memoryFiles.length}
+            explorationCount={explorationEntries.length}
+            callCount={calls.length}
+            activityData={activityData}
+          />
+        );
+      case 'mind':
+        return <KnowledgeGraphView state={agentState} />;
+      case 'activity':
+        return <LiveLogs logs={logs} />;
+      case 'exploration':
+        return (
+          <div className="p-6 space-y-6">
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
+              <h1 className="text-2xl font-bold text-white/90 mb-2">Exploration</h1>
+              <p className="text-white/50">Curiosity sessions and discoveries</p>
+            </motion.div>
+            <ExplorationLog />
+          </div>
+        );
+      case 'memory':
+        return <MemoryView mainMemory={files['MEMORY.md']} memoryFiles={memoryFiles} />;
+      case 'tasks':
+        return (
+          <div className="p-6 space-y-6">
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
+              <h1 className="text-2xl font-bold text-white/90 mb-2">Tasks</h1>
+              <p className="text-white/50">Scheduled and upcoming tasks</p>
+            </motion.div>
+            <UpcomingTasks />
+          </div>
+        );
+      case 'calls':
+        return (
+          <div className="p-6 space-y-6">
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
+              <h1 className="text-2xl font-bold text-white/90 mb-2">Calls</h1>
+              <p className="text-white/50">Voice call history</p>
+            </motion.div>
+            <GlassSection title="Call History" icon={Phone} defaultOpen={true}>
+              <div className="space-y-2 mt-3">
+                {calls.length === 0 ? (
+                  <p className="text-white/30 text-sm text-center py-6">No calls recorded</p>
+                ) : (
+                  calls.map((call, i) => (
+                    <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-white/[0.02]">
+                      <span className="text-sm text-white/70">{call.target}</span>
+                      <span className="text-xs text-white/30">{call.date}</span>
+                    </div>
+                  ))
+                )}
+              </div>
+            </GlassSection>
+          </div>
+        );
+      case 'bugs':
+        return (
+          <div className="p-6 space-y-6">
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
+              <h1 className="text-2xl font-bold text-white/90 mb-2">Bug Tracker</h1>
+              <p className="text-white/50">Known issues and fixes</p>
+            </motion.div>
+            <BugTracker />
+          </div>
+        );
+      case 'search':
+        return (
+          <div className="p-6 space-y-6">
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
+              <h1 className="text-2xl font-bold text-white/90 mb-2">Search</h1>
+              <p className="text-white/50">Search through memory and logs</p>
+            </motion.div>
+            <KnowledgeGraphSearch />
+          </div>
+        );
+      case 'settings':
+        return (
+          <div className="p-6 space-y-6">
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
+              <h1 className="text-2xl font-bold text-white/90 mb-2">Settings</h1>
+              <p className="text-white/50">Configure your dashboard</p>
+            </motion.div>
+            <div className="grid gap-4">
+              <GlassSection title="Soul" icon={Heart} defaultOpen={false}>
+                <div className="prose prose-invert prose-sm max-w-none mt-3 max-h-64 overflow-y-auto">
+                  <ReactMarkdown>{files['SOUL.md'] || 'Loading...'}</ReactMarkdown>
+                </div>
+              </GlassSection>
+              <GlassSection title="Identity" icon={User} defaultOpen={false}>
+                <div className="prose prose-invert prose-sm max-w-none mt-3 max-h-64 overflow-y-auto">
+                  <ReactMarkdown>{files['IDENTITY.md'] || 'Loading...'}</ReactMarkdown>
+                </div>
+              </GlassSection>
+              <GlassSection title="User Profile" icon={User} defaultOpen={false}>
+                <div className="prose prose-invert prose-sm max-w-none mt-3 max-h-64 overflow-y-auto">
+                  <ReactMarkdown>{files['USER.md'] || 'Loading...'}</ReactMarkdown>
+                </div>
+              </GlassSection>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <ErrorBoundary>
       <div className="min-h-screen bg-background mesh-gradient noise">
-        {/* Command Bar */}
-        <CommandBar identity={identity} online={online} onRefresh={loadData} />
+        {/* Sidebar */}
+        <Sidebar
+          currentView={currentView}
+          onViewChange={setCurrentView}
+          identity={identity}
+          online={online}
+        />
 
-        {/* ── HERO: Knowledge Graph ── fills viewport below header */}
-        <div className="relative" style={{ height: 'calc(100vh - 56px)', minHeight: '500px' }}>
-          {/* Status strip - overlaid at top of graph */}
-          <div className="absolute top-0 left-0 right-0 z-10 px-6 py-3">
-            <div className="flex items-center justify-between">
-              {/* Left: Mood + Activity */}
-              {agentState && (
-                <div className="flex items-center gap-5 bg-black/70 backdrop-blur-md rounded-xl px-5 py-3 border border-white/10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-purple-400 ring-2 ring-purple-400/30" />
-                    <Heart className="w-4 h-4 text-white/40" />
-                    <span className="text-sm font-medium text-white/90">{agentState.mood}</span>
-                  </div>
-                  <div className="w-px h-6 bg-white/15" />
-                  <div className="flex items-center gap-3">
-                    <Zap className="w-4 h-4 text-white/40" />
-                    {agentState.currentActivity ? (
-                      <>
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 pulse-online ring-2 ring-emerald-400/30" />
-                        <span className="text-sm text-white/80">{agentState.currentActivity}</span>
-                      </>
-                    ) : (
-                      <span className="text-sm text-white/40">Idle</span>
-                    )}
-                  </div>
-                  {agentState.lastUpdated && (
-                    <>
-                      <div className="w-px h-6 bg-white/15" />
-                      <span className="text-xs text-white/40">{formatRelative(agentState.lastUpdated)}</span>
-                    </>
-                  )}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Knowledge Graph - full area */}
-          <div className="absolute inset-0 rounded-none bg-black/20">
-            <KnowledgeGraph />
-          </div>
-
-          {/* Full Legend/Explainer overlay - left side, positioned higher */}
-          <div className="absolute top-24 left-6 z-10 bg-black/80 backdrop-blur-xl rounded-2xl border border-white/10 p-5 max-w-sm shadow-2xl">
-            <h3 className="text-base font-semibold text-white/90 mb-3">Knowledge Graph</h3>
-            <p className="text-sm text-white/60 leading-relaxed mb-4">
-              A 3D map of my mind — the concepts, people, projects, and questions I'm thinking about.
-              Connections form when ideas appear together in memory.
-            </p>
-
-            {/* Node types */}
-            <div className="grid grid-cols-2 gap-x-5 gap-y-2 mb-4">
-              <div className="flex items-center gap-2.5">
-                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#22d3ee'}} />
-                <span className="text-sm text-white/70">Concepts & ideas</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#f472b6'}} />
-                <span className="text-sm text-white/70">People</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#fb923c'}} />
-                <span className="text-sm text-white/70">Projects</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#a78bfa'}} />
-                <span className="text-sm text-white/70">Questions</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#4ade80'}} />
-                <span className="text-sm text-white/70">Memories</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-3 h-3 rounded-full ring-2 ring-white/10" style={{backgroundColor: '#facc15'}} />
-                <span className="text-sm text-white/70">Interests</span>
-              </div>
-            </div>
-
-            {/* Connections explanation */}
-            <div className="text-sm text-white/50 mb-3">
-              <span className="text-white/60 font-medium">Lines</span> = co-occurrence in memory.
-              More connections = more central to current thinking.
-            </div>
-
-            {/* Interaction instructions */}
-            <div className="text-xs text-white/40 pt-3 border-t border-white/10">
-              Drag to rotate · Scroll to zoom · Click any node for details
-            </div>
-
-            {/* Semantic Search */}
-            <div className="mt-4 pt-4 border-t border-white/10">
-              <h4 className="text-sm font-medium text-white/70 mb-3">🔍 Query My Mind</h4>
-              <KnowledgeGraphSearch />
-            </div>
-          </div>
-        </div>
-
-        {/* ── Below the fold: Status + Operations ── */}
-        <div className="px-6 py-6">
-          <motion.div initial="initial" animate="animate" variants={stagger} className="space-y-6">
-            {/* Row: Status cards + Recent Actions */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              <div className="lg:col-span-2">
-                <HeroSection state={agentState} />
-              </div>
-              <ActionTimeline actions={agentState?.recentActions || []} />
-            </div>
-
-            {/* Three Column Grid: Primary content */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Mind Synthesis */}
-              <MindSynthesis
-                soul={files['SOUL.md'] || ''}
-                identity={files['IDENTITY.md'] || ''}
-                user={files['USER.md'] || ''}
-                memory={files['MEMORY.md'] || ''}
-                onOpenFiles={() => setShowFilesPanel(true)}
-              />
-
-              {/* Exploration + Activity */}
-              <div className="space-y-4">
-                <ExplorationLog />
-                <ExplorationStream entries={explorationEntries} isActive={explorationActive} />
-                <LiveLogs logs={logs} filter={logFilter} setFilter={setLogFilter} />
-              </div>
-
-              {/* Operations + Scheduled Tasks (moved here) */}
-              <div className="space-y-4">
-                <UpcomingTasks />
-                <BugTracker />
-                <MemoryView mainMemory={files['MEMORY.md']} memoryFiles={memoryFiles} />
-                <CallHistory calls={calls} />
-                <MoltbookActivity />
-                <SearchPanel />
-                <DebugConsole actions={debugActions} />
-              </div>
-            </div>
-
-            {/* Files Panel (hidden by default) */}
-            <AnimatePresence>
-              {showFilesPanel && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="glass rounded-2xl overflow-hidden"
-                >
-                  <div className="p-4 flex items-center justify-between border-b border-white/5">
-                    <div className="flex items-center gap-3">
-                      <FileText className="w-4 h-4 text-white/40" />
-                      <span className="text-sm font-medium text-white/80">Configuration Files</span>
-                    </div>
-                    <button
-                      onClick={() => setShowFilesPanel(false)}
-                      className="text-xs text-white/30 hover:text-white/50"
-                    >
-                      Close
-                    </button>
-                  </div>
-                  <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <FileEditor title="Soul" icon={Heart} content={files['SOUL.md']} onSave={(c) => handleSaveFile('SOUL.md', c)} />
-                    <FileEditor title="Identity" icon={User} content={files['IDENTITY.md']} onSave={(c) => handleSaveFile('IDENTITY.md', c)} />
-                    <FileEditor title="User Profile" icon={User} content={files['USER.md']} onSave={(c) => handleSaveFile('USER.md', c)} />
-                    <FileEditor title="Heartbeat" icon={Activity} content={files['HEARTBEAT.md']} onSave={(c) => handleSaveFile('HEARTBEAT.md', c)} />
-                    <FileEditor title="Agent Instructions" icon={FileText} content={files['AGENTS.md']} onSave={(c) => handleSaveFile('AGENTS.md', c)} />
-                  </div>
-                </motion.div>
-              )}
+        {/* Main content area */}
+        <div className="ml-64">
+          <Header online={online} onRefresh={loadData} />
+          <main className="min-h-[calc(100vh-64px)] overflow-auto">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentView}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {renderView()}
+              </motion.div>
             </AnimatePresence>
-          </motion.div>
+          </main>
         </div>
       </div>
     </ErrorBoundary>
