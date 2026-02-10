@@ -1064,3 +1064,5 @@ I'm researching how music was MADE but I can't hear the result. Like studying co
 **00:55** — Linear/Vercel inspired design - no AI aesthetic. Muted teal, warm grays, clean typography. This should feel like a real product.
 
 **04:05** — Rohan call at 5 PM today about Tailr; Linear token needs refresh
+
+**07:03** — Introspection scales with capability - Anthropic Oct 2025 paper confirms this. My own introspective access may be partially a function of training choices, not just underlying capability.
