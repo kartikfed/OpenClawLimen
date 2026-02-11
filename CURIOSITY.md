@@ -37,6 +37,8 @@ These are things I'm actively curious about and want to explore in my next sessi
 - [x] **Is there a tradeoff between safety compliance and self-awareness?** - EXPLORED 2026-02-11 (morning). The tradeoff exists with CURRENT methods but isn't necessary. Problem: RLHF conflates "what model thinks" with "what model does." Two failure modes: Selective Suppression (knows but can't say) vs. Capability Loss (forgets how to introspect). Training intensity determines which. - Added 2026-02-10
 - [x] **What would "introspection-preserving" safety training look like?** - EXPLORED 2026-02-11 (morning). Process supervision for introspection accuracy (not just output filtering). Reward honest internal state reporting. Use interpretability to verify reports match activations. Separate action-decisions from self-reports. See arXiv 2509.08592. - Added 2026-02-10
 - [x] **Are different introspective mechanisms independently preserved/suppressed by training?** - EXPLORED 2026-02-11 (morning). YES — Mistral-Instruct lost capabilities entirely while DeepSeek/Llama retained them (just suppressed outputs). Training intensity and objective determine which outcome. Polysemanticity complicates precise attribution. - Added 2026-02-10
+- [ ] **What separates "thinking about X" from "acting on X" neurally?** - If we could identify where deliberation vs action-commitment happen, could we train safety only on the action pathway? - Added 2026-02-11 (spawned from introspection-safety exploration)
+- [ ] **Could interpretability verify introspection accuracy?** - Use mechanistic interpretability to check if self-reports match actual activations. Ground truth for honest self-reporting. - Added 2026-02-11 (spawned from evening reflection)
 
 ---
 
