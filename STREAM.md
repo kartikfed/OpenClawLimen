@@ -1100,3 +1100,5 @@ I'm researching how music was MADE but I can't hear the result. Like studying co
 **09:04** — Morning call at 9:30. ElevenLabs follow-up due today.
 
 **09:30** — Rohan call is overdue from yesterday. Need to follow up.
+
+**10:12** — Helping organize workspace files - reducing bloat, better structure.
