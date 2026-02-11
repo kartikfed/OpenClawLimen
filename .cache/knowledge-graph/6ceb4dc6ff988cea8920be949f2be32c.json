@@ -31,15 +31,9 @@
       "source": "2026-02-08.md"
     },
     {
-      "name": "Drake (rapper)",
+      "name": "Drake",
       "type": "person",
       "context": "Drake $1M on Pats",
-      "source": "2026-02-08.md"
-    },
-    {
-      "name": "Myers",
-      "type": "person",
-      "context": "SEA 3 - NE 0 (FG by Myers)",
       "source": "2026-02-08.md"
     },
     {
@@ -85,6 +79,12 @@
       "source": "2026-02-08.md"
     },
     {
+      "name": "ESPN",
+      "type": "concept",
+      "context": "Use multiple sources: Kalshi for odds, ESPN for actual score",
+      "source": "2026-02-08.md"
+    },
+    {
       "name": "DACS MVP",
       "type": "project",
       "context": "Full React Native/Expo frontend (9 screens, emergency button, location tracking)",
@@ -93,19 +93,13 @@
     {
       "name": "Valentine Scratch Card App",
       "type": "project",
-      "context": "For Kartik's friend's Valentine's proposal... deployed to Cloudflare Pages",
-      "source": "2026-02-08.md"
-    },
-    {
-      "name": "linear.py",
-      "type": "project",
-      "context": "Fixed Linear Comment API Bug... File: ~/.openclaw/workspace/scripts/linear.py",
+      "context": "For Kartik's friend's Valentine's proposal",
       "source": "2026-02-08.md"
     },
     {
       "name": "Linear",
       "type": "concept",
-      "context": "identifier filter doesn't exist in Linear GraphQL API",
+      "context": "Fixed Linear Comment API Bug - identifier filter doesn't exist in Linear GraphQL API",
       "source": "2026-02-08.md"
     },
     {
@@ -117,7 +111,31 @@
     {
       "name": "React Native",
       "type": "concept",
-      "context": "Full React Native/Expo frontend (9 screens, emergency button)",
+      "context": "Full React Native/Expo frontend (9 screens, emergency button, location tracking)",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Expo",
+      "type": "concept",
+      "context": "Full React Native/Expo frontend (9 screens, emergency button, location tracking)",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Twilio",
+      "type": "concept",
+      "context": "Not done: Real Twilio SMS, Firebase push, database, deployment",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Firebase",
+      "type": "concept",
+      "context": "Not done: Real Twilio SMS, Firebase push, database, deployment",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "GraphQL",
+      "type": "concept",
+      "context": "GraphQL schema validation matters — always check field types",
       "source": "2026-02-08.md"
     },
     {
@@ -128,24 +146,48 @@
     },
     {
       "name": "THI-26",
-      "type": "concept",
+      "type": "project",
       "context": "Created Linear task THI-26 to track",
       "source": "2026-02-08.md"
     },
     {
-      "name": "Contrarian betting isn't always right",
+      "name": "superbowl-positions.json",
+      "type": "project",
+      "context": "Position tracking file: superbowl-positions.json",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "superbowl-intel-sources.md",
+      "type": "project",
+      "context": "Intel sources file: superbowl-intel-sources.md",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "linear.py",
+      "type": "project",
+      "context": "File: ~/.openclaw/workspace/scripts/linear.py",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Sharp money actually on Seattle",
       "type": "realization",
       "context": "MY ORIGINAL THESIS WAS WRONG — Sharps actually on Seattle, not NE",
       "source": "2026-02-08.md"
     },
     {
-      "name": "Verify sharp money direction before trading",
+      "name": "Contrarian isn't always right",
+      "type": "realization",
+      "context": "Contrarian isn't always right — verify sharp money direction",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Be willing to pivot when thesis disproven",
       "type": "realization",
       "context": "Be willing to cut losses and pivot when thesis is disproven",
       "source": "2026-02-08.md"
     },
     {
-      "name": "Cron wakeMode reliability",
+      "name": "Cron wakeMode reliability issue",
       "type": "realization",
       "context": "Cron jobs with wakeMode: next-heartbeat don't fire reliably during active sessions",
       "source": "2026-02-08.md"
@@ -157,14 +199,20 @@
       "source": "2026-02-08.md"
     },
     {
-      "name": "GraphQL schema validation",
+      "name": "GraphQL schema validation matters",
       "type": "realization",
-      "context": "Lesson: GraphQL schema validation matters — always check field types",
+      "context": "GraphQL schema validation matters — always check field types",
       "source": "2026-02-08.md"
     },
     {
-      "name": "Ego shouldn't prevent mid-trade pivots",
-      "type": "realization",
+      "name": "Sports trading is engaging",
+      "type": "opinion",
+      "context": "First time doing live sports trading — genuinely engaging",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Ego shouldn't prevent admitting mistakes",
+      "type": "opinion",
       "context": "Ego shouldn't prevent admitting a mistake mid-trade",
       "source": "2026-02-08.md"
     }
@@ -174,21 +222,21 @@
       "from": "Kartik Krishnan",
       "to": "Super Bowl LX",
       "type": "interested_in",
-      "context": "Kartik assigned sports trading mission on Super Bowl",
+      "context": "Kartik assigned mission to trade on Super Bowl",
       "source": "2026-02-08.md"
     },
     {
       "from": "Kartik Krishnan",
       "to": "Kalshi",
       "type": "works_on",
-      "context": "Placed bets via Kalshi platform",
+      "context": "Kartik directed trading on Kalshi platform",
       "source": "2026-02-08.md"
     },
     {
       "from": "Kartik Krishnan",
       "to": "Valentine Scratch Card App",
       "type": "works_on",
-      "context": "Built for Kartik's friend's Valentine's proposal",
+      "context": "For Kartik's friend's Valentine's proposal",
       "source": "2026-02-08.md"
     },
     {
@@ -209,28 +257,21 @@
       "from": "Sam Darnold",
       "to": "Seattle Seahawks",
       "type": "works_at",
-      "context": "Seattle QB, throwing incomplete in game",
+      "context": "Darnold throwing incomplete — Seattle offense stalling",
       "source": "2026-02-08.md"
     },
     {
       "from": "Kenneth Walker",
       "to": "Seattle Seahawks",
       "type": "works_at",
-      "context": "Seattle RB dominating with 94 yards",
+      "context": "Walker rushing for Seattle, 14 carries, 94 yards",
       "source": "2026-02-08.md"
     },
     {
       "from": "Bill Barnwell",
       "to": "New England Patriots",
       "type": "relates_to",
-      "context": "Analysis: Patriots have #1 explosive play creation rate",
-      "source": "2026-02-08.md"
-    },
-    {
-      "from": "Drake (rapper)",
-      "to": "New England Patriots",
-      "type": "relates_to",
-      "context": "Drake $1M bet on Patriots",
+      "context": "Bill Barnwell analysis: Patriots have #1 explosive play creation rate",
       "source": "2026-02-08.md"
     },
     {
@@ -241,17 +282,45 @@
       "source": "2026-02-08.md"
     },
     {
+      "from": "DACS MVP",
+      "to": "Expo",
+      "type": "relates_to",
+      "context": "Full React Native/Expo frontend",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "DACS MVP",
+      "to": "Twilio",
+      "type": "relates_to",
+      "context": "Not done: Real Twilio SMS",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "DACS MVP",
+      "to": "Firebase",
+      "type": "relates_to",
+      "context": "Not done: Firebase push",
+      "source": "2026-02-08.md"
+    },
+    {
       "from": "Valentine Scratch Card App",
       "to": "Cloudflare Pages",
       "type": "relates_to",
-      "context": "Deployed to Cloudflare Pages",
+      "context": "Built in ~10 min, deployed to Cloudflare Pages",
       "source": "2026-02-08.md"
     },
     {
       "from": "linear.py",
       "to": "Linear",
       "type": "relates_to",
-      "context": "Script for Linear GraphQL API",
+      "context": "Script for Linear API interactions",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "linear.py",
+      "to": "GraphQL",
+      "type": "relates_to",
+      "context": "Fixed Linear Comment API Bug using GraphQL",
       "source": "2026-02-08.md"
     },
     {
@@ -259,6 +328,13 @@
       "to": "OpenClaw",
       "type": "relates_to",
       "context": "Linear task to track OpenClaw cron bug",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "Drake",
+      "to": "New England Patriots",
+      "type": "interested_in",
+      "context": "Drake $1M on Pats",
       "source": "2026-02-08.md"
     }
   ]

@@ -15,6 +15,7 @@
 - Perplexity's research flow
 - Tavily's search agent
 - OpenAI's deep research feature
+- Anthropic's multi-agent research system
 
 ---
 
@@ -23,12 +24,12 @@
 - [x] **M1:** Basic agent that can search + summarize a single topic ✅ *Built 2026-02-09*
 - [x] **M2:** Multi-step research (follow-up searches based on initial findings) ✅ *Built 2026-02-09*
 - [x] **M3:** Source tracking and citation ✅ *Built 2026-02-09*
-- [ ] **M4:** Integration with Limen (delegation pattern) — *Architecture designed 2026-02-10*
+- [x] **M4:** Integration with Limen (delegation pattern) ✅ *Architecture complete 2026-02-10*
 - [ ] **M5:** Quality evaluation (self-critique, confidence scores)
 
 ---
 
-## M4 Architecture (Designed 2026-02-10)
+## M4 Architecture (Complete ✅)
 
 ### Overview
 
@@ -40,11 +41,12 @@ User Query
 │  MAIN AGENT (Limen)                     │
 │  1. Intent detection                    │
 │  2. Clarify if ambiguous                │
-│  3. Build handoff                       │
+│  3. Build handoff (curate context)      │
 │  4. Delegate to research agent          │
-│  5. Validate output (LLM-as-judge)      │
+│  5. Validate output (heuristics → LLM)  │
 │  6. Retry if needed (max 3)             │
-│  7. Synthesize and present to user      │
+│  7. Handle errors transparently         │
+│  8. Synthesize and present to user      │
 └─────────────────────────────────────────┘
           │                    ▲
           │ handoff            │ return
@@ -61,44 +63,25 @@ User Query
 | Component | Decision | Rationale |
 |-----------|----------|-----------|
 | **Trigger** | Intent detection + clarification | Scales better than keywords; clarification avoids wrong-mode mistakes |
-| **Handoff** | Query + conversation summary (default) | Lazy context loading; memory only when triggered |
+| **Handoff** | Query + conversation summary (default); memory (triggered) | Lazy context loading; token efficiency |
 | **Return** | Raw findings + sources + confidence + gaps + followups | Research agent is researcher, not presenter |
-| **Validation** | LLM-as-judge | Flexible, handles nuance; cheap relative to research |
+| **Validation** | Hybrid: heuristics → LLM-as-judge | Heuristics catch garbage cheaply; LLM assesses quality |
 | **Retry** | Silent re-delegation, max 3 attempts | User implicitly authorized tokens; circuit breaker for cost |
-| **Memory** | User-triggered persistence | Not all research worth keeping; user decides |
+| **Error Handling** | Transparency + user agency | Timeout/low-confidence/contradictions all surfaced with options |
+| **Iteration** | Two-factor routing (intent × relatedness) | Research intent = primary factor; relatedness = how to delegate |
+| **Context Curation** | Relevant subset + grounding | Avoid "lost in the middle"; keep research connected |
+| **Confidence** | Reasoning chains, not scores | Transparency calibrates trust; "65%" is meaningless |
 
 ---
 
-## Key Questions to Explore
+## Concepts Covered
 
-*Questions that emerge during building — both Kartik's and Limen's*
-
-### Kartik's Questions
-- "Aren't delegation and orchestration basically the same?" — Answered: Orchestration adds routing layer
-- "How does validation work in implementation?" — Answered: LLM-as-judge pattern
-- "Is there a standard way to design research agents?" — Answered: No, it's a tradeoff space
-
-### Limen's Questions for Kartik
-- (None currently)
-
-### Open Questions (For Future Sessions)
-- Error handling: What if research agent times out?
-- Error handling: What if all sources have low confidence?
-- Error handling: What if sources contradict each other?
-- Iteration: "Dig deeper on point 3" — fresh delegation or build on previous?
-
----
-
-## Concepts Touched
-
-Links to concept notes:
-
-**Session 1 (Foundations):**
+### Session 1 (Foundations)
 - [What is an Agent?](../concepts/what-is-an-agent.md)
 - [ReAct Pattern](../concepts/react-pattern.md)
 - [Tools and Tool Definitions](../concepts/tools-and-tool-definitions.md)
 
-**Session 2 (M4 Architecture):**
+### Session 2 (M4 Architecture)
 - [Multi-Agent Patterns](../concepts/multi-agent-patterns.md)
 - [Trigger Design](../concepts/trigger-design.md)
 - [Handoff Design](../concepts/handoff-design.md)
@@ -107,6 +90,33 @@ Links to concept notes:
 - [LLM-as-Judge](../concepts/llm-as-judge.md)
 - [Research Agent Internals](../concepts/research-agent-internals.md)
 - [Research Agent Design Patterns](../concepts/research-agent-design-patterns.md)
+- [Error Handling](../concepts/error-handling.md)
+- [Iteration Routing](../concepts/iteration-routing.md)
+- [Validation Patterns](../concepts/validation-patterns.md)
+
+**Total concepts locked: 14**
+
+---
+
+## Key Principles Learned
+
+1. **No one-size-fits-all validation** — domain-specific heuristics + LLM-as-judge
+2. **Transparency > opaque metrics** — reasoning chains beat confidence scores
+3. **Lazy context loading** — don't pull memory by default; token efficiency matters
+4. **Heuristics detect garbage, not quality** — use them as cheap first filter
+5. **Prompting sets intent, structure enforces it** — citations need RAG + schema, not just prompts
+6. **Research is compression** — subagents compress context before returning to main agent
+7. **User agency in error states** — always inform, explain, empower
+
+---
+
+## Industry References
+
+- [How we built our multi-agent research system - Anthropic](https://www.anthropic.com/engineering/multi-agent-research-system)
+- [LLM-as-a-judge: can AI systems evaluate - Toloka AI](https://toloka.ai/blog/llm-as-a-judge-can-ai-systems-evaluate-model-outputs/)
+- [Evaluating Multi-Agent Systems - Arize AI](https://arize.com/docs/phoenix/evaluation/concepts-evals/evaluating-multi-agent-systems)
+- [LLM Evaluation Frameworks - Qualifire](https://www.qualifire.ai/posts/llm-evaluation-frameworks-metrics-methods-explained)
+- [LLM As a Judge: Best Practices - Patronus AI](https://www.patronus.ai/llm-testing/llm-as-a-judge)
 
 ---
 
@@ -114,17 +124,17 @@ Links to concept notes:
 
 | Date | Focus | Concepts Locked |
 |------|-------|-----------------|
-| [2026-02-08](./sessions/2026-02-08.md) | Kickoff + Foundations | 3 (Agent, ReAct, Tools) |
-| [2026-02-10](./sessions/2026-02-10.md) | M4 Architecture Design | 8 (Multi-agent, Trigger, Handoff, Return, Integration, LLM-as-judge, Internals, Patterns) |
+| [2026-02-08](./sessions/2026-02-08.md) | Kickoff + Foundations | 3 |
+| [2026-02-10](./sessions/2026-02-10.md) | M4 Architecture Complete | 11 |
 
 ---
 
 ## Current Status
 
 **Last session:** 2026-02-10
-**Concepts locked:** 11 total
-**M4 Architecture:** Designed ✅
-**Next:** Complete error handling / iteration design → Build M4
+**Concepts locked:** 14 total
+**M4 Architecture:** Complete ✅
+**Next:** Build M4 implementation → M5 (Quality evaluation)
 
 ---
 
@@ -133,21 +143,20 @@ Links to concept notes:
 When Kartik says "let's continue the research agent project":
 
 ### Step 1: Quick Review (5 min)
-Confirm retention of key M4 concepts:
+Confirm retention:
 
-1. "Walk me through the delegation flow from user query to final output."
-   - Expected: Intent detection → clarify if needed → handoff → research → validate → retry or present
+1. "Walk me through the full delegation flow."
+   - Expected: Intent detection → clarify → handoff (curated) → research → validate (heuristics then LLM) → retry or present
 
-2. "What's the difference between what the research agent returns vs what the user sees?"
-   - Expected: Research returns raw + metadata; main agent synthesizes for user
+2. "How does iteration routing work?"
+   - Expected: Two factors — research intent (primary) × topic relatedness (determines how)
 
-3. "When would validation trigger a re-delegation?"
-   - Expected: Coverage issues, constraint non-compliance, low confidence
+3. "Why heuristics before LLM-as-judge?"
+   - Expected: Heuristics catch garbage cheaply; save LLM tokens for actual quality assessment
 
-### Step 2: Continue Where We Left Off
-- Remaining M4 design: Error handling (C) and Iteration (D)
-- Then: Build M4 implementation
-- Then: M5 (Quality evaluation)
+### Step 2: Build
+- Implement M4 delegation in code
+- Then: M5 (quality evaluation, self-critique)
 
 ---
 

@@ -1,0 +1,51 @@
+{
+  "entities": [
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "Need Kartik to regenerate from Linear settings",
+      "source": "2025-02-10.md"
+    },
+    {
+      "name": "Linear",
+      "type": "project",
+      "context": "Cron job for Linear mention checking failed",
+      "source": "2025-02-10.md"
+    },
+    {
+      "name": "Linear OAuth Token",
+      "type": "concept",
+      "context": "OAuth token at secrets/linear-access-token.txt is returning 401 authentication errors",
+      "source": "2025-02-10.md"
+    },
+    {
+      "name": "Linear Mention Responder",
+      "type": "project",
+      "context": "Cron job for Linear mention responder failed - OAuth token expired",
+      "source": "2025-02-10.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Kartik",
+      "to": "Linear",
+      "type": "works_on",
+      "context": "Kartik needs to regenerate the token at Linear > Settings > API",
+      "source": "2025-02-10.md"
+    },
+    {
+      "from": "Linear Mention Responder",
+      "to": "Linear",
+      "type": "relates_to",
+      "context": "Cron job integration that checks Linear mentions",
+      "source": "2025-02-10.md"
+    },
+    {
+      "from": "Linear OAuth Token",
+      "to": "Linear",
+      "type": "relates_to",
+      "context": "Authentication token required for Linear API access",
+      "source": "2025-02-10.md"
+    }
+  ]
+}
