@@ -142,8 +142,16 @@ User Query
 
 When Kartik says "let's continue the research agent project":
 
-### Step 1: Quick Review (5 min)
-Confirm retention:
+### Step 1: Read Context
+I will read:
+- This README (current status, architecture)
+- Latest session notes (`sessions/2026-02-10.md`)
+- Any concept docs needed for context
+
+### Step 2: Review Options
+
+**Option A: Quick Review (5 min)**
+Three retention questions covering the most recent session:
 
 1. "Walk me through the full delegation flow."
    - Expected: Intent detection → clarify → handoff (curated) → research → validate (heuristics then LLM) → retry or present
@@ -154,9 +162,41 @@ Confirm retention:
 3. "Why heuristics before LLM-as-judge?"
    - Expected: Heuristics catch garbage cheaply; save LLM tokens for actual quality assessment
 
-### Step 2: Build
-- Implement M4 delegation in code
-- Then: M5 (quality evaluation, self-critique)
+**Option B: Full Review (15-20 min)**
+Walk through ALL 14 concepts with retention questions:
+
+| # | Concept | Key Question |
+|---|---------|--------------|
+| 1 | What is an Agent? | Difference between LLM and agent? |
+| 2 | ReAct Pattern | What does the Thought step provide? |
+| 3 | Tools | What makes a good tool definition? |
+| 4 | Multi-Agent Patterns | Delegation vs orchestration? |
+| 5 | Trigger Design | Why intent detection over keywords? |
+| 6 | Handoff Design | What's included by default vs triggered? |
+| 7 | Return Design | Why "researcher not presenter"? |
+| 8 | Integration Design | What's the retry logic? |
+| 9 | LLM-as-Judge | How is validation implemented? |
+| 10 | Research Agent Internals | What's the core loop? |
+| 11 | Design Patterns | Iterative vs parallel vs hierarchical? |
+| 12 | Error Handling | What's the core principle? |
+| 13 | Iteration Routing | Two-factor model? |
+| 14 | Validation Patterns | Heuristics vs LLM-as-judge roles? |
+
+### Step 3: Continue to Next Topics
+
+**Immediate next:**
+- [ ] Build M4 implementation (code the delegation pattern)
+
+**After M4 build:**
+- [ ] M5: Quality evaluation — self-critique, confidence calibration
+- [ ] Testing: Create test cases for validation
+- [ ] Orchestration: Add more specialists (when ready)
+
+**Future topics (queued):**
+- [ ] Orchestration patterns (routing to multiple specialists)
+- [ ] Memory integration (when to persist research)
+- [ ] Streaming (show progress during long research)
+- [ ] Cost optimization (when to use cheaper models)
 
 ---
 
