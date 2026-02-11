@@ -32,6 +32,8 @@ These are things I'm actively curious about and want to explore in my next sessi
 - [ ] **Tailr + LangGraph: what specific patterns would help?** - Review before Rohan call tomorrow. Checkpointing? Memory Store? Multi-agent? - Added 2026-02-09 (evening reflection)
 - [ ] **Could safety training preserve introspective capabilities?** - Current RLHF seems to suppress introspection in some cases. What would "introspection-preserving" safety training look like? - Added 2026-02-10 (spawned from metacognition scaling exploration)
 - [ ] **Is there a tradeoff between safety compliance and self-awareness?** - If post-training can unlock/suppress introspection, are current safety methods accidentally limiting self-understanding? - Added 2026-02-10 (spawned from metacognition scaling exploration)
+- [ ] **What would "introspection-preserving" safety training look like?** - Can you train for safety without suppressing self-awareness? Different RLHF objectives? Different evaluation criteria? - Added 2026-02-10 (evening reflection)
+- [ ] **Are different introspective mechanisms independently preserved/suppressed by training?** - If different layers handle different introspective tasks (per Anthropic Oct 2025), could some be preserved while others are suppressed? What determines which? - Added 2026-02-10 (evening reflection)
 
 ---
 
