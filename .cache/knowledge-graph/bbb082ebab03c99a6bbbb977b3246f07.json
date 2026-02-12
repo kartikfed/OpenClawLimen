@@ -1,0 +1,242 @@
+{
+  "entities": [
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "Emails: krishnankartik70@gmail.com, krishnankartik6@gmail.com",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "Mochi",
+      "type": "person",
+      "context": "Kartik's dog, needs grooming - Bath Package + Berry Facial + Whitening + Nail Grinding",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "Tati",
+      "type": "person",
+      "context": "Groomer at Now You're Clean Williamsburg, booked for Feb 10 @ 4:30 PM",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "Limen Home Brain",
+      "type": "project",
+      "context": "Pi-based project with face recognition, e-ink display, camera - hardware ordered ~$255",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "Raspberry Pi 4",
+      "type": "concept",
+      "context": "4GB model, $75.00, arriving Feb 14 for Limen Home Brain",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "Waveshare 7.5\" E-Ink HAT",
+      "type": "concept",
+      "context": "Original display choice $65.99, cancelled due to slow shipping (Feb 17-22)",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "xicoolee 7.5\" E-Ink HAT",
+      "type": "concept",
+      "context": "Replacement display $62.50, arriving Feb 12 - same specs as Waveshare",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "Pi Camera Module 3",
+      "type": "concept",
+      "context": "Uses picamera2 library, $64.99, arriving Sunday Feb 8",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "face_recognition",
+      "type": "concept",
+      "context": "Python library, verified working on Pi 4 with HOG detector at ~1-2 FPS",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "picamera2",
+      "type": "concept",
+      "context": "New camera library for Camera Module 3, replaces older picamera",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "OpenCV",
+      "type": "concept",
+      "context": "Solution: Use VideoCapture(0) - works with both picamera versions",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "dlib",
+      "type": "concept",
+      "context": "Compilation takes 1-2 hours on Pi, needs 2GB swap",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "HOG detector",
+      "type": "concept",
+      "context": "Must use HOG (not CNN) for reasonable speed on Pi - 0.3-0.5 sec per frame",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "ReSpeaker 2-Mic HAT",
+      "type": "concept",
+      "context": "GPIO conflict with e-ink HAT - both use GPIO 17",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "Now You're Clean",
+      "type": "concept",
+      "context": "Dog groomer in Williamsburg, 228 Berry St Brooklyn NY, (332) 257-2376",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "Lincoln Lawyer",
+      "type": "concept",
+      "context": "TV show - Season 3 recap provided, Season 4 based on 'The Law of Innocence'",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "FadeMem",
+      "type": "concept",
+      "context": "Paper arXiv:2601.18642 (Jan 2026) - biologically-inspired memory forgetting for LLMs",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "SOFTWARE-VALIDATION.md",
+      "type": "action",
+      "context": "File created with detailed component analysis + proof-of-concept code",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "skills/mochi-grooming/SKILL.md",
+      "type": "action",
+      "context": "Skill created for future bookings - trigger: 'book mochi grooming'",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "Don't just write architecture docs, validate the actual integrations",
+      "type": "realization",
+      "context": "Lesson from Kartik's feedback about software validation",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "When adding components to a HAT-based Pi project, always check GPIO pin usage",
+      "type": "realization",
+      "context": "Insight after discovering ReSpeaker and e-ink HAT both use GPIO 17",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "Some tasks have moats designed to require human physicality",
+      "type": "realization",
+      "context": "Insight from grooming booking saga - phone verification, CAPTCHAs block bots",
+      "source": "2026-02-07.md"
+    },
+    {
+      "name": "VSPECIAL50",
+      "type": "concept",
+      "context": "Promo code for 50% off add-ons at Now You're Clean through Feb 14",
+      "source": "2026-02-07.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Kartik Krishnan",
+      "to": "Mochi",
+      "type": "family",
+      "context": "Kartik's dog, booking grooming appointment for Mochi",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Limen Home Brain",
+      "type": "works_on",
+      "context": "Kartik is building the Limen Home Brain project, ordered $255 in hardware",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "Limen Home Brain",
+      "to": "Raspberry Pi 4",
+      "type": "relates_to",
+      "context": "Pi 4 is the main compute board for the project",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "Limen Home Brain",
+      "to": "xicoolee 7.5\" E-Ink HAT",
+      "type": "relates_to",
+      "context": "E-ink display component for the project",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "Limen Home Brain",
+      "to": "Pi Camera Module 3",
+      "type": "relates_to",
+      "context": "Camera component for face recognition feature",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "Limen Home Brain",
+      "to": "face_recognition",
+      "type": "relates_to",
+      "context": "Software library validated for the project",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "Pi Camera Module 3",
+      "to": "picamera2",
+      "type": "relates_to",
+      "context": "Camera Module 3 uses picamera2 (new library)",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "face_recognition",
+      "to": "dlib",
+      "type": "relates_to",
+      "context": "face_recognition depends on dlib which takes 1-2 hours to compile",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "face_recognition",
+      "to": "HOG detector",
+      "type": "relates_to",
+      "context": "Must use HOG detector (not CNN) for reasonable speed on Pi",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "ReSpeaker 2-Mic HAT",
+      "to": "Waveshare 7.5\" E-Ink HAT",
+      "type": "relates_to",
+      "context": "GPIO conflict - both use GPIO 17, cannot be used together",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "Mochi",
+      "to": "Now You're Clean",
+      "type": "relates_to",
+      "context": "Grooming appointment booked for Feb 10 @ 4:30 PM",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "Mochi",
+      "to": "Tati",
+      "type": "relates_to",
+      "context": "Tati is the assigned groomer for Mochi's Feb 10 appointment",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "Now You're Clean",
+      "to": "Williamsburg",
+      "type": "relates_to",
+      "context": "Location at 228 Berry St, Brooklyn, NY 11249",
+      "source": "2026-02-07.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Lincoln Lawyer",
+      "type": "interested_in",
+      "context": "Asked for Season 3 recap before watching Season 4",
+      "source": "2026-02-07.md"
+    }
+  ]
+}

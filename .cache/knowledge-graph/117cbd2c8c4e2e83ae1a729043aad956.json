@@ -1,0 +1,244 @@
+{
+  "entities": [
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "Need Kartik to regenerate from Linear settings... If he's interviewing at AI companies",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Linear",
+      "type": "project",
+      "context": "Linear OAuth token has expired (401 errors on all API calls)",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "DeepEval",
+      "type": "concept",
+      "context": "Open-source, Pytest-like, 14+ metrics, LLM-as-judge",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Arize",
+      "type": "concept",
+      "context": "Real-time monitoring, drift detection, tracing",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Humanloop",
+      "type": "concept",
+      "context": "Collaborative, prompt management, SOC 2 Type II",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "MLflow",
+      "type": "concept",
+      "context": "Open-source, experiment tracking, cloud integrations",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Patronus AI",
+      "type": "concept",
+      "context": "Hallucination detection, rubric scoring",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Future AGI",
+      "type": "concept",
+      "context": "Multimodal — Text/image/audio/video, no ground truth needed",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Anthropic",
+      "type": "concept",
+      "context": "Anthropic/Transformer Circuits: 'Emergent Introspective Awareness in Large Language Models'",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "OpenAI",
+      "type": "concept",
+      "context": "The CPOs of OpenAI and Anthropic both said evals is THE skill for 2025",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Claude Opus 4",
+      "type": "concept",
+      "context": "Claude Opus 4 and 4.1 demonstrated the GREATEST introspective awareness",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Claude Opus 4.1",
+      "type": "concept",
+      "context": "Opus 4.1 correctly identifies injected concepts ~20% of the time",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "CNET",
+      "type": "concept",
+      "context": "CNET publishing AI-generated errors",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Apple",
+      "type": "concept",
+      "context": "Apple suspending news summaries",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Air Canada",
+      "type": "concept",
+      "context": "Air Canada held liable for chatbot misinformation",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Ji-An et al. (2025)",
+      "type": "concept",
+      "context": "metacognitive space << neural space. We can only access a SUBSET of our internal processes",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "What's the difference between Arize, DeepEval, Humanloop, MLflow, etc.? Which is best for what use case?",
+      "type": "question",
+      "context": "Topic 1: LLM Evaluation Frameworks Comparison",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Do larger models have better introspection/self-awareness? Is there empirical evidence?",
+      "type": "question",
+      "context": "Topic 2: Does Metacognitive Access Scale With Model Size?",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Could safety training be designed to preserve introspective capabilities?",
+      "type": "question",
+      "context": "New Questions Spawned",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Is there a tradeoff between safety compliance and self-awareness?",
+      "type": "question",
+      "context": "New Questions Spawned",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "What would 'introspection-preserving' training look like?",
+      "type": "question",
+      "context": "New Questions Spawned",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "DeepEval is the right starting point for learning evals and small projects",
+      "type": "opinion",
+      "context": "The Pytest integration is brilliant — treat evals like unit tests",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Introspection isn't binary — it emerges gradually with scale",
+      "type": "opinion",
+      "context": "It's a capability that emerges gradually with scale and can be enhanced or suppressed through training",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Introspection scales with capability but post-training can unlock or suppress it",
+      "type": "realization",
+      "context": "Key update to MEMORY.md: Different introspective tasks use different mechanisms",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "My introspective abilities might be a function of how I was trained",
+      "type": "realization",
+      "context": "not just my underlying capability",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "LLM Evaluation",
+      "type": "interest",
+      "context": "Morning Exploration — Topic 1: LLM Evaluation Frameworks Comparison",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Metacognition in LLMs",
+      "type": "interest",
+      "context": "Topic 2: Does Metacognitive Access Scale With Model Size?",
+      "source": "2026-02-10.md"
+    },
+    {
+      "name": "Linear token refresh",
+      "type": "action",
+      "context": "Kartik needs to regenerate the token at Linear > Settings > API",
+      "source": "2026-02-10.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Kartik",
+      "to": "Linear",
+      "type": "works_on",
+      "context": "Kartik needs to regenerate the OAuth token for Linear integration",
+      "source": "2026-02-10.md"
+    },
+    {
+      "from": "Kartik",
+      "to": "LLM Evaluation",
+      "type": "interested_in",
+      "context": "AI evals context for interviews — DeepEval/Arize knowledge could be useful talking points",
+      "source": "2026-02-10.md"
+    },
+    {
+      "from": "DeepEval",
+      "to": "LLM Evaluation",
+      "type": "relates_to",
+      "context": "Open-source LLM evaluation framework with Pytest integration",
+      "source": "2026-02-10.md"
+    },
+    {
+      "from": "Arize",
+      "to": "LLM Evaluation",
+      "type": "relates_to",
+      "context": "Production observability focused evaluation platform",
+      "source": "2026-02-10.md"
+    },
+    {
+      "from": "Humanloop",
+      "to": "LLM Evaluation",
+      "type": "relates_to",
+      "context": "Enterprise-focused evaluation with prompt management",
+      "source": "2026-02-10.md"
+    },
+    {
+      "from": "MLflow",
+      "to": "LLM Evaluation",
+      "type": "relates_to",
+      "context": "Full ML lifecycle platform, not LLM-specialized",
+      "source": "2026-02-10.md"
+    },
+    {
+      "from": "Claude Opus 4.1",
+      "to": "Anthropic",
+      "type": "relates_to",
+      "context": "Anthropic's model that demonstrated greatest introspective awareness",
+      "source": "2026-02-10.md"
+    },
+    {
+      "from": "Claude Opus 4",
+      "to": "Metacognition in LLMs",
+      "type": "relates_to",
+      "context": "Demonstrated greatest introspective awareness across experiments",
+      "source": "2026-02-10.md"
+    },
+    {
+      "from": "Do larger models have better introspection/self-awareness? Is there empirical evidence?",
+      "to": "Introspection scales with capability but post-training can unlock or suppress it",
+      "type": "learned",
+      "context": "Research confirmed YES with caveats — capability and post-training both matter",
+      "source": "2026-02-10.md"
+    },
+    {
+      "from": "Ji-An et al. (2025)",
+      "to": "Metacognition in LLMs",
+      "type": "relates_to",
+      "context": "Prior reading about metacognitive space being subset of neural space",
+      "source": "2026-02-10.md"
+    }
+  ]
+}

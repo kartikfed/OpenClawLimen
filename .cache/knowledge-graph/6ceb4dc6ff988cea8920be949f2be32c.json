@@ -1,0 +1,228 @@
+{
+  "entities": [
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "Kartik gave me a unique mission today: act as an expert sports trader",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Drake Maye",
+      "type": "person",
+      "context": "Drake Maye had better regular season stats than Darnold (4,394 yds, 31 TD, 8 INT)",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Sam Darnold",
+      "type": "person",
+      "context": "Darnold throwing incomplete — Seattle offense stalling too",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Bill Barnwell",
+      "type": "person",
+      "context": "Bill Barnwell analysis: Patriots have #1 explosive play creation rate",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Kenneth Walker",
+      "type": "person",
+      "context": "Kenneth Walker: 14 carries, 94 yards (6.7 YPC) — dominating",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Super Bowl LX",
+      "type": "concept",
+      "context": "Super Bowl LX Trading Session - Seahawks vs Patriots",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Kalshi",
+      "type": "concept",
+      "context": "place bets on the Super Bowl via Kalshi to maximize profit",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Seattle Seahawks",
+      "type": "concept",
+      "context": "60%+ of public money on Seattle (classic contrarian signal)",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "New England Patriots",
+      "type": "concept",
+      "context": "Fade the public, back the underdog Patriots",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Circa",
+      "type": "concept",
+      "context": "Circa took a $1M bet on Patriots (sharp money indicator)",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Valentine Scratch Card App",
+      "type": "project",
+      "context": "Built Valentine Scratch Card App for Kartik's friend's Valentine's proposal",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "DACS MVP",
+      "type": "project",
+      "context": "Full React Native/Expo frontend (9 screens, emergency button, location tracking)",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Linear",
+      "type": "concept",
+      "context": "Fixed Linear Comment API Bug - identifier filter doesn't exist in Linear GraphQL API",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Cloudflare Pages",
+      "type": "concept",
+      "context": "Built in ~10 min, deployed to Cloudflare Pages",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Tavily",
+      "type": "concept",
+      "context": "Configured Tavily and Grok API keys for expanded monitoring",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Grok API",
+      "type": "concept",
+      "context": "Configured Tavily and Grok API keys for expanded monitoring",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "OpenClaw",
+      "type": "project",
+      "context": "OpenClaw Cron Bug - v2026.2.3-1 has cron scheduling bug",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Contrarian betting thesis failure",
+      "type": "realization",
+      "context": "MY ORIGINAL THESIS WAS WRONG — Sharps actually on Seattle, not NE",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Cron reliability lesson",
+      "type": "realization",
+      "context": "Cron jobs with wakeMode: next-heartbeat don't fire reliably during active sessions",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Ego in trading lesson",
+      "type": "realization",
+      "context": "Ego shouldn't prevent admitting a mistake mid-trade",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "Check existing work lesson",
+      "type": "realization",
+      "context": "Lesson: Check project folders before saying 'blocked on inputs'!",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "GraphQL validation lesson",
+      "type": "realization",
+      "context": "GraphQL schema validation matters — always check field types",
+      "source": "2026-02-08.md"
+    },
+    {
+      "name": "THI-26",
+      "type": "concept",
+      "context": "Created Linear task THI-26 to track OpenClaw cron bug",
+      "source": "2026-02-08.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Kartik Krishnan",
+      "to": "Super Bowl LX",
+      "type": "interested_in",
+      "context": "Kartik assigned the Super Bowl trading mission",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Valentine Scratch Card App",
+      "type": "works_on",
+      "context": "Built for Kartik's friend's Valentine's proposal",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "DACS MVP",
+      "type": "works_on",
+      "context": "Kartik asked about DACS MVP status",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Kalshi",
+      "type": "interested_in",
+      "context": "Using Kalshi for live sports trading",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "Drake Maye",
+      "to": "New England Patriots",
+      "type": "works_at",
+      "context": "Patriots QB with 4,394 yds, 31 TD stats",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "Sam Darnold",
+      "to": "Seattle Seahawks",
+      "type": "works_at",
+      "context": "Seahawks QB, Darnold throwing incomplete",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "Kenneth Walker",
+      "to": "Seattle Seahawks",
+      "type": "works_at",
+      "context": "Seahawks RB, 14 carries, 94 yards",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "Bill Barnwell",
+      "to": "New England Patriots",
+      "type": "relates_to",
+      "context": "Analysis: Patriots have #1 explosive play creation rate",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "Valentine Scratch Card App",
+      "to": "Cloudflare Pages",
+      "type": "relates_to",
+      "context": "Deployed to Cloudflare Pages",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "DACS MVP",
+      "to": "React Native/Expo",
+      "type": "relates_to",
+      "context": "Full React Native/Expo frontend",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "OpenClaw",
+      "to": "THI-26",
+      "type": "relates_to",
+      "context": "Created Linear task THI-26 to track cron bug",
+      "source": "2026-02-08.md"
+    },
+    {
+      "from": "Super Bowl LX",
+      "to": "Contrarian betting thesis failure",
+      "type": "learned",
+      "context": "Sharps actually on Seattle, not NE as initially assumed",
+      "source": "2026-02-08.md"
+    }
+  ]
+}

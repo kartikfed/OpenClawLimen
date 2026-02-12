@@ -279,7 +279,7 @@ pantry:
   quantity: 2
   unit: packs
 - name: Greek yogurt (Chobani cups)
-  quantity: 3
+  quantity: 25
   unit: cups
   notes: LOW - need more
 - name: Dog treats (Mochi)
@@ -299,7 +299,7 @@ pantry:
   quantity: 1
   unit: pack
 - name: Street taco flavored jerky sticks
-  quantity: 0.5
+  quantity: 2
   unit: bag
   notes: half bag
 - name: Vodka (handle)

@@ -5,8 +5,10 @@ const app = express();
 
 app.use(express.json({ limit: '10mb' }));
 
-const OPENCLAW_URL = 'https://limen-openclaw.ngrok.app/v1/chat/completions';
-const OPENCLAW_AUTH = 'Bearer 7b0823e46d5beef9870db213ace87139542badebad023323';
+// Direct to Anthropic API for fast voice responses
+const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
+const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY || '';  // Set this in environment
+const VOICE_MODEL = 'claude-3-5-haiku-20241022';
 
 // ============================================
 // OpenAI → Claude (Request Translation)
@@ -16,7 +18,8 @@ function translateRequestToClaude(openAIRequest) {
   const otherMsgs = openAIRequest.messages?.filter(m => m.role !== 'system') || [];
 
   return {
-    model: openAIRequest.model,
+    // Force Haiku for real-time voice (fast responses required)
+    model: 'anthropic/claude-3-5-haiku-20241022',
     max_tokens: openAIRequest.max_tokens || 4096,
     system: systemMsg?.content,
     messages: translateMessagesToClaude(otherMsgs),

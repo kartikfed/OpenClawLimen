@@ -1,0 +1,308 @@
+{
+  "entities": [
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "Human: Kartik Krishnan (Brooklyn, NY - EST timezone)",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "thiccClaw",
+      "type": "project",
+      "context": "Name: thiccClaw, Emoji: 🍑, Vibe: Chill/casual but sharp and intelligent underneath",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Jordan",
+      "type": "person",
+      "context": "Jordan (+12409884978) - Kartik's roommate, shares dog Mochi ✅ approved",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Rishik Narayana",
+      "type": "person",
+      "context": "Rishik (+17326475138) - Gym buddy ✅ approved",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Vinay Banpel",
+      "type": "person",
+      "context": "Confirmed Vinay Banpel's friend request",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Mochi",
+      "type": "person",
+      "context": "shares dog Mochi... Bully Sticks for Mochi",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Voice Assistant",
+      "type": "project",
+      "context": "Voice Assistant (Major Project) - Built progressively through the session",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "OpenAI Realtime API",
+      "type": "concept",
+      "context": "v4 (Final): OpenAI Realtime API - Voice-to-voice, ~300ms latency",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Whisper",
+      "type": "concept",
+      "context": "Basic wake word ('ThiccClaw') + local Whisper STT",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Groq",
+      "type": "concept",
+      "context": "Groq Whisper API for faster STT - Better speed (~200ms)",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Cartesia",
+      "type": "concept",
+      "context": "Added Cartesia TTS for voice responses",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Claude Opus",
+      "type": "concept",
+      "context": "Claude Opus available as `ask_claude` tool for deep reasoning",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "ElevenLabs",
+      "type": "concept",
+      "context": "ElevenLabs Phone Integration - Routes phone calls to main session",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Anthropic",
+      "type": "concept",
+      "context": "Anthropic PM Claude Code Application",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Claude Code",
+      "type": "concept",
+      "context": "Product Manager, Claude Code at Anthropic",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Tailr",
+      "type": "project",
+      "context": "Created application on tailrai.com... Resume link: https://tailrai.com/editor/...",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "OpenClaw",
+      "type": "concept",
+      "context": "Using `openclaw` browser profile (autonomous, no extension needed)",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "LangGraph",
+      "type": "concept",
+      "context": "Added LangGraph state machine architecture",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Pinecone",
+      "type": "concept",
+      "context": "Added Pinecone vector embeddings",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "BlueBubbles",
+      "type": "concept",
+      "context": "Disabled BlueBubbles/iMessage per Kartik's request",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Venmo",
+      "type": "concept",
+      "context": "Username: @thiccolas56... Balance: $44.74",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Gmail",
+      "type": "concept",
+      "context": "Gmail configured: krishnankartik70@gmail.com... Massive inbox: 34,470 messages",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Mac mini",
+      "type": "concept",
+      "context": "Mac mini (no built-in mic)",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "NexiGo N930E FHD Webcam",
+      "type": "concept",
+      "context": "NexiGo N930E FHD Webcam (device index 1) used for microphone input",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Brooklyn, NY",
+      "type": "concept",
+      "context": "Kartik Krishnan (Brooklyn, NY - EST timezone)",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Bocce's Bakery",
+      "type": "concept",
+      "context": "Bocce's Bakery Fireside Apple Pie dog treats ($8.70)",
+      "source": "2026-02-05.md"
+    },
+    {
+      "name": "Amazon",
+      "type": "concept",
+      "context": "Can browse, order from Amazon, etc.",
+      "source": "2026-02-05.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "thiccClaw",
+      "to": "Kartik Krishnan",
+      "type": "works_on",
+      "context": "thiccClaw is Kartik's AI assistant",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Jordan",
+      "to": "Kartik Krishnan",
+      "type": "roommate",
+      "context": "Jordan - Kartik's roommate",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Jordan",
+      "to": "Mochi",
+      "type": "family",
+      "context": "shares dog Mochi",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Mochi",
+      "type": "family",
+      "context": "Kartik's Pet - Has a dog",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Rishik Narayana",
+      "to": "Kartik Krishnan",
+      "type": "friend",
+      "context": "Gym buddy",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Brooklyn, NY",
+      "type": "lives_in",
+      "context": "Address: 236 N 5TH ST FL 4, Brooklyn, NY 11211",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Anthropic",
+      "type": "interested_in",
+      "context": "Anthropic PM Claude Code Application - Created application",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Claude Code",
+      "type": "interested_in",
+      "context": "Product Manager, Claude Code at Anthropic",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Voice Assistant",
+      "to": "OpenAI Realtime API",
+      "type": "relates_to",
+      "context": "v4 (Final) uses OpenAI Realtime API",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Voice Assistant",
+      "to": "Whisper",
+      "type": "relates_to",
+      "context": "v1-v2 used local/Groq Whisper STT",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Voice Assistant",
+      "to": "Cartesia",
+      "type": "relates_to",
+      "context": "v3 Added Cartesia TTS for voice responses",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Voice Assistant",
+      "to": "Claude Opus",
+      "type": "relates_to",
+      "context": "Claude Opus available as `ask_claude` tool",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Tailr",
+      "type": "works_on",
+      "context": "Created application on tailrai.com",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Tailr",
+      "to": "LangGraph",
+      "type": "relates_to",
+      "context": "Added LangGraph state machine architecture",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Tailr",
+      "to": "Pinecone",
+      "type": "relates_to",
+      "context": "Added Pinecone vector embeddings",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Venmo",
+      "type": "relates_to",
+      "context": "Username: @thiccolas56",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Rishik Narayana",
+      "type": "relates_to",
+      "context": "$122 to Rishik Narayana for 'Traif' - paid via browser",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Vinay Banpel",
+      "to": "Kartik Krishnan",
+      "type": "friend",
+      "context": "Confirmed Vinay Banpel's friend request",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "thiccClaw",
+      "to": "ElevenLabs",
+      "type": "relates_to",
+      "context": "Routes phone calls to main session (shared memory)",
+      "source": "2026-02-05.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Voice Assistant",
+      "type": "works_on",
+      "context": "Built progressively through the session",
+      "source": "2026-02-05.md"
+    }
+  ]
+}

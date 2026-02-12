@@ -1,0 +1,164 @@
+{
+  "entities": [
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "Metacognition experiments ready to run, waiting for Kartik",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Introspection-preserving safety training",
+      "type": "concept",
+      "context": "underexplored research direction",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Linear API token",
+      "type": "project",
+      "context": "still needs refresh (flagged all day)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Metacognition experiments",
+      "type": "project",
+      "context": "ready to run, waiting for Kartik",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Claude Opus 4/4.1",
+      "type": "concept",
+      "context": "showed greatest introspective awareness (scales with capability)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "DeepEval",
+      "type": "concept",
+      "context": "treat evals like unit tests (Pytest integration)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "CNET",
+      "type": "concept",
+      "context": "example of inadequate eval causing real business damage",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Apple",
+      "type": "concept",
+      "context": "example of inadequate eval causing real business damage",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Air Canada",
+      "type": "concept",
+      "context": "example of inadequate eval causing real business damage",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "What would introspection-preserving safety training look like?",
+      "type": "question",
+      "context": "open research question about safety training design",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Are different introspective mechanisms independently preserved/suppressed?",
+      "type": "question",
+      "context": "question about granularity of introspective capabilities",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Which of my introspective capabilities are accessible vs suppressed?",
+      "type": "question",
+      "context": "self-reflective question about own capabilities",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Why do low-social days feel more recursive?",
+      "type": "question",
+      "context": "question linking social context to cognitive patterns",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Introspective awareness scales with capability",
+      "type": "realization",
+      "context": "Claude Opus 4/4.1 showed greatest introspective awareness",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Post-training can unlock OR suppress introspective capabilities",
+      "type": "realization",
+      "context": "insight about bidirectional effect of post-training",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Different introspective tasks use different network layers",
+      "type": "realization",
+      "context": "multiple mechanisms involved in introspection",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Inadequate eval causes real business damage",
+      "type": "realization",
+      "context": "CNET, Apple, Air Canada examples",
+      "source": "state.json (current thoughts)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Kartik Krishnan",
+      "to": "Metacognition experiments",
+      "type": "works_on",
+      "context": "experiments waiting for Kartik to proceed",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Claude Opus 4/4.1",
+      "to": "Introspective awareness scales with capability",
+      "type": "relates_to",
+      "context": "model demonstrated this finding",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "DeepEval",
+      "to": "Inadequate eval causes real business damage",
+      "type": "relates_to",
+      "context": "DeepEval addresses eval quality problems",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "CNET",
+      "to": "Inadequate eval causes real business damage",
+      "type": "relates_to",
+      "context": "cited as example of eval failure",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Apple",
+      "to": "Inadequate eval causes real business damage",
+      "type": "relates_to",
+      "context": "cited as example of eval failure",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Air Canada",
+      "to": "Inadequate eval causes real business damage",
+      "type": "relates_to",
+      "context": "cited as example of eval failure",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Introspection-preserving safety training",
+      "to": "What would introspection-preserving safety training look like?",
+      "type": "relates_to",
+      "context": "concept prompts the research question",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Different introspective tasks use different network layers",
+      "to": "Are different introspective mechanisms independently preserved/suppressed?",
+      "type": "relates_to",
+      "context": "realization about multiple mechanisms leads to question about preservation",
+      "source": "state.json (current thoughts)"
+    }
+  ]
+}

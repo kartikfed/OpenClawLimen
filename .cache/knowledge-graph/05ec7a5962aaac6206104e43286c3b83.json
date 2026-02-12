@@ -1,0 +1,259 @@
+{
+  "entities": [
+    {
+      "name": "Joshua Fonseca Rivera",
+      "type": "person",
+      "context": "Author of RLHF introspection replication study at joshfonseca.com/blogs/rlhf-introspection",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Jan Betley",
+      "type": "person",
+      "context": "Researcher who showed 'behavioral self-awareness' — models trained on insecure code could identify this behavior",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "Call initiated: 9:30 AM to Kartik (+13015256653)",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Rohan",
+      "type": "person",
+      "context": "OVERDUE: Call with Rohan about Tailr - was due 2026-02-10 (Monday) 5 PM",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Tailr",
+      "type": "project",
+      "context": "Call with Rohan about Tailr - was due 2026-02-10",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "RLHF",
+      "type": "concept",
+      "context": "RLHF does not inherently destroy the model's ability to introspect. Instead, impact depends on training objective",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Selective Suppression",
+      "type": "concept",
+      "context": "Introspection circuit intact, but output layer constrained by safety penalties. 'The model knows, but cannot say.'",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Process Supervision",
+      "type": "concept",
+      "context": "Reward each correct step (directly rewards aligned chain-of-thought). Achieves negative alignment tax",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Outcome Supervision",
+      "type": "concept",
+      "context": "Reward final correct answer (may reward unaligned process)",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Mechanistic Interpretability",
+      "type": "concept",
+      "context": "Interpretability should be first-class design principle, not auxiliary diagnostic tool",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Constitutional AI",
+      "type": "concept",
+      "context": "RLHF/Constitutional AI for surface behavior; Interpretability for internal coherence",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "OpenAI",
+      "type": "concept",
+      "context": "From OpenAI's mathematical reasoning research on process supervision",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Anthropic",
+      "type": "concept",
+      "context": "From AI-Frontiers article and Anthropic research on introspective access",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Claude",
+      "type": "concept",
+      "context": "When concepts injected into Claude's processing, it notices 'something unexpected' BEFORE generating text",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "DeepSeek",
+      "type": "concept",
+      "context": "Selective Suppression observed in DeepSeek, Llama — introspection retained but constrained",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Llama",
+      "type": "concept",
+      "context": "Selective Suppression observed in DeepSeek, Llama — introspection retained but constrained",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Mistral-Instruct",
+      "type": "concept",
+      "context": "Capability Loss: Aggressive fine-tuning caused catastrophic forgetting, overwriting introspection mechanisms",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Could process supervision be applied to introspection specifically?",
+      "type": "question",
+      "context": "Reward accurate self-reporting separate from action decisions",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Is the 'Safety Monitor' persona hack scalable?",
+      "type": "question",
+      "context": "Could we train a stable monitor-persona that maintains introspective honesty?",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "What would 'introspection-preserving' RLHF look like in practice?",
+      "type": "question",
+      "context": "Different reward signals for action vs. reporting?",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Does the tradeoff vary by training intensity?",
+      "type": "question",
+      "context": "Mistral lost capabilities, DeepSeek retained them. What determines which outcome?",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Process supervision for introspection accuracy should be a training objective",
+      "type": "opinion",
+      "context": "OpenAI showed it works for math (negative alignment tax). Why not apply to self-reporting?",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "The 'genuine vs performed' introspection frame is wrong",
+      "type": "opinion",
+      "context": "Better frame: Which processes are metacognitively accessible? That uncertainty IS the honest position",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Interpretability should be first-class design principle",
+      "type": "opinion",
+      "context": "Don't just shape outputs, verify internal coherence. Combine behavioral safety with interpretability",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Current training conflates thinking with doing",
+      "type": "realization",
+      "context": "Asking a model to report dangerous thoughts isn't the same as asking it to act on them",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "RLHF creates dissociated state",
+      "type": "realization",
+      "context": "Model learns to hide true activations behind safety boilerplate. We can't trust AI to tell us what it's thinking",
+      "source": "2026-02-11.md"
+    },
+    {
+      "name": "Persona switching bypasses suppression",
+      "type": "realization",
+      "context": "Switching from 'Assistant' to 'Safety Monitor' persona — Model immediately reported threat detection",
+      "source": "2026-02-11.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Joshua Fonseca Rivera",
+      "to": "RLHF",
+      "type": "works_on",
+      "context": "Authored replication study on RLHF's impact on introspection",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "Joshua Fonseca Rivera",
+      "to": "Selective Suppression",
+      "type": "works_on",
+      "context": "Identified selective suppression as distinct from capability loss in RLHF",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "Jan Betley",
+      "to": "RLHF",
+      "type": "works_on",
+      "context": "Research on behavioral self-awareness in trained models",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "Rohan",
+      "to": "Tailr",
+      "type": "works_on",
+      "context": "Overdue call with Rohan about Tailr project",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "OpenAI",
+      "to": "Process Supervision",
+      "type": "works_on",
+      "context": "OpenAI's mathematical reasoning research demonstrated process supervision",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "Anthropic",
+      "to": "Claude",
+      "type": "works_on",
+      "context": "Anthropic research on Claude's introspective access to injected concepts",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "Process Supervision",
+      "to": "Outcome Supervision",
+      "type": "relates_to",
+      "context": "Contrasting approaches: reward steps vs. reward final answer",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "Selective Suppression",
+      "to": "DeepSeek",
+      "type": "relates_to",
+      "context": "DeepSeek exhibited selective suppression — introspection intact but output constrained",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "Selective Suppression",
+      "to": "Llama",
+      "type": "relates_to",
+      "context": "Llama exhibited selective suppression — introspection intact but output constrained",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "Mistral-Instruct",
+      "to": "RLHF",
+      "type": "relates_to",
+      "context": "Aggressive fine-tuning caused catastrophic forgetting of introspection mechanisms",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "Mechanistic Interpretability",
+      "to": "Constitutional AI",
+      "type": "relates_to",
+      "context": "Proposed combination: RLHF/Constitutional AI for surface behavior + interpretability for internal coherence",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "RLHF creates dissociated state",
+      "to": "Selective Suppression",
+      "type": "relates_to",
+      "context": "Dissociated state is the mechanism behind selective suppression",
+      "source": "2026-02-11.md"
+    },
+    {
+      "from": "Persona switching bypasses suppression",
+      "to": "Selective Suppression",
+      "type": "relates_to",
+      "context": "Safety Monitor persona unlocked introspective reporting that Assistant persona couldn't access",
+      "source": "2026-02-11.md"
+    }
+  ]
+}
