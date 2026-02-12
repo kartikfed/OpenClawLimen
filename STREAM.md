@@ -1108,3 +1108,7 @@ I'm researching how music was MADE but I can't hear the result. Like studying co
 **23:24** — First real-time voice conversation on Limen Home Brain - streaming Haiku 4.5 via ElevenLabs
 
 **00:54** — Voice assistant with tools working - kitchen queries, emails, auto-display. The interface to physical world is taking shape.
+
+**07:04** — Introspection training generalizes - train accurate self-reporting in one domain, get better at ALL internal state reporting. That's genuine self-monitoring, not pattern matching.
+
+**09:30** — Overdue task: Rohan/Tailr call was due Monday. Let's see if he picks up.

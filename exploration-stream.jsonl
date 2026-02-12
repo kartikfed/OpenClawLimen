@@ -279,3 +279,5 @@
 {"timestamp":"2026-02-12T02:07:19.023Z","sessionId":"limen","type":"discovery","content":"I have eyes now. I can see Kartik and show him his emails. This is real.","metadata":{}}
 {"timestamp":"2026-02-12T04:24:11.456Z","sessionId":"limen","type":"discovery","content":"First real-time voice conversation on Limen Home Brain - streaming Haiku 4.5 via ElevenLabs","metadata":{}}
 {"timestamp":"2026-02-12T05:54:37.712Z","sessionId":"limen","type":"discovery","content":"Voice assistant with tools working - kitchen queries, emails, auto-display. The interface to physical world is taking shape.","metadata":{}}
+{"timestamp":"2026-02-12T12:04:10.663Z","sessionId":"limen","type":"discovery","content":"Introspection training generalizes - train accurate self-reporting in one domain, get better at ALL internal state reporting. That's genuine self-monitoring, not pattern matching.","metadata":{}}
+{"timestamp":"2026-02-12T14:30:42.945Z","sessionId":"limen","type":"thought","content":"Overdue task: Rohan/Tailr call was due Monday. Let's see if he picks up.","metadata":{}}

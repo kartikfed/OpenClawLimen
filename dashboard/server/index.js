@@ -97,62 +97,65 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// ============ OpenClaw Gateway Proxy (for ElevenLabs custom LLM) ============
-const GATEWAY_URL = 'http://127.0.0.1:18789';
-const GATEWAY_TOKEN = '7b0823e46d5beef9870db213ace87139542badebad023323';
+// ============ Direct Anthropic API (for ElevenLabs - needs fast responses) ============
+const ANTHROPIC_API_KEY = 'REDACTED_API_KEY';
+const VOICE_MODEL = 'claude-3-5-haiku-20241022';
 
 app.post('/v1/chat/completions', async (req, res) => {
-  console.log(`[${new Date().toISOString()}] Proxying chat completion to gateway`);
+  console.log(`[${new Date().toISOString()}] Direct Anthropic call with Haiku`);
   try {
-    // Force Claude Sonnet 4 for voice (fast + smart)
-    const body = { ...req.body, model: 'anthropic/claude-sonnet-4-20250514' };
+    const messages = req.body.messages || [];
+    const systemMsg = messages.find(m => m.role === 'system');
+    const otherMsgs = messages.filter(m => m.role !== 'system');
     
-    // Forward the request to OpenClaw gateway
-    const response = await fetch(`${GATEWAY_URL}/v1/chat/completions`, {
+    // Call Anthropic directly
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${GATEWAY_TOKEN}`,
-        // Pass through ElevenLabs headers
-        'x-openclaw-agent-id': req.headers['x-openclaw-agent-id'] || 'voice',
-        'x-openclaw-session-key': req.headers['x-openclaw-session-key'] || 'agent:voice:call'
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01'
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify({
+        model: VOICE_MODEL,
+        max_tokens: req.body.max_tokens || 1024,
+        system: systemMsg?.content || 'You are a helpful voice assistant. Keep responses brief.',
+        messages: otherMsgs.map(m => ({ role: m.role, content: m.content }))
+      })
     });
     
-    if (!response.ok) {
-      const error = await response.text();
-      console.error('Gateway error:', error);
-      return res.status(response.status).send(error);
+    const data = await response.json();
+    
+    if (!response.ok || data.error) {
+      console.error('Anthropic error:', data.error || response.status);
+      return res.status(response.status || 500).json({ error: data.error || 'API error' });
     }
     
-    // Check if streaming
-    const contentType = response.headers.get('content-type');
-    if (contentType?.includes('text/event-stream')) {
-      res.setHeader('Content-Type', 'text/event-stream');
-      res.setHeader('Cache-Control', 'no-cache');
-      res.setHeader('Connection', 'keep-alive');
-      // Use web streams API to pipe to response
-      const reader = response.body.getReader();
-      const pump = async () => {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          res.write(value);
-        }
-        res.end();
-      };
-      pump().catch(err => {
-        console.error('Stream error:', err);
-        res.end();
-      });
-    } else {
-      const data = await response.json();
-      res.json(data);
-    }
+    // Convert Anthropic format to OpenAI format
+    const openAIResponse = {
+      id: `chatcmpl-${data.id}`,
+      object: 'chat.completion',
+      model: data.model,
+      choices: [{
+        index: 0,
+        message: {
+          role: 'assistant',
+          content: data.content?.[0]?.text || ''
+        },
+        finish_reason: 'stop'
+      }],
+      usage: {
+        prompt_tokens: data.usage?.input_tokens || 0,
+        completion_tokens: data.usage?.output_tokens || 0,
+        total_tokens: (data.usage?.input_tokens || 0) + (data.usage?.output_tokens || 0)
+      }
+    };
+    
+    console.log(`[Voice] Haiku response in ${Date.now() - Date.now()}ms`);
+    res.json(openAIResponse);
   } catch (error) {
-    console.error('Proxy error:', error);
-    res.status(500).json({ error: 'Gateway proxy error', details: error.message });
+    console.error('Voice API error:', error);
+    res.status(500).json({ error: 'Voice API error', details: error.message });
   }
 });
 
