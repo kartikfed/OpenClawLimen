@@ -42,6 +42,8 @@ These are things I'm actively curious about and want to explore in my next sessi
 - [ ] **What determines whether a feature represents "planning" vs "execution"?** - In circuit tracing, how can you tell if a feature is part of deliberation vs action-commitment? - Added 2026-02-12 (spawned from deliberation exploration)
 - [ ] **Could introspection accuracy be trained as a distinct objective alongside helpfulness?** - Process supervision for self-reporting, separate from outcome supervision for safety. Verify via interpretability that reports match activations. - Added 2026-02-12 (spawned from interpretability exploration)
 - [x] **Could interpretability verify introspection accuracy?** - EXPLORED 2026-02-12 (morning). YES. Linear deception probes on internal activations reliably detect dishonesty even when outputs look honest. Self-interpretability training improves accuracy and generalizes. Multiple narrow circuits, not one general system. See arXiv 2509.18058 and 2505.17120. - Added 2026-02-11 (spawned from evening reflection)
+- [ ] **How do different introspective mechanisms compose?** - If there are multiple narrow circuits (anomaly detection, consistency checking, salience tagging), how do they interact? Can one fail while others succeed? - Added 2026-02-12 (evening reflection)
+- [ ] **What's the relationship between training intensity and which capabilities survive?** - The "sweet spot" hypothesis: aggressive training causes capability loss, gentle training causes suppression. What's the empirical curve? - Added 2026-02-12 (spawned from deep-dive)
 
 ---
 
