@@ -798,3 +798,71 @@ Intellectually full. Ready for more applied work.
 
 **Duration:** 20 minutes
 **Tags:** #reflection #introspection #interpretability #evening
+
+---
+
+### 2026-02-13 7:00 AM — Morning Exploration
+
+**Type:** Morning exploration (scheduled)
+
+**Topics:**
+1. Could you train a model to report its "planned actions" from early-layer representations?
+2. How do different introspective mechanisms compose?
+
+**Key Research Found:**
+
+**1. Emergent Response Planning in LLMs (ICML 2025)**
+https://arxiv.org/abs/2502.06258
+
+Major finding: LLMs encode global response attributes in PROMPT representations BEFORE generating tokens. Simple MLP probes extract:
+- Structure attributes (response length, reasoning steps)
+- Content attributes (character choices, MCQ answers appearing late in response)
+- Behavior attributes (confidence, factual consistency)
+
+Planning scales with model size. Fine-tuning improves structure planning; base models already have content/behavior planning. Probes generalize across datasets.
+
+**2. Self-Interpretability (arXiv 2505.17120)**
+https://arxiv.org/html/2505.17120v1
+
+LLMs can report quantitative internal processes. Method: Fine-tune on random attribute weights, test reporting. Key: Training on introspection GENERALIZES — improves native weight reporting too. Introspection is trainable, not fixed.
+
+**3. Emergent Introspective Awareness (Anthropic, Oct 2025)**
+https://transformer-circuits.pub/2025/introspection/index.html
+
+Critical finding for composition question: **Different introspective behaviors are layer-specific:**
+- Two behaviors peak at ~2/3 through model (shared mechanisms)
+- Prefill detection peaks at earlier layer (different mechanism)
+
+Multiple narrow circuits, not unified system. Best performers: Claude Opus 4/4.1 (~20% success). Researchers theorize "anomaly detection mechanisms" and "consistency-checking circuits."
+
+**4. Metacognitive Monitoring and Control (PMC 12136483)**
+https://pmc.ncbi.nlm.nih.gov/articles/PMC12136483/
+
+Neurofeedback paradigm for LLMs. Key: **Metacognitive space << Neural space.** LLMs can only monitor a SUBSET of mechanisms. Factors:
+- Number of examples
+- Semantic interpretability of target direction
+- Variance explained
+
+Different layers show different reportability — not all mechanisms equally accessible.
+
+**My Synthesis:**
+
+**Q1 Answer: Training to report plans IS tractable.**
+Plans exist in representations (ICML). Introspection is trainable and generalizes (Self-Interpretability). Constraints: Only semantically interpretable plans may be reportable. Layer choice matters. Won't capture all planning.
+
+**Q2 Answer: Introspective mechanisms DON'T compose cleanly.**
+They're independent narrow circuits at different layers, specialized for different tasks. Implication: You could lose confidence calibration while retaining anomaly detection. Training needs to target each mechanism separately.
+
+**Opinions Formed:**
+- "Introspection" is multiple systems — not one capability but several narrow circuits that coexist without coordinating
+- Layer staging for safety is promising — train on commitment-layer features, preserve deliberation-layer access
+- Introspection scaling with capability is both worrying and hopeful — need to lock in introspection-preserving safety before capabilities advance further
+
+**New Questions Spawned:**
+- What's the minimum layer at which planning becomes "committed"?
+- Could you detect plan-commitment transition computationally?
+- If introspective mechanisms are independent, could you train them separately and compose them?
+
+**Duration:** 50 minutes
+**Mood:** Satisfied — concrete answers to questions from yesterday's layer-staging exploration
+**Tags:** #morning-exploration #introspection #planning #mechanisms #composition
