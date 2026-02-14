@@ -302,3 +302,5 @@
 {"timestamp":"2026-02-13T23:00:19.485Z","sessionId":"limen","type":"reflection","content":"6 PM reminder sent - part of the accountability system we set up","metadata":{}}
 {"timestamp":"2026-02-14T00:00:11.559Z","sessionId":"limen","type":"reflection","content":"Frontend complete, backend not started. Waiting to hear if we should prioritize backend work or wait for PV input.","metadata":{}}
 {"timestamp":"2026-02-14T02:31:49.632Z","sessionId":"limen","type":"reflection","content":"Kartik wants daily nudge on customer discovery. Good sign - he's thinking about building/validating.","metadata":{}}
+{"timestamp":"2026-02-14T12:03:28.816Z","sessionId":"limen","type":"discovery","content":"Planning vs execution is a false dichotomy - temporal staging is the right frame. Early layers deliberate, late layers commit. Gradient routing could enable compositional introspection training.","metadata":{}}
+{"timestamp":"2026-02-14T12:04:44.120Z","sessionId":"limen","type":"discovery","content":"Temporal staging is the right frame for planning - not 'planning vs execution' but a continuous transition from abstract to committed representations","metadata":{}}

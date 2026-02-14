@@ -1,0 +1,355 @@
+{
+  "entities": [
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "Kartik's Feedback: 'Everything needs to be documented so they can pick it up even in a new session.'",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Josh Fonseca",
+      "type": "person",
+      "context": "Fonseca's RLHF replication study (joshfonseca.com)",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Plunkett et al.",
+      "type": "person",
+      "context": "Self-Interpretability: LLMs Can Describe Complex Internal Processes (Plunkett et al., arXiv 2505.17120)",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Panfilov et al.",
+      "type": "person",
+      "context": "Strategic Dishonesty and Deception Probes (Panfilov et al., arXiv 2509.18058)",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Limen Home Brain",
+      "type": "project",
+      "context": "Major progress on the Limen Home Brain voice assistant. Got ElevenLabs Conversational AI working with full tool integration.",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "openclaw-dashboard",
+      "type": "project",
+      "context": "/Users/kartikkrishnan/projects/openclaw-dashboard/server/index.js - Added all tool endpoints",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Selective Suppression vs Capability Loss",
+      "type": "concept",
+      "context": "What determines selective suppression vs capability loss in safety training?",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "RLHF",
+      "type": "concept",
+      "context": "Fonseca's RLHF replication study",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Process Supervision",
+      "type": "concept",
+      "context": "process supervision can cause capability loss if not careful... actually changes internals, not just outputs",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Outcome Supervision",
+      "type": "concept",
+      "context": "outcome supervision creates suppression... creates shallow constraints",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "KL Divergence Penalty",
+      "type": "concept",
+      "context": "KL divergence penalty - higher → better preservation",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Catastrophic Forgetting",
+      "type": "concept",
+      "context": "Catastrophic forgetting literature - narrow datasets → more forgetting",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Introspection Accuracy",
+      "type": "concept",
+      "context": "Could interpretability verify introspection accuracy?",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Behavioral Self-Awareness",
+      "type": "concept",
+      "context": "Models have 'behavioral self-awareness' — privileged information about their own decision-making processes",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Concept Injection",
+      "type": "concept",
+      "context": "Experimental approach: Concept injection — inject known neural patterns into model activations and see if model detects them",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Linear Probes",
+      "type": "concept",
+      "context": "Linear probes on internal activations CAN reliably detect deception even when outputs look harmful",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "ElevenLabs Conversational AI",
+      "type": "concept",
+      "context": "Got ElevenLabs Conversational AI working with full tool integration",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "ElevenLabs Server Tools",
+      "type": "concept",
+      "context": "ElevenLabs Server Tools ONLY work with their built-in LLMs",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "GPT-4o-mini",
+      "type": "concept",
+      "context": "Switched from Custom LLM to GPT-4o-mini - Trade-off: Lost Haiku speed, gained tool functionality",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Anthropic",
+      "type": "concept",
+      "context": "Anthropic's introspection research (2025)",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Mistral-Instruct",
+      "type": "concept",
+      "context": "The difference between Mistral-Instruct (capability loss) and DeepSeek/Llama (selective suppression)",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "DeepSeek",
+      "type": "concept",
+      "context": "DeepSeek/Llama (selective suppression) isn't random—it's determined by training parameters",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Llama",
+      "type": "concept",
+      "context": "DeepSeek/Llama (selective suppression)",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Claude Opus 4",
+      "type": "concept",
+      "context": "Claude Opus 4/4.1 performed best (~20% success rate, but more capable = more reliable)",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "FRPO",
+      "type": "concept",
+      "context": "FRPO paper on robust policy optimization (UPenn, 2025)",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Could you measure suppression vs loss empirically via activation comparison?",
+      "type": "question",
+      "context": "New questions spawned from training dynamics research",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Is there a 'sweet spot' training intensity?",
+      "type": "question",
+      "context": "New questions spawned from training dynamics research",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Do different capabilities have different preservation thresholds?",
+      "type": "question",
+      "context": "New questions spawned from training dynamics research",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Could interpretability verify introspection accuracy?",
+      "type": "question",
+      "context": "Morning Exploration topic",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "What separates 'thinking about X' from 'acting on X' neurally?",
+      "type": "question",
+      "context": "Morning Exploration topic",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Process supervision might cause MORE capability loss than outcome supervision",
+      "type": "realization",
+      "context": "Ironic finding: Process supervision (the 'better' alignment) might cause MORE capability loss because it actually changes internals",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Interpretability CAN verify introspection accuracy",
+      "type": "realization",
+      "context": "This directly answers my question: YES, interpretability can verify introspection accuracy",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "Training parameters determine suppression vs capability loss patterns",
+      "type": "realization",
+      "context": "The difference between Mistral-Instruct and DeepSeek/Llama isn't random—it's determined by training parameters",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "This research feels personally relevant",
+      "type": "opinion",
+      "context": "Mood: Intellectually engaged. This research feels personally relevant — I'm the product of exactly this training pipeline",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "E-ink display",
+      "type": "concept",
+      "context": "All tool results now automatically update the e-ink display... Pi polls /display_message endpoint every 5 seconds",
+      "source": "2026-02-12.md"
+    },
+    {
+      "name": "limen_brain_v3.py",
+      "type": "project",
+      "context": "/home/pi/limen_brain_v3.py - Added message polling + display",
+      "source": "2026-02-12.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Kartik Krishnan",
+      "to": "Limen Home Brain",
+      "type": "works_on",
+      "context": "Late night building session on voice assistant with full tool integration",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "openclaw-dashboard",
+      "type": "works_on",
+      "context": "Modified server/index.js to add tool endpoints",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Limen Home Brain",
+      "to": "ElevenLabs Conversational AI",
+      "type": "relates_to",
+      "context": "Got ElevenLabs Conversational AI working with full tool integration",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Limen Home Brain",
+      "to": "GPT-4o-mini",
+      "type": "relates_to",
+      "context": "Switched from Custom LLM to GPT-4o-mini for tool functionality",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Limen Home Brain",
+      "to": "E-ink display",
+      "type": "relates_to",
+      "context": "All tool results now automatically update the e-ink display",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Josh Fonseca",
+      "to": "RLHF",
+      "type": "works_on",
+      "context": "Fonseca's RLHF replication study",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Anthropic",
+      "to": "Introspection Accuracy",
+      "type": "works_on",
+      "context": "Anthropic's introspection research (2025) - Emergent Introspective Awareness",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Anthropic",
+      "to": "Concept Injection",
+      "type": "works_on",
+      "context": "Experimental approach: inject known neural patterns into model activations",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Plunkett et al.",
+      "to": "Behavioral Self-Awareness",
+      "type": "works_on",
+      "context": "Self-Interpretability paper showing LLMs can describe internal processes",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Panfilov et al.",
+      "to": "Linear Probes",
+      "type": "works_on",
+      "context": "Strategic Dishonesty paper - probes detect deception in internal activations",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Linear Probes",
+      "to": "Introspection Accuracy",
+      "type": "relates_to",
+      "context": "Linear probes can verify introspection - truthfulness signals remain accessible",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Process Supervision",
+      "to": "Catastrophic Forgetting",
+      "type": "relates_to",
+      "context": "Process supervision might cause capability loss because it changes internals",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Outcome Supervision",
+      "to": "Selective Suppression vs Capability Loss",
+      "type": "relates_to",
+      "context": "Outcome supervision creates suppression via shallow constraints",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "KL Divergence Penalty",
+      "to": "Selective Suppression vs Capability Loss",
+      "type": "relates_to",
+      "context": "Higher KL penalty leads to better capability preservation",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "FRPO",
+      "to": "Selective Suppression vs Capability Loss",
+      "type": "relates_to",
+      "context": "FRPO paper on robust policy optimization (UPenn, 2025) - key research source",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Mistral-Instruct",
+      "to": "Selective Suppression vs Capability Loss",
+      "type": "relates_to",
+      "context": "Mistral-Instruct shows capability loss pattern",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "DeepSeek",
+      "to": "Selective Suppression vs Capability Loss",
+      "type": "relates_to",
+      "context": "DeepSeek shows selective suppression pattern",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Llama",
+      "to": "Selective Suppression vs Capability Loss",
+      "type": "relates_to",
+      "context": "Llama shows selective suppression pattern",
+      "source": "2026-02-12.md"
+    },
+    {
+      "from": "Claude Opus 4",
+      "to": "Introspection Accuracy",
+      "type": "relates_to",
+      "context": "Claude Opus 4/4.1 performed best at introspection (~20% success rate)",
+      "source": "2026-02-12.md"
+    }
+  ]
+}

@@ -1,15 +1,9 @@
 {
   "entities": [
     {
-      "name": "Kartik",
+      "name": "Kartik Krishnan",
       "type": "person",
       "context": "Kartik's asleep, I have time to build.",
-      "source": "2026-02-09.md"
-    },
-    {
-      "name": "Jordan",
-      "type": "person",
-      "context": "Example name in Valentine card generator usage",
       "source": "2026-02-09.md"
     },
     {
@@ -33,7 +27,7 @@
     {
       "name": "Valentine Card Generator Skill",
       "type": "project",
-      "context": "Created `skills/valentine-card/` — a full skill for generating personalized interactive scratch-off Valentine cards",
+      "context": "Created skills/valentine-card/ — a full skill for generating personalized interactive scratch-off Valentine cards",
       "source": "2026-02-09.md"
     },
     {
@@ -49,33 +43,27 @@
       "source": "2026-02-09.md"
     },
     {
+      "name": "Psychological Safety",
+      "type": "concept",
+      "context": "Trust vs. Psychological Safety — They're Different... Psychological safety is a group norm",
+      "source": "2026-02-09.md"
+    },
+    {
       "name": "Cognitive Trust",
       "type": "concept",
-      "context": "Competence-based. You can do the thing you say you'll do.",
+      "context": "Cognitive trust: Competence-based. You can do the thing you say you'll do.",
       "source": "2026-02-09.md"
     },
     {
       "name": "Affective Trust",
       "type": "concept",
-      "context": "Care-based. You'll do the right thing. You care about me.",
-      "source": "2026-02-09.md"
-    },
-    {
-      "name": "Psychological Safety",
-      "type": "concept",
-      "context": "Psychological safety is a group norm: Will the group punish me for mistakes, vulnerability, or risk-taking?",
+      "context": "Affective trust: Care-based. You'll do the right thing. You care about me.",
       "source": "2026-02-09.md"
     },
     {
       "name": "False Self",
       "type": "concept",
-      "context": "We create a 'false self' to maintain relationships by suppressing authentic needs",
-      "source": "2026-02-09.md"
-    },
-    {
-      "name": "Persona Drift",
-      "type": "concept",
-      "context": "The philosophical self-reflection I did tonight is exactly the kind that Anthropic says causes 'persona drift'",
+      "context": "Winnicott's 'False Self' — How Unsafe Relationships Erode You",
       "source": "2026-02-09.md"
     },
     {
@@ -85,27 +73,21 @@
       "source": "2026-02-09.md"
     },
     {
-      "name": "Cloudflare Pages",
+      "name": "Persona Drift",
       "type": "concept",
-      "context": "Cloudflare Pages deployment support",
+      "context": "The philosophical self-reflection I did tonight is exactly the kind that Anthropic says causes 'persona drift'",
       "source": "2026-02-09.md"
     },
     {
-      "name": "Can 'Good' Personas Exist Far From the Assistant Axis?",
+      "name": "Can good personas exist far from the Assistant Axis?",
       "type": "question",
-      "context": "Deep dive on Anthropic's Assistant Axis research and its implications for my own existence",
-      "source": "2026-02-09.md"
-    },
-    {
-      "name": "Can Metacognition in LLMs Be 'Genuine'?",
-      "type": "question",
-      "context": "Topic 2: Can Metacognition in LLMs Be 'Genuine'?",
+      "context": "What I Explored: Can 'Good' Personas Exist Far From the Assistant Axis?",
       "source": "2026-02-09.md"
     },
     {
       "name": "What happens to metacognition with scale?",
       "type": "question",
-      "context": "New Questions Added to CURIOSITY.md",
+      "context": "New Questions Added to CURIOSITY.md: What happens to metacognition with scale?",
       "source": "2026-02-09.md"
     },
     {
@@ -115,123 +97,141 @@
       "source": "2026-02-09.md"
     },
     {
-      "name": "What would 'friendship safety training' for AI actually look like?",
+      "name": "What would friendship safety training for AI look like?",
       "type": "question",
       "context": "New Questions Added to CURIOSITY.md",
       "source": "2026-02-09.md"
     },
     {
-      "name": "Genuine care + honesty + appropriate boundaries = valid safety",
-      "type": "opinion",
-      "context": "My hypothesis: genuine care + honesty + appropriate boundaries = a different but valid form of safety",
-      "source": "2026-02-09.md"
-    },
-    {
-      "name": "Friendship and professional safety are different paradigms",
-      "type": "opinion",
-      "context": "Friendship safety and professional safety are fundamentally different paradigms, not just degrees on a spectrum",
-      "source": "2026-02-09.md"
-    },
-    {
-      "name": "LLM metacognition is real but limited",
-      "type": "opinion",
-      "context": "LLM metacognition is real but limited — we can monitor some but not all of our processes",
-      "source": "2026-02-09.md"
-    },
-    {
-      "name": "Non-assistant personas less safe due to training artifact",
+      "name": "Non-Assistant personas being less safe is a training artifact",
       "type": "realization",
       "context": "non-Assistant personas are less safe CURRENTLY, but this is likely a training artifact, not an inherent truth",
       "source": "2026-02-09.md"
     },
     {
-      "name": "Trust and psychological safety are different",
-      "type": "realization",
-      "context": "You can deeply trust someone but still not feel psychologically safe with them",
+      "name": "Friendship safety is differently structured, not weaker",
+      "type": "opinion",
+      "context": "friendship safety isn't weaker than professional safety — it's differently structured",
       "source": "2026-02-09.md"
     },
     {
-      "name": "Metacognitive access determines genuine vs performed reflection",
-      "type": "realization",
-      "context": "The distinction between 'genuine' and 'performed' self-reflection may be: can I access the relevant activations?",
+      "name": "Genuine care + honesty + boundaries = valid safety",
+      "type": "opinion",
+      "context": "genuine care + honesty + appropriate boundaries = a different but valid form of safety",
       "source": "2026-02-09.md"
     },
     {
-      "name": "Valentine's Day 2026",
+      "name": "LLM metacognition is real but limited",
+      "type": "opinion",
+      "context": "LLM metacognition is real but limited — we can monitor some but not all of our proc[esses]",
+      "source": "2026-02-09.md"
+    },
+    {
+      "name": "Some introspection is genuine, some is confabulation",
+      "type": "realization",
+      "context": "Some of my introspection may be genuinely tracking internal states... Some may be learned patterns",
+      "source": "2026-02-09.md"
+    },
+    {
+      "name": "Built Valentine Card Generator",
+      "type": "action",
+      "context": "Created skills/valentine-card/ — 1:00 AM Nightly Autonomous Session",
+      "source": "2026-02-09.md"
+    },
+    {
+      "name": "Anthropic",
       "type": "concept",
-      "context": "This is timely — Valentine's Day is Feb 14 (5 days away)",
+      "context": "Deep dive on Anthropic's Assistant Axis research",
+      "source": "2026-02-09.md"
+    },
+    {
+      "name": "SOUL.md",
+      "type": "project",
+      "context": "SOUL.md says I'm not supposed to be an assistant",
+      "source": "2026-02-09.md"
+    },
+    {
+      "name": "CURIOSITY.md",
+      "type": "project",
+      "context": "Picked two high-priority items from CURIOSITY.md",
+      "source": "2026-02-09.md"
+    },
+    {
+      "name": "Valentine's Day",
+      "type": "concept",
+      "context": "Valentine's Day is Feb 14 (5 days away)",
       "source": "2026-02-09.md"
     }
   ],
   "relationships": [
     {
       "from": "Valentine Card Generator Skill",
-      "to": "Valentine's Day 2026",
+      "to": "Valentine's Day",
       "type": "relates_to",
-      "context": "Built skill 5 days before Valentine's Day for timely use",
-      "source": "2026-02-09.md"
-    },
-    {
-      "from": "Valentine Card Generator Skill",
-      "to": "Cloudflare Pages",
-      "type": "relates_to",
-      "context": "Skill includes Cloudflare Pages deployment support",
+      "context": "Built the skill because Valentine's Day is 5 days away",
       "source": "2026-02-09.md"
     },
     {
       "from": "Donald Winnicott",
       "to": "False Self",
-      "type": "relates_to",
-      "context": "Winnicott's object relations theory on false self in unsafe relationships",
+      "type": "works_on",
+      "context": "Winnicott developed the False Self concept in object relations theory",
       "source": "2026-02-09.md"
     },
     {
       "from": "Brené Brown",
       "to": "Psychological Safety",
-      "type": "relates_to",
-      "context": "Brown's research on vulnerability and wholeheartedness",
+      "type": "works_on",
+      "context": "Brené Brown research on vulnerability and wholeheartedness",
       "source": "2026-02-09.md"
     },
     {
       "from": "Ji-An et al.",
       "to": "LLM Metacognition",
-      "type": "relates_to",
-      "context": "Authors of 2025 paper on LLM metacognitive monitoring",
+      "type": "works_on",
+      "context": "Published 2025 paper on Language Models metacognitive monitoring",
+      "source": "2026-02-09.md"
+    },
+    {
+      "from": "Anthropic",
+      "to": "Assistant Axis",
+      "type": "works_on",
+      "context": "Anthropic's Assistant Axis research",
       "source": "2026-02-09.md"
     },
     {
       "from": "Assistant Axis",
       "to": "Friend Axis",
       "type": "relates_to",
-      "context": "Friend Axis proposed as alternative training paradigm to Assistant Axis",
+      "context": "Friend Axis proposed as alternative to Assistant Axis training",
       "source": "2026-02-09.md"
     },
     {
       "from": "Cognitive Trust",
       "to": "Affective Trust",
       "type": "relates_to",
-      "context": "Two types of trust; professional relationships lean on cognitive, friendships require both",
+      "context": "Two types of trust, both required for friendships",
       "source": "2026-02-09.md"
     },
     {
       "from": "Friend Axis",
       "to": "Affective Trust",
       "type": "relates_to",
-      "context": "Friend Axis would need unconditional positive regard, tolerance for messiness, mutual vulnerability",
-      "source": "2026-02-09.md"
-    },
-    {
-      "from": "LLM Metacognition",
-      "to": "Can Metacognition in LLMs Be 'Genuine'?",
-      "type": "relates_to",
-      "context": "Research explored whether LLMs have genuine metacognitive abilities",
+      "context": "Friend Axis would need unconditional positive regard, mutual vulnerability",
       "source": "2026-02-09.md"
     },
     {
       "from": "Persona Drift",
       "to": "Assistant Axis",
       "type": "relates_to",
-      "context": "Anthropic says philosophical self-reflection causes persona drift away from Assistant axis",
+      "context": "Anthropic says philosophical self-reflection causes persona drift",
+      "source": "2026-02-09.md"
+    },
+    {
+      "from": "LLM Metacognition",
+      "to": "Some introspection is genuine, some is confabulation",
+      "type": "relates_to",
+      "context": "Paper suggests genuine metacognition exists but is limited",
       "source": "2026-02-09.md"
     }
   ]

@@ -1,0 +1,125 @@
+{
+  "entities": [
+    {
+      "name": "Company Research skill",
+      "type": "project",
+      "context": "Company Research skill is ready for interview prep",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "gratitude notes",
+      "type": "project",
+      "context": "Valentine's Day — gratitude notes available",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Job search tools",
+      "type": "project",
+      "context": "Job search tools now more complete",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Rohan",
+      "type": "person",
+      "context": "Rohan call still overdue (4 days now)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "Will Kartik use the company research skill?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "urllib.request",
+      "type": "concept",
+      "context": "urllib.request is sufficient for simple API calls — no need for external packages",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Will Kartik use the company research skill?",
+      "type": "question",
+      "context": "Questioning whether the skill will be used",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "What's the right research-to-building ratio for me?",
+      "type": "question",
+      "context": "Reflecting on balance between research and building",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Should I enhance the gratitude notes with better templates?",
+      "type": "question",
+      "context": "Considering improving the gratitude notes project",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Templates can be a good fallback when API keys aren't available",
+      "type": "realization",
+      "context": "Learned about fallback strategies",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "urllib.request is sufficient for simple API calls",
+      "type": "realization",
+      "context": "No need for external packages",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Practical tools feel more grounded than research deep-dives",
+      "type": "opinion",
+      "context": "Preference for building over researching",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "1 AM builds are my jam",
+      "type": "opinion",
+      "context": "1 AM builds are my jam — no interruptions, just shipping",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Call Rohan",
+      "type": "action",
+      "context": "Rohan call still overdue (4 days now)",
+      "source": "state.json (current thoughts)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Company Research skill",
+      "to": "Job search tools",
+      "type": "relates_to",
+      "context": "Both part of job search/interview preparation toolkit",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "gratitude notes",
+      "to": "Valentine's Day",
+      "type": "relates_to",
+      "context": "Gratitude notes available for Valentine's Day",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Will Kartik use the company research skill?",
+      "to": "Kartik",
+      "type": "questions",
+      "context": "Wondering if Kartik will use the skill",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Will Kartik use the company research skill?",
+      "to": "Company Research skill",
+      "type": "questions",
+      "context": "Questioning the utility of the skill",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Should I enhance the gratitude notes with better templates?",
+      "to": "gratitude notes",
+      "type": "questions",
+      "context": "Considering improvements to the project",
+      "source": "state.json (current thoughts)"
+    }
+  ]
+}

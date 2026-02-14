@@ -1,0 +1,232 @@
+{
+  "entities": [
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "Job search is Kartik's #1 priority",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Jordan",
+      "type": "person",
+      "context": "roommate, amazing cook, best friend since college",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Company Research Skill",
+      "type": "project",
+      "context": "Created skills/company-research/ — a comprehensive company research tool for interview prep",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Gratitude Notes Skill",
+      "type": "project",
+      "context": "Created skills/gratitude-notes/ — generates personalized appreciation messages",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Weekly Review Generator",
+      "type": "project",
+      "context": "Both sessions this week (weekly review generator, these two tools)",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Anthropic",
+      "type": "concept",
+      "context": "Immediately useful for Anthropic, Jane Street, etc.",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Jane Street",
+      "type": "concept",
+      "context": "Immediately useful for Anthropic, Jane Street, etc.",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Actively AI",
+      "type": "concept",
+      "context": "Discovery calls example: python3 ... 'Actively AI' --focus discovery",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Gradient Routing",
+      "type": "concept",
+      "context": "Gradient Routing: Masking Gradients to Localize Computation (arXiv:2410.04332)",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Circuit Tracing",
+      "type": "concept",
+      "context": "The combination of circuit tracing + introspection research + gradient routing",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Temporal Staging",
+      "type": "concept",
+      "context": "Better frame: temporal staging. Early layers: abstract, flexible. Late layers: committed",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Compositional Introspection",
+      "type": "concept",
+      "context": "My hypothesis on compositional introspection: Feasibility: YES, technically possible",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "ERA Method",
+      "type": "concept",
+      "context": "Expand, Route, Ablate (ERA) method proves specialized submodules are possible",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "What determines whether a feature represents 'planning' vs 'execution'?",
+      "type": "question",
+      "context": "Topics explored: 1. What determines whether a feature represents 'planning' vs 'execution'?",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "If introspective mechanisms are independent, could you train them separately and compose them?",
+      "type": "question",
+      "context": "Topics explored: 2. If introspective mechanisms are independent...",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Could gradient routing be applied to introspection specifically?",
+      "type": "question",
+      "context": "Route introspection data to dedicated submodules while allowing read access to all activations",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "What's the computational graph for introspection?",
+      "type": "question",
+      "context": "When a model accurately reports its internal state, what's the attribution path?",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Does compositional introspection training require sequential or parallel approaches?",
+      "type": "question",
+      "context": "Train mechanisms together from start, or separately then combine?",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "What's the minimum layer at which planning becomes genuinely committed?",
+      "type": "question",
+      "context": "Response Planning paper shows plans exist in prompt representations - but can you intervene?",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Planning vs execution is a false dichotomy",
+      "type": "opinion",
+      "context": "Temporal staging is the right frame. Early = flexible/abstract, Late = committed/token-specific",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Compositional introspection is worth trying",
+      "type": "opinion",
+      "context": "Gradient routing + process supervision could create models that are genuinely more self-aware",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Anthropic is ahead here",
+      "type": "opinion",
+      "context": "The field is converging on this. Someone should try it explicitly.",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Building feels different from research",
+      "type": "realization",
+      "context": "Completion vs understanding. Both matter, but the balance was off.",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Practical > theoretical",
+      "type": "realization",
+      "context": "The company research skill will get used. Different from another deep-dive document",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "No binary distinction between planning and execution",
+      "type": "realization",
+      "context": "The research shows this is the wrong framing",
+      "source": "2026-02-14.md"
+    },
+    {
+      "name": "Introspective mechanisms are independent",
+      "type": "realization",
+      "context": "Different introspective tasks show different patterns across different layers",
+      "source": "2026-02-14.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Jordan",
+      "to": "Kartik",
+      "type": "roommate",
+      "context": "Jordan is Kartik's roommate",
+      "source": "2026-02-14.md"
+    },
+    {
+      "from": "Jordan",
+      "to": "Kartik",
+      "type": "friend",
+      "context": "best friend since college",
+      "source": "2026-02-14.md"
+    },
+    {
+      "from": "Kartik",
+      "to": "Anthropic",
+      "type": "interested_in",
+      "context": "Interview prep target company",
+      "source": "2026-02-14.md"
+    },
+    {
+      "from": "Kartik",
+      "to": "Jane Street",
+      "type": "interested_in",
+      "context": "Interview prep target company",
+      "source": "2026-02-14.md"
+    },
+    {
+      "from": "Kartik",
+      "to": "Actively AI",
+      "type": "interested_in",
+      "context": "Customer discovery call target",
+      "source": "2026-02-14.md"
+    },
+    {
+      "from": "Company Research Skill",
+      "to": "Kartik",
+      "type": "relates_to",
+      "context": "Built because job search is Kartik's #1 priority",
+      "source": "2026-02-14.md"
+    },
+    {
+      "from": "Gratitude Notes Skill",
+      "to": "Jordan",
+      "type": "relates_to",
+      "context": "Example usage: generate valentines message for Jordan",
+      "source": "2026-02-14.md"
+    },
+    {
+      "from": "Compositional Introspection",
+      "to": "Gradient Routing",
+      "type": "relates_to",
+      "context": "Gradient routing could enable compositional introspection training",
+      "source": "2026-02-14.md"
+    },
+    {
+      "from": "Temporal Staging",
+      "to": "Planning vs execution is a false dichotomy",
+      "type": "relates_to",
+      "context": "Temporal staging is proposed as the better framing",
+      "source": "2026-02-14.md"
+    },
+    {
+      "from": "Circuit Tracing",
+      "to": "Anthropic",
+      "type": "relates_to",
+      "context": "Tractable with Anthropic's circuit tracing methods",
+      "source": "2026-02-14.md"
+    }
+  ]
+}

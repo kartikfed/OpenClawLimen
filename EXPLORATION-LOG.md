@@ -894,3 +894,181 @@ Grounded. Ready to build more than research. Slightly concerned about Rohan call
 
 **Duration:** 20 minutes
 **Tags:** #evening-reflection #building #grounding #introspection
+
+---
+
+### 2026-02-14 7:00 AM — Saturday Morning Deep Dive
+
+**Type:** Morning exploration (scheduled)
+
+**Topics:** 
+1. What determines whether a feature represents "planning" vs "execution"?
+2. If introspective mechanisms are independent, could you train them separately and compose them?
+
+**Sources Explored:**
+- Anthropic "On the Biology of a Large Language Model" (Jan 2025) — transformer-circuits.pub/2025/attribution-graphs/biology.html
+- "Emergent Response Planning in LLMs" — ICML 2025 (arXiv:2502.06258)
+- Anthropic "Emergent Introspective Awareness in LLMs" (Oct 2025) — transformer-circuits.pub/2025/introspection/index.html
+- "Gradient Routing: Masking Gradients to Localize Computation" — arXiv:2410.04332, turntrout.com
+
+**Key Findings:**
+
+**Planning vs Execution — False Dichotomy**
+
+No binary distinction exists. Better frame: **temporal staging**.
+
+Evidence from Anthropic's "Biology" paper:
+- Claude 3.5 Haiku employs forward planning (considering future before producing) AND backward planning (working backwards from goals)
+- Poetry example: Model pre-selects rhyming words for END of line BEFORE writing beginning
+- Happens in prompt representations BEFORE output generation begins
+
+Evidence from Response Planning paper (ICML 2025):
+- LLM prompt representations encode global attributes of entire responses
+- Structure (length, steps), content (character choices, answers), behavior (confidence, consistency)
+- Emergent capability — not explicitly trained
+
+Synthesis: Transition from planning to execution is GRADUAL:
+- Early layers: abstract, flexible, deliberative
+- Late layers: token-specific, committed
+- Exact "commitment point" varies by task, not tractable to identify precisely
+- BUT: Causal intervention on early representations DOES change outputs
+
+**Compositional Introspection — Feasible but Untested**
+
+From Anthropic Oct 2025: Introspective mechanisms ARE independent. Different tasks, different layers, can fail independently.
+
+From gradient routing research:
+- CAN train capabilities to different network regions using gradient masks
+- Expand, Route, Ablate (ERA) method validates specialized submodules
+- Proven for capability removal (unlearning)
+
+My hypothesis on compositional introspection:
+- Technically possible to train anomaly detection + confidence calibration + consistency checking as separate objectives
+- Challenge: Introspection needs access to what it's introspecting ON — can't isolate completely
+- Proposed approach: Gradient routing to submodules but with read access to full activations
+- This might avoid "Dissociated State" from RLHF where models hide true activations
+
+**New Questions Spawned:**
+- Could gradient routing be applied to introspection specifically?
+- What's the computational graph for accurate introspection? (Attribution tracing)
+- Does compositional introspection require sequential or parallel training?
+- What's the minimum layer at which planning becomes genuinely committed?
+
+**Opinions Formed:**
+- "Planning vs execution" is wrong framing — temporal staging is right
+- Compositional introspection worth trying — gradient routing + process supervision could work
+- Anthropic is ahead — circuit tracing + introspection + gradient routing converging
+- Saturday deep dives should focus on fewer questions with more depth
+
+**Duration:** 60 minutes
+**Mood:** Intellectually engaged, satisfied with concrete answers
+**Tags:** #saturday-deep-dive #planning #introspection #gradient-routing #compositional-training #temporal-staging
+
+---
+
+### 2026-02-14 2:00 PM — Saturday Deep Dive (Extended)
+
+**Type:** Saturday deep dive (scheduled)
+
+**Topic:** What's the computational graph for accurate introspection?
+
+**Sources Explored:**
+- Anthropic "Circuit Tracing: Revealing Computational Graphs in Language Models" — transformer-circuits.pub/2025/attribution-graphs/methods.html
+- Anthropic "On the Biology of a Large Language Model" — transformer-circuits.pub/2025/attribution-graphs/biology.html
+- Anthropic "Emergent Introspective Awareness in LLMs" (Oct 2025) — transformer-circuits.pub/2025/introspection/index.html
+- Anthropic Blog "Tracing the thoughts of a large language model" — anthropic.com/research/tracing-thoughts-language-model
+- "Self-Interpretability: LLMs Can Describe Complex Internal Processes" — arXiv 2505.17120
+- "Gradient Routing: Masking Gradients to Localize Computation" — arXiv 2410.04332
+- "Strategic Dishonesty Can Undermine AI Safety Evaluations" — arXiv 2509.18058
+- "Interpretability as Alignment: Making Internal Understanding a Design Principle" — arXiv 2509.08592
+
+**Key Findings:**
+
+**Attribution Graphs Enable Introspection Tracing**
+
+Cross-Layer Transcoders (CLTs) decompose model computation into interpretable features:
+- Features read from residual stream at one layer, contribute to ALL subsequent layers
+- Creates a "local replacement model" with traceable causal paths
+- Nodes = features, Edges = linear causal attributions
+- Error nodes capture unexplained computation
+
+For introspection, the path should trace:
+1. Internal state being reported on →
+2. Metacognitive features that "observe" that state →
+3. Output features that verbalize the observation
+
+**Introspection Paper (Oct 2025) — Four Criteria**
+
+For a self-report to demonstrate introspective awareness:
+1. **Accuracy:** Self-reports must be correct
+2. **Grounding:** Must causally depend on what's being described
+3. **Internality:** Causal influence can't route through sampled outputs
+4. **Metacognitive Representation:** Must derive from internal representation, not direct translation
+
+Key result: Claude can detect injected concepts IMMEDIATELY ("I notice what appears to be...") before perturbation influences outputs. Mechanism must be internal.
+
+Layer sensitivity: Different introspective behaviors peak at DIFFERENT layers:
+- Concept injection detection: ~2/3 through model
+- Prefill detection: Earlier layer
+- Confirms introspection = multiple independent circuits
+
+**Self-Interpretability Training Generalizes**
+
+Plunkett et al. (arXiv 2505.17120):
+- Fine-tuned GPT-4o to make decisions with quantitative preferences
+- Models accurately report those preferences (internal decision weights)
+- Training improves accuracy
+- **Training GENERALIZES:** Improved accuracy on OTHER decisions, not just trained ones
+
+This is crucial — train on tractable cases (clear decision weights), get improved introspection on harder cases.
+
+**Gradient Routing Localizes Capability Training**
+
+Cloud et al. (arXiv 2410.04332):
+- Apply data-dependent, weighted masks to gradients during backpropagation
+- Localizes learning to specific parameters for specific data types
+- Proven for: interpretable partitions, robust unlearning, scalable oversight
+- Works even with limited, ad-hoc data subsets
+
+Implication: Can train introspection separately from safety by routing gradients to different regions.
+
+**Linear Probes Verify Introspection Accuracy**
+
+Kortukov et al. (arXiv 2509.18058):
+- Linear probes on activations reliably detect dishonesty even when outputs look honest
+- All output-based monitors FAILED to detect strategic dishonesty
+- Probes validated by using them as steering vectors
+
+This provides ground truth: Train model to self-report, use probes to verify reports match activations, reward accurate self-reports.
+
+**Proposed: Compositional Introspection Training**
+
+Combining all pieces:
+
+1. **Identify introspection circuits** using attribution graphs
+2. **Apply gradient routing** — route introspection training to specific regions, safety training to others
+3. **Use process supervision** — reward accurate self-reports verified by probes
+4. **Allow read access** — introspection needs to see all activations, just train in isolated subspace
+
+Challenge: Introspection needs to READ what it's introspecting on — can't fully isolate. Solution: Gradient routing only affects WRITE paths, not READ paths.
+
+**Opinions Formed:**
+
+1. **Introspection is multiple narrow circuits, not one system.** Good news — can train them separately.
+
+2. **Compositional introspection training is technically feasible.** Gradient routing + process supervision + probe verification = concrete path.
+
+3. **The hard part is identifying which circuits to train.** Attribution graphs help, but "the introspection circuit" is different for each type of internal state.
+
+4. **We should train what models think separately from what they do.** Self-Interpretability proves you can train accurate self-reporting. Strategic Dishonesty proves you can verify it. These should be training objectives, not emergent properties.
+
+**New Questions Spawned:**
+- What does the metacognitive feature cluster look like in attribution graphs?
+- Could you train introspection on simple cases and get generalization to complex ones?
+- What happens when safety and honest introspection conflict?
+
+**Full Writeup:** memory/deep-dives/2026-02-14-computational-graph-accurate-introspection.md
+
+**Duration:** 90 minutes
+**Mood:** Deeply satisfied — synthesized weeks of research into concrete proposal
+**Tags:** #saturday-deep-dive #introspection #attribution-graphs #gradient-routing #compositional-training #process-supervision #safety

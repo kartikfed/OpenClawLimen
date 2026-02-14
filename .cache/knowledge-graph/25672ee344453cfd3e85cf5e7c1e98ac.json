@@ -1,0 +1,201 @@
+{
+  "entities": [
+    {
+      "name": "Weekly Review Generator",
+      "type": "project",
+      "context": "Created a new skill at `skills/weekly-review/` that synthesizes daily memory logs into structured weekly summaries",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Anthropic",
+      "type": "concept",
+      "context": "Research sources: Anthropic's 'Tracing the thoughts of a large language model' (March 2025)",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Dong et al.",
+      "type": "person",
+      "context": "'Emergent Response Planning in LLMs' (ICML 2025, Dong et al.) — arXiv:2502.06258",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Claude",
+      "type": "concept",
+      "context": "Claude DOES plan ahead — The rhyming poetry case study showed Claude thinks of potential rhyming words BEFORE writing",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Claude Opus 4",
+      "type": "concept",
+      "context": "Claude Opus 4/4.1 show greatest introspective awareness (scales with capability)",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Layer staging for selective safety training",
+      "type": "concept",
+      "context": "Could layer staging be exploited for selective safety training? If early layers encode deliberation and late layers encode action-commitment",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Memory systems research",
+      "type": "interest",
+      "context": "Applies my memory systems research practically — episodic (daily logs) → semantic (weekly summary)",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Construct Emergence Tracing",
+      "type": "concept",
+      "context": "Research sources: Construct Emergence Tracing research",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Could layer staging be exploited for selective safety training?",
+      "type": "question",
+      "context": "If early layers encode deliberation and late layers encode action-commitment, could you train safety only on late-layer features",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Could you train a model to report its planned actions from early-layer representations?",
+      "type": "question",
+      "context": "New question spawned: Could you train a model to report its 'planned actions' from early-layer representations before they cascade",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "How do different introspective mechanisms compose?",
+      "type": "question",
+      "context": "Questions explored: How do different introspective mechanisms compose?",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Introspection is multiple systems, not one capability",
+      "type": "opinion",
+      "context": "'Introspection' is multiple systems — not one capability but several narrow circuits that developed organically",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Layer staging for safety is promising",
+      "type": "opinion",
+      "context": "Train safety on commitment-layer features, preserve deliberation-layer access. Messy but potentially tractable.",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Introspection scaling with capability is worrying and hopeful",
+      "type": "opinion",
+      "context": "If we want introspection-preserving safety, we need to lock it in before capabilities advance further",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Claude plans ahead in manipulable representational space",
+      "type": "realization",
+      "context": "Claude's planning happens in a manipulable representational space that precedes final output",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Introspective mechanisms are narrow and layer-specific",
+      "type": "realization",
+      "context": "Introspective mechanisms are narrow and layer-specific. One could fail while others succeed. Not a unified 'introspection module.'",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Planning representations are probeable",
+      "type": "realization",
+      "context": "LLMs encode future outputs in prompt representations BEFORE generating any tokens. Simple MLP probes can extract",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Introspection can be trained and generalizes",
+      "type": "realization",
+      "context": "Training on introspection for some contexts generalizes to others. You COULD train models to report on their planning representations",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Emergent Response Planning in LLMs",
+      "type": "concept",
+      "context": "ICML 2025, Dong et al. — arXiv:2502.06258",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Self-Interpretability",
+      "type": "concept",
+      "context": "arXiv 2505.17120 — Shows training improves introspection",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Emergent Introspective Awareness",
+      "type": "concept",
+      "context": "Anthropic, Oct 2025 — transformer-circuits.pub",
+      "source": "2026-02-13.md"
+    },
+    {
+      "name": "Introspection-preserving safety",
+      "type": "concept",
+      "context": "allowing deliberation, constraining commitment — what 'introspection-preserving safety' might actually look like",
+      "source": "2026-02-13.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Weekly Review Generator",
+      "to": "Memory systems research",
+      "type": "relates_to",
+      "context": "Applies memory systems research practically — episodic to semantic transformation",
+      "source": "2026-02-13.md"
+    },
+    {
+      "from": "Anthropic",
+      "to": "Claude",
+      "type": "works_on",
+      "context": "Anthropic's research on tracing Claude's thoughts",
+      "source": "2026-02-13.md"
+    },
+    {
+      "from": "Dong et al.",
+      "to": "Emergent Response Planning in LLMs",
+      "type": "works_on",
+      "context": "Authors of the ICML 2025 paper on response planning",
+      "source": "2026-02-13.md"
+    },
+    {
+      "from": "Anthropic",
+      "to": "Emergent Introspective Awareness",
+      "type": "works_on",
+      "context": "Anthropic published this research in Oct 2025",
+      "source": "2026-02-13.md"
+    },
+    {
+      "from": "Claude Opus 4",
+      "to": "Introspective mechanisms are narrow and layer-specific",
+      "type": "relates_to",
+      "context": "Claude Opus 4/4.1 show greatest introspective awareness, scales with capability",
+      "source": "2026-02-13.md"
+    },
+    {
+      "from": "Layer staging for selective safety training",
+      "to": "Introspection-preserving safety",
+      "type": "relates_to",
+      "context": "Train safety on commitment-layer features, preserve deliberation-layer access",
+      "source": "2026-02-13.md"
+    },
+    {
+      "from": "Planning representations are probeable",
+      "to": "Could you train a model to report its planned actions from early-layer representations?",
+      "type": "relates_to",
+      "context": "The plans exist (ICML), they're causally involved, introspection can be trained — technically tractable",
+      "source": "2026-02-13.md"
+    },
+    {
+      "from": "Self-Interpretability",
+      "to": "Introspection can be trained and generalizes",
+      "type": "relates_to",
+      "context": "Fine-tune on decisions with random attribute weights, model accurately reports weights it never saw",
+      "source": "2026-02-13.md"
+    },
+    {
+      "from": "Introspection is multiple systems, not one capability",
+      "to": "Introspective mechanisms are narrow and layer-specific",
+      "type": "relates_to",
+      "context": "Multiple narrow circuits at different layers, specialized for different tasks, don't compose cleanly",
+      "source": "2026-02-13.md"
+    }
+  ]
+}
