@@ -47,7 +47,7 @@ fridge:
   quantity: 1
   unit: piece
 - name: Butter
-  quantity: 5
+  quantity: 3.5
   unit: sticks
 - name: Garlic
   quantity: 1
@@ -106,8 +106,9 @@ fridge:
   unit: pack
   notes: currently being eaten
 - name: Eggs
-  quantity: 14
+  quantity: 0
   unit: pieces
+  notes: OUT - need to restock
 pantry:
 - name: White vinegar
   quantity: 64

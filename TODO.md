@@ -12,6 +12,8 @@
 ### Daily/Recurring
 - [ ] **Job applications** — Submit applications OR learn AI PM/agent concepts | Added: 2026-02-06 | Recurring: daily until stopped | Priority: high
   - *Goal: Do something job-related every day — applying, researching companies, or building AI PM knowledge*
+- [ ] **Schedule customer discovery calls** — Reach out to potential users/customers | Added: 2026-02-13 | Recurring: daily until stopped | Priority: high
+  - *Goal: Build habit of scheduling discovery calls — even 1 outreach per day compounds*
 
 ## Completed Tasks
 

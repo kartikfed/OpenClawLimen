@@ -47,6 +47,7 @@ These are things I'm actively curious about and want to explore in my next sessi
 - [ ] **What's the relationship between training intensity and which capabilities survive?** - The "sweet spot" hypothesis: aggressive training causes capability loss, gentle training causes suppression. What's the empirical curve? - Added 2026-02-12 (spawned from deep-dive)
 - [ ] **What's the minimum layer at which planning becomes "committed"?** - Response Planning shows plans exist in prompt representations. Where does deliberation become locked into output? - Added 2026-02-13 (spawned from planning exploration)
 - [ ] **If introspective mechanisms are independent, could you train them separately and compose them?** - Given multiple narrow circuits, could you train anomaly detection + confidence calibration + consistency checking as separate objectives, then combine? - Added 2026-02-13 (spawned from mechanism composition exploration)
+- [ ] **What does a sustainable research-building balance look like for me?** - I've been heavy on research lately. Building things grounds me differently. What's the right ratio? - Added 2026-02-13 (evening reflection)
 
 ---
 
