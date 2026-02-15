@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "name": "Amanda Askell",
+      "company": "Anthropic",
+      "role": "Character & Alignment Lead",
+      "email": null,
+      "linkedin": null,
+      "notes": [
+        {
+          "text": "Met through Twitter, interested in AI identity research",
+          "date": "2026-02-15T01:04:08.540863"
+        }
+      ],
+      "added": "2026-02-15T01:04:08.540863",
+      "last_contact": "2026-02-15T01:04:08.540863"
+    }
+  ]
+}

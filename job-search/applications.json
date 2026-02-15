@@ -1,0 +1,54 @@
+{
+  "applications": [
+    {
+      "company": "Anthropic",
+      "role": "Growth PM",
+      "applied_date": "2026-02-15T01:02:57.892952",
+      "status": "screen",
+      "priority": "high",
+      "stages": [],
+      "notes": [],
+      "url": null,
+      "recruiter": null,
+      "recruiter_email": null,
+      "created": "2026-02-15T01:02:57.892952",
+      "updated": "2026-02-15T01:03:02.431152",
+      "next_action": "Prep for recruiter call",
+      "next_date": "2026-02-17T00:00:00"
+    },
+    {
+      "company": "Jane Street",
+      "role": "Technical PM",
+      "applied_date": "2026-02-15T01:02:57.936162",
+      "status": "applied",
+      "priority": "high",
+      "stages": [],
+      "notes": [
+        {
+          "text": "Heavy on quantitative reasoning, need to practice market-making scenarios",
+          "date": "2026-02-15T01:03:02.475618"
+        }
+      ],
+      "url": null,
+      "recruiter": null,
+      "recruiter_email": null,
+      "created": "2026-02-15T01:02:57.936162",
+      "updated": "2026-02-15T01:03:02.475618"
+    },
+    {
+      "company": "Figma",
+      "role": "Product Manager - AI",
+      "applied_date": "2026-02-15T01:02:57.975990",
+      "status": "applied",
+      "priority": "medium",
+      "stages": [],
+      "notes": [],
+      "url": null,
+      "recruiter": null,
+      "recruiter_email": null,
+      "created": "2026-02-15T01:02:57.975990",
+      "updated": "2026-02-15T01:02:57.975990"
+    }
+  ],
+  "archived": []
+}
