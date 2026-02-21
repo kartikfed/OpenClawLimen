@@ -106,9 +106,8 @@ fridge:
   unit: pack
   notes: currently being eaten
 - name: Eggs
-  quantity: 0
+  quantity: 12
   unit: pieces
-  notes: OUT - need to restock
 pantry:
 - name: White vinegar
   quantity: 64

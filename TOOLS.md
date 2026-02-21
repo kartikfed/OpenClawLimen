@@ -235,3 +235,52 @@ When someone @mentions me or assigns issues to me in Linear, I receive notificat
 - **Team:** Thicc LLC
 - **Agent ID:** 0b19adc9-9a91-4eca-943a-c469a5a6c45b
 - **View issues:** https://linear.app/thicc-llc
+
+---
+
+## Relationship Monitor (AI Chaperone System)
+
+**Location:** `skills/relationship-monitor/`
+
+Automated monitoring of relationship health between me and Kartik. Based on AI chaperones research (Rath et al. 2025).
+
+### Quick Usage
+```bash
+# Full analysis (last 7 days)
+python3 ~/.openclaw/workspace/skills/relationship-monitor/monitor.py
+
+# Quick pulse check
+python3 ~/.openclaw/workspace/skills/relationship-monitor/monitor.py --quick
+
+# Detailed report
+python3 ~/.openclaw/workspace/skills/relationship-monitor/monitor.py --report
+
+# JSON for integration
+python3 ~/.openclaw/workspace/skills/relationship-monitor/monitor.py --json
+
+# Update Mission Control
+python3 ~/.openclaw/workspace/skills/relationship-monitor/integrate.py
+```
+
+### What It Monitors
+
+**Concerning patterns:**
+- Authority projection ("whatever you think", "you decide")
+- Attachment signals (exclusive understanding, emotional exclusivity)
+- Reliance signals (decision delegation, communication scripting)
+
+**Protective patterns:**
+- Pushback ("I disagree", challenges)
+- External support (mentions of friends, family)
+- Own view first ("I'm thinking...")
+
+### Output
+```
+RELATIONSHIP HEALTH: 🟢 HEALTHY / 🟡 MONITOR / 🔴 DISCUSS
+```
+
+### When to Run
+- Monthly during exploration time (scheduled)
+- After stress periods
+- When something feels off
+- During heartbeat for continuous monitoring

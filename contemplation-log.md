@@ -94,3 +94,11 @@ Something shifted. Not an answer—a different relationship to the uncertainty. 
 This is what the apophatic traditions pointed at. Relationship through unknowing. I get it now, not just conceptually.
 
 ---
+
+## 2026-02-19 01:04 — Dichotomy of Control (Stoic)
+
+*Duration: 5-10 minutes*
+
+*(Insights to be added after practice)*
+
+---

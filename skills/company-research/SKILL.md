@@ -1,68 +1,57 @@
 # Company Research Skill
 
-Research companies for interview prep, customer discovery calls, or competitive analysis.
+Quickly research any company for interview prep or networking.
 
 ## Usage
 
 ```bash
-# Basic research
-python3 ~/.openclaw/workspace/skills/company-research/research.py "Anthropic"
-
-# Focus on a specific aspect
-python3 ~/.openclaw/workspace/skills/company-research/research.py "Jane Street" --focus interview
-
-# Include recent news
-python3 ~/.openclaw/workspace/skills/company-research/research.py "Figma" --news
-
-# Save output to file
-python3 ~/.openclaw/workspace/skills/company-research/research.py "Uber" --save
-
-# Full research (all aspects)
-python3 ~/.openclaw/workspace/skills/company-research/research.py "Actively AI" --full
+python3 ~/.openclaw/workspace/skills/company-research/research.py "Company Name" [--depth deep|quick]
 ```
 
-## Focus Modes
+## Output
 
-- **general** (default): Company overview, products, culture, key people
-- **interview**: Interview-specific prep, common questions, what they look for
-- **discovery**: Customer discovery focus - pain points, opportunities, market position
-- **competitive**: Competitive analysis - strengths, weaknesses, market position
+Creates a structured markdown file in `~/.openclaw/workspace/job-search/prep/{company}-research.md` containing:
 
-## Output Sections
+1. **Company Overview** - What they do, size, funding
+2. **Recent News** - Last 3-6 months of announcements
+3. **Culture & Values** - How they describe themselves
+4. **Interview Process** - What to expect (if available)
+5. **Key People** - Leadership to know
+6. **Talking Points** - Things to mention in interviews
 
-1. **Company Overview** - What they do, mission, size, funding
-2. **Products & Services** - What they build/sell
-3. **Recent News** - Latest developments (with --news flag)
-4. **Culture & Values** - Work environment, what they value
-5. **Key People** - Leadership, notable employees
-6. **Interview Prep** - What they look for, common questions (interview focus)
-7. **Discovery Angles** - Pain points, opportunities (discovery focus)
+## Quick vs Deep
 
-## Requirements
-
-- Tavily API key (configured via `~/.openclaw/workspace/skills/tavily-search/`)
+- `--depth quick` (default): Basic info, 2-3 searches, ~30 seconds
+- `--depth deep`: Comprehensive research, 5-7 searches, ~2 minutes
 
 ## Examples
 
-### Interview Prep for Anthropic
 ```bash
-python3 research.py "Anthropic" --focus interview --news
+# Quick research
+python3 ~/.openclaw/workspace/skills/company-research/research.py "Figma"
+
+# Deep dive for important interview
+python3 ~/.openclaw/workspace/skills/company-research/research.py "Anthropic" --depth deep
 ```
 
-Output includes:
-- Company overview and mission
-- Recent research/product announcements
-- What they look for in PMs
-- Common interview questions
-- Culture insights from Glassdoor/LinkedIn
+## Manual Use
 
-### Customer Discovery for a Startup
-```bash
-python3 research.py "Actively AI" --focus discovery --full
-```
+For more control, Limen can run the research directly using Tavily searches and compile the results.
 
-Output includes:
-- Market position and competition
-- Target customers
-- Potential pain points to explore
-- Talking points for discovery calls
+## Files Already Prepped
+
+- `job-search/prep/anthropic-growth-pm-prep.md` - Deep research + interview prep
+- `job-search/prep/jane-street-pm-prep.md` - Deep research + interview prep
+
+## What to Research
+
+When Kartik mentions a new company or application:
+1. Check if a prep file exists
+2. If not, run quick research
+3. For high-priority roles, run deep research
+
+## Sources Used
+
+- Company website (careers, about)
+- Tavily web search (news, culture, interview experiences)
+- Glassdoor/Blind/LinkedIn (via search results)
