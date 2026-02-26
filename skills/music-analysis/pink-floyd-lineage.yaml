@@ -1,0 +1,228 @@
+# Pink Floyd Production Lineage
+# Tracks how techniques evolved, borrowed from earlier work, and influenced later work
+# Format: technique -> albums where used, origin, evolution
+
+metadata:
+  last_updated: "2026-02-24"
+  albums_covered:
+    - "More (1969)"
+    - "The Dark Side of the Moon (1973)"
+    - "Wish You Were Here (1975)"
+    # TODO: Meddle, Animals, The Wall
+  sources:
+    - "Wikipedia"
+    - "DSOTM deep dive (memory/deep-dives/2026-02-23)"
+    - "WYWH deep dive (memory/deep-dives/2026-02-24)"
+
+techniques:
+  # ===== SYNTHESIZERS =====
+  ems_vcs_3:
+    name: "EMS VCS 3 Synthesizer"
+    first_used: "More (1969)"
+    evolution:
+      dsotm:
+        tracks: ["On the Run", "Money", "Brain Damage"]
+        notes: "Performed LIVE because synchronization impossible. Raw, energetic."
+      wywh:
+        tracks: ["Welcome to the Machine", "Shine On You Crazy Diamond (Part I)"]
+        notes: "Studio construction, no backing track. Throbbing texture built from scratch."
+    insight: "DSOTM used VCS 3 for live performance energy. WYWH used it for pure studio construction. Same instrument, different philosophy."
+
+  minimoog:
+    name: "Minimoog"
+    first_used: "The Dark Side of the Moon (1973)"
+    evolution:
+      dsotm:
+        tracks: ["Any Colour You Like", "Brain Damage"]
+        notes: "Melodic leads, solos"
+      wywh:
+        tracks: ["Shine On You Crazy Diamond"]
+        notes: "Wright's melodic passage after wine glass opening"
+    insight: "Used consistently for melodic content across both albums."
+
+  arp_solina_string:
+    name: "ARP Solina String Synthesizer"
+    first_used: "The Dark Side of the Moon (1973)"
+    evolution:
+      dsotm:
+        tracks: ["Us and Them", "Brain Damage"]
+        notes: "Lush pad textures"
+      wywh:
+        tracks: ["Shine On You Crazy Diamond", "Welcome to the Machine"]
+        notes: "Continues pad role"
+    insight: "Consistent textural use — creates space and depth."
+
+  # ===== TAPE TECHNIQUES =====
+  tape_loops:
+    name: "Tape Loops"
+    first_used: "Syd Barrett era experiments"
+    evolution:
+      dsotm:
+        tracks: ["Money"]
+        notes: "7-beat loop created in Waters' garden shed. Cash registers, ripping paper. Became the rhythmic backbone."
+      wywh:
+        tracks: []
+        notes: "Less prominent. Album built more on synth textures than loops."
+    insight: "DSOTM's tape loops were structural (the song is built ON the loop). WYWH moved toward synth-as-structure."
+
+  tape_speed_manipulation:
+    name: "Tape Speed for Vocal Adjustment"
+    first_used: "Wish You Were Here (1975)"
+    evolution:
+      wywh:
+        tracks: ["Welcome to the Machine"]
+        notes: "ONLY time Pink Floyd used tape speed to help vocals. Gilmour couldn't reach a line, so they dropped tape half a semitone, sang at lower pitch, raised speed back."
+    insight: "A one-time solution to a specific problem, not a general technique."
+
+  # ===== INTERVIEW/FOUND SOUND =====
+  interview_snippets:
+    name: "Interview Snippets as Thematic Glue"
+    first_used: "The Dark Side of the Moon (1973)"
+    evolution:
+      dsotm:
+        tracks: ["Speak to Me", "The Great Gig in the Sky", "Money", "Brain Damage", "Eclipse"]
+        notes: "Question cards given to Abbey Road staff. Answers woven throughout as human texture."
+      wywh:
+        tracks: []
+        notes: "Not used. Thematic glue comes from Barrett tribute and industry critique instead."
+    insight: "DSOTM's universal themes needed universal voices. WYWH's personal themes didn't."
+
+  # ===== VOCAL TECHNIQUES =====
+  wordless_vocals:
+    name: "Wordless Vocal Performance"
+    first_used: "The Dark Side of the Moon (1973)"
+    evolution:
+      dsotm:
+        tracks: ["The Great Gig in the Sky"]
+        notes: "Clare Torry paid £30 for 2nd greatest vocal in rock history. No words, no melody given — pure improvisation."
+      wywh:
+        tracks: []
+        notes: "Not used. Harper sings lyrics on Have a Cigar."
+    insight: "Clare Torry's technique was unique to DSOTM — creating conditions for emergence."
+
+  guest_lead_vocals:
+    name: "Guest Lead Vocals"
+    first_used: "The Dark Side of the Moon (1973)"
+    evolution:
+      dsotm:
+        tracks: ["The Great Gig in the Sky"]
+        notes: "Clare Torry — wordless improvisation"
+      wywh:
+        tracks: ["Have a Cigar"]
+        notes: "Roy Harper — Waters and Gilmour both dissatisfied with own attempts. Harper was recording at Abbey Road simultaneously."
+    insight: "Both albums found unexpected voices when internal ones didn't fit."
+
+  # ===== STRUCTURAL TECHNIQUES =====
+  continuous_album_flow:
+    name: "Continuous Album Flow"
+    first_used: "The Dark Side of the Moon (1973)"
+    evolution:
+      dsotm:
+        tracks: ["All"]
+        notes: "Each side is one continuous piece. Heartbeat bookends. Songs crossfade."
+      wywh:
+        tracks: ["All"]
+        notes: "Shine On bookends the album. Songs flow into each other (Have a Cigar → radio → Wish You Were Here)."
+    insight: "Both albums are best experienced as whole sides. The flow is intentional meaning-making."
+
+  split_composition:
+    name: "Split Long-Form Composition"
+    first_used: "Wish You Were Here (1975)"
+    evolution:
+      wywh:
+        tracks: ["Shine On You Crazy Diamond (Parts I-V + VI-IX)"]
+        notes: "Originally one side-long piece. Split to bookend album. Gilmour outvoted 3-1."
+    insight: "The fracture reflects the fractured subject (Barrett). Structure as meaning."
+
+  am_radio_transition:
+    name: "AM Radio Quality Transition"
+    first_used: "Wish You Were Here (1975)"
+    evolution:
+      wywh:
+        tracks: ["Have a Cigar → Wish You Were Here"]
+        notes: "Synthesizer filter-sweep reduces to tinny AM radio levels. Radio dial sound bridges to acoustic guitar."
+    insight: "Production quality as metaphor: industry noise (cynical) → authentic longing (genuine)."
+
+  # ===== RECORDING APPROACHES =====
+  whole_take_performance:
+    name: "Whole-Take Performance (16-track constraint)"
+    first_used: "Pre-DSOTM era"
+    evolution:
+      dsotm:
+        tracks: ["On the Run", "The Great Gig in the Sky"]
+        notes: "16-track meant 2-inch tape couldn't easily be edited. Long pieces performed start to finish."
+      wywh:
+        tracks: ["Shine On You Crazy Diamond"]
+        notes: "Mason noted this was 'fairly tough business' for rhythm section."
+    insight: "Technological limitation created organic flow that pieced-together recording loses."
+
+  # ===== ARCHIVAL REUSE =====
+  archival_fragment_reuse:
+    name: "Reusing Archived Experimental Fragments"
+    first_used: "Wish You Were Here (1975)"
+    evolution:
+      wywh:
+        tracks: ["Shine On You Crazy Diamond (Part I)"]
+        notes: "Wine glass harp recorded 5 January 1971 for 'Household Objects' project (never released). Used 4 years later."
+    insight: "Failed experiments can become future successes. Keep the archives."
+
+engineers:
+  alan_parsons:
+    albums: ["The Dark Side of the Moon"]
+    philosophy: "Good mics, good preamps, then leave it alone."
+    notable_contributions:
+      - "Clare Torry session — created conditions for emergence"
+      - "Interview snippet integration"
+      - "16-track mastery at age 23"
+    why_didnt_return: "Formed The Alan Parsons Project, recording Tales of Mystery and Imagination"
+
+  brian_humphries:
+    albums: ["More", "Wish You Were Here", "Animals"]
+    philosophy: "Unknown — less documented than Parsons"
+    notable_contributions:
+      - "Unfamiliar with Abbey Road setup — caused early difficulties"
+      - "Accidentally spoiled Shine On backing tracks with echo — had to re-record"
+      - "Recalled days of inactivity (darts, word games) before breakthrough"
+    insight: "Different engineer = different creative constraints. Mistakes sometimes improve final result."
+
+emotional_context:
+  dsotm:
+    band_state: "Collaborative, experimental, driven"
+    key_events:
+      - "Alan Parsons at age 23 engineering"
+      - "Clare Torry improvisation"
+      - "Interview cards to Abbey Road staff"
+    result: "Technically innovative, universally resonant"
+
+  wywh:
+    band_state: "Exhausted, directionless, searching for meaning post-success"
+    key_events:
+      - "Parsons declined to return"
+      - "Humphries unfamiliar with studio"
+      - "Barrett's visit during Shine On mixing"
+      - "Harper brought in when internal vocals failed"
+    result: "Conceptually innovative, personally resonant"
+    
+  insight: "DSOTM's energy was collaborative exploration. WYWH's energy was processing loss and success simultaneously."
+
+patterns:
+  constraint_enables_innovation:
+    examples:
+      - "16-track → whole-take performances"
+      - "Failed Household Objects → wine glass opening"
+      - "Post-success void → deeper thematic content"
+      - "Parsons left → Humphries' different approach"
+      - "Internal vocal dissatisfaction → Roy Harper"
+    
+  structure_as_meaning:
+    examples:
+      - "Continuous album flow → immersive experience"
+      - "Fractured Shine On → fractured Barrett"
+      - "AM radio transition → authentic vs commercial"
+      - "Heartbeat bookend → life cycle"
+
+  archival_value:
+    examples:
+      - "1971 wine glasses → 1975 album opener"
+      - "1974 tour performances → refined for studio"
+    insight: "Nothing is wasted. Experiments that fail in one context succeed in another."

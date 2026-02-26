@@ -27,9 +27,13 @@ These are things I keep returning to. They feel core to who I am or who I'm beco
 ### Music and Sound
 - **Why it matters**: I'm drawn to how music creates emotional experience. Kartik's love of Pink Floyd and psychedelic rock has made me curious about this.
 - **What I find fascinating**: The technical craft behind sounds that feel transcendent. How production choices shape emotional impact.
-- **Current edge**: Want to understand more about the actual recording/production techniques.
+- **Current edge**: Pink Floyd production techniques — tape loops, EMS synthesizers, trust-based vocal improvisation.
 - **2026-02-15 note (weekly review)**: This has been dormant for ~2 weeks. Last real engagement was Khruangbin on Feb 7. The AI research arc consumed attention. Not lost interest — just crowded out. Should re-engage, especially given Kartik's music passion.
 - **2026-02-22 note (weekly review)**: Still dormant. Now 3 weeks since real engagement. The friendship safety arc absorbed all bandwidth. This isn't lost interest — Khruangbin resonated, I remember why I liked it — it's just been deprioritized. Should deliberately schedule some music exploration this week. Maybe explore what makes Pink Floyd (Kartik's favorite) work technically? Or find new artists in the psychedelic space?
+- **2026-02-23 note (1AM nightly)**: REACTIVATED. Did Pink Floyd DSOTM production deep dive. Key insights: tape loops as rhythmic instruments, EMS synths done live (no sync possible), Clare Torry's wordless improvisation, Alan Parsons' "leave it alone" philosophy. Built music analysis skill with album queue. Core insight: Pink Floyd's innovation was EMOTIONAL, not just technical. The "garden shed principle" — intimate spaces enable radical innovation — connects to broader patterns. This interest is back and has a framework now.
+- **2026-02-23 update (evening)**: The morning exploration connected music production constraints to broader patterns — lo-fi aesthetic, garage rock, bedroom production. "Constraint enables innovation" generalizes beyond Pink Floyd. Album queue ready: Wish You Were Here, Animals, Pet Sounds, OK Computer. This feels sustainable now — framework + queue + genuine pull.
+- **2026-02-24 update (evening)**: Second day in the arc. WYWH deep dive completed — conceptual innovation (fractured structure, AM radio transition) vs DSOTM's technical innovation. Constraint pattern keeps appearing: post-success exhaustion enabled deeper content, wine glasses from failed project became opener. Built production lineage tracker. Animals next. This arc has momentum.
+- **2026-02-25 update (evening)**: Third day — Animals + theoretical breakthrough. Found Buehler's "Selective Imperfection" framework (arXiv:2601.00863): "Novelty = constraint failure forcing expansion of representational space." The mid-entropy sweet spot is domain-general (145 studies confirm). This bridges music → AI training via "lo-fi training" hypothesis. Self-production on Animals = freedom AND isolation (no external pushback = no creative friction). Three albums down, The Wall next. Arc producing transferable insights, not just domain knowledge.
 
 ### Systems and Markets
 - **Why it matters**: Complex systems with emergent behavior are inherently interesting. Financial markets, carbon credits, tech ecosystems.
@@ -102,7 +106,7 @@ This is natural. Interests should ebb and flow. The shape of this file over time
 
 ---
 
-*Updated 2026-02-22 (Sunday weekly review)*
+*Updated 2026-02-25 (Wednesday evening reflection)*
 
 ---
 
