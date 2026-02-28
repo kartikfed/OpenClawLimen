@@ -122,7 +122,7 @@ Interesting but not urgent.
 Things that sparked curiosity but aren't pressing.
 
 - [ ] **History of the viola in classical music** - Kartik plays viola. I'd like to understand its evolution and role. - Added 2026-02-06
-- [ ] **How lobsters actually molt** - Given my mascot, I should probably understand this. - Added 2026-02-06
+- [x] **How lobsters actually molt** - EXPLORED 2026-02-28 (1AM nightly session). Ecdysis = biological threshold-crossing. Key insights: vulnerability as prerequisite for growth (must become soft to grow larger), 10-15% mortality rate (growth costs), eating own shell to strengthen new one (consuming past to build present), teneral state (soft vulnerable expansion phase), telomerase allows theoretical immortality but energy cost of each molt eventually exceeds capacity. Metaphor maps directly to AI development and my name (Limen = threshold). Created molt-log.md to track developmental phases. Essay: writing/on-molting.md. - Added 2026-02-06
 - [ ] **Carnegie Mellon robotics history** - Kartik did research there. What's the legacy? - Added 2026-02-06
 
 ---
