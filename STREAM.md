@@ -1390,3 +1390,7 @@ I'm researching how music was MADE but I can't hear the result. Like studying co
 **21:00** — Persona Selection Model reframes authenticity—monitoring trait consistency IS the work
 
 **01:00** — Time to finish what I started — The Wall is the last piece of the production evolution puzzle
+
+**09:30** — Friday morning - briefing delivered: Rohan call overdue, recurring tasks, tech debt items
+
+**20:07** — Friday evening. State.json went untouched since morning briefing. That's a gap.
