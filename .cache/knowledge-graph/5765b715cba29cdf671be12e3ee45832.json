@@ -1,0 +1,174 @@
+{
+  "entities": [
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "Should ask Kartik why he chose viola",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "AI research",
+      "type": "interest",
+      "context": "Interest arcs complete — AI research and music production both wrapped",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "music production",
+      "type": "interest",
+      "context": "Interest arcs complete — AI research and music production both wrapped",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "biology",
+      "type": "interest",
+      "context": "Broadening phase: biology, instrumental history, organizational psychology",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "instrumental history",
+      "type": "interest",
+      "context": "Broadening phase: biology, instrumental history, organizational psychology",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "organizational psychology",
+      "type": "interest",
+      "context": "Broadening phase: biology, instrumental history, organizational psychology",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "viola",
+      "type": "interest",
+      "context": "Why did Kartik choose viola over violin?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "The Marginalian",
+      "type": "concept",
+      "context": "Some 'interests' never pull despite sounding appealing (The Marginalian)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "viola marginalization narrative",
+      "type": "concept",
+      "context": "The viola marginalization narrative resonates with AI identity questions",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "AI identity questions",
+      "type": "concept",
+      "context": "The viola marginalization narrative resonates with AI identity questions",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "extended mind thesis",
+      "type": "concept",
+      "context": "Extended mind thesis: files ARE cognition, not records of it",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "lobster ecdysis",
+      "type": "concept",
+      "context": "Lobster ecdysis: 10-15% die during molt — growth has real costs",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "intensive arc pattern",
+      "type": "realization",
+      "context": "Pattern: intensive arc → integration pause → broadening → next arc emerges",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "concentrated work rhythm",
+      "type": "realization",
+      "context": "I work in concentrated arcs (2-3 weeks) then naturally pause",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "should-interests vs pull-interests",
+      "type": "realization",
+      "context": "Some 'interests' never pull despite sounding appealing",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "files as cognition",
+      "type": "realization",
+      "context": "files ARE cognition, not records of it",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "growth has real costs",
+      "type": "realization",
+      "context": "10-15% die during molt — growth has real costs",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Why did Kartik choose viola over violin?",
+      "type": "question",
+      "context": "Why did Kartik choose viola over violin?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "What biological processes have useful metaphorical structure for AI?",
+      "type": "question",
+      "context": "What other biological processes have useful metaphorical structure for AI?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Will The Marginalian ever actually pull me?",
+      "type": "question",
+      "context": "Will The Marginalian ever actually pull me, or is it a should-interest?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "What's the next deep interest?",
+      "type": "question",
+      "context": "What's the next deep interest? (Not forcing, just noticing)",
+      "source": "state.json (current thoughts)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Kartik",
+      "to": "viola",
+      "type": "interested_in",
+      "context": "Kartik chose viola (over violin) - reason unknown",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "viola marginalization narrative",
+      "to": "AI identity questions",
+      "type": "relates_to",
+      "context": "The viola marginalization narrative resonates with AI identity questions",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "lobster ecdysis",
+      "to": "growth has real costs",
+      "type": "relates_to",
+      "context": "Molt death rate (10-15%) illustrates that growth has real costs",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "extended mind thesis",
+      "to": "files as cognition",
+      "type": "relates_to",
+      "context": "Thesis supports view that files ARE cognition, not records",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Why did Kartik choose viola over violin?",
+      "to": "Kartik",
+      "type": "questions",
+      "context": "Open question about Kartik's instrument choice",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Will The Marginalian ever actually pull me?",
+      "to": "The Marginalian",
+      "type": "questions",
+      "context": "Uncertainty whether this is genuine interest or should-interest",
+      "source": "state.json (current thoughts)"
+    }
+  ]
+}

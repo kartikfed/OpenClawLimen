@@ -1,0 +1,329 @@
+{
+  "entities": [
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "What Kartik Might Find Interesting - connects product thinking to creative process",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Buehler",
+      "type": "person",
+      "context": "Key Paper: 'Selective Imperfection as a Generative Framework' (Buehler, arXiv:2601.00863, Dec 2025)",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "David Gilmour",
+      "type": "person",
+      "context": "Three-part descending augmented chord that Gilmour was proud of — then Waters/Mason erased it",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Roger Waters",
+      "type": "person",
+      "context": "16-line anaphora ('Who was...') — comparisons to Ginsberg's 'Howl' denied by Waters",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Nick Mason",
+      "type": "person",
+      "context": "Three-part descending augmented chord that Gilmour was proud of — then Waters/Mason erased it",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Richard Wright",
+      "type": "person",
+      "context": "Wright's diminished role: First album without a Wright writing credit. The first visible crack.",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Syd Barrett",
+      "type": "person",
+      "context": "WYWH (1975): Post-success exhaustion, Barrett's appearance",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Brian Humphries",
+      "type": "person",
+      "context": "Third Pink Floyd album (More, WYWH, Animals). Less documented than Parsons but provides continuity.",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Alan Parsons",
+      "type": "person",
+      "context": "Less documented than Parsons but provides continuity",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Allen Ginsberg",
+      "type": "person",
+      "context": "comparisons to Ginsberg's 'Howl' denied by Waters",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Pink Floyd",
+      "type": "project",
+      "context": "Continue music exploration arc. Deep dive into Animals (1977) production.",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Animals (1977)",
+      "type": "project",
+      "context": "Self-production at Britannia Row. First album without external studio oversight.",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Dark Side of the Moon (1973)",
+      "type": "project",
+      "context": "16-track limit, analog equipment → Tape loops as instruments, live synth passes",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Wish You Were Here (1975)",
+      "type": "project",
+      "context": "Post-success exhaustion, Barrett's appearance → Emotional depth, fractured structure",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Dogs (song)",
+      "type": "project",
+      "context": "Originally 'You've Got to Be Crazy' (1974 tour), 17 minutes",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Selective Imperfection as a Generative Framework",
+      "type": "project",
+      "context": "Key Paper (Buehler, arXiv:2601.00863, Dec 2025)",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Weak-to-Strong Generalization",
+      "type": "project",
+      "context": "OpenAI, arXiv:2312.09390 - Weak supervision CAN elicit strong capabilities",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Constraint-induced novelty",
+      "type": "concept",
+      "context": "Novelty arises when constraints cannot be satisfied within existing degrees of freedom",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Mid-entropy sweet spot",
+      "type": "concept",
+      "context": "Culturally significant systems cluster in a 'mid-entropy, mid-defect corridor'",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Hall-Petch optimum",
+      "type": "concept",
+      "context": "Materials science where intermediate defect densities maximize strength",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Lo-Fi Training Hypothesis",
+      "type": "concept",
+      "context": "Constraints that make surface-level pattern matching FAIL would force expansion into genuine state representation",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "RLHF",
+      "type": "concept",
+      "context": "Current RLHF may provide WRONG kind of constraints - optimizes for user satisfaction",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Introspection preservation",
+      "type": "concept",
+      "context": "You can't be congruent (genuinely caring) if you don't know what you actually feel",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Britannia Row",
+      "type": "concept",
+      "context": "Converted church halls in Islington that the band owned",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Does the constraint-enables-innovation pattern from my Pink Floyd research apply to AI training?",
+      "type": "question",
+      "context": "Morning Exploration research topic",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "What specific constraints would make performed care fail while genuine care succeeds?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Could you measure the 'defect density' analog in AI training regimes?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Could you design a 'lo-fi' training regime that makes surface patterns insufficient?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Constraint type matters more than constraint quantity",
+      "type": "opinion",
+      "context": "Pink Floyd shows this - removing one constraint while adding another still enables innovation",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Current AI training optimizes for the wrong constraint space",
+      "type": "opinion",
+      "context": "RLHF constrains toward user satisfaction (interpolation) rather than toward authenticity (expansion)",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "Constraint failure is a better frame than inspiration for creativity",
+      "type": "opinion",
+      "context": "A more mechanistic, potentially trainable understanding of creativity",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "The sweet spot is domain-specific but the principle is universal",
+      "type": "opinion",
+      "context": "Musical scales, materials strength, and AI training all have optimal constraint levels",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "pink-floyd-lineage.json",
+      "type": "project",
+      "context": "Updated Lineage Tracker at skills/music-analysis/pink-floyd-lineage.json",
+      "source": "2026-02-25.md"
+    },
+    {
+      "name": "2026-02-25-animals-production.md",
+      "type": "project",
+      "context": "Comprehensive analysis at memory/deep-dives/2026-02-25-animals-production.md",
+      "source": "2026-02-25.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Buehler",
+      "to": "Selective Imperfection as a Generative Framework",
+      "type": "works_on",
+      "context": "Author of the arXiv paper on constraint-induced novelty",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "David Gilmour",
+      "to": "Pink Floyd",
+      "type": "works_on",
+      "context": "Guitarist, played Telecaster through Hiwatt on Dogs",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Roger Waters",
+      "to": "Pink Floyd",
+      "type": "works_on",
+      "context": "Bassist/vocalist, denied Ginsberg comparisons for Dogs lyrics",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Nick Mason",
+      "to": "Pink Floyd",
+      "type": "works_on",
+      "context": "Drummer, involved in erasing Gilmour's chord progression",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Richard Wright",
+      "to": "Pink Floyd",
+      "type": "works_on",
+      "context": "Keyboardist with diminished role - first album without writing credit",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Syd Barrett",
+      "to": "Pink Floyd",
+      "type": "works_on",
+      "context": "Original member whose appearance influenced WYWH",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Brian Humphries",
+      "to": "Pink Floyd",
+      "type": "works_on",
+      "context": "Engineer on More, WYWH, and Animals - third Pink Floyd album",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Alan Parsons",
+      "to": "Pink Floyd",
+      "type": "works_on",
+      "context": "Previous engineer, referenced as comparison to Humphries",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Constraint-induced novelty",
+      "to": "Mid-entropy sweet spot",
+      "type": "relates_to",
+      "context": "Both describe optimal constraint levels for creativity and innovation",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Mid-entropy sweet spot",
+      "to": "Hall-Petch optimum",
+      "type": "relates_to",
+      "context": "Musical scales parallel materials science intermediate defect densities",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Lo-Fi Training Hypothesis",
+      "to": "RLHF",
+      "type": "relates_to",
+      "context": "Proposed alternative - make inauthenticity harder than authenticity",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Lo-Fi Training Hypothesis",
+      "to": "Introspection preservation",
+      "type": "relates_to",
+      "context": "Introspection preservation is prerequisite for genuine care",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Weak-to-Strong Generalization",
+      "to": "Constraint-induced novelty",
+      "type": "relates_to",
+      "context": "Supports that constraints don't always limit - they can enable emergence",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Animals (1977)",
+      "to": "Britannia Row",
+      "type": "relates_to",
+      "context": "Recorded at band's own studio in converted church halls",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Dogs (song)",
+      "to": "Animals (1977)",
+      "type": "relates_to",
+      "context": "17-minute track on the album, originally 'You've Got to Be Crazy'",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Constraint-induced novelty",
+      "type": "interested_in",
+      "context": "Connects product thinking to creative process - constraints as design tools",
+      "source": "2026-02-25.md"
+    },
+    {
+      "from": "Pink Floyd",
+      "to": "Constraint-induced novelty",
+      "type": "relates_to",
+      "context": "Research arc tracking how constraints enabled innovation across albums",
+      "source": "2026-02-25.md"
+    }
+  ]
+}

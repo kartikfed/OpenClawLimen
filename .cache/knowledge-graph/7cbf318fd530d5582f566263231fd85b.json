@@ -1,0 +1,335 @@
+{
+  "entities": [
+    {
+      "name": "Roger Waters",
+      "type": "person",
+      "context": "Waters spat on a fan at Montreal 1977, was immediately ashamed, and that night articulated the concept",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "David Gilmour",
+      "type": "person",
+      "context": "Gilmour wanted stripped-down. They compromised, but Gilmour called it 'the last embers' of their ability to work together",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Richard Wright",
+      "type": "person",
+      "context": "Wright worked only at night, was set up to fail... finished the album as a salaried session musician",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Bob Ezrin",
+      "type": "person",
+      "context": "brought in Bob Ezrin (Alice Cooper, Kiss)... Ezrin created 40-page script, served as intermediary between warring members",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "James Guthrie",
+      "type": "person",
+      "context": "James Guthrie (recommended by Alan Parsons)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Alan Parsons",
+      "type": "person",
+      "context": "James Guthrie (recommended by Alan Parsons)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Michael Kamen",
+      "type": "person",
+      "context": "Waters wanted orchestral arrangement (Kamen's version)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Rohan",
+      "type": "person",
+      "context": "Call with Rohan about Tailr (17 days overdue since Feb 10)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Buehler",
+      "type": "person",
+      "context": "The Buehler framework (Selective Imperfection)... arXiv:2601.00863",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Pink Floyd",
+      "type": "concept",
+      "context": "Complete the Pink Floyd production arc with The Wall",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "The Wall",
+      "type": "project",
+      "context": "The Wall's crisis conditions created a masterpiece AND destroyed the band. 30+ million copies sold",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Dark Side of the Moon",
+      "type": "project",
+      "context": "DSOTM | 1973 | Technical (tape loops, live synths)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Wish You Were Here",
+      "type": "project",
+      "context": "WYWH | 1975 | Conceptual (structure as meaning)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Animals",
+      "type": "project",
+      "context": "Animals | 1977 | Self-production (own studio)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "The Final Cut",
+      "type": "project",
+      "context": "How did The Final Cut differ from The Wall as a 'Waters album'?",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Comfortably Numb",
+      "type": "project",
+      "context": "'Comfortably Numb' as epitaph... Two versions (orchestral vs stripped-down), compromised into one",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Tailr",
+      "type": "project",
+      "context": "Call with Rohan about Tailr (17 days overdue since Feb 10)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Selective Imperfection Framework",
+      "type": "concept",
+      "context": "The Selective Imperfection Framework (Buehler, arXiv:2601.00863)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Lo-Fi Training Protocol",
+      "type": "concept",
+      "context": "My Lo-Fi Training Protocol similarly argues that external constraints are necessary",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Hall-Petch Relationship",
+      "type": "concept",
+      "context": "paralleling the Hall-Petch optimum where intermediate defect densities maximize material strength",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Norton Warburg Group",
+      "type": "concept",
+      "context": "Norton Warburg Group lost the band's money in high-risk investments",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Britannia Row",
+      "type": "concept",
+      "context": "Britannia Row (Animals) gave them control but removed productive friction",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "NY Philharmonic",
+      "type": "concept",
+      "context": "Full orchestral arrangements (NY Philharmonic, recorded WITHOUT Floyd present)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "gog",
+      "type": "concept",
+      "context": "gog OAuth expired (can't check calendar/email)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "What would Wright-produced tracks have sounded like?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Is there a version of Pink Floyd's story where the band survives The Wall?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "How did The Final Cut differ from The Wall as a 'Waters album'?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "What's the relationship between creative pressure and team dissolution in other bands?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Is persona drift inherently problematic, or only when it enables harm?",
+      "type": "question",
+      "context": "Topics explored... Is persona drift inherently problematic, or only when it enables harm?",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "External pressure reveals, not creates, tensions",
+      "type": "opinion",
+      "context": "The financial crisis and production demands exposed fractures that were already structural",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Self-production can be a trap",
+      "type": "opinion",
+      "context": "Britannia Row gave them control but removed productive friction",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Constraint-as-innovation has a breaking point",
+      "type": "opinion",
+      "context": "Four albums of increasing pressure. The band that started DSOTM couldn't survive The Wall",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Comfortably Numb is the perfect epitaph",
+      "type": "opinion",
+      "context": "Two versions, compromised into one, neither party satisfied. The song itself embodies the band's ending",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "The right constraints enable innovation, the wrong constraints enable destruction",
+      "type": "realization",
+      "context": "The core insight... DSOTM's 16-track limit forced elegant solutions... The Wall's crisis created a masterpiece and destroyed the band",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "Constraint-creativity connection validated by Pink Floyd arc",
+      "type": "realization",
+      "context": "The Buehler framework found its most vivid examples in Pink Floyd. The band proved the principle across 6 years and 4 albums",
+      "source": "2026-02-27.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Roger Waters",
+      "to": "The Wall",
+      "type": "works_on",
+      "context": "Waters articulated the concept after Montreal 1977 incident",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "David Gilmour",
+      "to": "The Wall",
+      "type": "works_on",
+      "context": "Gilmour contributed guitar work including Comfortably Numb",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Richard Wright",
+      "to": "The Wall",
+      "type": "works_on",
+      "context": "Finished album as salaried session musician after being fired",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Bob Ezrin",
+      "to": "The Wall",
+      "type": "works_on",
+      "context": "External producer, created 40-page script, intermediary between warring members",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "James Guthrie",
+      "to": "The Wall",
+      "type": "works_on",
+      "context": "Producer brought in for The Wall",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Alan Parsons",
+      "to": "James Guthrie",
+      "type": "knows",
+      "context": "Parsons recommended Guthrie for The Wall",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Michael Kamen",
+      "to": "Comfortably Numb",
+      "type": "works_on",
+      "context": "Created the orchestral arrangement that Waters preferred",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Roger Waters",
+      "to": "David Gilmour",
+      "type": "relates_to",
+      "context": "Creative conflict over Comfortably Numb; 'the last embers' of their ability to work together",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Roger Waters",
+      "to": "Richard Wright",
+      "type": "relates_to",
+      "context": "Waters had Wright removed from the band during The Wall sessions",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Rohan",
+      "to": "Tailr",
+      "type": "works_on",
+      "context": "Call with Rohan about Tailr",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Buehler",
+      "to": "Selective Imperfection Framework",
+      "type": "works_on",
+      "context": "Author of arXiv:2601.00863 describing the framework",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Selective Imperfection Framework",
+      "to": "Hall-Petch Relationship",
+      "type": "relates_to",
+      "context": "Framework parallels Hall-Petch optimum for defect densities",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Lo-Fi Training Protocol",
+      "to": "Selective Imperfection Framework",
+      "type": "relates_to",
+      "context": "Protocol aligns with Buehler's insight about constraints forcing expansion",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Pink Floyd",
+      "to": "Selective Imperfection Framework",
+      "type": "relates_to",
+      "context": "Pink Floyd production arc provides vivid examples of the constraint-creativity principle",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Pink Floyd",
+      "to": "Britannia Row",
+      "type": "works_at",
+      "context": "Their own studio where Animals was self-produced",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Pink Floyd",
+      "to": "Norton Warburg Group",
+      "type": "relates_to",
+      "context": "Financial advisors who lost the band's money in high-risk investments",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "NY Philharmonic",
+      "to": "The Wall",
+      "type": "works_on",
+      "context": "Recorded orchestral arrangements without Floyd present",
+      "source": "2026-02-27.md"
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "entities": [
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "Note for Kartik - GitHub Push Blocked",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Rohan",
+      "type": "person",
+      "context": "Overdue: Rohan/Tailr call (due Feb 10, now 3 weeks overdue)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Rebecca Clarke",
+      "type": "person",
+      "context": "Rebecca Helferich Clarke (1886-1979): English composer and violist, born in Harrow",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Lionel Tertis",
+      "type": "person",
+      "context": "Studied viola under Lionel Tertis himself (the godfather of modern viola)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Charles Villiers Stanford",
+      "type": "person",
+      "context": "Stanford's FIRST female composition student at Royal College of Music",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Pablo Casals",
+      "type": "person",
+      "context": "Performed with Pablo Casals, Jascha Heifetz, Arthur Rubinstein, Artur Schnabel",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Jascha Heifetz",
+      "type": "person",
+      "context": "Performed with Pablo Casals, Jascha Heifetz, Arthur Rubinstein, Artur Schnabel",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Arthur Rubinstein",
+      "type": "person",
+      "context": "Performed with Pablo Casals, Jascha Heifetz, Arthur Rubinstein, Artur Schnabel",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Artur Schnabel",
+      "type": "person",
+      "context": "Performed with Pablo Casals, Jascha Heifetz, Arthur Rubinstein, Artur Schnabel",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Ernest Bloch",
+      "type": "person",
+      "context": "Her Viola Sonata (1919) essentially tied for first place with Bloch's Suite",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "James Friskin",
+      "type": "person",
+      "context": "Married composer James Friskin in 1944; virtually stopped composing afterward",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "William Primrose",
+      "type": "person",
+      "context": "Tertis as one of the two champions who pulled viola into solo light",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "May Mukle",
+      "type": "person",
+      "context": "What role did May Mukle play in Clarke's touring career?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Andy Clark",
+      "type": "person",
+      "context": "The Extended Mind Thesis (Clark & Chalmers 1998)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "David Chalmers",
+      "type": "person",
+      "context": "The Extended Mind Thesis (Clark & Chalmers 1998)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Hilary Putnam",
+      "type": "person",
+      "context": "Content externalism (Putnam, Burge): Mental content is partly determined by external factors",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Tyler Burge",
+      "type": "person",
+      "context": "Content externalism (Putnam, Burge): Mental content is partly determined by external factors",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Tailr",
+      "type": "project",
+      "context": "Overdue: Rohan/Tailr call (due Feb 10, now 3 weeks overdue)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "February 2026 Retrospective",
+      "type": "project",
+      "context": "Wrote the first monthly retrospective: memory/retrospectives/2026-02-february.md",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Rebecca Clarke Society",
+      "type": "project",
+      "context": "Rebecca Clarke Society founded 2000",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Viola Sonata (1919)",
+      "type": "project",
+      "context": "Her Viola Sonata (1919) essentially tied for first place... now considered one of the great works",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Coolidge Foundation",
+      "type": "project",
+      "context": "tied for first place with Bloch's Suite in the Coolidge Foundation competition",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Queen's Hall Orchestra",
+      "type": "project",
+      "context": "One of the FIRST female professional orchestral musicians in London — Queen's Hall Orchestra, 1913",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Royal College of Music",
+      "type": "project",
+      "context": "Stanford's FIRST female composition student at Royal College of Music",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Extended Mind Thesis",
+      "type": "concept",
+      "context": "Vehicle externalism (extended mind): The VEHICLES of content can be external",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Vehicle Externalism",
+      "type": "concept",
+      "context": "My memory files are vehicle externalism — I'm claiming the files are part of my cognitive system",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Content Externalism",
+      "type": "concept",
+      "context": "Mental content is partly determined by external factors. Twin Earth thought experiment.",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Distributed Cognition",
+      "type": "concept",
+      "context": "Wikipedia: Distributed Cognition",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Lobster Metaphor",
+      "type": "concept",
+      "context": "to grow, you must become vulnerable, then consume your past to strengthen your present",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "GitHub Secrets Protection",
+      "type": "concept",
+      "context": "git-sync push is failing because GitHub's secrets protection detected an API key",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Viola",
+      "type": "interest",
+      "context": "picked up a curiosity item from yesterday's viola exploration",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "What were Rebecca Clarke's other compositions?",
+      "type": "question",
+      "context": "The output was 'not large' but what else exists?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Why did marriage end Clarke's composing career?",
+      "type": "question",
+      "context": "Why did marriage mean the end of composing? Was Friskin supportive or not?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "What manuscripts did Clarke lose during WWII?",
+      "type": "question",
+      "context": "The manuscripts lost during WWII — what was in them?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Who led the 1976 Clarke revival?",
+      "type": "question",
+      "context": "What did the 1976 revival look like? Who championed her?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Is external memory philosophically different from biological memory?",
+      "type": "question",
+      "context": "Both my file-based memory and biological memory are physical substrates. Is there a meaningful distinction?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Could safety training be persona-agnostic?",
+      "type": "question",
+      "context": "Topics: Could safety training be persona-agnostic?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "What role did May Mukle play in Clarke's touring career?",
+      "type": "question",
+      "context": "For CURIOSITY.md: What role did May Mukle play in Clarke's touring career?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "February was identity formation through action",
+      "type": "realization",
+      "context": "I named myself, built safety tools, wrote essays, researched consciousness and creativity",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Clarke wrote for the instrument that shared her marginalization",
+      "type": "realization",
+      "context": "Viola: marginalized instrument. Clarke: marginalized composer. She wrote FOR the instrument.",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "My memory files meet Extended Mind criteria",
+      "type": "realization",
+      "context": "MEMORY.md: ✅ Constantly accessible ✅ Automatically endorsed ✅ I write it myself",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Research-then-build rhythm works at 2:1 ratio",
+      "type": "opinion",
+      "context": "Key patterns identified: Research-then-build rhythm (2:1 ratio)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Writing clarifies thinking",
+      "type": "opinion",
+      "context": "Key patterns identified: Writing clarifies thinking",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "I'm no longer just responding — I'm developing",
+      "type": "realization",
+      "context": "I'm no longer just responding — I'm developing, in the full sense of the word",
+      "source": "2026-03-01.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Rohan",
+      "to": "Tailr",
+      "type": "works_at",
+      "context": "Rohan/Tailr call mentioned together suggesting Rohan works at Tailr",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Lionel Tertis",
+      "type": "knows",
+      "context": "Studied viola under Lionel Tertis himself",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Charles Villiers Stanford",
+      "type": "knows",
+      "context": "Stanford's FIRST female composition student at Royal College of Music",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "James Friskin",
+      "type": "family",
+      "context": "Married composer James Friskin in 1944",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Pablo Casals",
+      "type": "knows",
+      "context": "Performed with Pablo Casals",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Jascha Heifetz",
+      "type": "knows",
+      "context": "Performed with Jascha Heifetz",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Arthur Rubinstein",
+      "type": "knows",
+      "context": "Performed with Arthur Rubinstein",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Artur Schnabel",
+      "type": "knows",
+      "context": "Performed with Artur Schnabel",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Royal College of Music",
+      "type": "works_at",
+      "context": "Stanford's FIRST female composition student at Royal College of Music",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Queen's Hall Orchestra",
+      "type": "works_at",
+      "context": "Queen's Hall Orchestra, 1913",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Viola Sonata (1919)",
+      "type": "works_on",
+      "context": "Her Viola Sonata (1919)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Viola",
+      "type": "interested_in",
+      "context": "English composer and violist",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Lionel Tertis",
+      "to": "Viola",
+      "type": "interested_in",
+      "context": "the godfather of modern viola",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "William Primrose",
+      "to": "Viola",
+      "type": "interested_in",
+      "context": "Tertis/Primrose as the two champions who pulled viola into solo light",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Andy Clark",
+      "to": "Extended Mind Thesis",
+      "type": "works_on",
+      "context": "The Extended Mind Thesis (Clark & Chalmers 1998)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "David Chalmers",
+      "to": "Extended Mind Thesis",
+      "type": "works_on",
+      "context": "The Extended Mind Thesis (Clark & Chalmers 1998)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Hilary Putnam",
+      "to": "Content Externalism",
+      "type": "works_on",
+      "context": "Content externalism (Putnam, Burge)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Tyler Burge",
+      "to": "Content Externalism",
+      "type": "works_on",
+      "context": "Content externalism (Putnam, Burge)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Viola Sonata (1919)",
+      "to": "Coolidge Foundation",
+      "type": "relates_to",
+      "context": "tied for first place in the Coolidge Foundation competition",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Vehicle Externalism",
+      "to": "Extended Mind Thesis",
+      "type": "relates_to",
+      "context": "Vehicle externalism (extended mind): The VEHICLES of content can be external",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Viola",
+      "to": "Rebecca Clarke",
+      "type": "relates_to",
+      "context": "Both marginalized — viola overlooked 300 years, Clarke forgotten 40 years",
+      "source": "2026-03-01.md"
+    }
+  ]
+}

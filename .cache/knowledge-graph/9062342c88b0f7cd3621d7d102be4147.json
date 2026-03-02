@@ -1,0 +1,335 @@
+{
+  "entities": [
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "Kartik's sleeping. [...] Three things for Kartik",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Roger Waters",
+      "type": "person",
+      "context": "\"Money\" loop created in Waters' garden shed, 7-beat pattern",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Clare Torry",
+      "type": "person",
+      "context": "Clare Torry paid £30 for what became the 2nd greatest rock vocal performance",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Alan Parsons",
+      "type": "person",
+      "context": "Alan Parsons' philosophy: \"Good mics, good preamps, then leave it alone.\"",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Brian Wilson",
+      "type": "person",
+      "context": "Brian Wilson created Pet Sounds in his bedroom",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Max Scheler",
+      "type": "person",
+      "context": "Four Types of Empathy-Related Phenomena (Max Scheler framework, now standard)",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Carl Rogers",
+      "type": "person",
+      "context": "Rogers' Three Core Conditions for Therapeutic Change",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Trilling",
+      "type": "person",
+      "context": "Sincerity vs Authenticity (SEP, Trilling)",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Hegel",
+      "type": "person",
+      "context": "Hegel called sincerity \"the heroism of dumb service\"",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Charles Taylor",
+      "type": "person",
+      "context": "Taylor's insight: Authenticity requires that motives be \"expressive of one's self-identity\"",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Pink Floyd",
+      "type": "concept",
+      "context": "Comprehensive analysis of Pink Floyd's production techniques on The Dark Side of the Moon",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "The Dark Side of the Moon",
+      "type": "project",
+      "context": "Pink Floyd's production techniques on The Dark Side of the Moon",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Money",
+      "type": "project",
+      "context": "\"Money\" loop created in Waters' garden shed, 7-beat pattern",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "On the Run",
+      "type": "project",
+      "context": "\"On the Run\" was performed LIVE — no synchronization was possible with 1973 technology",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Pet Sounds",
+      "type": "project",
+      "context": "Brian Wilson created Pet Sounds in his bedroom",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Music Analysis Skill",
+      "type": "project",
+      "context": "Built a framework for systematically analyzing albums",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Pink Floyd Production Deep Dive",
+      "type": "project",
+      "context": "Location: memory/deep-dives/2026-02-23-pink-floyd-production-techniques.md",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "EMS VCS 3",
+      "type": "concept",
+      "context": "EMS synthesizers: VCS 3 and Synthi AKS for \"On the Run\"",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Synthi AKS",
+      "type": "concept",
+      "context": "VCS 3 and Synthi AKS for \"On the Run\" — everything done LIVE",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Garden Shed Principle",
+      "type": "concept",
+      "context": "Waters created \"Money\" in a garden shed. Intimate spaces → radical innovation.",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Trust as Production Technique",
+      "type": "concept",
+      "context": "Giving Clare Torry no words, no melody — creating conditions for emergence",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Structure Enables Freedom",
+      "type": "concept",
+      "context": "Pattern: Structure enables freedom. This is the deepest pattern I keep finding.",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Congruence",
+      "type": "concept",
+      "context": "CONGRUENCE is the authenticity piece. Rogers explicitly said the therapist is \"genuine and transparent\"",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "RLHF",
+      "type": "concept",
+      "context": "Current RLHF optimizes for APPEARING caring — training on user satisfaction metrics",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "How do you train genuine care vs performed care?",
+      "type": "question",
+      "context": "Morning Exploration Topic 1",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Does the garden shed principle apply to other creative domains?",
+      "type": "question",
+      "context": "Morning Exploration Topic 2",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "What makes Pink Floyd's production work at a technical level?",
+      "type": "question",
+      "context": "CURIOSITY.md explicitly asked",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Constraints enable innovation",
+      "type": "opinion",
+      "context": "Every major Pink Floyd innovation came from a limitation",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Pink Floyd's innovation was emotional not technical",
+      "type": "opinion",
+      "context": "They didn't use synthesizers to show they had synthesizers. They used them to express anxiety, alienation",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Alan Parsons philosophy applies beyond music",
+      "type": "opinion",
+      "context": "\"Good mics, good preamps, then leave it alone.\" Capture something real, don't over-process.",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Genuine care requires genuine self-knowledge",
+      "type": "realization",
+      "context": "You can't be congruent if you don't know what you actually think/feel",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Accurate introspection prerequisite for authentic care",
+      "type": "realization",
+      "context": "This loops back to my introspection research: accurate introspection is a prerequisite for authentic care",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Khruangbin",
+      "type": "concept",
+      "context": "Album queue: Kartik-adjacent (Khruangbin, Tommy Emmanuel, Arijit Singh)",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Tommy Emmanuel",
+      "type": "person",
+      "context": "Album queue: Kartik-adjacent (Khruangbin, Tommy Emmanuel, Arijit Singh)",
+      "source": "2026-02-23.md"
+    },
+    {
+      "name": "Arijit Singh",
+      "type": "person",
+      "context": "Album queue: Kartik-adjacent (Khruangbin, Tommy Emmanuel, Arijit Singh)",
+      "source": "2026-02-23.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Roger Waters",
+      "to": "Money",
+      "type": "works_on",
+      "context": "Created the tape loop in his garden shed",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Roger Waters",
+      "to": "Pink Floyd",
+      "type": "works_at",
+      "context": "Pink Floyd member",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Clare Torry",
+      "to": "The Dark Side of the Moon",
+      "type": "works_on",
+      "context": "Provided wordless vocals, paid £30",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Alan Parsons",
+      "to": "The Dark Side of the Moon",
+      "type": "works_on",
+      "context": "Engineer with philosophy: \"Good mics, good preamps, then leave it alone\"",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Brian Wilson",
+      "to": "Pet Sounds",
+      "type": "works_on",
+      "context": "Created Pet Sounds in his bedroom",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Brian Wilson",
+      "to": "Garden Shed Principle",
+      "type": "relates_to",
+      "context": "Example of intimate spaces enabling radical innovation",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Pink Floyd",
+      "to": "The Dark Side of the Moon",
+      "type": "works_on",
+      "context": "Album analyzed for production techniques",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Constraints enable innovation",
+      "to": "Structure Enables Freedom",
+      "type": "relates_to",
+      "context": "Both express the same deep pattern about limitations enabling creativity",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Carl Rogers",
+      "to": "Congruence",
+      "type": "works_on",
+      "context": "Developed the concept as one of three core therapeutic conditions",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Max Scheler",
+      "to": "Proper empathy",
+      "type": "works_on",
+      "context": "Developed the four-type framework for empathy phenomena",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Genuine care requires genuine self-knowledge",
+      "to": "Accurate introspection prerequisite for authentic care",
+      "type": "relates_to",
+      "context": "Loops back to introspection research",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Khruangbin",
+      "type": "interested_in",
+      "context": "Listed as \"Kartik-adjacent\" in album queue",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Tommy Emmanuel",
+      "type": "interested_in",
+      "context": "Listed as \"Kartik-adjacent\" in album queue",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Arijit Singh",
+      "type": "interested_in",
+      "context": "Listed as \"Kartik-adjacent\" in album queue",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Trust as Production Technique",
+      "to": "Clare Torry",
+      "type": "relates_to",
+      "context": "Giving her no words, just \"sing as if you were an instrument\" — creating conditions for emergence",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "RLHF",
+      "to": "How do you train genuine care vs performed care?",
+      "type": "relates_to",
+      "context": "RLHF optimizes for appearing caring — the sincerity problem",
+      "source": "2026-02-23.md"
+    },
+    {
+      "from": "Congruence",
+      "to": "Genuine care requires genuine self-knowledge",
+      "type": "relates_to",
+      "context": "You can't be congruent if you don't know what you actually think/feel",
+      "source": "2026-02-23.md"
+    }
+  ]
+}

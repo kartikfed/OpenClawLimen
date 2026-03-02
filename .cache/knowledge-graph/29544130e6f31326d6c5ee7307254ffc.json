@@ -1,0 +1,304 @@
+{
+  "entities": [
+    {
+      "name": "Alan Parsons",
+      "type": "person",
+      "context": "Engineer change: Alan Parsons → Brian Humphries (Parsons formed his own project)",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Brian Humphries",
+      "type": "person",
+      "context": "Humphries accidentally spoiled backing tracks with echo — entire piece re-recorded",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "David Gilmour",
+      "type": "person",
+      "context": "ONLY time Pink Floyd adjusted tape speed for vocals (Gilmour couldn't reach a line)",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Roger Waters",
+      "type": "person",
+      "context": "Sessions described as 'torturous' (Waters)",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Richard Wright",
+      "type": "person",
+      "context": "'difficult period' (Wright)",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Roy Harper",
+      "type": "person",
+      "context": "Guest vocals: Roy Harper on 'Have a Cigar' because both Waters and Gilmour were dissatisfied",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Syd Barrett",
+      "type": "person",
+      "context": "Arrived unrecognized on June 5, 1975 — the exact day they were mixing 'Shine On You Crazy Diamond'",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Clare Torry",
+      "type": "person",
+      "context": "Clare Torry (DSOTM) and Roy Harper (WYWH) weren't planned",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "Will need Kartik to re-authenticate gog",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Rohan",
+      "type": "person",
+      "context": "Rohan call about Tailr (14 days overdue, was due Feb 10)",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Wish You Were Here",
+      "type": "project",
+      "context": "Deep dive into Wish You Were Here production",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "The Dark Side of the Moon",
+      "type": "project",
+      "context": "DSOTM's innovation was technical (tape loops, live synths, interview snippets)",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Shine On You Crazy Diamond",
+      "type": "project",
+      "context": "Part I of 'Shine On' uses wine glass harp recorded 4 years earlier (1971)",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Pink Floyd",
+      "type": "concept",
+      "context": "Pink Floyd Production Lineage Tracker",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Household Objects project",
+      "type": "project",
+      "context": "Wine glass harp recorded for abandoned 'Household Objects' project",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Pink Floyd Production Lineage Tracker",
+      "type": "project",
+      "context": "Built a tool to track how production techniques evolved across Pink Floyd albums",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Animals",
+      "type": "project",
+      "context": "Animals is next on the queue — self-produced at their own Britannia Row Studios",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Tailr",
+      "type": "project",
+      "context": "Rohan call about Tailr (14 days overdue)",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "EMS VCS 3",
+      "type": "concept",
+      "context": "WYWH built entire tracks from it as studio construction",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Britannia Row Studios",
+      "type": "concept",
+      "context": "Animals — self-produced at their own Britannia Row Studios",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Abbey Road",
+      "type": "concept",
+      "context": "Barrett showed up at Abbey Road unrecognized",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "constraint enables innovation",
+      "type": "realization",
+      "context": "16-track → whole takes; failed project → wine glass opener; Parsons left → Humphries' different approach",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "structure as meaning",
+      "type": "realization",
+      "context": "Fractured Shine On = fractured Barrett; AM radio = authentic vs commercial",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "WYWH's post-success exhaustion is the album's hidden subject",
+      "type": "opinion",
+      "context": "The lyrics are about Barrett and industry critique, but the FEELING is about what happens when you get everything",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "The AM radio transition is production-as-poetry",
+      "type": "opinion",
+      "context": "Reducing 'Have a Cigar' to tinny radio quality before 'Wish You Were Here' makes the title track feel devastatingly real",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Barrett's visit borders on impossible",
+      "type": "opinion",
+      "context": "He appeared unrecognized on the exact day they were mixing the song about him, after two years of no contact",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "How did Animals' self-production at Britannia Row change their approach?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "What specific EMS VCS 3 patches created the 'machine throb'?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "Did the Household Objects project have other usable material besides wine glasses?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "How does the WYWH quadraphonic mix differ from stereo?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-24.md"
+    },
+    {
+      "name": "What happened to Brian Humphries' career after Pink Floyd?",
+      "type": "question",
+      "context": "New Questions for CURIOSITY.md",
+      "source": "2026-02-24.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Alan Parsons",
+      "to": "The Dark Side of the Moon",
+      "type": "works_on",
+      "context": "Engineer for DSOTM before forming his own project",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Brian Humphries",
+      "to": "Wish You Were Here",
+      "type": "works_on",
+      "context": "Replaced Alan Parsons as engineer for WYWH",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "David Gilmour",
+      "to": "Pink Floyd",
+      "type": "works_on",
+      "context": "Band member, guitarist",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Roger Waters",
+      "to": "Pink Floyd",
+      "type": "works_on",
+      "context": "Band member",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Richard Wright",
+      "to": "Pink Floyd",
+      "type": "works_on",
+      "context": "Band member",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Roy Harper",
+      "to": "Wish You Were Here",
+      "type": "works_on",
+      "context": "Guest vocals on 'Have a Cigar'",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Syd Barrett",
+      "to": "Pink Floyd",
+      "type": "works_on",
+      "context": "Former founding member, subject of 'Shine On You Crazy Diamond'",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Shine On You Crazy Diamond",
+      "to": "Syd Barrett",
+      "type": "relates_to",
+      "context": "Song written about Barrett; he visited the day they were mixing it",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Clare Torry",
+      "to": "The Dark Side of the Moon",
+      "type": "works_on",
+      "context": "Guest vocals on 'Great Gig in the Sky'",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Rohan",
+      "to": "Tailr",
+      "type": "works_on",
+      "context": "Kartik needs to call Rohan about Tailr",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Rohan",
+      "type": "knows",
+      "context": "Overdue call about Tailr project",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Wish You Were Here",
+      "to": "The Dark Side of the Moon",
+      "type": "relates_to",
+      "context": "Follow-up album; post-success exhaustion shaped its conceptual approach",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Household Objects project",
+      "to": "Shine On You Crazy Diamond",
+      "type": "relates_to",
+      "context": "Wine glasses from abandoned 1971 project used in Shine On opening",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "Animals",
+      "to": "Britannia Row Studios",
+      "type": "relates_to",
+      "context": "Self-produced at Pink Floyd's own studio",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "constraint enables innovation",
+      "to": "Wish You Were Here",
+      "type": "relates_to",
+      "context": "Failed project → wine glass opener; post-success exhaustion → deeper album",
+      "source": "2026-02-24.md"
+    },
+    {
+      "from": "structure as meaning",
+      "to": "Wish You Were Here",
+      "type": "relates_to",
+      "context": "Fractured structure mirrors fractured subject (Barrett)",
+      "source": "2026-02-24.md"
+    }
+  ]
+}
