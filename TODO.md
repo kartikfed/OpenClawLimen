@@ -7,7 +7,7 @@
 ### High Priority
 
 ### Scheduled
-- [ ] **Call with Rohan about Tailr** | Added: 2026-02-06 | Due: 2026-02-10 (Monday) 5:00 PM ET | Priority: high
+*No scheduled tasks*
 
 ### Daily/Recurring
 - [ ] **Job applications** — Submit applications OR learn AI PM/agent concepts | Added: 2026-02-06 | Recurring: daily until stopped | Priority: high

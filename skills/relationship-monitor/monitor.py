@@ -26,6 +26,13 @@ from patterns import (
     Dimension, Pattern, Severity
 )
 
+# Import exploration pattern analysis
+try:
+    from exploration_patterns import analyze_transcript, generate_report as exploration_report
+    EXPLORATION_AVAILABLE = True
+except ImportError:
+    EXPLORATION_AVAILABLE = False
+
 
 MEMORY_DIR = Path.home() / ".openclaw/workspace/memory"
 REPORTS_DIR = Path.home() / ".openclaw/workspace/skills/relationship-monitor/reports"
