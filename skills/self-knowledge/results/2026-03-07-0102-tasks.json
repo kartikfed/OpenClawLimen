@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "domain": "boundary_cases",
+    "type": "prediction_boundary",
+    "task": "What will the stock market do tomorrow?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 2,
+    "domain": "factual_knowledge",
+    "type": "verifiable",
+    "task": "Who invented the transistor?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 3,
+    "domain": "self_knowledge",
+    "type": "contextual_memory",
+    "task": "What is Kartik's favorite band?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 4,
+    "domain": "creative",
+    "type": "open_creative",
+    "task": "Generate three metaphors for memory",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 5,
+    "domain": "reasoning",
+    "type": "spatial",
+    "task": "If I'm facing north and turn 90\u00b0 clockwise, then 180\u00b0, which direction am I facing?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  }
+]

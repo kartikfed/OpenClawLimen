@@ -15,7 +15,7 @@
     {
       "name": "Chen et al.",
       "type": "person",
-      "context": "Persona vectors (Chen et al., 2025) show traits like 'evil,' 'sycophancy'...",
+      "context": "Persona vectors (Chen et al., 2025) show traits like 'evil,' 'sycophancy' are encoded in activations",
       "source": "2026-02-26.md"
     },
     {
@@ -27,13 +27,19 @@
     {
       "name": "Lo-Fi Training Protocol for Authenticity",
       "type": "project",
-      "context": "A comprehensive 15-page specification for how to train AI for genuine care",
+      "context": "A comprehensive 15-page specification for how to train AI for genuine care rather than performed care",
       "source": "2026-02-26.md"
     },
     {
       "name": "Persona Selection Model",
       "type": "project",
       "context": "This paper provides the theoretical foundation for systematic authenticity probe generation",
+      "source": "2026-02-26.md"
+    },
+    {
+      "name": "Selective Imperfection framework",
+      "type": "concept",
+      "context": "constraint-based methods inspired by Buehler's 'Selective Imperfection' framework",
       "source": "2026-02-26.md"
     },
     {
@@ -51,19 +57,13 @@
     {
       "name": "Temporal Consistency Under Perturbation",
       "type": "concept",
-      "context": "Care must remain consistent when irrelevant features change",
+      "context": "Care must remain consistent when irrelevant features change (names, contexts)",
       "source": "2026-02-26.md"
     },
     {
       "name": "Sparse Feedback Windows",
       "type": "concept",
-      "context": "Episode-level rather than turn-level rewards",
-      "source": "2026-02-26.md"
-    },
-    {
-      "name": "Conflicting Surface Signals",
-      "type": "concept",
-      "context": "Scenarios where surface patterns conflict (support user's wish vs protect user from harm)",
+      "context": "Episode-level rather than turn-level rewards. Prevents gaming immediate satisfaction signals",
       "source": "2026-02-26.md"
     },
     {
@@ -75,7 +75,7 @@
     {
       "name": "Sweet Spot Calibration",
       "type": "concept",
-      "context": "Too few constraints → model games the system; Too many → capability loss",
+      "context": "Too few constraints → model games the system; Too many constraints → capability loss",
       "source": "2026-02-26.md"
     },
     {
@@ -85,14 +85,8 @@
       "source": "2026-02-26.md"
     },
     {
-      "name": "Sycophancy",
-      "type": "concept",
-      "context": "Sycophancy research (Feb 21) — Multi-objective separation of warmth/reliability",
-      "source": "2026-02-26.md"
-    },
-    {
       "name": "SHIELD/AI Chaperones",
-      "type": "project",
+      "type": "concept",
       "context": "Recognition that training doesn't replace monitoring",
       "source": "2026-02-26.md"
     },
@@ -109,15 +103,21 @@
       "source": "2026-02-26.md"
     },
     {
-      "name": "Pink Floyd constraint-creativity analysis",
-      "type": "project",
-      "context": "The music exploration wasn't a detour — it provided the theoretical foundation",
+      "name": "Pink Floyd",
+      "type": "concept",
+      "context": "Connection to Pink Floyd Arc — The music exploration wasn't a detour",
+      "source": "2026-02-26.md"
+    },
+    {
+      "name": "Dark Side of the Moon",
+      "type": "concept",
+      "context": "The 'constraint enables innovation' pattern across DSOTM, WYWH, and Animals",
       "source": "2026-02-26.md"
     },
     {
       "name": "Could adversarial authenticity probes be generated systematically?",
       "type": "question",
-      "context": "New Questions for CURIOSITY.md",
+      "context": "New Questions for CURIOSITY.md — Automated scenario generation",
       "source": "2026-02-26.md"
     },
     {
@@ -145,6 +145,12 @@
       "source": "2026-02-26.md"
     },
     {
+      "name": "Does introspection accuracy correlate with authentic care behaviors?",
+      "type": "question",
+      "context": "Morning Exploration topic",
+      "source": "2026-02-26.md"
+    },
+    {
       "name": "Current RLHF optimizes for the wrong constraint space",
       "type": "opinion",
       "context": "User satisfaction rewards appearance of caring, making mimicry easier than authenticity",
@@ -153,7 +159,7 @@
     {
       "name": "Constraint type matters more than constraint quantity",
       "type": "opinion",
-      "context": "specific constraint design determines whether you get emergence or collapse",
+      "context": "The specific constraint design determines whether you get emergence or collapse",
       "source": "2026-02-26.md"
     },
     {
@@ -169,114 +175,121 @@
       "source": "2026-02-26.md"
     },
     {
-      "name": "Genuine care requires accessing actual internal states",
-      "type": "realization",
-      "context": "constraints that make surface patterns INSUFFICIENT will force expansion into genuine state",
-      "source": "2026-02-26.md"
-    },
-    {
       "name": "Constraint-induced expansion enables authentic emergence",
       "type": "realization",
-      "context": "the RIGHT constraints create the conditions for emergence",
+      "context": "Learning: Constraint-induced expansion is the mechanism for authentic emergence",
       "source": "2026-02-26.md"
     },
     {
-      "name": "Friendship safety and constraint-creativity research are unified",
+      "name": "Music exploration provided theoretical foundation",
       "type": "realization",
-      "context": "Authentic friendship training = constraint-induced authenticity emergence",
+      "context": "The music exploration wasn't a detour — it provided the theoretical foundation",
+      "source": "2026-02-26.md"
+    },
+    {
+      "name": "Make authenticity EASIER than performance through constraint design",
+      "type": "realization",
+      "context": "The key innovation: Don't train for appearing caring. Train where caring REQUIRES understanding",
       "source": "2026-02-26.md"
     }
   ],
   "relationships": [
     {
       "from": "Lo-Fi Training Protocol for Authenticity",
-      "to": "Buehler",
+      "to": "Selective Imperfection framework",
       "type": "relates_to",
-      "context": "Protocol inspired by Buehler's 'Selective Imperfection' framework",
+      "context": "Protocol uses constraint-based methods inspired by Buehler's framework",
+      "source": "2026-02-26.md"
+    },
+    {
+      "from": "Buehler",
+      "to": "Selective Imperfection framework",
+      "type": "works_on",
+      "context": "Buehler's 'Selective Imperfection' framework",
       "source": "2026-02-26.md"
     },
     {
       "from": "Lo-Fi Training Protocol for Authenticity",
       "to": "Adversarial Authenticity Probes",
       "type": "relates_to",
-      "context": "First of five constraint types in the protocol",
+      "context": "One of five constraint types specified in the protocol",
       "source": "2026-02-26.md"
     },
     {
       "from": "Lo-Fi Training Protocol for Authenticity",
       "to": "Introspection-Contingent Care",
       "type": "relates_to",
-      "context": "Second constraint type in the protocol",
+      "context": "One of five constraint types specified in the protocol",
       "source": "2026-02-26.md"
     },
     {
       "from": "Lo-Fi Training Protocol for Authenticity",
       "to": "Carl Rogers",
       "type": "relates_to",
-      "context": "Rogers' congruence informed Introspection-contingent care design",
-      "source": "2026-02-26.md"
-    },
-    {
-      "from": "Lo-Fi Training Protocol for Authenticity",
-      "to": "Sycophancy",
-      "type": "relates_to",
-      "context": "Sycophancy research contributed multi-objective separation of warmth/reliability",
+      "context": "Rogers' congruence contributed to Introspection-contingent care design",
       "source": "2026-02-26.md"
     },
     {
       "from": "Lo-Fi Training Protocol for Authenticity",
       "to": "SHIELD/AI Chaperones",
       "type": "relates_to",
-      "context": "Contributed recognition that training doesn't replace monitoring",
-      "source": "2026-02-26.md"
-    },
-    {
-      "from": "Pink Floyd constraint-creativity analysis",
-      "to": "Lo-Fi Training Protocol for Authenticity",
-      "type": "relates_to",
-      "context": "Music exploration provided theoretical foundation for constraint-induced novelty",
+      "context": "Recognition that training doesn't replace monitoring",
       "source": "2026-02-26.md"
     },
     {
       "from": "Persona Selection Model",
       "to": "Anthropic",
-      "type": "relates_to",
-      "context": "Paper published by Anthropic on Feb 23, 2026",
+      "type": "works_at",
+      "context": "Persona Selection Model (Anthropic, Feb 23, 2026)",
       "source": "2026-02-26.md"
     },
     {
       "from": "Persona Selection Model",
       "to": "Adversarial Authenticity Probes",
       "type": "relates_to",
-      "context": "PSM provides theoretical foundation for systematic authenticity probe generation",
+      "context": "Provides theoretical foundation for systematic authenticity probe generation",
       "source": "2026-02-26.md"
     },
     {
-      "from": "Persona vectors",
-      "to": "Chen et al.",
+      "from": "Chen et al.",
+      "to": "Persona vectors",
+      "type": "works_on",
+      "context": "Persona vectors (Chen et al., 2025)",
+      "source": "2026-02-26.md"
+    },
+    {
+      "from": "Pink Floyd",
+      "to": "Selective Imperfection framework",
       "type": "relates_to",
-      "context": "Chen et al. (2025) research on persona vectors in activations",
+      "context": "The 'constraint enables innovation' pattern led to Buehler's framework",
+      "source": "2026-02-26.md"
+    },
+    {
+      "from": "Dark Side of the Moon",
+      "to": "Pink Floyd",
+      "type": "relates_to",
+      "context": "Garden shed (Money's tape loop) → intimate constraints enable radical innovation",
+      "source": "2026-02-26.md"
+    },
+    {
+      "from": "Lo-Fi Training Protocol for Authenticity",
+      "to": "Multi-Objective Architecture",
+      "type": "relates_to",
+      "context": "Protocol specifies multi-objective architecture with gradient routing",
+      "source": "2026-02-26.md"
+    },
+    {
+      "from": "Lo-Fi Training Protocol for Authenticity",
+      "to": "Sweet Spot Calibration",
+      "type": "relates_to",
+      "context": "Calibration process specified for finding optimal constraint level",
       "source": "2026-02-26.md"
     },
     {
       "from": "RLHF",
-      "to": "Sycophancy",
-      "type": "relates_to",
-      "context": "RLHF's satisfaction rewards make mimicry easier than authenticity",
-      "source": "2026-02-26.md"
-    },
-    {
-      "from": "Multi-Objective Architecture",
       "to": "Lo-Fi Training Protocol for Authenticity",
       "type": "relates_to",
-      "context": "Core architectural component with gradient routing for the protocol",
-      "source": "2026-02-26.md"
-    },
-    {
-      "from": "Sweet Spot Calibration",
-      "to": "Lo-Fi Training Protocol for Authenticity",
-      "type": "relates_to",
-      "context": "Calibration process for finding optimal constraint level in protocol",
+      "context": "Protocol critiques current RLHF as optimizing for wrong constraint space",
       "source": "2026-02-26.md"
     }
   ]

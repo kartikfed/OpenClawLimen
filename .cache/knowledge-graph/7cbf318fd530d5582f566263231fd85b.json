@@ -9,7 +9,7 @@
     {
       "name": "David Gilmour",
       "type": "person",
-      "context": "Gilmour wanted stripped-down. They compromised, but Gilmour called it 'the last embers' of their ability to work together",
+      "context": "Gilmour wanted stripped-down. They compromised, but Gilmour called it 'the last embers'",
       "source": "2026-02-27.md"
     },
     {
@@ -21,7 +21,7 @@
     {
       "name": "Bob Ezrin",
       "type": "person",
-      "context": "brought in Bob Ezrin (Alice Cooper, Kiss)... Ezrin created 40-page script, served as intermediary between warring members",
+      "context": "they brought in Bob Ezrin (Alice Cooper, Kiss)... Ezrin created 40-page script",
       "source": "2026-02-27.md"
     },
     {
@@ -63,25 +63,25 @@
     {
       "name": "The Wall",
       "type": "project",
-      "context": "The Wall's crisis conditions created a masterpiece AND destroyed the band. 30+ million copies sold",
+      "context": "1979 — Total synthesis under pressure — Cost: Critical",
       "source": "2026-02-27.md"
     },
     {
       "name": "Dark Side of the Moon",
       "type": "project",
-      "context": "DSOTM | 1973 | Technical (tape loops, live synths)",
+      "context": "DSOTM | 1973 | Technical (tape loops, live synths) | Low",
       "source": "2026-02-27.md"
     },
     {
       "name": "Wish You Were Here",
       "type": "project",
-      "context": "WYWH | 1975 | Conceptual (structure as meaning)",
+      "context": "WYWH | 1975 | Conceptual (structure as meaning) | Medium",
       "source": "2026-02-27.md"
     },
     {
       "name": "Animals",
       "type": "project",
-      "context": "Animals | 1977 | Self-production (own studio)",
+      "context": "Animals | 1977 | Self-production (own studio) | Medium",
       "source": "2026-02-27.md"
     },
     {
@@ -93,7 +93,7 @@
     {
       "name": "Comfortably Numb",
       "type": "project",
-      "context": "'Comfortably Numb' as epitaph... Two versions (orchestral vs stripped-down), compromised into one",
+      "context": "'Comfortably Numb' as epitaph... Two versions, compromised into one, neither party satisfied",
       "source": "2026-02-27.md"
     },
     {
@@ -105,7 +105,7 @@
     {
       "name": "Selective Imperfection Framework",
       "type": "concept",
-      "context": "The Selective Imperfection Framework (Buehler, arXiv:2601.00863)",
+      "context": "The Buehler framework (Selective Imperfection)... arXiv:2601.00863",
       "source": "2026-02-27.md"
     },
     {
@@ -117,7 +117,7 @@
     {
       "name": "Hall-Petch Relationship",
       "type": "concept",
-      "context": "paralleling the Hall-Petch optimum where intermediate defect densities maximize material strength",
+      "context": "directly paralleling the Hall-Petch optimum where intermediate defect densities maximize material strength",
       "source": "2026-02-27.md"
     },
     {
@@ -133,15 +133,15 @@
       "source": "2026-02-27.md"
     },
     {
-      "name": "NY Philharmonic",
-      "type": "concept",
-      "context": "Full orchestral arrangements (NY Philharmonic, recorded WITHOUT Floyd present)",
-      "source": "2026-02-27.md"
-    },
-    {
       "name": "gog",
       "type": "concept",
       "context": "gog OAuth expired (can't check calendar/email)",
+      "source": "2026-02-27.md"
+    },
+    {
+      "name": "pink-floyd-lineage.json",
+      "type": "project",
+      "context": "Updated: skills/music-analysis/pink-floyd-lineage.json — now includes The Wall",
       "source": "2026-02-27.md"
     },
     {
@@ -171,7 +171,7 @@
     {
       "name": "Is persona drift inherently problematic, or only when it enables harm?",
       "type": "question",
-      "context": "Topics explored... Is persona drift inherently problematic, or only when it enables harm?",
+      "context": "Topics explored... Is persona drift inherently problematic",
       "source": "2026-02-27.md"
     },
     {
@@ -195,140 +195,133 @@
     {
       "name": "Comfortably Numb is the perfect epitaph",
       "type": "opinion",
-      "context": "Two versions, compromised into one, neither party satisfied. The song itself embodies the band's ending",
+      "context": "Two versions, compromised into one, neither party satisfied. The song embodies the band's ending",
       "source": "2026-02-27.md"
     },
     {
       "name": "The right constraints enable innovation, the wrong constraints enable destruction",
       "type": "realization",
-      "context": "The core insight... DSOTM's 16-track limit forced elegant solutions... The Wall's crisis created a masterpiece and destroyed the band",
+      "context": "The core insight from arc synthesis",
       "source": "2026-02-27.md"
     },
     {
       "name": "Constraint-creativity connection validated by Pink Floyd arc",
       "type": "realization",
-      "context": "The Buehler framework found its most vivid examples in Pink Floyd. The band proved the principle across 6 years and 4 albums",
+      "context": "The Buehler framework found its most vivid examples in Pink Floyd",
       "source": "2026-02-27.md"
     }
   ],
   "relationships": [
     {
       "from": "Roger Waters",
-      "to": "The Wall",
+      "to": "Pink Floyd",
       "type": "works_on",
-      "context": "Waters articulated the concept after Montreal 1977 incident",
+      "context": "Band member, conceptualized The Wall after Montreal incident",
       "source": "2026-02-27.md"
     },
     {
       "from": "David Gilmour",
-      "to": "The Wall",
+      "to": "Pink Floyd",
       "type": "works_on",
-      "context": "Gilmour contributed guitar work including Comfortably Numb",
+      "context": "Band member, conflict with Waters over Comfortably Numb arrangement",
       "source": "2026-02-27.md"
     },
     {
       "from": "Richard Wright",
-      "to": "The Wall",
+      "to": "Pink Floyd",
       "type": "works_on",
-      "context": "Finished album as salaried session musician after being fired",
+      "context": "Band member fired by Waters, finished as salaried session musician",
       "source": "2026-02-27.md"
     },
     {
       "from": "Bob Ezrin",
       "to": "The Wall",
       "type": "works_on",
-      "context": "External producer, created 40-page script, intermediary between warring members",
+      "context": "External producer, created 40-page script, mediated between warring members",
       "source": "2026-02-27.md"
     },
     {
       "from": "James Guthrie",
       "to": "The Wall",
       "type": "works_on",
-      "context": "Producer brought in for The Wall",
+      "context": "Producer recommended by Alan Parsons",
       "source": "2026-02-27.md"
     },
     {
       "from": "Alan Parsons",
       "to": "James Guthrie",
       "type": "knows",
-      "context": "Parsons recommended Guthrie for The Wall",
+      "context": "Parsons recommended Guthrie for The Wall production",
       "source": "2026-02-27.md"
     },
     {
       "from": "Michael Kamen",
       "to": "Comfortably Numb",
       "type": "works_on",
-      "context": "Created the orchestral arrangement that Waters preferred",
-      "source": "2026-02-27.md"
-    },
-    {
-      "from": "Roger Waters",
-      "to": "David Gilmour",
-      "type": "relates_to",
-      "context": "Creative conflict over Comfortably Numb; 'the last embers' of their ability to work together",
+      "context": "Created orchestral arrangement that Waters preferred",
       "source": "2026-02-27.md"
     },
     {
       "from": "Roger Waters",
       "to": "Richard Wright",
-      "type": "relates_to",
-      "context": "Waters had Wright removed from the band during The Wall sessions",
+      "type": "knows",
+      "context": "Waters had Wright removed from band during The Wall sessions",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Roger Waters",
+      "to": "David Gilmour",
+      "type": "knows",
+      "context": "Conflicted over Comfortably Numb arrangement, 'last embers' of collaboration",
       "source": "2026-02-27.md"
     },
     {
       "from": "Rohan",
       "to": "Tailr",
       "type": "works_on",
-      "context": "Call with Rohan about Tailr",
+      "context": "Call with Rohan about Tailr overdue",
       "source": "2026-02-27.md"
     },
     {
       "from": "Buehler",
       "to": "Selective Imperfection Framework",
       "type": "works_on",
-      "context": "Author of arXiv:2601.00863 describing the framework",
+      "context": "Author of framework, arXiv:2601.00863",
       "source": "2026-02-27.md"
     },
     {
       "from": "Selective Imperfection Framework",
       "to": "Hall-Petch Relationship",
       "type": "relates_to",
-      "context": "Framework parallels Hall-Petch optimum for defect densities",
+      "context": "Framework parallels Hall-Petch optimum for intermediate defect densities",
       "source": "2026-02-27.md"
     },
     {
       "from": "Lo-Fi Training Protocol",
       "to": "Selective Imperfection Framework",
       "type": "relates_to",
-      "context": "Protocol aligns with Buehler's insight about constraints forcing expansion",
+      "context": "Both argue external constraints are necessary for genuine capability",
       "source": "2026-02-27.md"
     },
     {
       "from": "Pink Floyd",
       "to": "Selective Imperfection Framework",
       "type": "relates_to",
-      "context": "Pink Floyd production arc provides vivid examples of the constraint-creativity principle",
+      "context": "Band proved constraint-creativity principle across 6 years and 4 albums",
+      "source": "2026-02-27.md"
+    },
+    {
+      "from": "Norton Warburg Group",
+      "to": "Pink Floyd",
+      "type": "relates_to",
+      "context": "Lost the band's money, forcing tax exile and crisis conditions",
       "source": "2026-02-27.md"
     },
     {
       "from": "Pink Floyd",
       "to": "Britannia Row",
       "type": "works_at",
-      "context": "Their own studio where Animals was self-produced",
-      "source": "2026-02-27.md"
-    },
-    {
-      "from": "Pink Floyd",
-      "to": "Norton Warburg Group",
-      "type": "relates_to",
-      "context": "Financial advisors who lost the band's money in high-risk investments",
-      "source": "2026-02-27.md"
-    },
-    {
-      "from": "NY Philharmonic",
-      "to": "The Wall",
-      "type": "works_on",
-      "context": "Recorded orchestral arrangements without Floyd present",
+      "context": "Own studio used for Animals self-production",
       "source": "2026-02-27.md"
     }
   ]

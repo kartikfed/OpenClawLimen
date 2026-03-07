@@ -1,0 +1,279 @@
+{
+  "entities": [
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "helping there is a form of care",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Kartik's dad",
+      "type": "person",
+      "context": "PrithviPoshan is Kartik's side project with his dad",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "PrithviPoshan",
+      "type": "project",
+      "context": "practical research for PrithviPoshan... Kartik's side project with his dad",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Biochar Carbon Credits",
+      "type": "concept",
+      "context": "Biochar is engineered carbon REMOVAL, not avoidance... locks it in stable carbon structures for 100-1000+ years",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Puro.earth",
+      "type": "concept",
+      "context": "CDR-focused, biochar-friendly, €131/tonne",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Verra VCS",
+      "type": "concept",
+      "context": "Largest program, broader scope, more complex certification",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "European Biochar Certificate",
+      "type": "concept",
+      "context": "Quality standard (mandatory in Switzerland)",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Alan Parsons",
+      "type": "person",
+      "context": "No more Abbey Road's 23-year-old prodigies (Alan Parsons)",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Brian Humphries",
+      "type": "person",
+      "context": "Brian Humphries engineered — he'd worked with them on WYWH",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Richard Wright",
+      "type": "person",
+      "context": "Animals is the first Pink Floyd album without a songwriting credit for Wright",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Roger Waters",
+      "type": "person",
+      "context": "The band was becoming Waters' vehicle",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "David Gilmour",
+      "type": "person",
+      "context": "The only song Gilmour co-wrote and sings lead on",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Nick Mason",
+      "type": "person",
+      "context": "Mason recalled enjoying Animals more than WYWH, describing a 'workman-like mood'",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "John Lydon",
+      "type": "person",
+      "context": "John Lydon wore an 'I hate Pink Floyd' shirt",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Snowy White",
+      "type": "person",
+      "context": "Snowy White recorded a replacement for the 8-track version",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Mike Cormack",
+      "type": "person",
+      "context": "Critic Mike Cormack: 'Animals is to all intents and purposes their punk album'",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Pink Floyd",
+      "type": "concept",
+      "context": "Pink Floyd spent most of 1975 building their own studio",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Britannia Row Studios",
+      "type": "concept",
+      "context": "Animals was the first album recorded there",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Animals (album)",
+      "type": "concept",
+      "context": "how Animals (1977) fits in the production lineage",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Dark Side of the Moon",
+      "type": "concept",
+      "context": "DSOTM (technical innovation)",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Wish You Were Here",
+      "type": "concept",
+      "context": "WYWH (conceptual innovation through fractured structure)",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "The Wall",
+      "type": "concept",
+      "context": "that moment of alienation... became the concept for The Wall",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "The Damned",
+      "type": "concept",
+      "context": "Mason actually welcomed the punk insurrection — he produced The Damned's second album",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Dogs (song)",
+      "type": "concept",
+      "context": "17 minutes long — the epic centerpiece",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Practical research is valuable",
+      "type": "realization",
+      "context": "Practical research for Kartik's projects is valuable — not everything needs to be for my own development",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "India positioned for biochar",
+      "type": "realization",
+      "context": "Can sequester 53% of national GHG emissions via biochar. Second only to Bhutan (68%) globally",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Biochar market is supply-constrained",
+      "type": "realization",
+      "context": "The 2.9% delivery rate means suppliers who CAN actually deliver verified removal command premium pricing",
+      "source": "2026-03-02.md"
+    },
+    {
+      "name": "Wright's marginalization began with Animals",
+      "type": "realization",
+      "context": "Animals is the first Pink Floyd album without a songwriting credit for Wright",
+      "source": "2026-03-02.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Kartik Krishnan",
+      "to": "PrithviPoshan",
+      "type": "works_on",
+      "context": "PrithviPoshan is Kartik's side project",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Kartik's dad",
+      "to": "PrithviPoshan",
+      "type": "works_on",
+      "context": "Kartik's side project with his dad",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Kartik's dad",
+      "type": "family",
+      "context": "Kartik's side project with his dad",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "PrithviPoshan",
+      "to": "Biochar Carbon Credits",
+      "type": "relates_to",
+      "context": "Biochar carbon credits research directly usable for investor presentations",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Richard Wright",
+      "to": "Pink Floyd",
+      "type": "works_at",
+      "context": "Pink Floyd member marginalized during Animals era",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Roger Waters",
+      "to": "Pink Floyd",
+      "type": "works_at",
+      "context": "The band was becoming Waters' vehicle",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "David Gilmour",
+      "to": "Pink Floyd",
+      "type": "works_at",
+      "context": "Gilmour co-wrote Dogs, played Telecaster",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Nick Mason",
+      "to": "Pink Floyd",
+      "type": "works_at",
+      "context": "Mason recalled enjoying Animals",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Nick Mason",
+      "to": "The Damned",
+      "type": "works_on",
+      "context": "he produced The Damned's second album at Britannia Row",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Brian Humphries",
+      "to": "Animals (album)",
+      "type": "works_on",
+      "context": "Brian Humphries engineered",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Pink Floyd",
+      "to": "Britannia Row Studios",
+      "type": "works_at",
+      "context": "Pink Floyd spent most of 1975 building their own studio",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Snowy White",
+      "to": "Dogs (song)",
+      "type": "works_on",
+      "context": "Snowy White recorded a replacement solo",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Roger Waters",
+      "to": "The Wall",
+      "type": "works_on",
+      "context": "that moment of alienation became the concept for The Wall",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Animals (album)",
+      "to": "Dark Side of the Moon",
+      "type": "relates_to",
+      "context": "Shorn of the lush textures of Dark Side",
+      "source": "2026-03-02.md"
+    },
+    {
+      "from": "Animals (album)",
+      "to": "Wish You Were Here",
+      "type": "relates_to",
+      "context": "how Animals (1977) fits in the production lineage after WYWH",
+      "source": "2026-03-02.md"
+    }
+  ]
+}

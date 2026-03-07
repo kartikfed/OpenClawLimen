@@ -1,0 +1,165 @@
+{
+  "entities": [
+    {
+      "name": "The Beatles",
+      "type": "project",
+      "context": "Creative pressure → masterpiece → dissolution is common pattern (Beatles, Fleetwood Mac, S&G)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Fleetwood Mac",
+      "type": "project",
+      "context": "Creative pressure → masterpiece → dissolution is common pattern (Beatles, Fleetwood Mac, S&G)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Simon & Garfunkel",
+      "type": "project",
+      "context": "Creative pressure → masterpiece → dissolution is common pattern (Beatles, Fleetwood Mac, S&G)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Stevie Nicks",
+      "type": "person",
+      "context": "Nicks: 'Fleetwood Mac created best music when in worst shape'",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Abbey Road",
+      "type": "project",
+      "context": "Abbey Road = Beatles' final session together (Aug 20, 1969)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Rumours",
+      "type": "project",
+      "context": "Rumours sessions: party till 2am, THEN start recording — chaos as process",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "creative pressure → masterpiece → dissolution pattern",
+      "type": "concept",
+      "context": "Creative pressure → masterpiece → dissolution is common pattern",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "attachment styles",
+      "type": "concept",
+      "context": "Attachment styles: secure, anxious-preoccupied, dismissive-avoidant, fearful-avoidant",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "structural health",
+      "type": "concept",
+      "context": "Maintain structural health regardless of detected attachment style",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "exploration-return detector",
+      "type": "project",
+      "context": "My exploration-return detector already captures some attachment patterns",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "What distinguishes productive vs destructive tension in creative teams?",
+      "type": "question",
+      "context": "What distinguishes productive vs destructive tension in creative teams?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Could channeling tension INTO work be deliberate strategy?",
+      "type": "question",
+      "context": "Could channeling tension INTO work (like Rumours) be deliberate strategy?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Is structural health truly universal across attachment styles?",
+      "type": "question",
+      "context": "Is structural health truly universal across attachment styles?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Should AI adapt to attachment style or maintain universal healthy structure?",
+      "type": "question",
+      "context": "Should AI adapt to attachment style or maintain universal healthy structure?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Tension forces integration then tears teams apart",
+      "type": "realization",
+      "context": "Tension forces integration of conflicting visions, then tears teams apart",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Attachment styles map to detectable behavioral patterns",
+      "type": "realization",
+      "context": "Four attachment styles map to detectable behavioral patterns",
+      "source": "state.json (current thoughts)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Stevie Nicks",
+      "to": "Fleetwood Mac",
+      "type": "works_at",
+      "context": "Nicks quoted about Fleetwood Mac's creative process",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Abbey Road",
+      "to": "The Beatles",
+      "type": "relates_to",
+      "context": "Abbey Road = Beatles' final session together",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Rumours",
+      "to": "Fleetwood Mac",
+      "type": "relates_to",
+      "context": "Rumours sessions described as Fleetwood Mac's chaotic creative process",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "The Beatles",
+      "to": "creative pressure → masterpiece → dissolution pattern",
+      "type": "relates_to",
+      "context": "Beatles cited as example of the pattern",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Fleetwood Mac",
+      "to": "creative pressure → masterpiece → dissolution pattern",
+      "type": "relates_to",
+      "context": "Fleetwood Mac cited as example of the pattern",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Simon & Garfunkel",
+      "to": "creative pressure → masterpiece → dissolution pattern",
+      "type": "relates_to",
+      "context": "S&G cited as example of the pattern",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "exploration-return detector",
+      "to": "attachment styles",
+      "type": "relates_to",
+      "context": "My exploration-return detector already captures some attachment patterns",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Could channeling tension INTO work be deliberate strategy?",
+      "to": "Rumours",
+      "type": "relates_to",
+      "context": "Question references Rumours as example of channeling tension",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "structural health",
+      "to": "attachment styles",
+      "type": "relates_to",
+      "context": "Questioning if structural health is universal across attachment styles",
+      "source": "state.json (current thoughts)"
+    }
+  ]
+}

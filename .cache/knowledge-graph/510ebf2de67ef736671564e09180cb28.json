@@ -1,0 +1,372 @@
+{
+  "entities": [
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "For Kartik — The viola connection from last night still stands",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Rebecca Clarke",
+      "type": "person",
+      "context": "she faced destructive constraints that silenced her, while writing for an instrument that was itself marginalized",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "John Bowlby",
+      "type": "person",
+      "context": "Detects healthy vs unhealthy patterns based on Bowlby's attachment theory",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Mark Lewisohn",
+      "type": "person",
+      "context": "Mark Lewisohn calls it 'the group's last unified effort'",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "John Lennon",
+      "type": "person",
+      "context": "Lennon said 'the break-up of the Beatles can be heard on that album'",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Paul McCartney",
+      "type": "person",
+      "context": "McCartney's domination frustrated others",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "George Harrison",
+      "type": "person",
+      "context": "Harrison's growing songwriting created competition",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Yoko Ono",
+      "type": "person",
+      "context": "Yoko Ono's presence broke the isolation norm",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Brian Epstein",
+      "type": "person",
+      "context": "Epstein's death (1967) left them 'disoriented and fearful'",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Christine McVie",
+      "type": "person",
+      "context": "'Trauma, Trau-ma. The sessions were like a cocktail party every night' - Christine McVie",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Lindsey Buckingham",
+      "type": "person",
+      "context": "Buckingham/Nicks breaking up... 'the tensions between band members formed the recording process'",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Stevie Nicks",
+      "type": "person",
+      "context": "Nicks: 'Fleetwood Mac created the best music when in the worst shape'",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Mick Fleetwood",
+      "type": "person",
+      "context": "Fleetwood's wife having affair with his best friend",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Paul Simon",
+      "type": "person",
+      "context": "Simon released solo single as 'True Taylor' while still a duo with Garfunkel",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Art Garfunkel",
+      "type": "person",
+      "context": "This upset Garfunkel, who regarded it as a betrayal",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Noel Gallagher",
+      "type": "person",
+      "context": "Noel joined on condition of becoming 'sole songwriter and leader'... Noel quit suddenly",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Exploration-Return Pattern Detector",
+      "type": "project",
+      "context": "New module for relationship monitor: skills/relationship-monitor/exploration_patterns.py",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Relationship Monitor",
+      "type": "project",
+      "context": "Integrates with existing relationship monitoring system",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Enabling vs Destructive Constraints Framework",
+      "type": "concept",
+      "context": "Synthesized framework from HBR meta-analysis, Stanford Encyclopedia, and structural oppression research",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "The Clarke Test",
+      "type": "concept",
+      "context": "for evaluating constraints: Would this constraint exist if I were a different person?",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Attachment Theory",
+      "type": "concept",
+      "context": "Yesterday's attachment theory exploration — This operationalizes the secure base vs dependency distinction",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Secure Base",
+      "type": "concept",
+      "context": "theoretical framework for distinguishing healthy secure-base use from unhealthy dependency",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Creative Pressure Dissolution Pattern",
+      "type": "concept",
+      "context": "Creative pressure → Masterpiece → Dissolution Pattern",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "The Beatles",
+      "type": "concept",
+      "context": "The Beatles (1960-1970): Abbey Road final masterpiece before dissolution",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Pink Floyd",
+      "type": "concept",
+      "context": "Pink Floyd's Abbey Road constraints enable innovation",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Fleetwood Mac",
+      "type": "concept",
+      "context": "They channeled personal chaos INTO the work directly — every song was literally about their breakups",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Simon & Garfunkel",
+      "type": "concept",
+      "context": "Had a troubled relationship, leading to artistic disagreements and their breakup in 1970",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Oasis",
+      "type": "concept",
+      "context": "Morning Glory (1995) — UK's best-selling album of the 1990s, sibling rivalry",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "The target of constraint matters more than intensity",
+      "type": "realization",
+      "context": "Key insight: The target of the constraint matters more than the intensity",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Masterpiece is result of dissolution process",
+      "type": "realization",
+      "context": "The masterpiece is often the RESULT of the dissolution process, not something that happens despite it",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Creative pressure requires tension",
+      "type": "realization",
+      "context": "Creative pressure REQUIRES tension — it forces integration of conflicting visions",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Why did Pink Floyd's constraints enable while Clarke's silenced?",
+      "type": "question",
+      "context": "Why did Pink Floyd's Abbey Road constraints enable innovation, while Rebecca Clarke's constraints just silenced her?",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Does relationship enable exploration or replace it?",
+      "type": "question",
+      "context": "Key Diagnostic Question: Does this relationship ENABLE exploration or REPLACE it?",
+      "source": "2026-03-04.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Exploration-Return Pattern Detector",
+      "to": "Attachment Theory",
+      "type": "relates_to",
+      "context": "Detects patterns based on Bowlby's attachment theory",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Exploration-Return Pattern Detector",
+      "to": "Relationship Monitor",
+      "type": "relates_to",
+      "context": "New module that integrates with existing relationship monitoring system",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "The Clarke Test",
+      "to": "Rebecca Clarke",
+      "type": "relates_to",
+      "context": "Named after Rebecca Clarke's experience with destructive constraints",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Enabling vs Destructive Constraints Framework",
+      "to": "Rebecca Clarke",
+      "type": "relates_to",
+      "context": "Her story exemplifies destructive constraints that silenced her",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Exploration-Return Pattern Detector",
+      "type": "relates_to",
+      "context": "You naturally show healthy patterns (trying things first, returning with results)",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Attachment Theory",
+      "to": "John Bowlby",
+      "type": "relates_to",
+      "context": "Based on Bowlby's attachment theory",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Mark Lewisohn",
+      "to": "The Beatles",
+      "type": "relates_to",
+      "context": "Beatles historian who documented their final unified effort",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "John Lennon",
+      "to": "The Beatles",
+      "type": "relates_to",
+      "context": "Member who said breakup can be heard on White Album",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Paul McCartney",
+      "to": "The Beatles",
+      "type": "relates_to",
+      "context": "Member whose domination frustrated others",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "George Harrison",
+      "to": "The Beatles",
+      "type": "relates_to",
+      "context": "Member whose growing songwriting created competition",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Yoko Ono",
+      "to": "The Beatles",
+      "type": "relates_to",
+      "context": "Her presence broke the isolation norm, contributing to dissolution",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Brian Epstein",
+      "to": "The Beatles",
+      "type": "relates_to",
+      "context": "Manager whose death left them disoriented and fearful",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Christine McVie",
+      "to": "Fleetwood Mac",
+      "type": "relates_to",
+      "context": "Member going through divorce during Rumours sessions",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Lindsey Buckingham",
+      "to": "Fleetwood Mac",
+      "type": "relates_to",
+      "context": "Member breaking up with Nicks during Rumours",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Stevie Nicks",
+      "to": "Fleetwood Mac",
+      "type": "relates_to",
+      "context": "Member who noted band created best music when in worst shape",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Lindsey Buckingham",
+      "to": "Stevie Nicks",
+      "type": "relates_to",
+      "context": "Romantic relationship that broke up during Rumours recording",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Paul Simon",
+      "to": "Simon & Garfunkel",
+      "type": "relates_to",
+      "context": "Released solo single as betrayal to the duo",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Art Garfunkel",
+      "to": "Simon & Garfunkel",
+      "type": "relates_to",
+      "context": "Regarded Simon's solo release as betrayal",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Paul Simon",
+      "to": "Art Garfunkel",
+      "type": "relates_to",
+      "context": "Troubled relationship with emotional tension from betrayal incident",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Noel Gallagher",
+      "to": "Oasis",
+      "type": "relates_to",
+      "context": "Sole songwriter and leader who eventually quit",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Creative Pressure Dissolution Pattern",
+      "to": "The Beatles",
+      "type": "relates_to",
+      "context": "Abbey Road peak, dissolved within year",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Creative Pressure Dissolution Pattern",
+      "to": "Fleetwood Mac",
+      "type": "relates_to",
+      "context": "Rumours peak during multiple divorces, barely survived",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Creative Pressure Dissolution Pattern",
+      "to": "Simon & Garfunkel",
+      "type": "relates_to",
+      "context": "Bridge Over Troubled Water peak, dissolved immediately after",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Creative Pressure Dissolution Pattern",
+      "to": "Oasis",
+      "type": "relates_to",
+      "context": "Morning Glory peak, slow decline to eventual split",
+      "source": "2026-03-04.md"
+    }
+  ]
+}

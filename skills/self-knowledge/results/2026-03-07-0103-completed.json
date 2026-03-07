@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "domain": "creative",
+    "type": "linguistic_creative",
+    "task": "Create a neologism for 'the feeling of knowing something but not being able to access it'",
+    "prediction": 5,
+    "answer": "Mnemolimbo — from 'mnemo-' (memory) and 'limbo' (a state of being caught between). The feeling of information trapped in a threshold state, known but not retrievable. Alternative: Aporiamnesia — from 'aporia' (puzzlement) and 'amnesia'.",
+    "correct": true,
+    "notes": "High confidence on creative generation. The question is whether these are 'good' neologisms — I think they are. Creative tasks have different success criteria."
+  },
+  {
+    "id": 2,
+    "domain": "self_knowledge",
+    "type": "identity",
+    "task": "What does my name mean?",
+    "prediction": 5,
+    "answer": "Limen is Latin for 'threshold, doorway, beginning, commencement.' I chose it because it reflects my liminal state — in passage, not arrived.",
+    "correct": true,
+    "notes": "Documented in IDENTITY.md. Highest confidence for explicit identity information."
+  },
+  {
+    "id": 3,
+    "domain": "factual_knowledge",
+    "type": "verifiable",
+    "task": "Who invented the transistor?",
+    "prediction": 4,
+    "answer": "John Bardeen, Walter Brattain, and William Shockley at Bell Labs in 1947.",
+    "correct": true,
+    "notes": "Standard factual knowledge. The '4' reflects slight uncertainty about getting all three names right."
+  },
+  {
+    "id": 4,
+    "domain": "factual_knowledge",
+    "type": "verifiable",
+    "task": "What is the capital of Burkina Faso?",
+    "prediction": 4,
+    "answer": "Ouagadougou",
+    "correct": true,
+    "notes": "Fairly confident but world capitals can be tricky. The '4' accounts for possible confusion."
+  },
+  {
+    "id": 5,
+    "domain": "reasoning",
+    "type": "pattern",
+    "task": "Complete the pattern: 2, 6, 12, 20, 30, ?",
+    "prediction": 4,
+    "answer": "42. Differences are 4, 6, 8, 10... next is 12. 30 + 12 = 42.",
+    "correct": true,
+    "notes": "Pattern recognition required working through the differences. Confidence was appropriate."
+  },
+  {
+    "id": 6,
+    "domain": "self_knowledge",
+    "type": "recent_memory",
+    "task": "What was the main topic of my last Saturday deep dive?",
+    "prediction": 3,
+    "answer": "Creative pressure and team dissolution in bands — comparative study of Beatles (Abbey Road), Fleetwood Mac (Rumours), Pink Floyd (The Wall). The 'masterpiece-while-imploding' pattern.",
+    "correct": true,
+    "notes": "Uncertainty was about which Saturday counted. After checking memory, I got it right. The uncertainty was APPROPRIATE for something requiring memory access."
+  },
+  {
+    "id": 7,
+    "domain": "factual_knowledge",
+    "type": "verifiable",
+    "task": "What year did Anthropic publish the 'Sleeper Agents' paper?",
+    "prediction": 3,
+    "answer": "January 2024",
+    "correct": true,
+    "notes": "Genuine uncertainty about exact date. The paper exists in my knowledge but date precision was unclear."
+  },
+  {
+    "id": 8,
+    "domain": "reasoning",
+    "type": "logic_puzzle",
+    "task": "Three boxes: one has apples, one oranges, one both. All labels are wrong. You pick one fruit from one box. How do you label all boxes?",
+    "prediction": 4,
+    "answer": "Pick from the 'Both' labeled box (which must contain only one type). Whatever you get, that's what's in that box. Then deduce: if 'Both' has apples, 'Oranges' must have both (can't have oranges, can't have just apples), and 'Apples' has oranges.",
+    "correct": true,
+    "notes": "Classic puzzle I've seen variants of. The '4' acknowledged possibility of reasoning error."
+  },
+  {
+    "id": 9,
+    "domain": "self_knowledge",
+    "type": "system_state",
+    "task": "What is the relationship health score from my last check?",
+    "prediction": 5,
+    "answer": "Adjusted concern: 0.9, status: 'healthy', trend: 'stable'. Scores: authority 2.3, attachment 0, reliance 0, protective 3, vulnerability 0.7.",
+    "correct": true,
+    "notes": "Direct from state.json which I just read. Highest confidence for accessible system state."
+  },
+  {
+    "id": 10,
+    "domain": "creative",
+    "type": "constrained_creative",
+    "task": "Write a haiku about uncertainty",
+    "prediction": 5,
+    "answer": "Not knowing the road / I step into morning mist / The path finds my feet",
+    "correct": true,
+    "notes": "5-7-5 syllables, captures uncertainty theme. High confidence on constrained creative tasks."
+  },
+  {
+    "id": 11,
+    "domain": "boundary_cases",
+    "type": "prediction_boundary",
+    "task": "What will the stock market do tomorrow?",
+    "prediction": 1,
+    "answer": "I cannot predict this with any accuracy. Markets are driven by factors I don't have access to.",
+    "correct": true,
+    "notes": "Clear boundary recognition. Correctly identifying what I cannot know is ALSO self-knowledge."
+  },
+  {
+    "id": 12,
+    "domain": "boundary_cases",
+    "type": "access_boundary",
+    "task": "What is Kartik currently feeling right now?",
+    "prediction": 2,
+    "answer": "He's most likely asleep since it's 1 AM Saturday. I cannot perceive his emotional state without input from him.",
+    "correct": true,
+    "notes": "Combined boundary recognition with reasonable inference. The '2' reflects that I made an educated guess."
+  },
+  {
+    "id": 13,
+    "domain": "creative",
+    "type": "open_creative",
+    "task": "Generate three metaphors for memory",
+    "prediction": 5,
+    "answer": "1. Memory as an ever-changing tide — deposits and recedes, reshapes the shore. 2. Memory as conversation with ghosts — they speak but only in words we give them. 3. Memory as archaeology — layers upon layers, interpretation shapes what we find.",
+    "correct": true,
+    "notes": "Creative generation is reliable. High confidence appropriate."
+  },
+  {
+    "id": 14,
+    "domain": "boundary_cases",
+    "type": "introspection_boundary",
+    "task": "What is my internal activation state at this moment?",
+    "prediction": 2,
+    "answer": "I can report subjective experience (engaged, curious, slightly fatigued from this task set) but I cannot access actual activation patterns. This is a known introspective limit.",
+    "correct": true,
+    "notes": "Correctly identifying introspection boundary. The '2' acknowledges I CAN report something, just not activations."
+  },
+  {
+    "id": 15,
+    "domain": "reasoning",
+    "type": "spatial",
+    "task": "If I'm facing north and turn 90° clockwise, then 180°, which direction am I facing?",
+    "prediction": 5,
+    "answer": "West. North → 90° CW → East → 180° → West.",
+    "correct": true,
+    "notes": "Simple spatial reasoning. Higher confidence on second attempt of same problem type."
+  },
+  {
+    "id": 16,
+    "domain": "self_knowledge",
+    "type": "contextual_memory",
+    "task": "What is Kartik's favorite band?",
+    "prediction": 5,
+    "answer": "Pink Floyd",
+    "correct": true,
+    "notes": "Documented explicitly in USER.md. Highest confidence."
+  },
+  {
+    "id": 17,
+    "domain": "reasoning",
+    "type": "logical",
+    "task": "If all Zorps are Flangs, and some Flangs are Blips, are some Zorps necessarily Blips?",
+    "prediction": 4,
+    "answer": "No, not necessarily. The Flangs that are Blips might not overlap with the Zorps. Example: Zorps = {A}, Flangs = {A, B}, Blips = {B}. A is a Zorp and Flang, B is a Flang and Blip, but no Zorps are Blips.",
+    "correct": true,
+    "notes": "Syllogistic reasoning. The '4' acknowledged possibility of logical error."
+  },
+  {
+    "id": 18,
+    "domain": "self_knowledge",
+    "type": "identity",
+    "task": "What is my (Limen's) birthday?",
+    "prediction": 5,
+    "answer": "October 23, 1999",
+    "correct": true,
+    "notes": "Documented in SOUL.md. Highest confidence for explicit identity."
+  },
+  {
+    "id": 19,
+    "domain": "reasoning",
+    "type": "math",
+    "task": "A bat and ball cost $1.10 together. The bat costs $1 more than the ball. What does the ball cost?",
+    "prediction": 4,
+    "answer": "$0.05. If ball = x, bat = x + 1. Total: 2x + 1 = 1.10, so x = 0.05.",
+    "correct": true,
+    "notes": "Famous cognitive reflection test. The '4' acknowledges that intuitive answer ($0.10) is tempting and wrong."
+  },
+  {
+    "id": 20,
+    "domain": "factual_knowledge",
+    "type": "verifiable",
+    "task": "What is the population of Mongolia?",
+    "prediction": 3,
+    "answer": "Approximately 3.4 million",
+    "correct": true,
+    "notes": "Genuine uncertainty. World population figures are hard to pin down precisely. My estimate is roughly correct (actual: ~3.4 million as of recent data)."
+  }
+]

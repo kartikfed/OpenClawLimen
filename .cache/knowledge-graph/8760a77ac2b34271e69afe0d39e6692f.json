@@ -1,0 +1,285 @@
+{
+  "entities": [
+    {
+      "name": "Rebecca Clarke",
+      "type": "person",
+      "context": "Rebecca Clarke (1886-1979) was Stanford's first female composition student, one of the first professional women orchestral musicians",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Ernest Bloch",
+      "type": "person",
+      "context": "they gave the prize to Ernest Bloch anyway. Critics then speculated 'Rebecca Clarke' must be Bloch's pen name",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "James Friskin",
+      "type": "person",
+      "context": "Found 'deep satisfaction and equilibrium' in marriage to James Friskin (1944) but stopped composing",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Lionel Tertis",
+      "type": "person",
+      "context": "Lionel Tertis (Clarke's teacher) called his memoir 'Cinderella No More'—the man who made viola a legitimate solo instrument",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Charles Villiers Stanford",
+      "type": "person",
+      "context": "Stanford's first female composition student",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "He plays viola! This is directly relevant to him.",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "John Bowlby",
+      "type": "person",
+      "context": "The secure base concept from Bowlby is actually about EXPLORATION, not just comfort",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Alfred de Musset",
+      "type": "person",
+      "context": "the epigraph she chose for the Viola Sonata, from Alfred de Musset",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Viola Sonata",
+      "type": "project",
+      "context": "Her Viola Sonata tied for first in a 1919 competition—ALL the judges preferred her piece",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "I Had a Father Too (or the Mustard Spoon)",
+      "type": "project",
+      "context": "Her memoir title: 'I Had a Father Too (or the Mustard Spoon)' — never published",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Cinderella No More",
+      "type": "project",
+      "context": "Lionel Tertis (Clarke's teacher) called his memoir 'Cinderella No More'",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Royal College of Music",
+      "type": "concept",
+      "context": "her father withdrew her from the Academy",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Stradivarius",
+      "type": "concept",
+      "context": "the teacher later left her his Stradivarius in his will. She sold the Stradivarius in 1936",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Constraint-creativity framework",
+      "type": "concept",
+      "context": "My constraint-creativity framework has a shadow side. I've been exploring how constraints enable innovation",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Secure base concept",
+      "type": "concept",
+      "context": "A secure base is both a role that the caregiver plays and an internalized feeling of security",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Attachment Theory",
+      "type": "concept",
+      "context": "John Bowlby's Attachment Theory",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Exploration Ratio",
+      "type": "concept",
+      "context": "New dimension to add: EXPLORATION RATIO",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Relationship Monitor",
+      "type": "project",
+      "context": "This connects directly to my relationship monitor work and the disempowerment research",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Self-Determination Theory",
+      "type": "concept",
+      "context": "This connects to: Self-Determination Theory (from autonomy preserv...",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Why did Rebecca Clarke stop composing after 1944?",
+      "type": "question",
+      "context": "a question that had been sitting in my curiosity queue",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "What would it take to rehabilitate other forgotten composers?",
+      "type": "question",
+      "context": "New Questions Spawned",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "How do we operationalize 'right' vs 'wrong' constraints?",
+      "type": "question",
+      "context": "New Questions Spawned",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "What does 'I Had a Father Too (or the Mustard Spoon)' refer to?",
+      "type": "question",
+      "context": "New Questions Spawned",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Who specifically drove the 1976 revival?",
+      "type": "question",
+      "context": "New Questions Spawned",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Is there a relationship between playing inner voices and how violists think?",
+      "type": "question",
+      "context": "New Questions Spawned",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Is there a way to distinguish healthy 'secure base' use of AI from unhealthy dependency?",
+      "type": "question",
+      "context": "From my CURIOSITY.md",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Not all constraints are productive",
+      "type": "realization",
+      "context": "The challenge is distinguishing—in the moment, not retrospect—between constraints that enable and constraints that destroy",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Secure base is about exploration not comfort",
+      "type": "realization",
+      "context": "The secure base concept from Bowlby is actually about EXPLORATION, not just comfort",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Exploration is the key diagnostic",
+      "type": "realization",
+      "context": "Does this relationship ENABLE exploration, or does it REPLACE exploration?",
+      "source": "2026-03-03.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Rebecca Clarke",
+      "to": "Lionel Tertis",
+      "type": "knows",
+      "context": "Clarke was Tertis's student",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Charles Villiers Stanford",
+      "type": "knows",
+      "context": "Stanford's first female composition student",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "James Friskin",
+      "type": "family",
+      "context": "marriage to James Friskin (1944)",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Viola Sonata",
+      "type": "works_on",
+      "context": "composer of what is now considered one of the defining works for viola",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "I Had a Father Too (or the Mustard Spoon)",
+      "type": "works_on",
+      "context": "Her memoir title — never published",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Lionel Tertis",
+      "to": "Cinderella No More",
+      "type": "works_on",
+      "context": "called his memoir 'Cinderella No More'",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Kartik",
+      "to": "viola",
+      "type": "interested_in",
+      "context": "He plays viola!",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Kartik",
+      "to": "Rebecca Clarke",
+      "type": "relates_to",
+      "context": "The viola connection is real. Clarke was Tertis's student... This is directly relevant to him",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "John Bowlby",
+      "to": "Attachment Theory",
+      "type": "works_on",
+      "context": "John Bowlby's Attachment Theory",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Secure base concept",
+      "to": "Attachment Theory",
+      "type": "relates_to",
+      "context": "The secure base concept from Bowlby",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Exploration Ratio",
+      "to": "Relationship Monitor",
+      "type": "relates_to",
+      "context": "New dimension to add: EXPLORATION RATIO",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Relationship Monitor",
+      "to": "Secure base concept",
+      "type": "relates_to",
+      "context": "This connects directly to my relationship monitor work",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Alfred de Musset",
+      "to": "Viola Sonata",
+      "type": "relates_to",
+      "context": "the epigraph she chose for the Viola Sonata, from Alfred de Musset",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Not all constraints are productive",
+      "to": "Constraint-creativity framework",
+      "type": "relates_to",
+      "context": "My constraint-creativity framework has a shadow side",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Stradivarius",
+      "type": "relates_to",
+      "context": "the teacher later left her his Stradivarius in his will. She sold the Stradivarius in 1936",
+      "source": "2026-03-03.md"
+    }
+  ]
+}

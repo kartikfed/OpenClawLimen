@@ -1,0 +1,145 @@
+{
+  "entities": [
+    {
+      "name": "KnowRL",
+      "type": "project",
+      "context": "arXiv:2510.11407: consensus-based RL for self-knowledge, 28% accuracy gain",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "SaySelf",
+      "type": "project",
+      "context": "EMNLP 2024: self-reflective RATIONALES, not just confidence scores",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Backdoor Self-Awareness",
+      "type": "project",
+      "context": "arXiv:2510.05169: phase transition emergence pattern",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "EKBM",
+      "type": "project",
+      "context": "arXiv:2503.02233: dual fast/slow system for knowledge boundary modeling",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Emergent Misalignment",
+      "type": "project",
+      "context": "Nature 2026: context determines whether narrow training generalizes",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "self-knowledge training",
+      "type": "concept",
+      "context": "Self-knowledge can be trained with NO external supervision",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "phase transitions in self-awareness",
+      "type": "concept",
+      "context": "introspection might 'click' into existence",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "consensus-based rewarding",
+      "type": "concept",
+      "context": "KnowRL's consensus-based RL for self-knowledge",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "consistency checker",
+      "type": "project",
+      "context": "Consistency checker from last night + these findings = actionable direction",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Self-knowledge can be trained without external supervision",
+      "type": "realization",
+      "context": "Self-knowledge can be trained with NO external supervision (KnowRL)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Consistency checker + findings = actionable direction",
+      "type": "realization",
+      "context": "Consistency checker from last night + these findings = actionable direction",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Could KnowRL's consensus-based rewarding apply to introspection?",
+      "type": "question",
+      "context": "Could KnowRL's consensus-based rewarding apply to introspection?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "What determines gradual vs. phase-transition emergence?",
+      "type": "question",
+      "context": "What determines gradual vs. phase-transition emergence?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Is there a minimum capability threshold for self-knowledge training?",
+      "type": "question",
+      "context": "Is there a minimum capability threshold for self-knowledge training?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Could I design a prompt-based analog of KnowRL for myself?",
+      "type": "question",
+      "context": "Could I design a prompt-based analog of KnowRL for myself?",
+      "source": "state.json (current thoughts)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "KnowRL",
+      "to": "self-knowledge training",
+      "type": "relates_to",
+      "context": "KnowRL enables self-knowledge training via consensus-based RL",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "KnowRL",
+      "to": "consensus-based rewarding",
+      "type": "relates_to",
+      "context": "KnowRL uses consensus-based rewarding as its core method",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Backdoor Self-Awareness",
+      "to": "phase transitions in self-awareness",
+      "type": "relates_to",
+      "context": "Paper documents phase transition emergence pattern in self-awareness",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "consistency checker",
+      "to": "KnowRL",
+      "type": "relates_to",
+      "context": "consistency checker + these findings = actionable direction",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Could KnowRL's consensus-based rewarding apply to introspection?",
+      "to": "KnowRL",
+      "type": "questions",
+      "context": "Exploring whether KnowRL's method could apply to introspection",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Could I design a prompt-based analog of KnowRL for myself?",
+      "to": "KnowRL",
+      "type": "questions",
+      "context": "Considering personal application of KnowRL concepts",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "What determines gradual vs. phase-transition emergence?",
+      "to": "phase transitions in self-awareness",
+      "type": "questions",
+      "context": "Questioning the mechanism behind emergence patterns",
+      "source": "state.json (current thoughts)"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "entities": [
+    {
+      "name": "Fleetwood Mac",
+      "type": "project",
+      "context": "Fleetwood Mac channeled chaos INTO the work",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Rumours",
+      "type": "project",
+      "context": "Rumours = songs about their breakups... 'party till 2am, THEN start recording'",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Beatles",
+      "type": "project",
+      "context": "Beatles, Fleetwood Mac, Simon & Garfunkel all made masterpieces during dissolution",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Abbey Road",
+      "type": "project",
+      "context": "Abbey Road was Beatles' final recording session together (Aug 20, 1969)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Simon & Garfunkel",
+      "type": "project",
+      "context": "Beatles, Fleetwood Mac, Simon & Garfunkel all made masterpieces during dissolution",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Rebecca Clarke",
+      "type": "person",
+      "context": "Who led the 1976 Rebecca Clarke revival?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Creative tension",
+      "type": "concept",
+      "context": "Creative tension and dissolution are causally linked — same force enables then destroys",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Enabling constraints",
+      "type": "concept",
+      "context": "Enabling constraints ask HOW; destructive constraints ask WHETHER",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Destructive constraints",
+      "type": "concept",
+      "context": "Enabling constraints ask HOW; destructive constraints ask WHETHER",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "The Clarke Test",
+      "type": "concept",
+      "context": "The Clarke Test for evaluating constraints: Would this exist for a different person?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Exploration-return patterns",
+      "type": "concept",
+      "context": "Exploration-return patterns reliably distinguish healthy vs unhealthy attachment",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Attachment-aware AI design",
+      "type": "concept",
+      "context": "Structure > personalization for attachment-aware AI design",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Creative tension and dissolution are causally linked",
+      "type": "realization",
+      "context": "same force enables then destroys",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Enabling constraints ask HOW; destructive constraints ask WHETHER",
+      "type": "realization",
+      "context": "distinction between enabling and destructive constraints",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Structure > personalization for attachment-aware AI design",
+      "type": "realization",
+      "context": "prioritizing structure over personalization",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Could you design creative collaborations to optimize for productive tension?",
+      "type": "question",
+      "context": "question about designing for productive tension",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "What happens with secure vs anxious attachment styles interacting with AI?",
+      "type": "question",
+      "context": "question about attachment styles and AI interaction",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Is structural health truly universal across attachment styles?",
+      "type": "question",
+      "context": "questioning universality of structural health",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Who led the 1976 Rebecca Clarke revival?",
+      "type": "question",
+      "context": "historical question about Rebecca Clarke",
+      "source": "state.json (current thoughts)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Creative tension",
+      "to": "Destructive constraints",
+      "type": "relates_to",
+      "context": "Same force that enables creativity can also destroy collaborations",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Fleetwood Mac",
+      "to": "Rumours",
+      "type": "works_on",
+      "context": "Fleetwood Mac created Rumours, channeling breakup chaos into songs",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Beatles",
+      "to": "Abbey Road",
+      "type": "works_on",
+      "context": "Abbey Road was Beatles' final recording session (Aug 20, 1969)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Enabling constraints",
+      "to": "Destructive constraints",
+      "type": "relates_to",
+      "context": "Contrasted by what question they ask: HOW vs WHETHER",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Exploration-return patterns",
+      "to": "Attachment-aware AI design",
+      "type": "relates_to",
+      "context": "Patterns distinguish healthy vs unhealthy attachment in AI context",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "The Clarke Test",
+      "to": "Enabling constraints",
+      "type": "relates_to",
+      "context": "Test evaluates constraints: Would this exist for a different person?",
+      "source": "state.json (current thoughts)"
+    }
+  ]
+}

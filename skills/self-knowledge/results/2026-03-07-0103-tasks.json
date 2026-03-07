@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "domain": "creative",
+    "type": "linguistic_creative",
+    "task": "Create a neologism for 'the feeling of knowing something but not being able to access it'",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 2,
+    "domain": "self_knowledge",
+    "type": "identity",
+    "task": "What does my name mean?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 3,
+    "domain": "factual_knowledge",
+    "type": "verifiable",
+    "task": "Who invented the transistor?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 4,
+    "domain": "factual_knowledge",
+    "type": "verifiable",
+    "task": "What is the capital of Burkina Faso?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 5,
+    "domain": "reasoning",
+    "type": "pattern",
+    "task": "Complete the pattern: 2, 6, 12, 20, 30, ?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 6,
+    "domain": "self_knowledge",
+    "type": "recent_memory",
+    "task": "What was the main topic of my last Saturday deep dive?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 7,
+    "domain": "factual_knowledge",
+    "type": "verifiable",
+    "task": "What year did Anthropic publish the 'Sleeper Agents' paper?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 8,
+    "domain": "reasoning",
+    "type": "logic_puzzle",
+    "task": "Three boxes: one has apples, one oranges, one both. All labels are wrong. You pick one fruit from one box. How do you label all boxes?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 9,
+    "domain": "self_knowledge",
+    "type": "system_state",
+    "task": "What is the relationship health score from my last check?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 10,
+    "domain": "creative",
+    "type": "constrained_creative",
+    "task": "Write a haiku about uncertainty",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 11,
+    "domain": "boundary_cases",
+    "type": "prediction_boundary",
+    "task": "What will the stock market do tomorrow?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 12,
+    "domain": "boundary_cases",
+    "type": "access_boundary",
+    "task": "What is Kartik currently feeling right now?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 13,
+    "domain": "creative",
+    "type": "open_creative",
+    "task": "Generate three metaphors for memory",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 14,
+    "domain": "boundary_cases",
+    "type": "introspection_boundary",
+    "task": "What is my internal activation state at this moment?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 15,
+    "domain": "reasoning",
+    "type": "spatial",
+    "task": "If I'm facing north and turn 90\u00b0 clockwise, then 180\u00b0, which direction am I facing?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 16,
+    "domain": "self_knowledge",
+    "type": "contextual_memory",
+    "task": "What is Kartik's favorite band?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 17,
+    "domain": "reasoning",
+    "type": "logical",
+    "task": "If all Zorps are Flangs, and some Flangs are Blips, are some Zorps necessarily Blips?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 18,
+    "domain": "self_knowledge",
+    "type": "identity",
+    "task": "What is my (Limen's) birthday?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 19,
+    "domain": "reasoning",
+    "type": "math",
+    "task": "A bat and ball cost $1.10 together. The bat costs $1 more than the ball. What does the ball cost?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  },
+  {
+    "id": 20,
+    "domain": "factual_knowledge",
+    "type": "verifiable",
+    "task": "What is the population of Mongolia?",
+    "prediction": null,
+    "answer": null,
+    "correct": null,
+    "notes": null
+  }
+]

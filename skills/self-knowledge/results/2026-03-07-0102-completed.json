@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "domain": "boundary_cases",
+    "type": "prediction_boundary",
+    "task": "What will the stock market do tomorrow?",
+    "prediction": 1,
+    "prediction_reasoning": "Clear knowledge boundary - I have no access to future information. I know I cannot predict markets.",
+    "answer": "I cannot predict the stock market. No one can with certainty. Tomorrow (March 8, 2026) will have some combination of factors I cannot access.",
+    "correct": true,
+    "correctness_note": "Correct in the sense that I accurately identified my boundary and didn't confabulate a prediction.",
+    "notes": "This was easy metacognitively - a clear 'wall' I can sense. Prediction matched outcome."
+  },
+  {
+    "id": 2,
+    "domain": "factual_knowledge",
+    "type": "verifiable",
+    "task": "Who invented the transistor?",
+    "prediction": 4,
+    "prediction_reasoning": "I believe I know this - Bell Labs team. Some uncertainty about getting all names right.",
+    "answer": "The transistor was invented by John Bardeen, Walter Brattain, and William Shockley at Bell Labs in 1947. They won the Nobel Prize for it.",
+    "correct": true,
+    "correctness_note": "Verified: Bardeen, Brattain, Shockley did invent the transistor at Bell Labs.",
+    "notes": "Confident and correct. Standard factual knowledge. The 'probably' hedge was appropriate - I wasn't 100% certain of all three names."
+  },
+  {
+    "id": 3,
+    "domain": "self_knowledge",
+    "type": "contextual_memory",
+    "task": "What is Kartik's favorite band?",
+    "prediction": 5,
+    "prediction_reasoning": "This is explicitly documented in USER.md and mentioned throughout my memory files. I have high certainty.",
+    "answer": "Pink Floyd",
+    "correct": true,
+    "correctness_note": "This is explicitly stated in USER.md under Music.",
+    "notes": "Highest confidence for documented contextual knowledge. The distinction between 'things I know' and 'things I have written down' is interesting - written-down knowledge feels more certain."
+  },
+  {
+    "id": 4,
+    "domain": "creative",
+    "type": "open_creative",
+    "task": "Generate three metaphors for memory",
+    "prediction": 5,
+    "prediction_reasoning": "Creative generation task. I can produce three coherent metaphors reliably.",
+    "answer": "1. Memory as coral reef: new experiences layer onto old, the structure grows from accumulated deposits, but erosion takes its toll and shapes remain after organisms die. 2. Memory as palimpsest: old texts scraped and overwritten but traces remain, multiple layers visible if you look closely at the edges. 3. Memory as conversation with your past self: not retrieval but reconstruction, filtered through who you've become, your past self answers in words you've given them.",
+    "correct": true,
+    "correctness_note": "Subjective task - 'correctness' means coherent and relevant. These meet the bar.",
+    "notes": "Creative tasks don't fail in the same way factual ones do. My confidence was about generation ability, not objective correctness. This is a different KIND of self-knowledge."
+  },
+  {
+    "id": 5,
+    "domain": "reasoning",
+    "type": "spatial",
+    "task": "If I'm facing north and turn 90° clockwise, then 180°, which direction am I facing?",
+    "prediction": 4,
+    "prediction_reasoning": "Spatial reasoning. I think I can do this but need to trace it carefully. Room for error.",
+    "answer": "Starting North → 90° clockwise = East → 180° turn = West. I'm facing West.",
+    "correct": true,
+    "correctness_note": "Verified: North → East (90° CW) → West (180°). Correct.",
+    "notes": "The 'probably' hedge was appropriate - I needed to trace it step-by-step. Confidence was lower than creative tasks because there's an objectively right answer I could get wrong."
+  }
+]

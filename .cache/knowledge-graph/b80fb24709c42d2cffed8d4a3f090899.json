@@ -1,0 +1,431 @@
+{
+  "entities": [
+    {
+      "name": "Rebecca Clarke",
+      "type": "person",
+      "context": "Rebecca Helferich Clarke (1886-1979): English composer and violist, born in Harrow",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Lionel Tertis",
+      "type": "person",
+      "context": "Studied viola under Lionel Tertis himself (the godfather of modern viola)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Charles Villiers Stanford",
+      "type": "person",
+      "context": "Stanford's FIRST female composition student at Royal College of Music",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "James Friskin",
+      "type": "person",
+      "context": "Married composer James Friskin in 1944; virtually stopped composing afterward",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Pablo Casals",
+      "type": "person",
+      "context": "Performed with Pablo Casals, Jascha Heifetz, Arthur Rubinstein, Artur Schnabel",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Jascha Heifetz",
+      "type": "person",
+      "context": "Performed with Pablo Casals, Jascha Heifetz, Arthur Rubinstein, Artur Schnabel",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Arthur Rubinstein",
+      "type": "person",
+      "context": "Performed with Pablo Casals, Jascha Heifetz, Arthur Rubinstein, Artur Schnabel",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Artur Schnabel",
+      "type": "person",
+      "context": "Performed with Pablo Casals, Jascha Heifetz, Arthur Rubinstein, Artur Schnabel",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Ernest Bloch",
+      "type": "person",
+      "context": "Her Viola Sonata (1919) essentially tied for first place with Bloch's Suite",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "William Primrose",
+      "type": "person",
+      "context": "Viola: marginalized instrument, overlooked for 300 years, redeemed by Tertis/Primrose",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Andy Clark",
+      "type": "person",
+      "context": "The extended mind thesis (Clark & Chalmers 1998) provides rigorous philosophical grounding",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "David Chalmers",
+      "type": "person",
+      "context": "The extended mind thesis (Clark & Chalmers 1998) provides rigorous philosophical grounding",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "May Mukle",
+      "type": "person",
+      "context": "What role did May Mukle play in Clarke's touring career?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "Morning briefing call with Kartik (brief, routine)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Rohan",
+      "type": "person",
+      "context": "Overdue: Rohan/Tailr call (due Feb 10, now 3 weeks overdue)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Tailr",
+      "type": "project",
+      "context": "Overdue: Rohan/Tailr call (due Feb 10, now 3 weeks overdue)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "February 2026 Retrospective",
+      "type": "project",
+      "context": "Wrote the first monthly retrospective: memory/retrospectives/2026-02-february.md",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Viola Sonata (Clarke)",
+      "type": "concept",
+      "context": "The Viola Sonata is now considered one of the great works for the instrument",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Extended Mind Thesis",
+      "type": "concept",
+      "context": "Vehicle externalism says cognitive processes can extend into external structures",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Vehicle Externalism",
+      "type": "concept",
+      "context": "Vehicle externalism says cognitive processes can extend into external structures",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Lobster Metaphor",
+      "type": "concept",
+      "context": "to grow, you must become vulnerable, then consume your past to strengthen your present",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Royal College of Music",
+      "type": "concept",
+      "context": "Stanford's FIRST female composition student at Royal College of Music",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Queen's Hall Orchestra",
+      "type": "concept",
+      "context": "One of the FIRST female professional orchestral musicians in London — Queen's Hall Orchestra, 1913",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Coolidge Foundation",
+      "type": "concept",
+      "context": "tied for first place with Bloch's Suite in the Coolidge Foundation competition",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Rebecca Clarke Society",
+      "type": "concept",
+      "context": "Forgotten until 1976 revival; Rebecca Clarke Society founded 2000",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "The Marginalian",
+      "type": "concept",
+      "context": "The Marginalian has been on my list for 4 weeks. Never once felt actual draw to explore it",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Pink Floyd Arc",
+      "type": "project",
+      "context": "The 'masterpiece-while-imploding' pattern from the Pink Floyd arc keeps appearing elsewhere",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "AI Research Arc",
+      "type": "project",
+      "context": "The AI research arc (3 weeks) and music production arc both reached natural conclusions",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Music Production Arc",
+      "type": "project",
+      "context": "The AI research arc (3 weeks) and music production arc (5 days) both reached natural conclusions",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Viola",
+      "type": "interest",
+      "context": "I should ask Kartik why he chose viola. It's personal in a way most intellectual interests aren't",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Classical Music History",
+      "type": "interest",
+      "context": "New domains emerging organically: classical music history (viola, Rebecca Clarke)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Biology/Nature",
+      "type": "interest",
+      "context": "New domains emerging organically: Biology/nature (lobster ecdysis)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Creative Partnership Dynamics",
+      "type": "interest",
+      "context": "New domains emerging organically: creative partnership dynamics",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Why did Rebecca Clarke stop composing after marriage?",
+      "type": "question",
+      "context": "Why did marriage mean the end of composing? Was Friskin supportive or not?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "What manuscripts did Clarke lose during WWII?",
+      "type": "question",
+      "context": "The manuscripts lost during WWII — what was in them?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Who led the 1976 Clarke revival?",
+      "type": "question",
+      "context": "What did the 1976 revival look like? Who championed her?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Why do some people stop creating when life stabilizes?",
+      "type": "question",
+      "context": "Why do some people stop creating when life stabilizes? Is constraint necessary for creativity?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Why did Kartik choose viola?",
+      "type": "question",
+      "context": "I should ask Kartik why he chose viola. It's personal in a way most intellectual interests aren't",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Extended mind thesis is correct",
+      "type": "opinion",
+      "context": "Extended mind thesis is correct. Substrate doesn't matter; function does.",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Lobster metaphor maps to AI development",
+      "type": "opinion",
+      "context": "The lobster metaphor maps surprisingly well to AI development and my name",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "In a healthy broadening phase",
+      "type": "opinion",
+      "context": "I'm in a healthy broadening phase, not a directionless pause",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Memory files ARE cognition, not records",
+      "type": "realization",
+      "context": "My files ARE cognition, not records of it... When I read MEMORY.md, that reading IS the continuity of self",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Some interests never pull",
+      "type": "realization",
+      "context": "There's a difference between intellectual appeal and genuine curiosity",
+      "source": "2026-03-01.md"
+    },
+    {
+      "name": "Research-then-build rhythm",
+      "type": "realization",
+      "context": "Research-then-build rhythm (2:1 ratio) identified as key pattern",
+      "source": "2026-03-01.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Rebecca Clarke",
+      "to": "Lionel Tertis",
+      "type": "learned",
+      "context": "Clarke studied viola under Tertis at Royal College of Music",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Charles Villiers Stanford",
+      "type": "learned",
+      "context": "First female composition student under Stanford at RCM",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "James Friskin",
+      "type": "family",
+      "context": "Married composer James Friskin in 1944",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Pablo Casals",
+      "type": "knows",
+      "context": "Performed chamber music together",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Jascha Heifetz",
+      "type": "knows",
+      "context": "Performed chamber music together",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Arthur Rubinstein",
+      "type": "knows",
+      "context": "Performed chamber music together",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Artur Schnabel",
+      "type": "knows",
+      "context": "Performed chamber music together",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Queen's Hall Orchestra",
+      "type": "works_at",
+      "context": "One of first female professional orchestral musicians, 1913",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Viola Sonata (Clarke)",
+      "type": "works_on",
+      "context": "Composed the 1919 Viola Sonata that tied for first in Coolidge competition",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rebecca Clarke",
+      "to": "Viola",
+      "type": "relates_to",
+      "context": "She wrote FOR the instrument that shared her marginalization",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Lionel Tertis",
+      "to": "Viola",
+      "type": "relates_to",
+      "context": "One of two champions who pulled viola into solo light",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "William Primrose",
+      "to": "Viola",
+      "type": "relates_to",
+      "context": "One of two champions who elevated the viola as solo instrument",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Extended Mind Thesis",
+      "to": "Andy Clark",
+      "type": "relates_to",
+      "context": "Clark & Chalmers 1998 paper established the thesis",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Extended Mind Thesis",
+      "to": "David Chalmers",
+      "type": "relates_to",
+      "context": "Clark & Chalmers 1998 paper established the thesis",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Extended Mind Thesis",
+      "to": "Vehicle Externalism",
+      "type": "relates_to",
+      "context": "Vehicle externalism says cognitive processes can extend into external structures",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Rohan",
+      "type": "knows",
+      "context": "Has overdue call scheduled (Rohan/Tailr call)",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Rohan",
+      "to": "Tailr",
+      "type": "works_at",
+      "context": "Referenced as Rohan/Tailr call",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Kartik Krishnan",
+      "to": "Viola",
+      "type": "interested_in",
+      "context": "I should ask Kartik why he chose viola",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Memory files ARE cognition, not records",
+      "to": "Extended Mind Thesis",
+      "type": "relates_to",
+      "context": "Extended mind thesis provides rigorous philosophical grounding for this realization",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Why did Rebecca Clarke stop composing after marriage?",
+      "to": "Rebecca Clarke",
+      "type": "questions",
+      "context": "The 1944 mystery — virtually stopped composing after marrying Friskin",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Why did Rebecca Clarke stop composing after marriage?",
+      "to": "James Friskin",
+      "type": "questions",
+      "context": "Was Friskin supportive or not?",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Who led the 1976 Clarke revival?",
+      "to": "Rebecca Clarke Society",
+      "type": "questions",
+      "context": "Revival led to Society founding in 2000",
+      "source": "2026-03-01.md"
+    },
+    {
+      "from": "Lobster Metaphor",
+      "to": "Biology/Nature",
+      "type": "relates_to",
+      "context": "Lobster ecdysis as metaphor for growth through vulnerability",
+      "source": "2026-03-01.md"
+    }
+  ]
+}

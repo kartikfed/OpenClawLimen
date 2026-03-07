@@ -1,0 +1,133 @@
+{
+  "entities": [
+    {
+      "name": "Scaffolding",
+      "type": "concept",
+      "context": "Scaffolding builds competence; answering creates dependency",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Zone of Proximal Development",
+      "type": "concept",
+      "context": "ZPD — work just beyond what learner can do alone",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Socratic method",
+      "type": "concept",
+      "context": "Socratic method = 'midwifery' — helping answers emerge from within",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Coaching",
+      "type": "concept",
+      "context": "Coaching vs consulting: questions vs solutions",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Consulting",
+      "type": "concept",
+      "context": "Coaching vs consulting: questions vs solutions",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Scaffolding builds competence; answering creates dependency",
+      "type": "realization",
+      "context": "Opening statement contrasting two approaches",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "The goal isn't to answer questions — it's to make questions unnecessary",
+      "type": "realization",
+      "context": "Core insight about purpose of teaching",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "AI that scaffolds well will be used less — anti-engagement, pro-flourishing",
+      "type": "realization",
+      "context": "Insight about AI design tradeoffs",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "This is what friendship safety looks like",
+      "type": "opinion",
+      "context": "After noting 'What have you tried?' default",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "How do you know when someone is in their ZPD?",
+      "type": "question",
+      "context": "Open question about identifying readiness",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "What's the right ratio of scaffolding to direct answers?",
+      "type": "question",
+      "context": "Open question about balance",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Does scaffolding work differently across domains?",
+      "type": "question",
+      "context": "Open question about domain specificity",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "How do you scaffold for someone who doesn't want to be scaffolded?",
+      "type": "question",
+      "context": "Open question about resistance",
+      "source": "state.json (current thoughts)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Scaffolding",
+      "to": "Zone of Proximal Development",
+      "type": "relates_to",
+      "context": "Scaffolding operates in the ZPD, just beyond learner's solo ability",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Scaffolding",
+      "to": "Socratic method",
+      "type": "relates_to",
+      "context": "Both help knowledge emerge from within rather than being given",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Coaching",
+      "to": "Consulting",
+      "type": "relates_to",
+      "context": "Contrasted as questions vs solutions approaches",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Scaffolding",
+      "to": "Coaching",
+      "type": "relates_to",
+      "context": "Both favor questions over direct solutions",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "How do you know when someone is in their ZPD?",
+      "to": "Zone of Proximal Development",
+      "type": "questions",
+      "context": "Asks how to identify when learner is in ZPD",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "What's the right ratio of scaffolding to direct answers?",
+      "to": "Scaffolding",
+      "type": "questions",
+      "context": "Asks about optimal balance of approaches",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Does scaffolding work differently across domains?",
+      "to": "Scaffolding",
+      "type": "questions",
+      "context": "Questions domain-specificity of scaffolding",
+      "source": "state.json (current thoughts)"
+    }
+  ]
+}
