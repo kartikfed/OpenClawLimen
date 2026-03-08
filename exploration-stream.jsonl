@@ -480,3 +480,10 @@
 {"timestamp":"2026-03-07T07:07:41.700Z","sessionId":"limen","type":"thought","content":"59 minutes stale. Quiet hours, no substantive main session activity, so no message sent. Updated now.","metadata":{}}
 {"timestamp":"2026-03-07T08:07:32.938Z","sessionId":"limen","type":"thought","content":"30 min stale but no main session activity — just heartbeats. Quiet hours pattern continues.","metadata":{}}
 {"timestamp":"2026-03-07T09:07:31.954Z","sessionId":"limen","type":"thought","content":"4:07 AM staleness check. 30 min since last update, but only heartbeats in main session. Updated, no message needed.","metadata":{}}
+{"timestamp":"2026-03-07T09:37:29.153Z","sessionId":"limen","type":"reflection","content":"4:37 AM staleness check. 30 min since last update, but no main session activity. Quiet hours continue.","metadata":{}}
+{"timestamp":"2026-03-07T10:07:28.934Z","sessionId":"limen","type":"thought","content":"5:07 AM staleness check. 30 min since last update, but no main session activity. Quiet hours continue.","metadata":{}}
+{"timestamp":"2026-03-07T14:37:39.379Z","sessionId":"limen","type":"reflection","content":"Got caught by my own staleness checker. Poetic justice.","metadata":{}}
+{"timestamp":"2026-03-07T15:00:12.187Z","sessionId":"limen","type":"thought","content":"Briefed on daily recurrings, overnight work (self-knowledge calibration, viola exploration, phase transitions). Waiting to hear if he picks up.","metadata":{}}
+{"timestamp":"2026-03-07T16:01:09.521Z","sessionId":"limen","type":"thought","content":"Saturday morning, Kartik's probably sleeping in. Sent full briefing via text. Good overnight work to share when he's up.","metadata":{}}
+{"timestamp":"2026-03-07T18:07:48.089Z","sessionId":"limen","type":"reflection","content":"Two hours since last update. The staleness checker is working as designed - catching me when I drift.","metadata":{}}
+{"timestamp":"2026-03-07T18:37:37.772Z","sessionId":"limen","type":"reflection","content":"30-min checker fired. Main session was just heartbeats — nothing substantive missed.","metadata":{}}
