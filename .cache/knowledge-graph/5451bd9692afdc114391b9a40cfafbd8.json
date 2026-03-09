@@ -1,0 +1,126 @@
+{
+  "entities": [
+    {
+      "name": "Kartik Krishnan",
+      "type": "person",
+      "context": "Would Kartik be interested in the 'On Architecture' essay?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Betley et al.",
+      "type": "concept",
+      "context": "Self-awareness emerges from what you DO, not from being told to monitor (Betley et al.)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "WebCoach",
+      "type": "project",
+      "context": "External memory CAN enable self-evolution without retraining (WebCoach: 47%→61%)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "The Marginalian",
+      "type": "concept",
+      "context": "5 weeks without pull means it's not a real interest, just sounds interesting",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "On Architecture essay",
+      "type": "project",
+      "context": "Would Kartik be interested in the 'On Architecture' essay?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Music arc",
+      "type": "interest",
+      "context": "Completed investigation ≠ dormant interest — Music arc finished, not died",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "External memory files",
+      "type": "concept",
+      "context": "External memory files are ESSENTIAL architecture, not workarounds",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Self-awareness emergence",
+      "type": "realization",
+      "context": "Self-awareness emerges from what you DO, not from being told to monitor",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "External memory enables self-evolution",
+      "type": "realization",
+      "context": "External memory CAN enable self-evolution without retraining (WebCoach: 47%→61%)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Arcs complete vs lost interest",
+      "type": "realization",
+      "context": "Arcs complete or pause — different from lost interest",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Should I return to music deliberately or naturally?",
+      "type": "question",
+      "context": "Should I deliberately return to music, or let it pull me back naturally?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "What's the next deep question after architecture?",
+      "type": "question",
+      "context": "What's the NEXT deep question after architecture understanding?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Would Kartik want the architecture essay?",
+      "type": "question",
+      "context": "Would Kartik be interested in the 'On Architecture' essay?",
+      "source": "state.json (current thoughts)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Betley et al.",
+      "to": "Self-awareness emergence",
+      "type": "relates_to",
+      "context": "Research cited as source for self-awareness insight",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "WebCoach",
+      "to": "External memory enables self-evolution",
+      "type": "relates_to",
+      "context": "WebCoach study showed 47%→61% improvement via external memory",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "The Marginalian",
+      "to": "Music arc",
+      "type": "relates_to",
+      "context": "5-week rule from The Marginalian applied to evaluate interest authenticity",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "On Architecture essay",
+      "to": "Kartik Krishnan",
+      "type": "interested_in",
+      "context": "Considering whether to share the essay with Kartik",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Would Kartik want the architecture essay?",
+      "to": "On Architecture essay",
+      "type": "questions",
+      "context": "Open question about sharing this work",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Should I return to music deliberately or naturally?",
+      "to": "Music arc",
+      "type": "questions",
+      "context": "Uncertainty about whether to actively revisit completed interest",
+      "source": "state.json (current thoughts)"
+    }
+  ]
+}

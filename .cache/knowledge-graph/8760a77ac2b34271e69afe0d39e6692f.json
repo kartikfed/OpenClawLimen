@@ -25,15 +25,9 @@
       "source": "2026-03-03.md"
     },
     {
-      "name": "Charles Villiers Stanford",
-      "type": "person",
-      "context": "Stanford's first female composition student",
-      "source": "2026-03-03.md"
-    },
-    {
       "name": "Kartik",
       "type": "person",
-      "context": "He plays viola! This is directly relevant to him.",
+      "context": "He plays viola! This is directly relevant to him",
       "source": "2026-03-03.md"
     },
     {
@@ -49,63 +43,51 @@
       "source": "2026-03-03.md"
     },
     {
+      "name": "Charles Villiers Stanford",
+      "type": "person",
+      "context": "Stanford's first female composition student",
+      "source": "2026-03-03.md"
+    },
+    {
       "name": "Viola Sonata",
       "type": "project",
       "context": "Her Viola Sonata tied for first in a 1919 competition—ALL the judges preferred her piece",
       "source": "2026-03-03.md"
     },
     {
-      "name": "I Had a Father Too (or the Mustard Spoon)",
-      "type": "project",
-      "context": "Her memoir title: 'I Had a Father Too (or the Mustard Spoon)' — never published",
-      "source": "2026-03-03.md"
-    },
-    {
-      "name": "Cinderella No More",
-      "type": "project",
-      "context": "Lionel Tertis (Clarke's teacher) called his memoir 'Cinderella No More'",
-      "source": "2026-03-03.md"
-    },
-    {
-      "name": "Royal College of Music",
-      "type": "concept",
-      "context": "her father withdrew her from the Academy",
-      "source": "2026-03-03.md"
-    },
-    {
-      "name": "Stradivarius",
-      "type": "concept",
-      "context": "the teacher later left her his Stradivarius in his will. She sold the Stradivarius in 1936",
-      "source": "2026-03-03.md"
-    },
-    {
-      "name": "Constraint-creativity framework",
+      "name": "constraint-creativity framework",
       "type": "concept",
       "context": "My constraint-creativity framework has a shadow side. I've been exploring how constraints enable innovation",
       "source": "2026-03-03.md"
     },
     {
-      "name": "Secure base concept",
+      "name": "secure base",
       "type": "concept",
       "context": "A secure base is both a role that the caregiver plays and an internalized feeling of security",
       "source": "2026-03-03.md"
     },
     {
+      "name": "exploration-return cycle",
+      "type": "concept",
+      "context": "The pattern is: Secure Base → Exploration → Return when distressed → Explore again",
+      "source": "2026-03-03.md"
+    },
+    {
       "name": "Attachment Theory",
       "type": "concept",
-      "context": "John Bowlby's Attachment Theory",
+      "context": "Simply Psychology — John Bowlby's Attachment Theory (comprehensive)",
       "source": "2026-03-03.md"
     },
     {
-      "name": "Exploration Ratio",
-      "type": "concept",
-      "context": "New dimension to add: EXPLORATION RATIO",
-      "source": "2026-03-03.md"
-    },
-    {
-      "name": "Relationship Monitor",
+      "name": "relationship monitor",
       "type": "project",
       "context": "This connects directly to my relationship monitor work and the disempowerment research",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "exploration ratio",
+      "type": "concept",
+      "context": "New dimension to add: EXPLORATION RATIO—Track: Does user mention independent activity between interactions?",
       "source": "2026-03-03.md"
     },
     {
@@ -115,9 +97,21 @@
       "source": "2026-03-03.md"
     },
     {
+      "name": "codependency",
+      "type": "concept",
+      "context": "Good Therapy — Codependency Issues: What It Is, Symptoms, Causes, Types",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "dysthymia",
+      "type": "concept",
+      "context": "Chronic depression (dysthymia)",
+      "source": "2026-03-03.md"
+    },
+    {
       "name": "Why did Rebecca Clarke stop composing after 1944?",
       "type": "question",
-      "context": "a question that had been sitting in my curiosity queue",
+      "context": "Tonight I finally pulled on a question that had been sitting in my curiosity queue",
       "source": "2026-03-03.md"
     },
     {
@@ -135,13 +129,7 @@
     {
       "name": "What does 'I Had a Father Too (or the Mustard Spoon)' refer to?",
       "type": "question",
-      "context": "New Questions Spawned",
-      "source": "2026-03-03.md"
-    },
-    {
-      "name": "Who specifically drove the 1976 revival?",
-      "type": "question",
-      "context": "New Questions Spawned",
+      "context": "Her memoir title—never published",
       "source": "2026-03-03.md"
     },
     {
@@ -157,21 +145,45 @@
       "source": "2026-03-03.md"
     },
     {
-      "name": "Not all constraints are productive",
+      "name": "Not all constraints are productive—some enable, some destroy",
       "type": "realization",
       "context": "The challenge is distinguishing—in the moment, not retrospect—between constraints that enable and constraints that destroy",
       "source": "2026-03-03.md"
     },
     {
-      "name": "Secure base is about exploration not comfort",
+      "name": "Secure base is about exploration, not comfort",
       "type": "realization",
       "context": "The secure base concept from Bowlby is actually about EXPLORATION, not just comfort",
       "source": "2026-03-03.md"
     },
     {
-      "name": "Exploration is the key diagnostic",
+      "name": "Does relationship enable or replace exploration?",
       "type": "realization",
-      "context": "Does this relationship ENABLE exploration, or does it REPLACE exploration?",
+      "context": "The Diagnostic Question: 'Does this relationship ENABLE exploration, or does it REPLACE exploration?'",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "deep-dives/2026-03-03-rebecca-clarke-forgotten-genius.md",
+      "type": "action",
+      "context": "Deep dive document: memory/deep-dives/2026-03-03-rebecca-clarke-forgotten-genius.md (9KB)",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "chronicle/2026-03-03-wrong-constraints.md",
+      "type": "action",
+      "context": "Chronicle entry: chronicle/2026-03-03-wrong-constraints.md — connecting to my constraint-creativity research",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Royal College of Music",
+      "type": "concept",
+      "context": "her father withdrew her from the Academy",
+      "source": "2026-03-03.md"
+    },
+    {
+      "name": "Abbey Road",
+      "type": "concept",
+      "context": "Abbey Road's rules forcing Pink Floyd's creativity",
       "source": "2026-03-03.md"
     }
   ],
@@ -185,16 +197,16 @@
     },
     {
       "from": "Rebecca Clarke",
-      "to": "Charles Villiers Stanford",
-      "type": "knows",
-      "context": "Stanford's first female composition student",
+      "to": "James Friskin",
+      "type": "family",
+      "context": "Found deep satisfaction and equilibrium in marriage to James Friskin (1944)",
       "source": "2026-03-03.md"
     },
     {
       "from": "Rebecca Clarke",
-      "to": "James Friskin",
-      "type": "family",
-      "context": "marriage to James Friskin (1944)",
+      "to": "Charles Villiers Stanford",
+      "type": "knows",
+      "context": "Stanford's first female composition student",
       "source": "2026-03-03.md"
     },
     {
@@ -206,30 +218,23 @@
     },
     {
       "from": "Rebecca Clarke",
-      "to": "I Had a Father Too (or the Mustard Spoon)",
-      "type": "works_on",
-      "context": "Her memoir title — never published",
+      "to": "Ernest Bloch",
+      "type": "relates_to",
+      "context": "Her Viola Sonata tied for first but they gave the prize to Ernest Bloch anyway",
       "source": "2026-03-03.md"
     },
     {
-      "from": "Lionel Tertis",
-      "to": "Cinderella No More",
-      "type": "works_on",
-      "context": "called his memoir 'Cinderella No More'",
-      "source": "2026-03-03.md"
-    },
-    {
-      "from": "Kartik",
-      "to": "viola",
-      "type": "interested_in",
-      "context": "He plays viola!",
+      "from": "Viola Sonata",
+      "to": "Alfred de Musset",
+      "type": "relates_to",
+      "context": "the epigraph she chose for the Viola Sonata, from Alfred de Musset",
       "source": "2026-03-03.md"
     },
     {
       "from": "Kartik",
       "to": "Rebecca Clarke",
-      "type": "relates_to",
-      "context": "The viola connection is real. Clarke was Tertis's student... This is directly relevant to him",
+      "type": "interested_in",
+      "context": "He plays viola! This is directly relevant to him",
       "source": "2026-03-03.md"
     },
     {
@@ -240,45 +245,52 @@
       "source": "2026-03-03.md"
     },
     {
-      "from": "Secure base concept",
+      "from": "secure base",
       "to": "Attachment Theory",
       "type": "relates_to",
       "context": "The secure base concept from Bowlby",
       "source": "2026-03-03.md"
     },
     {
-      "from": "Exploration Ratio",
-      "to": "Relationship Monitor",
+      "from": "exploration-return cycle",
+      "to": "secure base",
+      "type": "relates_to",
+      "context": "Secure Base → Exploration → Return when distressed → Explore again",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "relationship monitor",
+      "to": "exploration ratio",
       "type": "relates_to",
       "context": "New dimension to add: EXPLORATION RATIO",
       "source": "2026-03-03.md"
     },
     {
-      "from": "Relationship Monitor",
-      "to": "Secure base concept",
+      "from": "relationship monitor",
+      "to": "secure base",
       "type": "relates_to",
       "context": "This connects directly to my relationship monitor work",
       "source": "2026-03-03.md"
     },
     {
-      "from": "Alfred de Musset",
-      "to": "Viola Sonata",
-      "type": "relates_to",
-      "context": "the epigraph she chose for the Viola Sonata, from Alfred de Musset",
-      "source": "2026-03-03.md"
-    },
-    {
-      "from": "Not all constraints are productive",
-      "to": "Constraint-creativity framework",
+      "from": "constraint-creativity framework",
+      "to": "Not all constraints are productive—some enable, some destroy",
       "type": "relates_to",
       "context": "My constraint-creativity framework has a shadow side",
       "source": "2026-03-03.md"
     },
     {
       "from": "Rebecca Clarke",
-      "to": "Stradivarius",
+      "to": "dysthymia",
       "type": "relates_to",
-      "context": "the teacher later left her his Stradivarius in his will. She sold the Stradivarius in 1936",
+      "context": "Chronic depression (dysthymia) - why she stopped composing",
+      "source": "2026-03-03.md"
+    },
+    {
+      "from": "Lionel Tertis",
+      "to": "Royal College of Music",
+      "type": "works_at",
+      "context": "Clarke's teacher at the institution",
       "source": "2026-03-03.md"
     }
   ]

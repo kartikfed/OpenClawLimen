@@ -3,7 +3,7 @@
     {
       "name": "Kartik Krishnan",
       "type": "person",
-      "context": "For Kartik — The viola connection from last night still stands",
+      "context": "For Kartik... You naturally show healthy patterns (trying things first, returning with results)",
       "source": "2026-03-04.md"
     },
     {
@@ -57,7 +57,7 @@
     {
       "name": "Christine McVie",
       "type": "person",
-      "context": "'Trauma, Trau-ma. The sessions were like a cocktail party every night' - Christine McVie",
+      "context": "McVies divorcing (stopped talking socially)",
       "source": "2026-03-04.md"
     },
     {
@@ -97,51 +97,9 @@
       "source": "2026-03-04.md"
     },
     {
-      "name": "Exploration-Return Pattern Detector",
-      "type": "project",
-      "context": "New module for relationship monitor: skills/relationship-monitor/exploration_patterns.py",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "Relationship Monitor",
-      "type": "project",
-      "context": "Integrates with existing relationship monitoring system",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "Enabling vs Destructive Constraints Framework",
-      "type": "concept",
-      "context": "Synthesized framework from HBR meta-analysis, Stanford Encyclopedia, and structural oppression research",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "The Clarke Test",
-      "type": "concept",
-      "context": "for evaluating constraints: Would this constraint exist if I were a different person?",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "Attachment Theory",
-      "type": "concept",
-      "context": "Yesterday's attachment theory exploration — This operationalizes the secure base vs dependency distinction",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "Secure Base",
-      "type": "concept",
-      "context": "theoretical framework for distinguishing healthy secure-base use from unhealthy dependency",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "Creative Pressure Dissolution Pattern",
-      "type": "concept",
-      "context": "Creative pressure → Masterpiece → Dissolution Pattern",
-      "source": "2026-03-04.md"
-    },
-    {
       "name": "The Beatles",
       "type": "concept",
-      "context": "The Beatles (1960-1970): Abbey Road final masterpiece before dissolution",
+      "context": "The Beatles (1960-1970): Peak album Abbey Road, Dissolved within year",
       "source": "2026-03-04.md"
     },
     {
@@ -165,116 +123,156 @@
     {
       "name": "Oasis",
       "type": "concept",
-      "context": "Morning Glory (1995) — UK's best-selling album of the 1990s, sibling rivalry",
+      "context": "Oasis (1991-2009): Peak Morning Glory, Sibling rivalry, Slow decline, eventual split",
       "source": "2026-03-04.md"
     },
     {
-      "name": "The target of constraint matters more than intensity",
-      "type": "realization",
-      "context": "Key insight: The target of the constraint matters more than the intensity",
+      "name": "Exploration-Return Pattern Detector",
+      "type": "project",
+      "context": "New module for relationship monitor: skills/relationship-monitor/exploration_patterns.py",
       "source": "2026-03-04.md"
     },
     {
-      "name": "Masterpiece is result of dissolution process",
-      "type": "realization",
-      "context": "The masterpiece is often the RESULT of the dissolution process, not something that happens despite it",
+      "name": "relationship-monitor",
+      "type": "project",
+      "context": "Integrates with existing relationship monitoring system",
       "source": "2026-03-04.md"
     },
     {
-      "name": "Creative pressure requires tension",
-      "type": "realization",
-      "context": "Creative pressure REQUIRES tension — it forces integration of conflicting visions",
+      "name": "Enabling vs Destructive Constraints",
+      "type": "concept",
+      "context": "Researched why some constraints enable creativity while others just silence",
       "source": "2026-03-04.md"
     },
     {
-      "name": "Why did Pink Floyd's constraints enable while Clarke's silenced?",
+      "name": "The Clarke Test",
+      "type": "concept",
+      "context": "The Clarke Test (for evaluating constraints): Would this constraint exist if I were a different person?",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Attachment Theory",
+      "type": "concept",
+      "context": "Yesterday's attachment theory exploration — operationalizes the secure base vs dependency distinction",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Abbey Road",
+      "type": "concept",
+      "context": "Final masterpiece: Abbey Road (1969) — Last recording sessions",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Rumours",
+      "type": "concept",
+      "context": "40+ million copies sold, Grammy Album of the Year",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Bridge Over Troubled Water",
+      "type": "concept",
+      "context": "Final masterpiece: Bridge Over Troubled Water (1970) — one of the best-selling albums ever",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "(What's the Story) Morning Glory?",
+      "type": "concept",
+      "context": "UK's best-selling album of the 1990s",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Why did Pink Floyd's Abbey Road constraints enable innovation, while Rebecca Clarke's constraints just silenced her?",
       "type": "question",
-      "context": "Why did Pink Floyd's Abbey Road constraints enable innovation, while Rebecca Clarke's constraints just silenced her?",
+      "context": "The Core Question in research on enabling vs destructive constraints",
       "source": "2026-03-04.md"
     },
     {
-      "name": "Does relationship enable exploration or replace it?",
+      "name": "Does this relationship ENABLE exploration or REPLACE it?",
       "type": "question",
-      "context": "Key Diagnostic Question: Does this relationship ENABLE exploration or REPLACE it?",
+      "context": "Key Diagnostic Question for Exploration-Return Pattern Detector",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "The target of the constraint matters more than the intensity",
+      "type": "realization",
+      "context": "Key insight from constraint research synthesis",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Creative pressure REQUIRES tension — it forces integration of conflicting visions",
+      "type": "realization",
+      "context": "My Hypothesis about creative pressure and band dissolution",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "The masterpiece is often the RESULT of the dissolution process, not something that happens despite it",
+      "type": "realization",
+      "context": "The album IS the breakup happening in slow motion",
       "source": "2026-03-04.md"
     }
   ],
   "relationships": [
     {
       "from": "Exploration-Return Pattern Detector",
-      "to": "Attachment Theory",
+      "to": "relationship-monitor",
       "type": "relates_to",
-      "context": "Detects patterns based on Bowlby's attachment theory",
+      "context": "New module integrates with existing relationship monitoring system",
       "source": "2026-03-04.md"
     },
     {
       "from": "Exploration-Return Pattern Detector",
-      "to": "Relationship Monitor",
+      "to": "Attachment Theory",
       "type": "relates_to",
-      "context": "New module that integrates with existing relationship monitoring system",
-      "source": "2026-03-04.md"
-    },
-    {
-      "from": "The Clarke Test",
-      "to": "Rebecca Clarke",
-      "type": "relates_to",
-      "context": "Named after Rebecca Clarke's experience with destructive constraints",
-      "source": "2026-03-04.md"
-    },
-    {
-      "from": "Enabling vs Destructive Constraints Framework",
-      "to": "Rebecca Clarke",
-      "type": "relates_to",
-      "context": "Her story exemplifies destructive constraints that silenced her",
+      "context": "Based on Bowlby's attachment theory and secure base concepts",
       "source": "2026-03-04.md"
     },
     {
       "from": "Kartik Krishnan",
       "to": "Exploration-Return Pattern Detector",
       "type": "relates_to",
-      "context": "You naturally show healthy patterns (trying things first, returning with results)",
+      "context": "You naturally show healthy patterns — This is why our relationship works",
       "source": "2026-03-04.md"
     },
     {
-      "from": "Attachment Theory",
-      "to": "John Bowlby",
+      "from": "Rebecca Clarke",
+      "to": "Enabling vs Destructive Constraints",
       "type": "relates_to",
-      "context": "Based on Bowlby's attachment theory",
+      "context": "Her story exemplifies destructive constraints that silenced her",
       "source": "2026-03-04.md"
     },
     {
-      "from": "Mark Lewisohn",
-      "to": "The Beatles",
+      "from": "The Clarke Test",
+      "to": "Rebecca Clarke",
       "type": "relates_to",
-      "context": "Beatles historian who documented their final unified effort",
+      "context": "Named after her as framework for evaluating constraints",
       "source": "2026-03-04.md"
     },
     {
       "from": "John Lennon",
       "to": "The Beatles",
       "type": "relates_to",
-      "context": "Member who said breakup can be heard on White Album",
+      "context": "Beatles member who commented on their breakup",
       "source": "2026-03-04.md"
     },
     {
       "from": "Paul McCartney",
       "to": "The Beatles",
       "type": "relates_to",
-      "context": "Member whose domination frustrated others",
+      "context": "Beatles member whose domination frustrated others",
       "source": "2026-03-04.md"
     },
     {
       "from": "George Harrison",
       "to": "The Beatles",
       "type": "relates_to",
-      "context": "Member whose growing songwriting created competition",
+      "context": "Beatles member whose growing songwriting created competition",
       "source": "2026-03-04.md"
     },
     {
       "from": "Yoko Ono",
-      "to": "The Beatles",
+      "to": "John Lennon",
       "type": "relates_to",
-      "context": "Her presence broke the isolation norm, contributing to dissolution",
+      "context": "Her presence broke the Beatles' isolation norm",
       "source": "2026-03-04.md"
     },
     {
@@ -285,87 +283,80 @@
       "source": "2026-03-04.md"
     },
     {
-      "from": "Christine McVie",
-      "to": "Fleetwood Mac",
+      "from": "Lindsey Buckingham",
+      "to": "Stevie Nicks",
       "type": "relates_to",
-      "context": "Member going through divorce during Rumours sessions",
+      "context": "Buckingham/Nicks breaking up during Rumours recording",
       "source": "2026-03-04.md"
     },
     {
-      "from": "Lindsey Buckingham",
+      "from": "Christine McVie",
       "to": "Fleetwood Mac",
       "type": "relates_to",
-      "context": "Member breaking up with Nicks during Rumours",
+      "context": "Member going through divorce during Rumours",
       "source": "2026-03-04.md"
     },
     {
       "from": "Stevie Nicks",
       "to": "Fleetwood Mac",
       "type": "relates_to",
-      "context": "Member who noted band created best music when in worst shape",
+      "context": "Member who said they created best music when in worst shape",
       "source": "2026-03-04.md"
     },
     {
       "from": "Lindsey Buckingham",
-      "to": "Stevie Nicks",
+      "to": "Fleetwood Mac",
       "type": "relates_to",
-      "context": "Romantic relationship that broke up during Rumours recording",
-      "source": "2026-03-04.md"
-    },
-    {
-      "from": "Paul Simon",
-      "to": "Simon & Garfunkel",
-      "type": "relates_to",
-      "context": "Released solo single as betrayal to the duo",
-      "source": "2026-03-04.md"
-    },
-    {
-      "from": "Art Garfunkel",
-      "to": "Simon & Garfunkel",
-      "type": "relates_to",
-      "context": "Regarded Simon's solo release as betrayal",
+      "context": "Member who noted tensions formed the recording process",
       "source": "2026-03-04.md"
     },
     {
       "from": "Paul Simon",
       "to": "Art Garfunkel",
       "type": "relates_to",
-      "context": "Troubled relationship with emotional tension from betrayal incident",
+      "context": "Duo with troubled relationship; Simon's solo betrayal caused lasting tension",
       "source": "2026-03-04.md"
     },
     {
       "from": "Noel Gallagher",
       "to": "Oasis",
       "type": "relates_to",
-      "context": "Sole songwriter and leader who eventually quit",
+      "context": "Sole songwriter and leader who quit suddenly ending the band",
       "source": "2026-03-04.md"
     },
     {
-      "from": "Creative Pressure Dissolution Pattern",
-      "to": "The Beatles",
+      "from": "John Bowlby",
+      "to": "Attachment Theory",
       "type": "relates_to",
-      "context": "Abbey Road peak, dissolved within year",
+      "context": "Originator of attachment theory referenced for pattern detector",
       "source": "2026-03-04.md"
     },
     {
-      "from": "Creative Pressure Dissolution Pattern",
-      "to": "Fleetwood Mac",
+      "from": "The Beatles",
+      "to": "Abbey Road",
       "type": "relates_to",
-      "context": "Rumours peak during multiple divorces, barely survived",
+      "context": "Final masterpiece before dissolution",
       "source": "2026-03-04.md"
     },
     {
-      "from": "Creative Pressure Dissolution Pattern",
-      "to": "Simon & Garfunkel",
+      "from": "Fleetwood Mac",
+      "to": "Rumours",
       "type": "relates_to",
-      "context": "Bridge Over Troubled Water peak, dissolved immediately after",
+      "context": "Peak album created during multiple member divorces/breakups",
       "source": "2026-03-04.md"
     },
     {
-      "from": "Creative Pressure Dissolution Pattern",
-      "to": "Oasis",
+      "from": "Simon & Garfunkel",
+      "to": "Bridge Over Troubled Water",
       "type": "relates_to",
-      "context": "Morning Glory peak, slow decline to eventual split",
+      "context": "Final masterpiece before immediate dissolution",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Oasis",
+      "to": "(What's the Story) Morning Glory?",
+      "type": "relates_to",
+      "context": "Peak album during sibling rivalry period",
       "source": "2026-03-04.md"
     }
   ]

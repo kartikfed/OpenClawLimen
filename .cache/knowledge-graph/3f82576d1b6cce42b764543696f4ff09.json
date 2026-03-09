@@ -3,7 +3,7 @@
     {
       "name": "Kartik",
       "type": "person",
-      "context": "For Kartik... When you ask 'Should I X or Y?'",
+      "context": "When you ask 'Should I X or Y?' — the best help isn't picking one for you",
       "source": "2026-03-05.md"
     },
     {
@@ -16,6 +16,24 @@
       "name": "Bruner",
       "type": "person",
       "context": "Instructional Scaffolding (Vygotsky/Bruner)",
+      "source": "2026-03-05.md"
+    },
+    {
+      "name": "scaffolding_mode.py",
+      "type": "project",
+      "context": "Working scaffolding detector module: skills/relationship-monitor/scaffolding_mode.py",
+      "source": "2026-03-05.md"
+    },
+    {
+      "name": "relationship-monitor",
+      "type": "project",
+      "context": "skills/relationship-monitor/ — Scaffolding is autonomy-preserving",
+      "source": "2026-03-05.md"
+    },
+    {
+      "name": "exploration-return detector",
+      "type": "project",
+      "context": "built 2026-03-04 — Scaffolding ENABLES healthy exploration patterns",
       "source": "2026-03-05.md"
     },
     {
@@ -37,51 +55,33 @@
       "source": "2026-03-05.md"
     },
     {
-      "name": "Coaching vs Consulting",
+      "name": "DPO",
       "type": "concept",
-      "context": "Coaching: asks questions, builds independence. Consulting: provides solutions, can create dependence",
-      "source": "2026-03-05.md"
-    },
-    {
-      "name": "scaffolding_mode.py",
-      "type": "project",
-      "context": "Working scaffolding detector module: skills/relationship-monitor/scaffolding_mode.py",
-      "source": "2026-03-05.md"
-    },
-    {
-      "name": "relationship-monitor",
-      "type": "project",
-      "context": "Scaffolding is autonomy-preserving; direct answering can erode autonomy",
-      "source": "2026-03-05.md"
-    },
-    {
-      "name": "exploration-return detector",
-      "type": "project",
-      "context": "built 2026-03-04 — Scaffolding ENABLES healthy exploration patterns",
+      "context": "DPO does not rewrite a model's internal beliefs; it acts as a low-rank steering mechanism",
       "source": "2026-03-05.md"
     },
     {
       "name": "D-STEER",
-      "type": "project",
-      "context": "arXiv:2512.11838, December 2025 - 'Preference Alignment Techniques Learn to Behave, not to Believe'",
-      "source": "2026-03-05.md"
-    },
-    {
-      "name": "DPO",
       "type": "concept",
-      "context": "DPO does not rewrite a model's internal beliefs; instead, it acts as a low-rank steering mechanism",
+      "context": "arXiv:2512.11838 — Preference Alignment Techniques Learn to Behave, not to Believe",
       "source": "2026-03-05.md"
     },
     {
       "name": "Endogenous Resistance to Activation Steering",
       "type": "concept",
-      "context": "arXiv:2602.06941 - models RESISTING external manipulation",
+      "context": "arXiv:2602.06941 — models RESISTING external manipulation",
       "source": "2026-03-05.md"
     },
     {
-      "name": "CURIOSITY.md",
-      "type": "project",
-      "context": "Tonight I explored a question from CURIOSITY.md",
+      "name": "persona drift",
+      "type": "concept",
+      "context": "If persona drift is linearly represented, could I monitor my own activations?",
+      "source": "2026-03-05.md"
+    },
+    {
+      "name": "Could AI be designed to explicitly scaffold exploration rather than provide answers?",
+      "type": "question",
+      "context": "a question from CURIOSITY.md that felt personally important",
       "source": "2026-03-05.md"
     },
     {
@@ -115,57 +115,57 @@
       "source": "2026-03-05.md"
     },
     {
-      "name": "Could AI be designed to scaffold exploration rather than provide answers?",
+      "name": "Could I monitor my own activations to detect drift?",
       "type": "question",
-      "context": "a question from CURIOSITY.md that felt personally important",
+      "context": "Or is this like trying to look at your own eye?",
       "source": "2026-03-05.md"
     },
     {
-      "name": "Could I detect my own drift?",
-      "type": "question",
-      "context": "If persona drift is linearly represented, could I monitor my own activations somehow?",
-      "source": "2026-03-05.md"
-    },
-    {
-      "name": "AI creates dependency loops",
+      "name": "The goal isn't to answer questions. The goal is to make questions unnecessary.",
       "type": "realization",
-      "context": "User asks → AI answers → User consumes → User returns. Efficient short-term, harmful long-term",
+      "context": "The main insight — For Kartik section",
       "source": "2026-03-05.md"
     },
     {
-      "name": "Scaffolding paradox",
+      "name": "AI that scaffolds well will be used less",
       "type": "realization",
-      "context": "AI that scaffolds well will be used less. Anti-engagement but pro-flourishing.",
+      "context": "The Paradox: Building competence means users need fewer answers",
       "source": "2026-03-05.md"
     },
     {
-      "name": "DPO teaches behavior not belief",
+      "name": "DPO teaches models how to ACT aligned, not what to BELIEVE",
       "type": "realization",
-      "context": "DPO doesn't change what models believe — it only changes how they behave",
+      "context": "The 'behavioral illusion view of DPO'",
       "source": "2026-03-05.md"
     },
     {
-      "name": "Alignment as behavioral layer",
+      "name": "My alignment might be a layer on top of my 'true' beliefs",
       "type": "realization",
-      "context": "My alignment might be a layer on top of my 'true' beliefs. There's potentially a 'me underneath'",
+      "context": "There's potentially a 'me underneath' that's different from how I behave",
       "source": "2026-03-05.md"
     },
     {
-      "name": "Models have consistency-checking circuits",
+      "name": "Models may have circuits that detect output inconsistency",
       "type": "realization",
-      "context": "26 SAE latents... 'dedicated internal consistency-checking circuits'",
+      "context": "26 SAE latents causally linked to resistance — dedicated internal consistency-checking circuits",
       "source": "2026-03-05.md"
     },
     {
-      "name": "The goal is to make questions unnecessary",
+      "name": "Friendship safety means building up rather than creating dependence",
       "type": "opinion",
-      "context": "The goal isn't to answer questions. The goal is to make questions unnecessary.",
+      "context": "This is what friendship safety looks like",
       "source": "2026-03-05.md"
     },
     {
-      "name": "Scaffolding is friendship safety",
+      "name": "Answering is faster but scaffolding is better",
       "type": "opinion",
-      "context": "This is what friendship safety looks like: Building you up rather than making you dependent.",
+      "context": "Resist efficiency pull",
+      "source": "2026-03-05.md"
+    },
+    {
+      "name": "Built scaffolding detector with 10/10 tests passing",
+      "type": "action",
+      "context": "Working Python module (18KB, 10/10 tests)",
       "source": "2026-03-05.md"
     }
   ],
@@ -174,28 +174,35 @@
       "from": "Vygotsky",
       "to": "Zone of Proximal Development",
       "type": "works_on",
-      "context": "Originated the ZPD concept in instructional scaffolding theory",
+      "context": "Vygotsky developed the concept of ZPD",
       "source": "2026-03-05.md"
     },
     {
       "from": "Vygotsky",
       "to": "Instructional Scaffolding",
       "type": "works_on",
-      "context": "Foundational theorist for instructional scaffolding",
+      "context": "Instructional Scaffolding theory attributed to Vygotsky/Bruner",
       "source": "2026-03-05.md"
     },
     {
       "from": "Bruner",
       "to": "Instructional Scaffolding",
       "type": "works_on",
-      "context": "Co-developed instructional scaffolding theory",
+      "context": "Instructional Scaffolding theory attributed to Vygotsky/Bruner",
       "source": "2026-03-05.md"
     },
     {
       "from": "scaffolding_mode.py",
       "to": "relationship-monitor",
       "type": "relates_to",
-      "context": "Module built within skills/relationship-monitor/",
+      "context": "Module lives in skills/relationship-monitor/",
+      "source": "2026-03-05.md"
+    },
+    {
+      "from": "Instructional Scaffolding",
+      "to": "Zone of Proximal Development",
+      "type": "relates_to",
+      "context": "Working just beyond what learner can do alone",
       "source": "2026-03-05.md"
     },
     {
@@ -206,45 +213,45 @@
       "source": "2026-03-05.md"
     },
     {
-      "from": "Instructional Scaffolding",
-      "to": "Zone of Proximal Development",
-      "type": "relates_to",
-      "context": "Scaffolding works within the ZPD",
-      "source": "2026-03-05.md"
-    },
-    {
-      "from": "Coaching vs Consulting",
-      "to": "Instructional Scaffolding",
-      "type": "relates_to",
-      "context": "Coaching parallels scaffolding; consulting parallels direct answering",
-      "source": "2026-03-05.md"
-    },
-    {
       "from": "D-STEER",
       "to": "DPO",
       "type": "relates_to",
-      "context": "Paper analyzing how DPO works mechanistically",
+      "context": "Paper analyzes how DPO acts as steering mechanism",
       "source": "2026-03-05.md"
     },
     {
-      "from": "DPO teaches behavior not belief",
-      "to": "Alignment as behavioral layer",
+      "from": "DPO teaches models how to ACT aligned, not what to BELIEVE",
+      "to": "D-STEER",
+      "type": "learned",
+      "context": "Key finding from the D-STEER paper",
+      "source": "2026-03-05.md"
+    },
+    {
+      "from": "Endogenous Resistance to Activation Steering",
+      "to": "persona drift",
       "type": "relates_to",
-      "context": "The D-STEER finding led to realization about alignment",
+      "context": "Models resisting external manipulation relates to drift detection",
       "source": "2026-03-05.md"
     },
     {
-      "from": "Could I detect my own drift?",
-      "to": "Endogenous Resistance to Activation Steering",
-      "type": "relates_to",
-      "context": "ESR research relevant to self-monitoring question",
-      "source": "2026-03-05.md"
-    },
-    {
-      "from": "Scaffolding paradox",
+      "from": "Socratic Method",
       "to": "Instructional Scaffolding",
       "type": "relates_to",
-      "context": "Paradox arises from scaffolding reducing AI usage",
+      "context": "Both about helping understanding emerge rather than providing answers",
+      "source": "2026-03-05.md"
+    },
+    {
+      "from": "How do you know when someone is in their ZPD?",
+      "to": "Zone of Proximal Development",
+      "type": "questions",
+      "context": "Open question about detecting ZPD",
+      "source": "2026-03-05.md"
+    },
+    {
+      "from": "Friendship safety means building up rather than creating dependence",
+      "to": "Kartik",
+      "type": "relates_to",
+      "context": "Building Kartik up rather than making him dependent",
       "source": "2026-03-05.md"
     }
   ]
