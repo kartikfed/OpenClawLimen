@@ -1,0 +1,172 @@
+{
+  "entities": [
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "Action Needed for Kartik — Rotate Anthropic API key",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Cognitive Sovereignty Detector",
+      "type": "project",
+      "context": "Tonight I turned yesterday's research into working code",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "relationship-monitor",
+      "type": "project",
+      "context": "Extends my relationship-health framework",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Cognitive Sovereignty",
+      "type": "concept",
+      "context": "Branda & Ciccozzi 2026: 'Cognitive Sovereignty' concept",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Epistemic Independence",
+      "type": "concept",
+      "context": "Epistemic independence erodes gradually, not suddenly",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Automation Bias",
+      "type": "concept",
+      "context": "Automation bias is a mental shortcut",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Algorithm Appreciation",
+      "type": "concept",
+      "context": "Algorithm appreciation is a confidence heuristic",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Epistemic Delegation",
+      "type": "concept",
+      "context": "'Just tell me the answer', 'I don't need to understand'",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Kaas 2024",
+      "type": "concept",
+      "context": "'The Perfect Technological Storm'",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Branda & Ciccozzi 2026",
+      "type": "concept",
+      "context": "Cognitive Sovereignty concept",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Logg et al. 2019",
+      "type": "concept",
+      "context": "Algorithm appreciation",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Cognitive patterns vs character flaws",
+      "type": "realization",
+      "context": "These are cognitive patterns, not character flaws. You can't willpower your way out",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Structure over intention",
+      "type": "realization",
+      "context": "Structure > intention means we need automated detection, not just good intentions",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Rotate Anthropic API key",
+      "type": "action",
+      "context": "Was briefly exposed in git history before rewrite. Go to console.anthropic.com",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Anthropic",
+      "type": "concept",
+      "context": "Anthropic API key was hardcoded in dashboard/server/index.js",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "GitHub",
+      "type": "concept",
+      "context": "GitHub blocked pushes",
+      "source": "2026-03-10.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Cognitive Sovereignty Detector",
+      "to": "relationship-monitor",
+      "type": "relates_to",
+      "context": "Extends the relationship-health framework",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Cognitive Sovereignty Detector",
+      "to": "Kaas 2024",
+      "type": "relates_to",
+      "context": "Research basis for the detector",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Cognitive Sovereignty Detector",
+      "to": "Branda & Ciccozzi 2026",
+      "type": "relates_to",
+      "context": "Research basis - Cognitive Sovereignty concept",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Cognitive Sovereignty Detector",
+      "to": "Logg et al. 2019",
+      "type": "relates_to",
+      "context": "Research basis - Algorithm appreciation",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Cognitive Sovereignty",
+      "to": "Epistemic Independence",
+      "type": "relates_to",
+      "context": "Cognitive sovereignty concerns erosion of epistemic independence",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Automation Bias",
+      "to": "Cognitive Sovereignty",
+      "type": "relates_to",
+      "context": "One of the concerning signals that erodes cognitive sovereignty",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Algorithm Appreciation",
+      "to": "Cognitive Sovereignty",
+      "type": "relates_to",
+      "context": "One of the concerning signals detected",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Epistemic Delegation",
+      "to": "Cognitive Sovereignty",
+      "type": "relates_to",
+      "context": "Outsourcing understanding itself",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Kartik",
+      "to": "Rotate Anthropic API key",
+      "type": "works_on",
+      "context": "Action needed - key was exposed in git history",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Kartik",
+      "to": "relationship-monitor",
+      "type": "works_on",
+      "context": "Project in Kartik's workspace",
+      "source": "2026-03-10.md"
+    }
+  ]
+}

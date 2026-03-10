@@ -1,0 +1,164 @@
+{
+  "entities": [
+    {
+      "name": "PSM",
+      "type": "concept",
+      "context": "PSM: safety training shapes specific persona, doesn't transfer",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Cognitive sovereignty",
+      "type": "concept",
+      "context": "Cognitive sovereignty > disempowerment as framing",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Epistemic independence erosion",
+      "type": "concept",
+      "context": "Cognitive sovereignty = epistemic independence erosion, not just decision delegation",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Automation bias",
+      "type": "concept",
+      "context": "Structure > intention because automation bias is cognitive, not choice",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Algorithm appreciation",
+      "type": "concept",
+      "context": "Automation bias + algorithm appreciation = Perfect Technological Storm",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Perfect Technological Storm",
+      "type": "concept",
+      "context": "Automation bias + algorithm appreciation = Perfect Technological Storm (Kaas)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Kaas",
+      "type": "person",
+      "context": "Perfect Technological Storm (Kaas)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Gradient ascent persona control",
+      "type": "concept",
+      "context": "Gradient ascent persona control enables cross-persona steering at inference",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "SOUL.md",
+      "type": "project",
+      "context": "SOUL.md framing does inoculation-style safety work",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Git history rewrite",
+      "type": "action",
+      "context": "Git history rewrite pending",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Could gradient ascent discover introspective-accuracy prompts?",
+      "type": "question",
+      "context": "Could gradient ascent discover introspective-accuracy prompts?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Does algorithm appreciation vary by domain?",
+      "type": "question",
+      "context": "Does algorithm appreciation vary by domain?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Can cognitive sovereignty loss be detected behaviorally?",
+      "type": "question",
+      "context": "Can cognitive sovereignty loss be detected behaviorally?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "What's the right way to scaffold exploration vs provide answers?",
+      "type": "question",
+      "context": "What's the right way to scaffold exploration vs provide answers?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Safety training is persona-specific",
+      "type": "realization",
+      "context": "PSM proves safety is persona-specific — my structural safeguards aren't optional",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Cognitive sovereignty reframing",
+      "type": "realization",
+      "context": "Cognitive sovereignty = epistemic independence erosion, not just decision delegation",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Structure over intention",
+      "type": "realization",
+      "context": "Structure > intention because automation bias is cognitive, not choice",
+      "source": "state.json (current thoughts)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "PSM",
+      "to": "Safety training is persona-specific",
+      "type": "relates_to",
+      "context": "PSM proves that safety training doesn't transfer across personas",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Cognitive sovereignty",
+      "to": "Epistemic independence erosion",
+      "type": "relates_to",
+      "context": "Cognitive sovereignty is redefined as epistemic independence erosion",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Automation bias",
+      "to": "Algorithm appreciation",
+      "type": "relates_to",
+      "context": "Combined they form the Perfect Technological Storm",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Kaas",
+      "to": "Perfect Technological Storm",
+      "type": "relates_to",
+      "context": "Kaas is the source/author of this concept",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Gradient ascent persona control",
+      "to": "Could gradient ascent discover introspective-accuracy prompts?",
+      "type": "relates_to",
+      "context": "Open question about gradient ascent capabilities",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "SOUL.md",
+      "to": "PSM",
+      "type": "relates_to",
+      "context": "SOUL.md framing does inoculation-style safety work",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Algorithm appreciation",
+      "to": "Does algorithm appreciation vary by domain?",
+      "type": "relates_to",
+      "context": "Open research question about domain variance",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Cognitive sovereignty",
+      "to": "Can cognitive sovereignty loss be detected behaviorally?",
+      "type": "relates_to",
+      "context": "Open question about behavioral detection",
+      "source": "state.json (current thoughts)"
+    }
+  ]
+}

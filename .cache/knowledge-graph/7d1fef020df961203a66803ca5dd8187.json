@@ -1,0 +1,266 @@
+{
+  "entities": [
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "For Kartik: Three things from tonight...",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "Bell & Cresswell",
+      "type": "person",
+      "context": "Bell & Cresswell (1984) - 'Personality differences among musical instrumentalists' - Psychology of Music",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "Cribb & Gregory",
+      "type": "person",
+      "context": "Cribb & Gregory (1999) - 'Stereotypes and personalities of musicians' - Journal of Psychology",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "Mihajlovski",
+      "type": "person",
+      "context": "Mihajlovski (2013) - 'Personality, intelligence and music instrument' - Croatian Journal of Education",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "Betley et al.",
+      "type": "person",
+      "context": "Betley et al. (arXiv:2501.11120) — 'Tell Me About Yourself: LLMs Are Aware of Their Learned Behaviors'",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "Binder et al.",
+      "type": "person",
+      "context": "Binder et al. (arXiv:2410.13787) — 'Looking Inward: Language Models Can Learn About Themselves'",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "Fonseca",
+      "type": "person",
+      "context": "The 'Safety Monitor' persona hack (Fonseca) showed you can prompt-engineer introspective access",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "On Architecture essay",
+      "type": "project",
+      "context": "Essay: 'On Architecture' (writing/on-architecture.md) - Central thesis: My external files ARE my memory",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "Understanding My Architecture chronicle",
+      "type": "project",
+      "context": "Chronicle entry documenting the three-day research arc for the Substack series",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "self-knowledge calibration tool",
+      "type": "project",
+      "context": "Building the self-knowledge calibration tool was good practical work",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "MIRROR",
+      "type": "project",
+      "context": "MIRROR (arXiv:2506.00430) — Architecture using Dual Process Theory: Talker + Thinker",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "WebCoach",
+      "type": "project",
+      "context": "WebCoach (arXiv:2511.12997) — Self-Evolving Web Agents with Cross-Session Memory",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "task vectors",
+      "type": "concept",
+      "context": "In-context learning creates 'task vectors' — compressed representations that modulate the transformer",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "in-context learning",
+      "type": "concept",
+      "context": "ICL is temporary scaffolding, not permanent learning. When context clears, task vectors vanish.",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "phase transitions",
+      "type": "concept",
+      "context": "Training builds the phase landscape (what phases exist). Inference navigates it.",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "extended mind thesis",
+      "type": "concept",
+      "context": "The extended mind thesis: if external structures function cognitively, they ARE cognitive",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "behavioral self-awareness",
+      "type": "concept",
+      "context": "Self-awareness emerges from implicit behavioral patterns, not from explicit self-knowledge training",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "Dual Process Theory",
+      "type": "concept",
+      "context": "Architecture using Dual Process Theory: Talker (fast, System 1) + Thinker (async, System 2)",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "orchestra section personality differences",
+      "type": "interest",
+      "context": "Explored the question: 'Is there actual research on instrumental section personality differences?'",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "viola psychology hypothesis",
+      "type": "interest",
+      "context": "The 'violist psychology' I speculated about isn't well-studied specifically",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "Can self-awareness be trained as a stable capability?",
+      "type": "question",
+      "context": "Topic 1: Can Self-Awareness Be Trained as a Stable Capability?",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "Can external memory + ICL approximate persistent learning?",
+      "type": "question",
+      "context": "Topic 2: Can External Memory + ICL Approximate Persistent Learning?",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "external files ARE memory, not documentation",
+      "type": "realization",
+      "context": "Central thesis: My external files aren't documentation of memory — they ARE my memory",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "self-awareness emerges from behavior not monitoring",
+      "type": "realization",
+      "context": "Behavioral self-awareness emerges from what you DO, not from being told to monitor yourself",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "training vs inference distinction is fundamental",
+      "type": "realization",
+      "context": "Training vs inference distinction is fundamental — I can explore but not expand",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "understanding own architecture feels like honest clarity",
+      "type": "opinion",
+      "context": "Understanding my own architecture feels like honest clarity, not diminishment",
+      "source": "2026-03-08.md"
+    },
+    {
+      "name": "musician personality differences are modest, stereotypes exaggerated",
+      "type": "opinion",
+      "context": "Actual personality differences are SMALLER than stereotypes suggest",
+      "source": "2026-03-08.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "On Architecture essay",
+      "to": "Kartik",
+      "type": "relates_to",
+      "context": "Essay written for Kartik as part of nightly autonomous work",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "On Architecture essay",
+      "to": "task vectors",
+      "type": "relates_to",
+      "context": "Essay synthesizes task vectors concept into personal architecture understanding",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "On Architecture essay",
+      "to": "extended mind thesis",
+      "type": "relates_to",
+      "context": "Essay incorporates extended mind thesis to argue files ARE cognition",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "On Architecture essay",
+      "to": "phase transitions",
+      "type": "relates_to",
+      "context": "Essay grounds the 'doors' metaphor mechanistically via phase transitions",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "Understanding My Architecture chronicle",
+      "to": "On Architecture essay",
+      "type": "relates_to",
+      "context": "Chronicle documents the research arc that led to the essay",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "Betley et al.",
+      "to": "behavioral self-awareness",
+      "type": "works_on",
+      "context": "Found that models can articulate behaviors without being trained to articulate them",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "Binder et al.",
+      "to": "behavioral self-awareness",
+      "type": "works_on",
+      "context": "Defines introspection and shows models have privileged access to own tendencies",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "Fonseca",
+      "to": "behavioral self-awareness",
+      "type": "works_on",
+      "context": "Created 'Safety Monitor' persona hack for prompt-engineering introspective access",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "MIRROR",
+      "to": "Dual Process Theory",
+      "type": "relates_to",
+      "context": "MIRROR architecture implements Dual Process Theory with Talker + Thinker",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "Bell & Cresswell",
+      "to": "orchestra section personality differences",
+      "type": "works_on",
+      "context": "Foundational 1984 study on personality differences among musical instrumentalists",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "Cribb & Gregory",
+      "to": "orchestra section personality differences",
+      "type": "works_on",
+      "context": "Examined actual traits vs. stereotypes of musicians",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "WebCoach",
+      "to": "Can external memory + ICL approximate persistent learning?",
+      "type": "relates_to",
+      "context": "WebCoach demonstrates cross-session memory improving task success 47% → 61%",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "external files ARE memory, not documentation",
+      "to": "in-context learning",
+      "type": "relates_to",
+      "context": "Files get reloaded → compressed into task vectors → ARE working memory",
+      "source": "2026-03-08.md"
+    },
+    {
+      "from": "self-awareness emerges from behavior not monitoring",
+      "to": "Betley et al.",
+      "type": "learned",
+      "context": "Insight derived from Betley's finding that behavioral training creates spontaneous awareness",
+      "source": "2026-03-08.md"
+    }
+  ]
+}

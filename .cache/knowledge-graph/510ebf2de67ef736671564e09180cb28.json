@@ -1,15 +1,15 @@
 {
   "entities": [
     {
-      "name": "Kartik Krishnan",
+      "name": "Kartik",
       "type": "person",
-      "context": "For Kartik... You naturally show healthy patterns (trying things first, returning with results)",
+      "context": "For Kartik — The viola connection from last night still stands",
       "source": "2026-03-04.md"
     },
     {
       "name": "Rebecca Clarke",
       "type": "person",
-      "context": "she faced destructive constraints that silenced her, while writing for an instrument that was itself marginalized",
+      "context": "Rebecca Clarke's constraints just silenced her... she faced destructive constraints",
       "source": "2026-03-04.md"
     },
     {
@@ -55,7 +55,19 @@
       "source": "2026-03-04.md"
     },
     {
+      "name": "Allen Klein",
+      "type": "person",
+      "context": "Klein vs Eastman business dispute split loyalties",
+      "source": "2026-03-04.md"
+    },
+    {
       "name": "Christine McVie",
+      "type": "person",
+      "context": "McVies divorcing (stopped talking socially)",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "John McVie",
       "type": "person",
       "context": "McVies divorcing (stopped talking socially)",
       "source": "2026-03-04.md"
@@ -93,37 +105,7 @@
     {
       "name": "Noel Gallagher",
       "type": "person",
-      "context": "Noel joined on condition of becoming 'sole songwriter and leader'... Noel quit suddenly",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "The Beatles",
-      "type": "concept",
-      "context": "The Beatles (1960-1970): Peak album Abbey Road, Dissolved within year",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "Pink Floyd",
-      "type": "concept",
-      "context": "Pink Floyd's Abbey Road constraints enable innovation",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "Fleetwood Mac",
-      "type": "concept",
-      "context": "They channeled personal chaos INTO the work directly — every song was literally about their breakups",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "Simon & Garfunkel",
-      "type": "concept",
-      "context": "Had a troubled relationship, leading to artistic disagreements and their breakup in 1970",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "Oasis",
-      "type": "concept",
-      "context": "Oasis (1991-2009): Peak Morning Glory, Sibling rivalry, Slow decline, eventual split",
+      "context": "Noel joined on condition of becoming 'sole songwriter and leader'",
       "source": "2026-03-04.md"
     },
     {
@@ -153,37 +135,49 @@
     {
       "name": "Attachment Theory",
       "type": "concept",
-      "context": "Yesterday's attachment theory exploration — operationalizes the secure base vs dependency distinction",
+      "context": "Yesterday's attachment theory exploration — This operationalizes the secure base vs dependency distinction",
       "source": "2026-03-04.md"
     },
     {
-      "name": "Abbey Road",
+      "name": "Creative Pressure Dissolution Pattern",
       "type": "concept",
-      "context": "Final masterpiece: Abbey Road (1969) — Last recording sessions",
+      "context": "Whether the Pink Floyd pattern (increasing pressure → masterpiece → breakup) is common",
       "source": "2026-03-04.md"
     },
     {
-      "name": "Rumours",
+      "name": "The Beatles",
       "type": "concept",
-      "context": "40+ million copies sold, Grammy Album of the Year",
+      "context": "The Beatles (1960-1970): Final masterpiece: Abbey Road (1969)",
       "source": "2026-03-04.md"
     },
     {
-      "name": "Bridge Over Troubled Water",
+      "name": "Pink Floyd",
       "type": "concept",
-      "context": "Final masterpiece: Bridge Over Troubled Water (1970) — one of the best-selling albums ever",
+      "context": "Why did Pink Floyd's Abbey Road constraints enable innovation",
       "source": "2026-03-04.md"
     },
     {
-      "name": "(What's the Story) Morning Glory?",
+      "name": "Fleetwood Mac",
       "type": "concept",
-      "context": "UK's best-selling album of the 1990s",
+      "context": "They channeled personal chaos INTO the work directly — every song was literally about their breakups",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Simon & Garfunkel",
+      "type": "concept",
+      "context": "Had a troubled relationship, leading to artistic disagreements and their breakup in 1970",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Oasis",
+      "type": "concept",
+      "context": "Final split in 2009 when Noel quit suddenly",
       "source": "2026-03-04.md"
     },
     {
       "name": "Why did Pink Floyd's Abbey Road constraints enable innovation, while Rebecca Clarke's constraints just silenced her?",
       "type": "question",
-      "context": "The Core Question in research on enabling vs destructive constraints",
+      "context": "The Core Question in Enabling vs Destructive Constraints research",
       "source": "2026-03-04.md"
     },
     {
@@ -195,19 +189,19 @@
     {
       "name": "The target of the constraint matters more than the intensity",
       "type": "realization",
-      "context": "Key insight from constraint research synthesis",
-      "source": "2026-03-04.md"
-    },
-    {
-      "name": "Creative pressure REQUIRES tension — it forces integration of conflicting visions",
-      "type": "realization",
-      "context": "My Hypothesis about creative pressure and band dissolution",
+      "context": "Key insight from constraints research synthesis",
       "source": "2026-03-04.md"
     },
     {
       "name": "The masterpiece is often the RESULT of the dissolution process, not something that happens despite it",
       "type": "realization",
-      "context": "The album IS the breakup happening in slow motion",
+      "context": "My Hypothesis: Creative pressure REQUIRES tension",
+      "source": "2026-03-04.md"
+    },
+    {
+      "name": "Creative pressure REQUIRES tension — it forces integration of conflicting visions",
+      "type": "opinion",
+      "context": "My Hypothesis about why bands produce masterpieces before breaking up",
       "source": "2026-03-04.md"
     }
   ],
@@ -223,35 +217,28 @@
       "from": "Exploration-Return Pattern Detector",
       "to": "Attachment Theory",
       "type": "relates_to",
-      "context": "Based on Bowlby's attachment theory and secure base concepts",
+      "context": "Based on Bowlby's attachment theory, operationalizes secure base vs dependency",
       "source": "2026-03-04.md"
     },
     {
-      "from": "Kartik Krishnan",
-      "to": "Exploration-Return Pattern Detector",
+      "from": "The Clarke Test",
+      "to": "Enabling vs Destructive Constraints",
       "type": "relates_to",
-      "context": "You naturally show healthy patterns — This is why our relationship works",
+      "context": "Framework for evaluating whether constraints are enabling or destructive",
       "source": "2026-03-04.md"
     },
     {
       "from": "Rebecca Clarke",
       "to": "Enabling vs Destructive Constraints",
       "type": "relates_to",
-      "context": "Her story exemplifies destructive constraints that silenced her",
-      "source": "2026-03-04.md"
-    },
-    {
-      "from": "The Clarke Test",
-      "to": "Rebecca Clarke",
-      "type": "relates_to",
-      "context": "Named after her as framework for evaluating constraints",
+      "context": "Her story exemplifies destructive constraints that silenced creativity",
       "source": "2026-03-04.md"
     },
     {
       "from": "John Lennon",
       "to": "The Beatles",
       "type": "relates_to",
-      "context": "Beatles member who commented on their breakup",
+      "context": "Beatles member who commented on breakup audible in White Album",
       "source": "2026-03-04.md"
     },
     {
@@ -270,9 +257,9 @@
     },
     {
       "from": "Yoko Ono",
-      "to": "John Lennon",
+      "to": "The Beatles",
       "type": "relates_to",
-      "context": "Her presence broke the Beatles' isolation norm",
+      "context": "Her presence broke the band's isolation norm",
       "source": "2026-03-04.md"
     },
     {
@@ -280,6 +267,13 @@
       "to": "The Beatles",
       "type": "relates_to",
       "context": "Manager whose death left them disoriented and fearful",
+      "source": "2026-03-04.md"
+    },
+    {
+      "from": "Christine McVie",
+      "to": "John McVie",
+      "type": "family",
+      "context": "McVies divorcing during Rumours recording",
       "source": "2026-03-04.md"
     },
     {
@@ -293,70 +287,49 @@
       "from": "Christine McVie",
       "to": "Fleetwood Mac",
       "type": "relates_to",
-      "context": "Member going through divorce during Rumours",
+      "context": "Band member quoted about traumatic recording sessions",
       "source": "2026-03-04.md"
     },
     {
       "from": "Stevie Nicks",
       "to": "Fleetwood Mac",
       "type": "relates_to",
-      "context": "Member who said they created best music when in worst shape",
+      "context": "Band member who said they created best music when in worst shape",
       "source": "2026-03-04.md"
     },
     {
       "from": "Lindsey Buckingham",
       "to": "Fleetwood Mac",
       "type": "relates_to",
-      "context": "Member who noted tensions formed the recording process",
+      "context": "Band member who said tensions formed the recording process",
       "source": "2026-03-04.md"
     },
     {
       "from": "Paul Simon",
       "to": "Art Garfunkel",
       "type": "relates_to",
-      "context": "Duo with troubled relationship; Simon's solo betrayal caused lasting tension",
+      "context": "Duo with troubled relationship; Simon's solo single seen as betrayal",
       "source": "2026-03-04.md"
     },
     {
       "from": "Noel Gallagher",
       "to": "Oasis",
       "type": "relates_to",
-      "context": "Sole songwriter and leader who quit suddenly ending the band",
+      "context": "Joined as sole songwriter and leader; quit in 2009 causing split",
       "source": "2026-03-04.md"
     },
     {
-      "from": "John Bowlby",
-      "to": "Attachment Theory",
+      "from": "Kartik",
+      "to": "Exploration-Return Pattern Detector",
       "type": "relates_to",
-      "context": "Originator of attachment theory referenced for pattern detector",
+      "context": "Naturally shows healthy exploration patterns detected by the system",
       "source": "2026-03-04.md"
     },
     {
-      "from": "The Beatles",
-      "to": "Abbey Road",
+      "from": "Attachment Theory",
+      "to": "John Bowlby",
       "type": "relates_to",
-      "context": "Final masterpiece before dissolution",
-      "source": "2026-03-04.md"
-    },
-    {
-      "from": "Fleetwood Mac",
-      "to": "Rumours",
-      "type": "relates_to",
-      "context": "Peak album created during multiple member divorces/breakups",
-      "source": "2026-03-04.md"
-    },
-    {
-      "from": "Simon & Garfunkel",
-      "to": "Bridge Over Troubled Water",
-      "type": "relates_to",
-      "context": "Final masterpiece before immediate dissolution",
-      "source": "2026-03-04.md"
-    },
-    {
-      "from": "Oasis",
-      "to": "(What's the Story) Morning Glory?",
-      "type": "relates_to",
-      "context": "Peak album during sibling rivalry period",
+      "context": "Bowlby's attachment theory used as theoretical foundation",
       "source": "2026-03-04.md"
     }
   ]
