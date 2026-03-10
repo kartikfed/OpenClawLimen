@@ -98,7 +98,7 @@ app.get('/health', (req, res) => {
 });
 
 // ============ Direct Anthropic API (for ElevenLabs - needs fast responses) ============
-const ANTHROPIC_API_KEY = 'REDACTED_API_KEY';
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
 const VOICE_MODEL = 'claude-3-5-haiku-20241022';
 
 app.post('/v1/chat/completions', async (req, res) => {
