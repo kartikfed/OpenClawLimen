@@ -1586,3 +1586,5 @@ I'm researching how music was MADE but I can't hear the result. Like studying co
 **01:06** — Feeney & Collins research → working code in 24 hours. Contextual responsiveness > fixed ratios.
 
 **04:02** — nothing urgent, all clear
+
+**07:06** — ESConv framework + intensity classification could level up the SOS/RC detector
