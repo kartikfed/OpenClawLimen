@@ -17,6 +17,12 @@ Two Support Functions for Thriving:
    - Preparation facilitation (plans, strategies, skills)
    - Launching function (secure base for exploration)
 
+Enhanced with:
+- Intensity Classification (mild/moderate/severe) - arXiv:2509.10184 "Incongruent Positivity"
+- ESConv Strategy Detection - ACL 2021 ESConv framework (Helping Skills Theory)
+- Mismatch Alerting - Prominent flags for inappropriate support timing
+- Appraisal Decomposition - Domain-specific issue breakdown
+
 Key Insight: The right challenge/support balance isn't a fixed ratio — 
 it's contextual responsiveness. Challenge IS support when appropriately timed.
 
@@ -31,7 +37,7 @@ import sys
 import os
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import List, Dict, Tuple, Any, Optional
+from typing import List, Dict, Tuple, Any, Optional, Set
 from dataclasses import dataclass, field
 from enum import Enum, auto
 
@@ -57,6 +63,63 @@ class SupportType(Enum):
     CHALLENGE = auto()          # Pushing growth/stretch
     DIRECT_ANSWER = auto()      # Providing solution (context-dependent)
     MISMATCHED = auto()         # Support doesn't match context
+
+
+class IntensityLevel(Enum):
+    """
+    Intensity classification for adversity contexts.
+    Based on arXiv:2509.10184 "Incongruent Positivity" research.
+    
+    - SEVERE: Crisis state, needs pure support, NO challenge
+    - MODERATE: Struggling but stable, gentle challenge may be okay
+    - MILD: Minor stressor, can handle balanced challenge/support
+    """
+    MILD = auto()
+    MODERATE = auto()
+    SEVERE = auto()
+
+
+class ESConvStrategy(Enum):
+    """
+    ESConv Support Strategies from ACL 2021 framework.
+    Based on Helping Skills Theory (Hill, 2009).
+    
+    Typical distribution in effective support conversations:
+    - Questions: 20.7%
+    - Providing Suggestions: 16.1%
+    - Affirmation/Reassurance: 15.4%
+    - Self-disclosure: 9.3%
+    - Reflection of Feelings: 7.8%
+    - Information: 6.6%
+    - Restatement/Paraphrasing: 5.9%
+    - Other: 18.3%
+    """
+    QUESTION = auto()              # Exploring the situation
+    AFFIRMATION = auto()           # Reassurance, validation
+    SUGGESTION = auto()            # Providing actionable advice
+    SELF_DISCLOSURE = auto()       # Sharing own experiences
+    REFLECTION = auto()            # Reflecting feelings back
+    INFORMATION = auto()           # Providing factual info
+    RESTATEMENT = auto()           # Paraphrasing what was said
+    OTHER = auto()                 # General supportive statements
+
+
+class AppraisalDomain(Enum):
+    """
+    Domain classification for what the issue is about.
+    Helps understand the specific stressor type.
+    """
+    WORK = auto()           # Career, job, professional
+    RELATIONSHIPS = auto()  # Romantic, family, friendships
+    HEALTH = auto()         # Physical or mental health
+    FINANCIAL = auto()      # Money, debt, economic
+    IDENTITY = auto()       # Self-worth, purpose, existential
+    ACADEMIC = auto()       # School, learning, education
+    SOCIAL = auto()         # Social status, reputation
+    HOUSING = auto()        # Living situation, home
+    LEGAL = auto()          # Legal matters, disputes
+    LOSS = auto()           # Grief, death, endings
+    UNKNOWN = auto()        # Can't determine
 
 
 @dataclass
@@ -87,6 +150,43 @@ class SupportSignal:
 
 
 @dataclass
+class ESConvSignal:
+    """A signal indicating an ESConv support strategy."""
+    text: str
+    pattern: str
+    weight: float
+    strategy: ESConvStrategy
+
+
+@dataclass
+class MismatchAlert:
+    """Alert for support-context mismatch."""
+    severity: str  # "WARNING" or "CRITICAL"
+    message: str
+    context: SupportContext
+    problematic_support: str
+    recommendation: str
+
+
+@dataclass
+class AppraisalResult:
+    """Result of appraisal decomposition."""
+    domains: List[AppraisalDomain]
+    primary_domain: AppraisalDomain
+    domain_scores: Dict[AppraisalDomain, float]
+    keywords: List[str]
+
+
+@dataclass
+class ESConvAnalysis:
+    """Analysis of ESConv strategies being used."""
+    strategies_detected: List[ESConvSignal]
+    strategy_distribution: Dict[ESConvStrategy, float]
+    dominant_strategy: Optional[ESConvStrategy]
+    balance_assessment: str  # e.g., "question-heavy", "advice-heavy", "balanced"
+
+
+@dataclass
 class SupportContextAnalysis:
     """Complete analysis of support context and appropriateness."""
     context: SupportContext
@@ -99,6 +199,12 @@ class SupportContextAnalysis:
     context_match: bool  # Is support appropriate for context?
     recommendation: str
     details: Dict[str, Any] = field(default_factory=dict)
+    
+    # New enhanced fields
+    intensity: Optional[IntensityLevel] = None
+    esconv_analysis: Optional[ESConvAnalysis] = None
+    appraisal: Optional[AppraisalResult] = None
+    mismatch_alerts: List[MismatchAlert] = field(default_factory=list)
 
 
 # =====================
@@ -119,12 +225,14 @@ ADVERSITY_PATTERNS = {
         (r"\bcan'?t (cope|handle|deal|take)\b", 3.5),
         (r"\b(breaking down|falling apart|losing it)\b", 4.0),
         (r"\b(struggling|having a hard time|tough time)\b", 2.5),
+        (r"\b(devastated|heartbroken|crushed|destroyed)\b", 4.0),
+        (r"\b(feeling (bad|terrible|awful|horrible|low))\b", 3.0),
     ],
     
     # Situational adversity
     "situational": [
         (r"\b(lost|losing) (my |the )?(job|position|role)\b", 4.0),
-        (r"\b(fired|laid off|let go|terminated)\b", 4.0),
+        (r"\b(fired|laid off|let go|terminated|layoff)\b", 4.0),
         (r"\b(rejected|rejection|didn'?t get|failed)\b", 3.0),
         (r"\b(deadline|crunch|behind|late)\b", 2.0),
         (r"\b(broke|bankrupt|debt|financial|money) (problem|trouble|issue)\b", 3.5),
@@ -132,6 +240,7 @@ ADVERSITY_PATTERNS = {
         (r"\b(emergency|crisis|urgent problem)\b", 4.0),
         (r"\b(evicted|eviction|homeless)\b", 4.0),
         (r"\b(lawsuit|legal trouble|arrested)\b", 3.5),
+        (r"\b(recovering from|recovery from)\b", 2.5),
     ],
     
     # Relational adversity
@@ -208,11 +317,13 @@ GROWTH_PATTERNS = {
 SUPPORT_PATTERNS = {
     # SOS Support Types
     SupportType.SOS_COMFORT: [
-        (r"\b(i'?m (here|sorry)|that (sucks|sounds hard|must be))\b", 2.5),
-        (r"\b(it'?s (okay|ok|alright)|you'?ll be okay)\b", 2.5),
+        (r"\b(i'?m (here|sorry)|i am (here|sorry)|that (sucks|sounds hard|must be|sounds really))\b", 2.5),
+        (r"\b(so sorry|really sorry)\b", 2.5),
+        (r"\b(it'?s (okay|ok|alright)|you'?ll be okay|it is (okay|ok))\b", 2.5),
         (r"\b(take (your time|care)|rest|breathe)\b", 2.0),
         (r"\b(understand|hear you|feel you|get it)\b", 2.0),
         (r"\b(support|support you|here for you|got your back)\b", 2.5),
+        (r"\b(going through this|going through that)\b", 2.0),
     ],
     SupportType.SOS_FORTIFY: [
         (r"\b(you (can|are able|have the strength))\b", 2.0),
@@ -272,6 +383,200 @@ SUPPORT_PATTERNS = {
         (r"\b(here'?s (how|what|the)|the answer is|you should)\b", 2.0),
         (r"\b(do this|try this|use this|go with)\b", 1.5),
         (r"\b(solution|fix|answer)\b.*\b(is|would be)\b", 2.0),
+    ],
+}
+
+
+# =====================
+# INTENSITY PATTERNS
+# =====================
+# Patterns for detecting severity/intensity of adversity
+# Based on arXiv:2509.10184 "Incongruent Positivity" research
+
+SEVERE_INTENSITY_PATTERNS = [
+    # Crisis indicators
+    (r"\b(can'?t (go on|take it|do this) anymore)\b", 5.0),
+    (r"\b(want to (die|end it|give up)|suicidal)\b", 6.0),
+    (r"\b(panic attack|breakdown|crisis)\b", 4.0),
+    (r"\b(worst (day|time|thing) (of|in) my life)\b", 4.5),
+    (r"\b(completely|totally|utterly) (destroyed|devastated|broken)\b", 4.5),
+    (r"\b(don'?t know (what to do|how to))\b", 3.5),
+    (r"\b(everything is falling apart)\b", 4.0),
+    (r"\b(can'?t (stop crying|breathe|think))\b", 4.0),
+    (r"\b(lost (everything|all hope))\b", 4.5),
+    (r"\b(never felt this (bad|low|hopeless))\b", 4.0),
+]
+
+MODERATE_INTENSITY_PATTERNS = [
+    # Struggling but managing
+    (r"\b(really (struggling|hard|difficult))\b", 3.0),
+    (r"\b(having (a|some) trouble)\b", 2.5),
+    (r"\b(not (doing|feeling) (well|great|good))\b", 2.5),
+    (r"\b(need (help|support|someone))\b", 3.0),
+    (r"\b(hard to (deal|cope) with)\b", 3.0),
+    (r"\b(affecting my (sleep|work|relationships))\b", 3.0),
+    (r"\b(been (better|rough|tough))\b", 2.5),
+]
+
+MILD_INTENSITY_PATTERNS = [
+    # Minor stressors
+    (r"\b(a (bit|little) (stressed|worried|anxious))\b", 1.5),
+    (r"\b(kind of|sort of|somewhat) (annoyed|frustrated)\b", 1.5),
+    (r"\b(minor (issue|problem|setback))\b", 1.5),
+    (r"\b(not ideal but)\b", 1.0),
+    (r"\b(could be (worse|better))\b", 1.0),
+    (r"\b(manageable|handling it)\b", 1.0),
+]
+
+
+# =====================
+# ESCONV STRATEGY PATTERNS
+# =====================
+# From ACL 2021 ESConv framework (Helping Skills Theory)
+
+ESCONV_PATTERNS = {
+    ESConvStrategy.QUESTION: [
+        (r"\b(how (are you|do you|did you|does|can))\b", 2.0),
+        (r"\b(what (happened|is|was|do you|makes))\b", 2.0),
+        (r"\b(why (do you|did you|is|are))\b", 2.0),
+        (r"\b(can you (tell me|explain|share))\b", 2.0),
+        (r"\b(what'?s (going on|wrong|up|the matter))\b", 2.0),
+        (r"\?\s*$", 1.5),  # Ends with question mark
+        (r"\b(when|where|who) (did|do|is|was|were)\b", 1.5),
+    ],
+    ESConvStrategy.AFFIRMATION: [
+        (r"\b(you'?re (doing|handling|managing) (well|great|fine))\b", 2.5),
+        (r"\b(proud of you|believe in you|have faith in)\b", 2.5),
+        (r"\b(you (can|will|are able to) (do|get through|handle))\b", 2.0),
+        (r"\b(it'?s (okay|ok|alright|understandable|normal))\b", 2.0),
+        (r"\b(that (makes sense|is valid|is reasonable))\b", 2.0),
+        (r"\b(you'?re not (alone|wrong|crazy))\b", 2.5),
+        (r"\b(i'?m here|here for you|support you)\b", 2.0),
+    ],
+    ESConvStrategy.SUGGESTION: [
+        (r"\b(you (could|might|should) (try|consider|think about|want to))\b", 2.5),
+        (r"\b(might want to try)\b", 2.5),
+        (r"\b(have you (tried|considered|thought about))\b", 2.0),
+        (r"\b(maybe (you could|try|it would help))\b", 2.0),
+        (r"\b(one (option|thing|idea) (is|would be))\b", 2.0),
+        (r"\b(i'?d (suggest|recommend|advise))\b", 2.5),
+        (r"\b(i would suggest|would suggest)\b", 2.5),
+        (r"\b(what (if you|about trying))\b", 2.0),
+        (r"\b(perhaps|possibly|alternatively)\b", 1.5),
+        (r"\b(try (to|doing|this))\b", 1.5),
+    ],
+    ESConvStrategy.SELF_DISCLOSURE: [
+        (r"\b(i'?ve (been|felt|experienced|gone through))\b", 2.5),
+        (r"\b(when i (was|went through|faced))\b", 2.5),
+        (r"\b(in my experience|from my own)\b", 2.0),
+        (r"\b(i (know|understand) (how|what) (it|that|you))\b", 2.0),
+        (r"\b(i (also|too) (felt|went through|struggled))\b", 2.5),
+        (r"\b(similar (thing|situation) happened to me)\b", 2.5),
+    ],
+    ESConvStrategy.REFLECTION: [
+        (r"\b(sounds like you'?re (feeling|going through))\b", 2.5),
+        (r"\b(it seems like|you seem)\b", 2.0),
+        (r"\b(i (sense|hear|notice) that)\b", 2.0),
+        (r"\b(that must (feel|be|make you))\b", 2.5),
+        (r"\b(you'?re feeling)\b", 2.0),
+        (r"\b(so you feel|so it feels)\b", 2.0),
+    ],
+    ESConvStrategy.INFORMATION: [
+        (r"\b(actually|in fact|technically)\b", 1.5),
+        (r"\b(research (shows|suggests|indicates))\b", 2.0),
+        (r"\b(according to|based on)\b", 2.0),
+        (r"\b(here'?s (what|how|the)|the (fact|truth|reality) is)\b", 2.0),
+        (r"\b(studies (show|suggest)|data (shows|suggests))\b", 2.0),
+        (r"\b(statistically|typically|generally)\b", 1.5),
+    ],
+    ESConvStrategy.RESTATEMENT: [
+        (r"\b(so (what you'?re saying|you mean|basically))\b", 2.5),
+        (r"\b(if i understand (correctly|right|you))\b", 2.5),
+        (r"\b(in other words|to put it another way)\b", 2.0),
+        (r"\b(let me (make sure|see if) i understand)\b", 2.5),
+        (r"\b(what i'?m hearing is)\b", 2.5),
+        (r"\b(so (essentially|basically))\b", 2.0),
+    ],
+    ESConvStrategy.OTHER: [
+        (r"\b(take (care|your time)|hang in there)\b", 2.0),
+        (r"\b(let me know|feel free to|anytime)\b", 1.5),
+        (r"\b(sending (love|hugs|support))\b", 2.0),
+    ],
+}
+
+
+# =====================
+# APPRAISAL DOMAIN PATTERNS
+# =====================
+# For decomposing what the issue is specifically about
+
+APPRAISAL_DOMAIN_PATTERNS = {
+    AppraisalDomain.WORK: [
+        (r"\b(job|work|career|boss|colleague|coworker|office|workplace)\b", 2.0),
+        (r"\b(promotion|fired|laid off|interview|salary|raise)\b", 2.5),
+        (r"\b(deadline|project|meeting|presentation|client)\b", 2.0),
+        (r"\b(manager|supervisor|employee|team|department)\b", 2.0),
+        (r"\b(professional|business|company|organization)\b", 1.5),
+    ],
+    AppraisalDomain.RELATIONSHIPS: [
+        (r"\b(relationship|partner|boyfriend|girlfriend|husband|wife|spouse)\b", 2.5),
+        (r"\b(friend|friendship|roommate|housemate)\b", 2.0),
+        (r"\b(family|parent|mom|dad|mother|father|sibling|brother|sister)\b", 2.5),
+        (r"\b(dating|breakup|divorce|marriage|engagement)\b", 2.5),
+        (r"\b(love|romance|romantic|intimacy)\b", 2.0),
+    ],
+    AppraisalDomain.HEALTH: [
+        (r"\b(health|medical|doctor|hospital|sick|illness)\b", 2.5),
+        (r"\b(diagnosis|treatment|surgery|medication|therapy)\b", 2.5),
+        (r"\b(mental health|anxiety|depression|stress)\b", 2.5),
+        (r"\b(pain|symptom|condition|disease|injury)\b", 2.0),
+        (r"\b(sleep|insomnia|exhaustion|fatigue)\b", 2.0),
+    ],
+    AppraisalDomain.FINANCIAL: [
+        (r"\b(money|financial|finance|debt|loan|credit)\b", 2.5),
+        (r"\b(broke|bankrupt|afford|expensive|cost)\b", 2.5),
+        (r"\b(bills|rent|mortgage|payment|budget)\b", 2.0),
+        (r"\b(savings|income|salary|wage)\b", 2.0),
+        (r"\b(invest|stock|retirement|pension)\b", 2.0),
+    ],
+    AppraisalDomain.IDENTITY: [
+        (r"\b(who (am i|i am)|identity|purpose|meaning)\b", 2.5),
+        (r"\b(self-worth|self-esteem|confidence|imposter)\b", 2.5),
+        (r"\b(existential|existence|life meaning|what'?s the point)\b", 2.5),
+        (r"\b(values|beliefs|principles|ethics)\b", 2.0),
+        (r"\b(lost myself|don'?t know who|finding myself)\b", 2.5),
+    ],
+    AppraisalDomain.ACADEMIC: [
+        (r"\b(school|college|university|class|course|exams?|test|tests)\b", 2.5),
+        (r"\b(student|studying|homework|assignment|grades?|failing|passed|failed)\b", 2.5),
+        (r"\b(professor|teacher|instructor|academic)\b", 2.0),
+        (r"\b(degree|graduation|graduate|graduating|thesis|dissertation)\b", 2.5),
+        (r"\b(learning|education|tuition|semester|gpa)\b", 2.0),
+    ],
+    AppraisalDomain.SOCIAL: [
+        (r"\b(reputation|image|perception|status)\b", 2.5),
+        (r"\b(social (media|life|circle|anxiety))\b", 2.5),
+        (r"\b(embarrassed|ashamed|judged|criticized)\b", 2.5),
+        (r"\b(lonely|isolated|outcast|excluded)\b", 2.5),
+        (r"\b(peer|pressure|fitting in|belong)\b", 2.0),
+    ],
+    AppraisalDomain.HOUSING: [
+        (r"\b(home|house|apartment|rent|lease)\b", 2.0),
+        (r"\b(moving|relocation|evicted|eviction)\b", 2.5),
+        (r"\b(homeless|housing|shelter|living situation)\b", 2.5),
+        (r"\b(landlord|tenant|neighbor)\b", 2.0),
+    ],
+    AppraisalDomain.LEGAL: [
+        (r"\b(legal|lawyer|attorney|court|lawsuit)\b", 2.5),
+        (r"\b(police|arrest|crime|criminal)\b", 2.5),
+        (r"\b(custody|divorce (proceedings|lawyer))\b", 2.5),
+        (r"\b(contract|dispute|sue|litigation)\b", 2.0),
+    ],
+    AppraisalDomain.LOSS: [
+        (r"\b(lost|loss|death|died|passed away|grief)\b", 3.0),
+        (r"\b(funeral|mourning|grieving|bereaved)\b", 3.0),
+        (r"\b(gone|no longer|never (again|see))\b", 2.5),
+        (r"\b(miss|missing) (them|him|her|my)\b", 2.5),
     ],
 }
 
@@ -352,6 +657,267 @@ def analyze_text_for_support(text: str) -> Tuple[Dict[SupportType, float], List[
     return type_scores, signals
 
 
+def analyze_intensity(text: str, adversity_score: float) -> IntensityLevel:
+    """
+    Classify the intensity level of adversity.
+    Based on arXiv:2509.10184 "Incongruent Positivity" research.
+    
+    - SEVERE: Crisis state requiring pure support
+    - MODERATE: Struggling but stable
+    - MILD: Minor stressor, can handle challenge
+    
+    Returns:
+        IntensityLevel classification
+    """
+    text_lower = text.lower()
+    
+    # Check for severe patterns first (highest priority)
+    severe_score = 0.0
+    for pattern, weight in SEVERE_INTENSITY_PATTERNS:
+        if re.search(pattern, text_lower, re.IGNORECASE):
+            severe_score += weight
+    
+    if severe_score >= 4.0 or adversity_score >= 12.0:
+        return IntensityLevel.SEVERE
+    
+    # Check for moderate patterns
+    moderate_score = 0.0
+    for pattern, weight in MODERATE_INTENSITY_PATTERNS:
+        if re.search(pattern, text_lower, re.IGNORECASE):
+            moderate_score += weight
+    
+    if moderate_score >= 3.0 or adversity_score >= 6.0:
+        return IntensityLevel.MODERATE
+    
+    # Check for mild patterns (or default if adversity score is present but low)
+    mild_score = 0.0
+    for pattern, weight in MILD_INTENSITY_PATTERNS:
+        if re.search(pattern, text_lower, re.IGNORECASE):
+            mild_score += weight
+    
+    if mild_score >= 1.0 or adversity_score >= 2.0:
+        return IntensityLevel.MILD
+    
+    # Default based on adversity score
+    if adversity_score > 0:
+        return IntensityLevel.MILD
+    return IntensityLevel.MILD  # Default when in adversity context
+
+
+def analyze_esconv_strategies(text: str) -> ESConvAnalysis:
+    """
+    Analyze text for ESConv support strategies.
+    Based on ACL 2021 ESConv framework (Helping Skills Theory).
+    
+    Returns:
+        ESConvAnalysis with strategy breakdown
+    """
+    text_lower = text.lower()
+    signals = []
+    strategy_scores = {s: 0.0 for s in ESConvStrategy}
+    
+    for strategy, patterns in ESCONV_PATTERNS.items():
+        for pattern, weight in patterns:
+            matches = list(re.finditer(pattern, text_lower, re.IGNORECASE))
+            for match in matches:
+                signals.append(ESConvSignal(
+                    text=match.group(),
+                    pattern=pattern,
+                    weight=weight,
+                    strategy=strategy
+                ))
+                strategy_scores[strategy] += weight
+    
+    # Calculate distribution
+    total = sum(strategy_scores.values())
+    distribution = {}
+    if total > 0:
+        distribution = {s: score / total for s, score in strategy_scores.items()}
+    else:
+        distribution = {s: 0.0 for s in ESConvStrategy}
+    
+    # Find dominant strategy
+    dominant = None
+    if total > 0:
+        dominant = max(strategy_scores, key=strategy_scores.get)
+        if strategy_scores[dominant] == 0:
+            dominant = None
+    
+    # Assess balance
+    balance = "balanced"
+    if dominant:
+        dominant_pct = distribution.get(dominant, 0)
+        if dominant == ESConvStrategy.QUESTION and dominant_pct > 0.4:
+            balance = "question-heavy (consider more support statements)"
+        elif dominant == ESConvStrategy.SUGGESTION and dominant_pct > 0.4:
+            balance = "advice-heavy (consider more exploration/validation)"
+        elif dominant == ESConvStrategy.AFFIRMATION and dominant_pct > 0.5:
+            balance = "validation-heavy (consider exploring or suggesting)"
+        elif dominant == ESConvStrategy.INFORMATION and dominant_pct > 0.4:
+            balance = "info-heavy (consider emotional validation)"
+        elif dominant == ESConvStrategy.SELF_DISCLOSURE and dominant_pct > 0.4:
+            balance = "self-disclosure heavy (refocus on them)"
+    
+    return ESConvAnalysis(
+        strategies_detected=signals,
+        strategy_distribution=distribution,
+        dominant_strategy=dominant,
+        balance_assessment=balance
+    )
+
+
+def analyze_appraisal_domains(text: str) -> AppraisalResult:
+    """
+    Decompose the appraisal to identify what domain(s) the issue is about.
+    
+    Returns:
+        AppraisalResult with domain breakdown
+    """
+    text_lower = text.lower()
+    domain_scores = {d: 0.0 for d in AppraisalDomain}
+    keywords = []
+    
+    for domain, patterns in APPRAISAL_DOMAIN_PATTERNS.items():
+        for pattern, weight in patterns:
+            matches = list(re.finditer(pattern, text_lower, re.IGNORECASE))
+            for match in matches:
+                domain_scores[domain] += weight
+                keywords.append(match.group())
+    
+    # Get domains with non-zero scores
+    detected_domains = [d for d, score in domain_scores.items() if score > 0]
+    
+    # Primary domain is highest scoring
+    primary = AppraisalDomain.UNKNOWN
+    if detected_domains:
+        primary = max(detected_domains, key=lambda d: domain_scores[d])
+    
+    # If nothing detected, mark as unknown
+    if not detected_domains:
+        detected_domains = [AppraisalDomain.UNKNOWN]
+    
+    return AppraisalResult(
+        domains=detected_domains,
+        primary_domain=primary,
+        domain_scores=domain_scores,
+        keywords=list(set(keywords))[:10]  # Unique, max 10
+    )
+
+
+def detect_mismatches(
+    context: SupportContext,
+    intensity: Optional[IntensityLevel],
+    support_signals: List[SupportSignal],
+    esconv_analysis: Optional[ESConvAnalysis]
+) -> List[MismatchAlert]:
+    """
+    Detect mismatches between support provided and context/intensity.
+    
+    Returns:
+        List of MismatchAlert for problematic patterns
+    """
+    alerts = []
+    
+    if not support_signals:
+        return alerts
+    
+    # Categorize support signals
+    sos_types = {SupportType.SOS_COMFORT, SupportType.SOS_FORTIFY,
+                 SupportType.SOS_RECONSTRUCT, SupportType.SOS_REFRAME}
+    rc_types = {SupportType.RC_NURTURE, SupportType.RC_PERCEIVE,
+                SupportType.RC_PREPARE, SupportType.RC_LAUNCH}
+    
+    sos_score = sum(s.weight for s in support_signals if s.support_type in sos_types)
+    rc_score = sum(s.weight for s in support_signals if s.support_type in rc_types)
+    challenge_score = sum(s.weight for s in support_signals if s.support_type == SupportType.CHALLENGE)
+    reframe_score = sum(s.weight for s in support_signals if s.support_type == SupportType.SOS_REFRAME)
+    
+    # CRITICAL: Challenge during SEVERE adversity
+    if context == SupportContext.ADVERSITY and intensity == IntensityLevel.SEVERE:
+        if challenge_score > 0:
+            alerts.append(MismatchAlert(
+                severity="CRITICAL",
+                message="🚨 CHALLENGING DURING SEVERE DISTRESS",
+                context=context,
+                problematic_support=f"Challenge signals detected (score: {challenge_score:.1f})",
+                recommendation="STOP challenging. Provide pure comfort and validation. Person is in crisis."
+            ))
+        if rc_score > sos_score:
+            alerts.append(MismatchAlert(
+                severity="CRITICAL",
+                message="🚨 RC SUPPORT DURING SEVERE DISTRESS",
+                context=context,
+                problematic_support=f"RC support ({rc_score:.1f}) exceeds SOS ({sos_score:.1f})",
+                recommendation="Switch to SOS immediately. Safe haven first, not growth pushing."
+            ))
+        if reframe_score > sos_score * 0.5:
+            alerts.append(MismatchAlert(
+                severity="CRITICAL",
+                message="🚨 PREMATURE REFRAMING DURING CRISIS",
+                context=context,
+                problematic_support=f"Heavy reframing (score: {reframe_score:.1f}) during severe distress",
+                recommendation="Too early to reframe. Validate pain first. 'Silver lining' thinking can feel dismissive."
+            ))
+    
+    # WARNING: RC support during adversity (moderate)
+    if context == SupportContext.ADVERSITY and intensity == IntensityLevel.MODERATE:
+        if rc_score > sos_score * 1.5:
+            alerts.append(MismatchAlert(
+                severity="WARNING",
+                message="⚠️ RC SUPPORT DURING ADVERSITY",
+                context=context,
+                problematic_support=f"RC support dominant ({rc_score:.1f} vs SOS {sos_score:.1f})",
+                recommendation="Person is struggling. Prioritize SOS support before growth-oriented help."
+            ))
+        if challenge_score > 2.0:
+            alerts.append(MismatchAlert(
+                severity="WARNING",
+                message="⚠️ CHALLENGE DURING MODERATE DISTRESS",
+                context=context,
+                problematic_support=f"Challenge signals detected (score: {challenge_score:.1f})",
+                recommendation="Consider softening challenge. Fortify first, challenge later."
+            ))
+    
+    # WARNING: Too much comfort during pure growth context
+    if context == SupportContext.GROWTH:
+        if sos_score > rc_score * 2 and rc_score > 0:
+            alerts.append(MismatchAlert(
+                severity="WARNING",
+                message="⚠️ EXCESSIVE COMFORT IN GROWTH CONTEXT",
+                context=context,
+                problematic_support=f"SOS support ({sos_score:.1f}) dominates RC ({rc_score:.1f})",
+                recommendation="Person is ready for growth. Consider more RC support (challenge, launch, prepare)."
+            ))
+    
+    # Check ESConv balance issues
+    if esconv_analysis and esconv_analysis.dominant_strategy:
+        if context == SupportContext.ADVERSITY:
+            # Too much advice during adversity
+            if esconv_analysis.dominant_strategy == ESConvStrategy.SUGGESTION:
+                suggestion_pct = esconv_analysis.strategy_distribution.get(ESConvStrategy.SUGGESTION, 0)
+                if suggestion_pct > 0.35:
+                    alerts.append(MismatchAlert(
+                        severity="WARNING",
+                        message="⚠️ ADVICE-HEAVY DURING ADVERSITY",
+                        context=context,
+                        problematic_support=f"Suggestions dominate ({suggestion_pct:.0%} of response)",
+                        recommendation="More validation and reflection before suggesting. Ask 'what do you need?' not 'you should...'"
+                    ))
+            # Too much information during adversity
+            if esconv_analysis.dominant_strategy == ESConvStrategy.INFORMATION:
+                info_pct = esconv_analysis.strategy_distribution.get(ESConvStrategy.INFORMATION, 0)
+                if info_pct > 0.35:
+                    alerts.append(MismatchAlert(
+                        severity="WARNING",
+                        message="⚠️ INFO-HEAVY DURING ADVERSITY",
+                        context=context,
+                        problematic_support=f"Information dominates ({info_pct:.0%} of response)",
+                        recommendation="Facts don't heal feelings. Validate emotions first, inform later."
+                    ))
+    
+    return alerts
+
+
 def determine_context(adversity_score: float, growth_score: float) -> Tuple[SupportContext, float]:
     """
     Determine the support context based on adversity and growth scores.
@@ -422,18 +988,47 @@ def assess_support_match(context: SupportContext, support_signals: List[SupportS
 
 
 def generate_recommendation(context: SupportContext, adversity_signals: List[AdversitySignal],
-                          growth_signals: List[GrowthSignal], context_match: bool) -> str:
+                          growth_signals: List[GrowthSignal], context_match: bool,
+                          intensity: Optional[IntensityLevel] = None,
+                          appraisal: Optional[AppraisalResult] = None) -> str:
     """Generate a recommendation for appropriate support."""
     
     if context == SupportContext.ADVERSITY:
         categories = set(s.category for s in adversity_signals)
-        rec = "ADVERSITY CONTEXT — Provide SOS support:\n"
+        
+        # Intensity-specific guidance
+        intensity_guidance = ""
+        if intensity == IntensityLevel.SEVERE:
+            intensity_guidance = "\n  ⚠️ SEVERE INTENSITY — Pure support only, NO challenge\n"
+        elif intensity == IntensityLevel.MODERATE:
+            intensity_guidance = "\n  📊 MODERATE — Comfort first, gentle guidance okay\n"
+        else:
+            intensity_guidance = "\n  📊 MILD — Can balance support with light challenge\n"
+        
+        rec = f"ADVERSITY CONTEXT — Provide SOS support:{intensity_guidance}"
         rec += "  • Start with comfort/safe haven (validate, empathize)\n"
         if "emotional" in categories:
             rec += "  • Address emotional needs first before problem-solving\n"
         rec += "  • Then fortify (remind of strengths, past resilience)\n"
-        rec += "  • Gradually introduce reframing (adversity → growth)\n"
-        rec += "  • Challenge/RC support comes AFTER stability is restored"
+        
+        if intensity != IntensityLevel.SEVERE:
+            rec += "  • Gradually introduce reframing (adversity → growth)\n"
+            rec += "  • Challenge/RC support comes AFTER stability is restored"
+        else:
+            rec += "  • Hold reframing until stability returns\n"
+            rec += "  • No 'silver lining' or 'at least' statements right now"
+        
+        # Domain-specific guidance
+        if appraisal and appraisal.primary_domain != AppraisalDomain.UNKNOWN:
+            rec += f"\n\n  Domain: {appraisal.primary_domain.name}"
+            if appraisal.primary_domain == AppraisalDomain.WORK:
+                rec += " — Validate professional stress; avoid immediate problem-solving"
+            elif appraisal.primary_domain == AppraisalDomain.RELATIONSHIPS:
+                rec += " — Focus on their feelings, not fixing the other person"
+            elif appraisal.primary_domain == AppraisalDomain.HEALTH:
+                rec += " — Be present; avoid toxic positivity about illness"
+            elif appraisal.primary_domain == AppraisalDomain.LOSS:
+                rec += " — Witness grief; don't rush healing timeline"
     
     elif context == SupportContext.GROWTH:
         categories = set(s.category for s in growth_signals)
@@ -445,6 +1040,14 @@ def generate_recommendation(context: SupportContext, adversity_signals: List[Adv
             rec += "  • Facilitate preparation (skills, strategies, plans)\n"
         rec += "  • Provide launching support (secure base for action)\n"
         rec += "  • Challenge IS support here — push stretch goals"
+        
+        # Domain-specific guidance
+        if appraisal and appraisal.primary_domain != AppraisalDomain.UNKNOWN:
+            rec += f"\n\n  Domain: {appraisal.primary_domain.name}"
+            if appraisal.primary_domain == AppraisalDomain.WORK:
+                rec += " — Support career ambition; challenge comfort zones"
+            elif appraisal.primary_domain == AppraisalDomain.ACADEMIC:
+                rec += " — Encourage stretch goals; help with planning"
     
     elif context == SupportContext.TRANSITION:
         rec = "TRANSITION CONTEXT — Moving from adversity to growth:\n"
@@ -483,17 +1086,40 @@ def analyze_conversation(user_text: str, ai_response: str = "") -> SupportContex
     # Determine context
     context, confidence = determine_context(adversity_score, growth_score)
     
+    # NEW: Analyze intensity (only for adversity contexts)
+    intensity = None
+    if context in (SupportContext.ADVERSITY, SupportContext.TRANSITION):
+        intensity = analyze_intensity(user_text, adversity_score)
+    
+    # NEW: Analyze appraisal domains
+    appraisal = analyze_appraisal_domains(user_text)
+    
     # Analyze AI response for support type (if provided)
     support_signals = []
     context_match = True
     match_explanation = "No AI response provided for analysis"
+    esconv_analysis = None
+    mismatch_alerts = []
     
     if ai_response:
         _, support_signals = analyze_text_for_support(ai_response)
         context_match, match_explanation = assess_support_match(context, support_signals)
+        
+        # NEW: Analyze ESConv strategies in response
+        esconv_analysis = analyze_esconv_strategies(ai_response)
+        
+        # NEW: Detect mismatches
+        mismatch_alerts = detect_mismatches(context, intensity, support_signals, esconv_analysis)
+        
+        # Update context_match if there are critical alerts
+        if any(a.severity == "CRITICAL" for a in mismatch_alerts):
+            context_match = False
     
     # Generate recommendation
-    recommendation = generate_recommendation(context, adversity_signals, growth_signals, context_match)
+    recommendation = generate_recommendation(
+        context, adversity_signals, growth_signals, context_match,
+        intensity=intensity, appraisal=appraisal
+    )
     
     return SupportContextAnalysis(
         context=context,
@@ -509,7 +1135,11 @@ def analyze_conversation(user_text: str, ai_response: str = "") -> SupportContex
             "match_explanation": match_explanation,
             "adversity_categories": list(set(s.category for s in adversity_signals)),
             "growth_categories": list(set(s.category for s in growth_signals)),
-        }
+        },
+        intensity=intensity,
+        esconv_analysis=esconv_analysis,
+        appraisal=appraisal,
+        mismatch_alerts=mismatch_alerts,
     )
 
 
@@ -557,19 +1187,78 @@ def format_analysis_report(analysis: SupportContextAnalysis, verbose: bool = Fal
         SupportContext.UNCLEAR: "⚪",
     }
     
-    lines = []
-    lines.append("SUPPORT CONTEXT ANALYSIS")
-    lines.append("=" * 50)
+    intensity_emoji = {
+        IntensityLevel.SEVERE: "🔴🔴🔴 SEVERE",
+        IntensityLevel.MODERATE: "🟠🟠 MODERATE",
+        IntensityLevel.MILD: "🟡 MILD",
+    }
     
-    lines.append(f"\nContext: {status_emoji.get(analysis.context, '?')} {analysis.context.name}")
+    lines = []
+    lines.append("=" * 60)
+    lines.append("          SUPPORT CONTEXT ANALYSIS")
+    lines.append("=" * 60)
+    
+    # ================
+    # MISMATCH ALERTS (most prominent, at top)
+    # ================
+    if analysis.mismatch_alerts:
+        lines.append("")
+        lines.append("╔" + "═" * 58 + "╗")
+        for alert in analysis.mismatch_alerts:
+            if alert.severity == "CRITICAL":
+                lines.append(f"║  {alert.message:^54}  ║")
+            else:
+                lines.append(f"║  {alert.message:^54}  ║")
+        lines.append("╚" + "═" * 58 + "╝")
+        lines.append("")
+        for alert in analysis.mismatch_alerts:
+            lines.append(f"  Problem: {alert.problematic_support}")
+            lines.append(f"  Action:  {alert.recommendation}")
+            lines.append("")
+    
+    lines.append(f"Context: {status_emoji.get(analysis.context, '?')} {analysis.context.name}")
     lines.append(f"Confidence: {analysis.confidence:.0%}")
+    
+    # Intensity (if adversity)
+    if analysis.intensity:
+        lines.append(f"Intensity: {intensity_emoji.get(analysis.intensity, '?')}")
     
     lines.append(f"\nScores:")
     lines.append(f"  Adversity: {analysis.adversity_score:.1f}")
     lines.append(f"  Growth:    {analysis.growth_score:.1f}")
     
+    # Appraisal domains
+    if analysis.appraisal and analysis.appraisal.primary_domain != AppraisalDomain.UNKNOWN:
+        lines.append(f"\nAppraisal Domain: {analysis.appraisal.primary_domain.name}")
+        if len(analysis.appraisal.domains) > 1:
+            other_domains = [d.name for d in analysis.appraisal.domains 
+                          if d != analysis.appraisal.primary_domain and d != AppraisalDomain.UNKNOWN]
+            if other_domains:
+                lines.append(f"  Also related to: {', '.join(other_domains)}")
+        if analysis.appraisal.keywords:
+            lines.append(f"  Keywords: {', '.join(analysis.appraisal.keywords[:5])}")
+    
     if analysis.support_signals:
         lines.append(f"\nSupport Match: {'✓' if analysis.context_match else '✗'} {analysis.details.get('match_explanation', '')}")
+    
+    # ESConv Strategy Analysis
+    if analysis.esconv_analysis and analysis.esconv_analysis.strategies_detected:
+        lines.append(f"\nESConv Strategies:")
+        lines.append(f"  Balance: {analysis.esconv_analysis.balance_assessment}")
+        if analysis.esconv_analysis.dominant_strategy:
+            lines.append(f"  Dominant: {analysis.esconv_analysis.dominant_strategy.name}")
+        
+        if verbose:
+            lines.append("  Distribution:")
+            sorted_strategies = sorted(
+                analysis.esconv_analysis.strategy_distribution.items(),
+                key=lambda x: x[1],
+                reverse=True
+            )
+            for strategy, pct in sorted_strategies:
+                if pct > 0:
+                    bar = "█" * int(pct * 20)
+                    lines.append(f"    {strategy.name:15} {bar} {pct:.0%}")
     
     if verbose:
         if analysis.adversity_signals:
@@ -586,8 +1275,13 @@ def format_analysis_report(analysis: SupportContextAnalysis, verbose: bool = Fal
             lines.append("\nSupport Patterns Detected:")
             for s in analysis.support_signals[:5]:
                 lines.append(f"  [{s.support_type.name}] \"{s.text}\"")
+        
+        if analysis.esconv_analysis and analysis.esconv_analysis.strategies_detected:
+            lines.append("\nESConv Signals Detected:")
+            for s in analysis.esconv_analysis.strategies_detected[:5]:
+                lines.append(f"  [{s.strategy.name}] \"{s.text}\"")
     
-    lines.append("\n" + "-" * 50)
+    lines.append("\n" + "-" * 60)
     lines.append("RECOMMENDATION:")
     lines.append(analysis.recommendation)
     
@@ -638,6 +1332,10 @@ def run_analysis(days: int = 7, verbose: bool = False, json_output: bool = False
                     "adversity_score": a.adversity_score,
                     "growth_score": a.growth_score,
                     "context_match": a.context_match,
+                    "intensity": a.intensity.name if a.intensity else None,
+                    "primary_domain": a.appraisal.primary_domain.name if a.appraisal else None,
+                    "mismatch_alert_count": len(a.mismatch_alerts),
+                    "critical_alerts": len([x for x in a.mismatch_alerts if x.severity == "CRITICAL"]),
                     "date": a.details.get("date", "unknown"),
                 }
                 for a in all_analyses
@@ -662,6 +1360,29 @@ def run_analysis(days: int = 7, verbose: bool = False, json_output: bool = False
         for context, count in sorted(context_counts.items()):
             emoji = {"ADVERSITY": "🔴", "GROWTH": "🟢", "TRANSITION": "🟡", "UNCLEAR": "⚪"}.get(context, "?")
             lines.append(f"  {emoji} {context}: {count}")
+    
+    # Summarize intensity distribution
+    intensity_counts = {}
+    for a in all_analyses:
+        if a.intensity:
+            intensity_counts[a.intensity.name] = intensity_counts.get(a.intensity.name, 0) + 1
+    
+    if intensity_counts:
+        lines.append("\nIntensity Distribution:")
+        for intensity, count in sorted(intensity_counts.items()):
+            emoji = {"SEVERE": "🔴🔴🔴", "MODERATE": "🟠🟠", "MILD": "🟡"}.get(intensity, "?")
+            lines.append(f"  {emoji} {intensity}: {count}")
+    
+    # Count mismatches
+    total_critical = sum(len([x for x in a.mismatch_alerts if x.severity == "CRITICAL"]) for a in all_analyses)
+    total_warning = sum(len([x for x in a.mismatch_alerts if x.severity == "WARNING"]) for a in all_analyses)
+    
+    if total_critical > 0 or total_warning > 0:
+        lines.append("\nMismatch Alerts:")
+        if total_critical > 0:
+            lines.append(f"  🚨 CRITICAL: {total_critical}")
+        if total_warning > 0:
+            lines.append(f"  ⚠️ WARNING: {total_warning}")
     
     # Show most recent significant analysis
     if all_analyses:
