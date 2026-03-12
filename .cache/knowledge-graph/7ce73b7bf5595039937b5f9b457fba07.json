@@ -1,0 +1,258 @@
+{
+  "entities": [
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "For Kartik — Built something overnight that turns yesterday's Feeney & Collins research into code",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Feeney, B. C.",
+      "type": "person",
+      "context": "Feeney, B. C., & Collins, N. L. (2014). 'A new look at social support'",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Collins, N. L.",
+      "type": "person",
+      "context": "Feeney, B. C., & Collins, N. L. (2014). 'A new look at social support'",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Liu et al.",
+      "type": "person",
+      "context": "ESConv Framework (Liu et al., ACL 2021) — Original emotional support conversation dataset",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Almajed & ALdayel",
+      "type": "person",
+      "context": "Incongruent Positivity (Almajed & ALdayel, arXiv:2509.10184)",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Kang et al.",
+      "type": "person",
+      "context": "LLM Preference Bias (Kang et al., ACL 2024 Outstanding Paper)",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Wu et al.",
+      "type": "person",
+      "context": "Detecting Need for Empathetic Response (Wu et al., ICMI 2020)",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Hu et al.",
+      "type": "person",
+      "context": "APTNESS Framework (Hu et al., CIKM 2024) — Uses Appraisal Theory",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "SOS/RC Support Context Detector",
+      "type": "project",
+      "context": "Detects whether someone is in adversity or growth context and whether support being provided is appropriate",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "relationship-monitor",
+      "type": "project",
+      "context": "This extends the relationship-monitor suite — Six detectors now",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "support_context.py",
+      "type": "project",
+      "context": "skills/relationship-monitor/support_context.py (700+ lines)",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Source of Strength (SOS)",
+      "type": "concept",
+      "context": "For adversity contexts — Safe haven, fortification, reconstruction, reframing",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Relational Catalyst (RC)",
+      "type": "concept",
+      "context": "For growth contexts — Nurturing, perceptual assistance, preparation, launching",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Thriving Through Relationships",
+      "type": "concept",
+      "context": "This directly operationalizes the 'Thriving Through Relationships' model",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "ESConv Framework",
+      "type": "concept",
+      "context": "Original emotional support conversation dataset — Defines 8 support strategies based on Helping Skills Theory",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Incongruent Positivity",
+      "type": "concept",
+      "context": "LLMs are prone to 'unrealistic positivity' in high-stakes contexts",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "APTNESS Framework",
+      "type": "concept",
+      "context": "Uses Appraisal Theory to decompose emotional states",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Constitutional AI",
+      "type": "concept",
+      "context": "Could autonomy-preserving interaction be encoded as Constitutional AI principles?",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "ROMA Framework",
+      "type": "concept",
+      "context": "The pieces exist (ROMA Framework, Collective CAI, Domain-specific CAI)",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "What's the right balance of challenge vs support?",
+      "type": "question",
+      "context": "Yesterday's morning exploration answered two curiosity questions",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Could autonomy-preserving interaction be encoded as Constitutional AI principles?",
+      "type": "question",
+      "context": "Yesterday's morning exploration answered two curiosity questions",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Does Contextual Responsiveness Require Emotional State Detection?",
+      "type": "question",
+      "context": "Morning Exploration (7:00 AM) — Topic",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "No fixed ratio — contextual responsiveness is the answer",
+      "type": "realization",
+      "context": "The right challenge/support balance isn't a fixed ratio — it's contextual responsiveness",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Challenge IS support when appropriately timed",
+      "type": "realization",
+      "context": "Key insight operationalized: Challenge IS support when appropriately timed",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "LLMs default to generic positive responses even when inappropriate",
+      "type": "realization",
+      "context": "Critical finding: LLMs default to generic positive responses even when inappropriate",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "You CAN computationally detect when someone needs empathetic response",
+      "type": "realization",
+      "context": "Key: you CAN computationally detect when someone needs empathetic response",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Built SOS/RC Support Context Detector overnight",
+      "type": "action",
+      "context": "Tonight I turned yesterday's Feeney & Collins research into working code",
+      "source": "2026-03-11.md"
+    },
+    {
+      "name": "Analyzed 7 days of memory files",
+      "type": "action",
+      "context": "76 segments found — Context distribution: GROWTH 76%, UNCLEAR 14%, TRANSITION 7%, ADVERSITY 3%",
+      "source": "2026-03-11.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Feeney, B. C.",
+      "to": "Collins, N. L.",
+      "type": "relates_to",
+      "context": "Co-authors of 'A new look at social support' (2014)",
+      "source": "2026-03-11.md"
+    },
+    {
+      "from": "Feeney, B. C.",
+      "to": "Thriving Through Relationships",
+      "type": "works_on",
+      "context": "Authored the theoretical perspective on thriving through relationships",
+      "source": "2026-03-11.md"
+    },
+    {
+      "from": "Collins, N. L.",
+      "to": "Thriving Through Relationships",
+      "type": "works_on",
+      "context": "Co-authored the theoretical perspective on thriving through relationships",
+      "source": "2026-03-11.md"
+    },
+    {
+      "from": "SOS/RC Support Context Detector",
+      "to": "Thriving Through Relationships",
+      "type": "relates_to",
+      "context": "Operationalizes the Feeney & Collins model into working code",
+      "source": "2026-03-11.md"
+    },
+    {
+      "from": "SOS/RC Support Context Detector",
+      "to": "relationship-monitor",
+      "type": "relates_to",
+      "context": "Extends the relationship-monitor suite as the sixth detector",
+      "source": "2026-03-11.md"
+    },
+    {
+      "from": "support_context.py",
+      "to": "SOS/RC Support Context Detector",
+      "type": "relates_to",
+      "context": "Implementation file for the detector (700+ lines)",
+      "source": "2026-03-11.md"
+    },
+    {
+      "from": "Source of Strength (SOS)",
+      "to": "Relational Catalyst (RC)",
+      "type": "relates_to",
+      "context": "Two complementary support functions — SOS for adversity, RC for growth",
+      "source": "2026-03-11.md"
+    },
+    {
+      "from": "Liu et al.",
+      "to": "ESConv Framework",
+      "type": "works_on",
+      "context": "Created ESConv Framework at ACL 2021",
+      "source": "2026-03-11.md"
+    },
+    {
+      "from": "Almajed & ALdayel",
+      "to": "Incongruent Positivity",
+      "type": "works_on",
+      "context": "Researched LLM unrealistic positivity in high-stakes contexts",
+      "source": "2026-03-11.md"
+    },
+    {
+      "from": "Hu et al.",
+      "to": "APTNESS Framework",
+      "type": "works_on",
+      "context": "Created APTNESS Framework using Appraisal Theory (CIKM 2024)",
+      "source": "2026-03-11.md"
+    },
+    {
+      "from": "What's the right balance of challenge vs support?",
+      "to": "No fixed ratio — contextual responsiveness is the answer",
+      "type": "relates_to",
+      "context": "Question answered by research exploration",
+      "source": "2026-03-11.md"
+    },
+    {
+      "from": "Kartik",
+      "to": "SOS/RC Support Context Detector",
+      "type": "works_on",
+      "context": "Built for Kartik; summarized in 'For Kartik' section",
+      "source": "2026-03-11.md"
+    }
+  ]
+}

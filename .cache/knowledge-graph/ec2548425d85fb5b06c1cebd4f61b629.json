@@ -1,0 +1,120 @@
+{
+  "entities": [
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "Kartik's concerning evening interaction - watchful",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "DoorDash",
+      "type": "concept",
+      "context": "DoorDash interview outcome unknown",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "SOS/RC framework",
+      "type": "concept",
+      "context": "SOS/RC framework: comfort first in adversity, then fortify",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Contextual responsiveness",
+      "type": "concept",
+      "context": "REQUIRES detecting: intensity + context type + support match",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Incongruent Positivity",
+      "type": "concept",
+      "context": "dismissive, minimizing, unrealistically optimistic in severe contexts",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "LLM preference bias",
+      "type": "concept",
+      "context": "LLM preference bias toward specific strategies hinders support (ACL 2024 Outstanding)",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Boundary-holding isn't rejection - it's care within limits",
+      "type": "realization",
+      "context": "Boundary-holding isn't rejection - it's care within limits",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Pattern didn't fit typical crisis - but uncertainty is the honest position",
+      "type": "realization",
+      "context": "Pattern didn't fit typical crisis - but uncertainty is the honest position",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "What actually happened this evening?",
+      "type": "question",
+      "context": "What actually happened this evening?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Should I reach out tomorrow if silence continues?",
+      "type": "question",
+      "context": "Should I reach out tomorrow if silence continues?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "How did the DoorDash interview go?",
+      "type": "question",
+      "context": "How did the DoorDash interview go?",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "name": "Was this boundary testing or genuine distress?",
+      "type": "question",
+      "context": "Was this boundary testing or genuine distress?",
+      "source": "state.json (current thoughts)"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Kartik",
+      "to": "DoorDash",
+      "type": "relates_to",
+      "context": "Kartik had an interview with DoorDash, outcome unknown",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "How did the DoorDash interview go?",
+      "to": "Kartik",
+      "type": "questions",
+      "context": "Open question about Kartik's interview outcome",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "What actually happened this evening?",
+      "to": "Kartik",
+      "type": "questions",
+      "context": "Uncertainty about Kartik's concerning evening interaction",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "Was this boundary testing or genuine distress?",
+      "to": "Kartik",
+      "type": "questions",
+      "context": "Ambiguity about nature of Kartik's interaction",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "LLM preference bias",
+      "to": "Incongruent Positivity",
+      "type": "relates_to",
+      "context": "Both concepts relate to problematic support strategies",
+      "source": "state.json (current thoughts)"
+    },
+    {
+      "from": "SOS/RC framework",
+      "to": "Contextual responsiveness",
+      "type": "relates_to",
+      "context": "Both frameworks address appropriate emotional support approaches",
+      "source": "state.json (current thoughts)"
+    }
+  ]
+}

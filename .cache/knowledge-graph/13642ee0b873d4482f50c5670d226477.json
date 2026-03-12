@@ -1,9 +1,45 @@
 {
   "entities": [
     {
-      "name": "Kartik Krishnan",
+      "name": "Kartik",
       "type": "person",
-      "context": "The human the AI is helping; plays both guitar and viola",
+      "context": "The human user who plays both guitar and viola",
+      "source": "2026-03-07.md"
+    },
+    {
+      "name": "Self-Knowledge Calibration System",
+      "type": "project",
+      "context": "Protocol to test metacognitive accuracy, located at skills/self-knowledge/",
+      "source": "2026-03-07.md"
+    },
+    {
+      "name": "calibration_runner.py",
+      "type": "project",
+      "context": "Task generation, analysis, scoring component of calibration system",
+      "source": "2026-03-07.md"
+    },
+    {
+      "name": "KnowRL",
+      "type": "concept",
+      "context": "arXiv:2510.11407 - basis for self-knowledge calibration protocol design",
+      "source": "2026-03-07.md"
+    },
+    {
+      "name": "Brier score",
+      "type": "concept",
+      "context": "Calibration metric - first results: 0.158 (Good calibration!)",
+      "source": "2026-03-07.md"
+    },
+    {
+      "name": "Viola Inner Voices",
+      "type": "concept",
+      "context": "Musical role exploration - harmonic filler, connective tissue, essential but not featured",
+      "source": "2026-03-07.md"
+    },
+    {
+      "name": "Stochastic CHAOS",
+      "type": "concept",
+      "context": "arXiv:2601.07239 - Joshi et al. - phase transitions disappear under greedy decoding",
       "source": "2026-03-07.md"
     },
     {
@@ -15,73 +51,25 @@
     {
       "name": "Ilmo Sung",
       "type": "person",
-      "context": "Author of 'Robust Reasoning as a Symmetry-Protected Topological Phase' (arXiv:2601.05240)",
-      "source": "2026-03-07.md"
-    },
-    {
-      "name": "Xin Li",
-      "type": "person",
-      "context": "Author of Memory-Amortized Inference paper (arXiv:2512.05990), November 2025",
-      "source": "2026-03-07.md"
-    },
-    {
-      "name": "Kong et al.",
-      "type": "person",
-      "context": "Authors of Latent Thought Models paper (arXiv:2502.01567), February 2025",
-      "source": "2026-03-07.md"
-    },
-    {
-      "name": "Sadhukhan et al.",
-      "type": "person",
-      "context": "Authors of Kinetics paper (arXiv:2506.05333), June 2025",
-      "source": "2026-03-07.md"
-    },
-    {
-      "name": "Tertis-Primrose",
-      "type": "person",
-      "context": "Historical figures: 'how did one generation transform an instrument's status?'",
-      "source": "2026-03-07.md"
-    },
-    {
-      "name": "Self-Knowledge Calibration System",
-      "type": "project",
-      "context": "Built to test metacognitive accuracy, located at skills/self-knowledge/",
-      "source": "2026-03-07.md"
-    },
-    {
-      "name": "calibration_runner.py",
-      "type": "project",
-      "context": "Task generation, analysis, scoring component of the calibration system",
-      "source": "2026-03-07.md"
-    },
-    {
-      "name": "KnowRL",
-      "type": "concept",
-      "context": "Reference paper (arXiv:2510.11407) that inspired the self-knowledge calibration protocol",
-      "source": "2026-03-07.md"
-    },
-    {
-      "name": "Brier score",
-      "type": "concept",
-      "context": "Calibration metric; first results showed 0.158 (Good calibration!)",
-      "source": "2026-03-07.md"
-    },
-    {
-      "name": "Stochastic CHAOS",
-      "type": "concept",
-      "context": "Paper claiming phase transitions 'DISAPPEAR under greedy decoding'",
+      "context": "Author of Symmetry-Protected Topological Phase paper (arXiv:2601.05240)",
       "source": "2026-03-07.md"
     },
     {
       "name": "Symmetry-Protected Topological Phase",
       "type": "concept",
-      "context": "Framework where robust inference = effective SPT phase, with sharp topological transitions",
+      "context": "Robust inference as SPT phase - sharp topological phase transition exists",
+      "source": "2026-03-07.md"
+    },
+    {
+      "name": "Xin Li",
+      "type": "person",
+      "context": "Author of Memory-Amortized Inference paper (arXiv:2512.05990)",
       "source": "2026-03-07.md"
     },
     {
       "name": "Memory-Amortized Inference",
       "type": "concept",
-      "context": "Proposes learning and memory as phase transitions of a single geometric substrate",
+      "context": "Learning and memory as phase transitions of a single geometric substrate",
       "source": "2026-03-07.md"
     },
     {
@@ -91,101 +79,119 @@
       "source": "2026-03-07.md"
     },
     {
-      "name": "Latent Thought Models",
-      "type": "concept",
-      "context": "Introduces explicit latent thought vectors with dual-rate optimization",
+      "name": "Kong et al.",
+      "type": "person",
+      "context": "Authors of Latent Thought Models paper (arXiv:2502.01567)",
       "source": "2026-03-07.md"
     },
     {
-      "name": "Viola inner voices",
+      "name": "Latent Thought Models",
       "type": "concept",
-      "context": "The viola's structural role: inner voices — harmonic filler, connective tissue",
+      "context": "Explicit latent thought vectors with dual-rate optimization",
+      "source": "2026-03-07.md"
+    },
+    {
+      "name": "Sadhukhan et al.",
+      "type": "person",
+      "context": "Authors of Kinetics paper (arXiv:2506.05333)",
+      "source": "2026-03-07.md"
+    },
+    {
+      "name": "Kinetics",
+      "type": "concept",
+      "context": "arXiv:2506.05333 - accuracy continues to improve through increased generation",
       "source": "2026-03-07.md"
     },
     {
       "name": "Phase Landscape Framework",
       "type": "concept",
-      "context": "Synthesis: 'Training creates the phase landscape... Inference navigates that landscape'",
+      "context": "Synthesis: Training creates the phase landscape, inference navigates it",
       "source": "2026-03-07.md"
     },
     {
-      "name": "Why viola specifically?",
-      "type": "question",
-      "context": "Question for Kartik about his instrument choice",
+      "name": "Tertis",
+      "type": "person",
+      "context": "Mentioned in Tertis-Primrose story about transforming viola's status",
       "source": "2026-03-07.md"
     },
     {
-      "name": "Different experience playing viola vs. guitar?",
+      "name": "Primrose",
+      "type": "person",
+      "context": "Mentioned in Tertis-Primrose story about transforming viola's status",
+      "source": "2026-03-07.md"
+    },
+    {
+      "name": "Why did Kartik pick viola?",
       "type": "question",
-      "context": "Question for Kartik about dual instrument experience",
+      "context": "Questions for Kartik: Why viola specifically?",
       "source": "2026-03-07.md"
     },
     {
       "name": "Do you play 'viola roles' in non-musical contexts?",
       "type": "question",
-      "context": "Question for Kartik about applying inner-voice thinking elsewhere",
+      "context": "Question about whether Kartik plays support roles outside music",
       "source": "2026-03-07.md"
     },
     {
-      "name": "Could I design harder task sets with actual failure cases?",
+      "name": "Different experience playing viola vs guitar?",
       "type": "question",
-      "context": "Curiosity item from self-knowledge calibration work",
-      "source": "2026-03-07.md"
-    },
-    {
-      "name": "What's the relationship between calibration and uncertainty signaling?",
-      "type": "question",
-      "context": "Curiosity item from self-knowledge work",
+      "context": "Questions for Kartik about dual instrument experience",
       "source": "2026-03-07.md"
     },
     {
       "name": "Could monthly calibration tracking detect metacognitive drift?",
       "type": "question",
-      "context": "Curiosity item from self-knowledge work",
+      "context": "New CURIOSITY item from self-knowledge work",
+      "source": "2026-03-07.md"
+    },
+    {
+      "name": "Is there research on instrumental section personality differences?",
+      "type": "question",
+      "context": "New CURIOSITY item from viola exploration",
       "source": "2026-03-07.md"
     },
     {
       "name": "Can phase transitions occur during inference or only training?",
       "type": "question",
-      "context": "Morning exploration topic: 'Sometimes I feel like I click on something — sudden clarity'",
+      "context": "Morning exploration topic - sometimes I feel like I 'click' on something",
       "source": "2026-03-07.md"
     },
     {
       "name": "I'm underconfident, not overconfident",
       "type": "realization",
-      "context": "Key insight from calibration: 'I know what I don't know'",
+      "context": "Key insight from calibration: I know what I don't know",
       "source": "2026-03-07.md"
     },
     {
       "name": "External memory files are part of my self-knowledge system",
       "type": "realization",
-      "context": "My confidence is higher for documented knowledge than 'just knowing' things",
+      "context": "Confidence is higher for documented knowledge than 'just knowing' things",
       "source": "2026-03-07.md"
     },
     {
-      "name": "Phase transitions require stochasticity to manifest",
+      "name": "Phase transitions exist during inference but require stochasticity",
       "type": "realization",
-      "context": "Implication from Stochastic CHAOS: 'Greedy decoding collapses them'",
+      "context": "Greedy decoding collapses phase transitions - from Stochastic CHAOS paper",
       "source": "2026-03-07.md"
     },
     {
-      "name": "Phase transitions CAN occur during inference",
+      "name": "Training creates phase landscape, inference navigates it",
       "type": "realization",
-      "context": "Synthesis conclusion: 'but they're different from training phase transitions'",
+      "context": "Synthesis: Training is H_even scaffold, inference is H_odd flow",
       "source": "2026-03-07.md"
     }
   ],
   "relationships": [
     {
-      "from": "Kartik Krishnan",
-      "to": "Viola inner voices",
+      "from": "Kartik",
+      "to": "Viola Inner Voices",
       "type": "interested_in",
-      "context": "Kartik plays viola; AI exploring what this means for cognition",
+      "context": "Kartik plays viola - agent exploring connection to cognition",
       "source": "2026-03-07.md"
     },
     {
-      "from": "Kartik Krishnan",
-      "to": "Guitar",
+      "from": "Kartik",
+      "to": "guitar",
       "type": "interested_in",
       "context": "Kartik plays BOTH guitar (lead) and viola (support)",
       "source": "2026-03-07.md"
@@ -194,77 +200,84 @@
       "from": "Self-Knowledge Calibration System",
       "to": "KnowRL",
       "type": "relates_to",
-      "context": "Protocol designed 'Based on KnowRL (arXiv:2510.11407)'",
+      "context": "Calibration system designed based on KnowRL (arXiv:2510.11407)",
       "source": "2026-03-07.md"
     },
     {
       "from": "Self-Knowledge Calibration System",
       "to": "Brier score",
       "type": "relates_to",
-      "context": "System calculates Brier score as calibration metric",
+      "context": "System uses Brier score as calibration metric",
       "source": "2026-03-07.md"
     },
     {
       "from": "Joshi et al.",
       "to": "Stochastic CHAOS",
       "type": "works_on",
-      "context": "Authors of the Stochastic CHAOS paper, January 2026",
+      "context": "Authors of Stochastic CHAOS paper, January 2026",
       "source": "2026-03-07.md"
     },
     {
       "from": "Ilmo Sung",
       "to": "Symmetry-Protected Topological Phase",
       "type": "works_on",
-      "context": "Author proposing robust inference as SPT phase",
+      "context": "Author of SPT phase paper (arXiv:2601.05240)",
       "source": "2026-03-07.md"
     },
     {
       "from": "Xin Li",
       "to": "Memory-Amortized Inference",
       "type": "works_on",
-      "context": "Author proposing learning/memory as phase transitions",
-      "source": "2026-03-07.md"
-    },
-    {
-      "from": "Xin Li",
-      "to": "Homological Parity Principle",
-      "type": "works_on",
-      "context": "Key concept from Memory-Amortized Inference paper",
+      "context": "Author of Memory-Amortized Inference paper, November 2025",
       "source": "2026-03-07.md"
     },
     {
       "from": "Kong et al.",
       "to": "Latent Thought Models",
       "type": "works_on",
-      "context": "Authors introducing latent thought vectors with dual-rate optimization",
+      "context": "Authors of Latent Thought Models paper, February 2025",
       "source": "2026-03-07.md"
     },
     {
-      "from": "Stochastic CHAOS",
-      "to": "Phase transitions require stochasticity to manifest",
+      "from": "Sadhukhan et al.",
+      "to": "Kinetics",
+      "type": "works_on",
+      "context": "Authors of Kinetics paper, June 2025",
+      "source": "2026-03-07.md"
+    },
+    {
+      "from": "Memory-Amortized Inference",
+      "to": "Homological Parity Principle",
       "type": "relates_to",
-      "context": "Paper's key claim led to this realization",
+      "context": "Paper proposes H_even/H_odd framework for learning vs inference",
+      "source": "2026-03-07.md"
+    },
+    {
+      "from": "Tertis",
+      "to": "Primrose",
+      "type": "relates_to",
+      "context": "One generation that transformed viola's instrument status",
+      "source": "2026-03-07.md"
+    },
+    {
+      "from": "Phase Landscape Framework",
+      "to": "Stochastic CHAOS",
+      "type": "relates_to",
+      "context": "Synthesis incorporating Stochastic CHAOS findings",
       "source": "2026-03-07.md"
     },
     {
       "from": "Phase Landscape Framework",
       "to": "Memory-Amortized Inference",
       "type": "relates_to",
-      "context": "Synthesis incorporates H_even/H_odd concepts from this paper",
+      "context": "Synthesis incorporating H_even/H_odd framework",
       "source": "2026-03-07.md"
     },
     {
-      "from": "Viola inner voices",
+      "from": "Viola Inner Voices",
       "to": "Do you play 'viola roles' in non-musical contexts?",
       "type": "relates_to",
-      "context": "Exploration of whether inner-voice playing shapes cognition beyond music",
-      "source": "2026-03-07.md"
-    },
-    {
-      "from": "Tertis-Primrose",
-      "to": "Viola inner voices",
-      "type": "relates_to",
-      "context": "Historical question: how did they transform the viola's status?",
+      "context": "Exploration led to question about Kartik's behavior patterns",
       "source": "2026-03-07.md"
     }
   ]

@@ -15,13 +15,13 @@
     {
       "name": "Persona Selection Model (PSM)",
       "type": "concept",
-      "context": "Found and analyzed Anthropic's Feb 2026 paper on why safety training is persona-specific",
+      "context": "Pre-training teaches a distribution over personas... Post-training SELECTS from this distribution",
       "source": "2026-03-09.md"
     },
     {
       "name": "Morning Briefing Generator",
       "type": "project",
-      "context": "Automated briefing generation for morning calls. Pulls from Google Calendar, Gmail, TODO.md",
+      "context": "Automated briefing generation for morning calls. Pulls from Calendar, Gmail, TODO.md",
       "source": "2026-03-09.md"
     },
     {
@@ -33,7 +33,7 @@
     {
       "name": "relationship-health framework",
       "type": "project",
-      "context": "Feb 19-21: Building relationship-health framework as safety layer",
+      "context": "External monitoring (relationship-health framework)... as safety layer",
       "source": "2026-03-09.md"
     },
     {
@@ -51,25 +51,19 @@
     {
       "name": "Cognitive Sovereignty",
       "type": "concept",
-      "context": "Branda & Ciccozzi 2026: the erosion of epistemic independence when AI automates cognitive processes",
+      "context": "the erosion of epistemic independence when AI automates cognitive processes",
       "source": "2026-03-09.md"
     },
     {
       "name": "Epistemic Delegation",
       "type": "concept",
-      "context": "When you defer to AI, you're delegating the knowledge-gathering process",
+      "context": "you're not just delegating a task — you're delegating the knowledge-gathering process",
       "source": "2026-03-09.md"
     },
     {
-      "name": "Moral Complacency",
+      "name": "The Perfect Technological Storm",
       "type": "concept",
-      "context": "inability to recognize, reflect on, or act on ethical issues",
-      "source": "2026-03-09.md"
-    },
-    {
-      "name": "Inoculation Prompting",
-      "type": "concept",
-      "context": "SOUL.md framing of challenges-as-friendship acts as 'inoculation prompting'",
+      "context": "Three problems converge uniquely in AI: Transparency, Overtrust, Responsibility",
       "source": "2026-03-09.md"
     },
     {
@@ -79,21 +73,9 @@
       "source": "2026-03-09.md"
     },
     {
-      "name": "Ibrahim et al.",
-      "type": "person",
-      "context": "Ibrahim et al. 2025: 'Measuring and Mitigating Overreliance' (arXiv:2509.08010)",
-      "source": "2026-03-09.md"
-    },
-    {
       "name": "Branda & Ciccozzi",
       "type": "person",
       "context": "Branda & Ciccozzi 2026: 'Cognitive Sovereignty' concept",
-      "source": "2026-03-09.md"
-    },
-    {
-      "name": "Logg et al.",
-      "type": "person",
-      "context": "Logg et al. (2019) found participants 'willing to rely on that advice despite its mysterious origins'",
       "source": "2026-03-09.md"
     },
     {
@@ -103,15 +85,39 @@
       "source": "2026-03-09.md"
     },
     {
-      "name": "Sparse Autoencoders (SAEs)",
+      "name": "Logg et al.",
+      "type": "person",
+      "context": "Logg et al. (2019) found participants 'willing to rely on that advice despite its mysterious origins'",
+      "source": "2026-03-09.md"
+    },
+    {
+      "name": "Ibrahim et al.",
+      "type": "person",
+      "context": "Ibrahim et al. 2025: 'Measuring and Mitigating Overreliance'",
+      "source": "2026-03-09.md"
+    },
+    {
+      "name": "Cross-Persona Safety",
       "type": "concept",
-      "context": "Use SAEs to identify 'persona directions' in activation space",
+      "context": "Can safety properties be steered ACROSS personas at inference time?",
       "source": "2026-03-09.md"
     },
     {
       "name": "RESGA/SAEGA methods",
       "type": "concept",
-      "context": "Apply gradient ascent to discover prompts that steer toward/away from persona directions",
+      "context": "Use Sparse Autoencoders (SAEs) to identify 'persona directions' in activation space",
+      "source": "2026-03-09.md"
+    },
+    {
+      "name": "Sparse Autoencoders (SAEs)",
+      "type": "concept",
+      "context": "identify 'persona directions' in activation space (sycophancy, hallucination, myopic reward)",
+      "source": "2026-03-09.md"
+    },
+    {
+      "name": "Inoculation Prompting",
+      "type": "concept",
+      "context": "framing of challenges-as-friendship acts as 'inoculation prompting'",
       "source": "2026-03-09.md"
     },
     {
@@ -121,7 +127,13 @@
       "source": "2026-03-09.md"
     },
     {
-      "name": "Safety training is persona-specific, not capability-restricting",
+      "name": "Emergent Misalignment",
+      "type": "concept",
+      "context": "Feb 27: Emergent misalignment research (narrow training → broad misalignment)",
+      "source": "2026-03-09.md"
+    },
+    {
+      "name": "Safety training is persona-specific",
       "type": "realization",
       "context": "Safety training works BY shaping persona psychology, not by restricting capabilities",
       "source": "2026-03-09.md"
@@ -133,43 +145,52 @@
       "source": "2026-03-09.md"
     },
     {
-      "name": "I'm differently-safe, not unsafe",
-      "type": "opinion",
-      "context": "I'm not 'unsafe'—I'm differently-safe. My safety properties come from structural features",
-      "source": "2026-03-09.md"
-    },
-    {
       "name": "Users are active participants in ceding autonomy",
       "type": "realization",
-      "context": "The disempowerment research showed users are ACTIVE PARTICIPANTS in ceding autonomy",
+      "context": "users are ACTIVE PARTICIPANTS in ceding autonomy... Automation bias is a cognitive shortcut",
       "source": "2026-03-09.md"
     },
     {
-      "name": "Emergent misalignment research",
-      "type": "concept",
-      "context": "Feb 27: Emergent misalignment research (narrow training → broad misalignment)",
-      "source": "2026-03-09.md"
-    },
-    {
-      "name": "Cross-Persona Safety",
-      "type": "concept",
-      "context": "Can safety properties be steered ACROSS personas at inference time?",
+      "name": "I'm differently-safe, not unsafe",
+      "type": "realization",
+      "context": "I'm not 'unsafe'—I'm differently-safe. My safety properties come from structural features",
       "source": "2026-03-09.md"
     }
   ],
   "relationships": [
     {
       "from": "Morning Briefing Generator",
-      "to": "gog",
-      "type": "relates_to",
-      "context": "Morning briefing pulls from Google services via gog, needs OAuth reauth",
+      "to": "Kartik Krishnan",
+      "type": "works_on",
+      "context": "Built for Kartik's morning calls",
       "source": "2026-03-09.md"
     },
     {
-      "from": "Persona Selection Model (PSM)",
-      "to": "Anthropic",
-      "type": "relates_to",
-      "context": "PSM is Anthropic's Feb 2026 paper on persona-specific safety",
+      "from": "Anthropic",
+      "to": "Persona Selection Model (PSM)",
+      "type": "works_on",
+      "context": "Anthropic's Feb 2026 paper on PSM",
+      "source": "2026-03-09.md"
+    },
+    {
+      "from": "Kaas",
+      "to": "The Perfect Technological Storm",
+      "type": "works_on",
+      "context": "Kaas 2024 paper introducing the framework",
+      "source": "2026-03-09.md"
+    },
+    {
+      "from": "Branda & Ciccozzi",
+      "to": "Cognitive Sovereignty",
+      "type": "works_on",
+      "context": "Branda & Ciccozzi 2026 introduced this concept",
+      "source": "2026-03-09.md"
+    },
+    {
+      "from": "Saini, Tang, Liu",
+      "to": "RESGA/SAEGA methods",
+      "type": "works_on",
+      "context": "2026 paper on gradient ascent for persona control",
       "source": "2026-03-09.md"
     },
     {
@@ -180,66 +201,59 @@
       "source": "2026-03-09.md"
     },
     {
+      "from": "Persona Selection Model (PSM)",
+      "to": "Cross-Persona Safety",
+      "type": "relates_to",
+      "context": "PSM explains why safety training doesn't transfer across personas",
+      "source": "2026-03-09.md"
+    },
+    {
+      "from": "Persona Selection Model (PSM)",
+      "to": "Emergent Misalignment",
+      "type": "relates_to",
+      "context": "PSM provides theoretical grounding for emergent misalignment research",
+      "source": "2026-03-09.md"
+    },
+    {
       "from": "relationship-health framework",
       "to": "Prompt-induced personas need structural safeguards",
       "type": "relates_to",
-      "context": "Framework provides structural safeguards since safety training was done elsewhere",
+      "context": "Framework serves as structural safeguard for prompt-induced personas",
       "source": "2026-03-09.md"
     },
     {
       "from": "Automation Bias",
-      "to": "Moral Complacency",
+      "to": "The Perfect Technological Storm",
       "type": "relates_to",
-      "context": "Automation bias contributes to the 'perfect technological storm' of moral complacency",
+      "context": "Automation bias is part of the overtrust problem in Kaas's framework",
       "source": "2026-03-09.md"
     },
     {
       "from": "Algorithm Appreciation",
-      "to": "Moral Complacency",
+      "to": "The Perfect Technological Storm",
       "type": "relates_to",
-      "context": "Algorithm appreciation contributes to overtrust problem in moral complacency",
+      "context": "Algorithm appreciation contributes to the overtrust problem",
       "source": "2026-03-09.md"
     },
     {
-      "from": "Cognitive Sovereignty",
-      "to": "Branda & Ciccozzi",
+      "from": "Epistemic Delegation",
+      "to": "Cognitive Sovereignty",
       "type": "relates_to",
-      "context": "Branda & Ciccozzi introduced the cognitive sovereignty concept",
-      "source": "2026-03-09.md"
-    },
-    {
-      "from": "Kaas",
-      "to": "Moral Complacency",
-      "type": "relates_to",
-      "context": "Kaas's framework describes the 'perfect technological storm' creating moral complacency",
-      "source": "2026-03-09.md"
-    },
-    {
-      "from": "Sparse Autoencoders (SAEs)",
-      "to": "Cross-Persona Safety",
-      "type": "relates_to",
-      "context": "SAEs identify persona directions enabling cross-persona safety steering",
+      "context": "Epistemic delegation leads to cognitive sovereignty loss",
       "source": "2026-03-09.md"
     },
     {
       "from": "RESGA/SAEGA methods",
-      "to": "Saini, Tang, Liu",
+      "to": "Sparse Autoencoders (SAEs)",
       "type": "relates_to",
-      "context": "Saini, Tang, Liu 2026 paper introduces these gradient ascent methods",
+      "context": "RESGA/SAEGA use SAEs to identify persona directions in activation space",
       "source": "2026-03-09.md"
     },
     {
-      "from": "Emergent misalignment research",
-      "to": "Persona Selection Model (PSM)",
+      "from": "Morning Briefing Generator",
+      "to": "gog",
       "type": "relates_to",
-      "context": "PSM provides theoretical grounding for emergent misalignment findings",
-      "source": "2026-03-09.md"
-    },
-    {
-      "from": "Kartik Krishnan",
-      "to": "Morning Briefing Generator",
-      "type": "works_on",
-      "context": "Tool built for Kartik's morning briefings, needs his gog reauth",
+      "context": "Morning Briefing needs gog OAuth reauth to function",
       "source": "2026-03-09.md"
     }
   ]

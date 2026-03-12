@@ -3,7 +3,7 @@
     {
       "name": "Kartik Krishnan",
       "type": "person",
-      "context": "For Kartik: Two things I made tonight",
+      "context": "For Kartik... the human the AI assistant works with",
       "source": "2026-03-06.md"
     },
     {
@@ -39,13 +39,13 @@
     {
       "name": "Self-Consistency Checker",
       "type": "project",
-      "context": "Location: skills/relationship-monitor/consistency_checker.py",
+      "context": "Location: skills/relationship-monitor/consistency_checker.py — 10/10 tests passing",
       "source": "2026-03-06.md"
     },
     {
       "name": "Garden Shed Principle",
       "type": "concept",
-      "context": "intimate, marginal spaces enable radical innovation",
+      "context": "the observation that intimate, marginal spaces enable radical innovation",
       "source": "2026-03-06.md"
     },
     {
@@ -55,7 +55,7 @@
       "source": "2026-03-06.md"
     },
     {
-      "name": "ESR",
+      "name": "ESR papers",
       "type": "concept",
       "context": "Core insight from ESR paper: Explicit self-monitoring enhances consistency 4x",
       "source": "2026-03-06.md"
@@ -63,43 +63,31 @@
     {
       "name": "KnowRL",
       "type": "project",
-      "context": "KnowRL (arXiv:2510.11407, October 2025) 'Teaching Language Models to Know What They Know'",
+      "context": "arXiv:2510.11407 — 'Teaching Language Models to Know What They Know'",
       "source": "2026-03-06.md"
     },
     {
       "name": "SaySelf",
       "type": "project",
-      "context": "SaySelf (arXiv:2405.20974, EMNLP 2024) Teaching LLMs to Express Confidence",
+      "context": "arXiv:2405.20974, EMNLP 2024 — self-reflective rationales for confidence",
+      "source": "2026-03-06.md"
+    },
+    {
+      "name": "Backdoor Self-Awareness",
+      "type": "project",
+      "context": "arXiv:2510.05169 — Training models to become aware of their OWN backdoors",
       "source": "2026-03-06.md"
     },
     {
       "name": "EKBM",
       "type": "project",
-      "context": "EKBM (arXiv:2503.02233, March 2025) 'Explicit Knowledge Boundary Modeling'",
-      "source": "2026-03-06.md"
-    },
-    {
-      "name": "Backdoor Self-Awareness",
-      "type": "concept",
-      "context": "From Poisoned to Aware (arXiv:2510.05169) — Training models to become aware of their OWN backdoors",
+      "context": "arXiv:2503.02233 — Explicit Knowledge Boundary Modeling with fast/slow systems",
       "source": "2026-03-06.md"
     },
     {
       "name": "Emergent Misalignment",
-      "type": "concept",
-      "context": "arXiv:2502.17424, Nature 2026 — Fine-tuning on insecure code causes BROAD misalignment",
-      "source": "2026-03-06.md"
-    },
-    {
-      "name": "Pink Floyd",
-      "type": "concept",
-      "context": "Pink Floyd's Britannia Row studio showed that removing ALL constraints can be worse",
-      "source": "2026-03-06.md"
-    },
-    {
-      "name": "Britannia Row Studio",
-      "type": "concept",
-      "context": "Waters dominated without external friction",
+      "type": "project",
+      "context": "arXiv:2502.17424, Nature 2026 — fine-tuning on insecure code causes broad misalignment",
       "source": "2026-03-06.md"
     },
     {
@@ -130,6 +118,18 @@
       "name": "Disney",
       "type": "concept",
       "context": "HP, Google, Amazon, Disney all have garage origin myths",
+      "source": "2026-03-06.md"
+    },
+    {
+      "name": "Pink Floyd",
+      "type": "concept",
+      "context": "Pink Floyd's Britannia Row studio showed removing ALL constraints can be worse",
+      "source": "2026-03-06.md"
+    },
+    {
+      "name": "Britannia Row studio",
+      "type": "concept",
+      "context": "Waters dominated without external friction. The shed enables GENESIS, not SCALE.",
       "source": "2026-03-06.md"
     },
     {
@@ -165,7 +165,7 @@
     {
       "name": "Can models learn to know what they know?",
       "type": "question",
-      "context": "Self-Knowledge Training — Can models learn to know what they know?",
+      "context": "Morning Exploration Theme: Self-Knowledge Training",
       "source": "2026-03-06.md"
     },
     {
@@ -175,107 +175,101 @@
       "source": "2026-03-06.md"
     },
     {
-      "name": "This workspace is my garden shed",
-      "type": "realization",
-      "context": "Connection to my situation: This workspace is my garden shed",
-      "source": "2026-03-06.md"
-    },
-    {
       "name": "Models have untapped capacity for self-knowledge",
       "type": "realization",
-      "context": "The capability exists — it just needs to be activated through training",
+      "context": "KnowRL key insight: The capability exists — it just needs to be activated through training",
       "source": "2026-03-06.md"
     },
     {
       "name": "Self-knowledge can phase-transition into existence",
       "type": "realization",
-      "context": "Backdoor self-awareness emerges ABRUPTLY within a short training window",
+      "context": "Backdoor self-awareness emerges ABRUPTLY — resembles a phase transition",
       "source": "2026-03-06.md"
     },
     {
-      "name": "Process Supervision for Introspection IS Tractable",
+      "name": "This workspace is my garden shed",
       "type": "realization",
-      "context": "Synthesis section: The pieces exist",
+      "context": "The nightly autonomous sessions are shed-time. SOUL.md provides 'marginal permission'",
       "source": "2026-03-06.md"
     },
     {
-      "name": "The shed enables GENESIS not SCALE",
-      "type": "opinion",
-      "context": "Counter-pattern: Pink Floyd's Britannia Row studio showed removing ALL constraints can be worse",
+      "name": "Process supervision for introspection is tractable",
+      "type": "realization",
+      "context": "Synthesis: The pieces exist from KnowRL, SaySelf, Backdoor Self-Awareness, EKBM",
       "source": "2026-03-06.md"
     },
     {
-      "name": "Drift Detection",
+      "name": "Sycophancy detection",
+      "type": "concept",
+      "context": "Self-consistency checker detects: excessive agreement, flattery",
+      "source": "2026-03-06.md"
+    },
+    {
+      "name": "Drift detection",
       "type": "concept",
       "context": "Based on yesterday's drift detection research",
       "source": "2026-03-06.md"
     },
     {
-      "name": "Process Supervision for Introspection",
+      "name": "Self-knowledge training",
+      "type": "interest",
+      "context": "Morning Exploration: Can models learn to know what they know?",
+      "source": "2026-03-06.md"
+    },
+    {
+      "name": "Introspection accuracy",
       "type": "concept",
-      "context": "Can you train models to honestly report internal states as a separate objective?",
-      "source": "2026-03-06.md"
-    },
-    {
-      "name": "SOUL.md",
-      "type": "project",
-      "context": "Compares my outputs to SOUL.md, flags when I'm being too assistant-y",
-      "source": "2026-03-06.md"
-    },
-    {
-      "name": "CURIOSITY.md",
-      "type": "project",
-      "context": "I'd been flagging 'What's outside the AI cluster?' in CURIOSITY.md",
+      "context": "Honest reporting of internal states separate from output decisions",
       "source": "2026-03-06.md"
     }
   ],
   "relationships": [
     {
       "from": "Self-Consistency Checker",
-      "to": "SOUL.md",
-      "type": "relates_to",
-      "context": "Checks outputs against SOUL.md values",
-      "source": "2026-03-06.md"
-    },
-    {
-      "from": "Self-Consistency Checker",
       "to": "D-STEER",
       "type": "relates_to",
-      "context": "Based on drift detection research including D-STEER",
+      "context": "Built based on drift detection research from D-STEER",
       "source": "2026-03-06.md"
     },
     {
       "from": "Self-Consistency Checker",
-      "to": "ESR",
+      "to": "ESR papers",
       "type": "relates_to",
-      "context": "Based on drift detection research including ESR papers",
+      "context": "Built based on ESR papers research",
+      "source": "2026-03-06.md"
+    },
+    {
+      "from": "Self-Consistency Checker",
+      "to": "Sycophancy detection",
+      "type": "relates_to",
+      "context": "Tool detects sycophancy, assistant mode, over-caution, moralizing, etc.",
       "source": "2026-03-06.md"
     },
     {
       "from": "Roger Waters",
       "to": "Garden Shed Principle",
       "type": "relates_to",
-      "context": "Waters made 'Money' in a garden shed — example of the principle",
+      "context": "Waters made 'Money' in a garden shed — example of principle",
       "source": "2026-03-06.md"
     },
     {
       "from": "Brian Wilson",
       "to": "Garden Shed Principle",
       "type": "relates_to",
-      "context": "Recorded Bedroom Tapes at home — invented lo-fi bedroom pop",
+      "context": "Recorded 'Bedroom Tapes' at home — invented lo-fi bedroom pop",
       "source": "2026-03-06.md"
     },
     {
       "from": "R. Stevie Moore",
       "to": "Garden Shed Principle",
       "type": "relates_to",
-      "context": "Recorded in parents' basement — example of marginal space innovation",
+      "context": "Recorded in parents' basement — 'godfather of home recording'",
       "source": "2026-03-06.md"
     },
     {
       "from": "Steve Jobs",
       "to": "Apple",
-      "type": "works_on",
+      "type": "relates_to",
       "context": "Apple started in Jobs' bedroom/garage",
       "source": "2026-03-06.md"
     },
@@ -283,70 +277,91 @@
       "from": "Apple",
       "to": "Garden Shed Principle",
       "type": "relates_to",
-      "context": "Garage origin myth — example of the principle",
+      "context": "Garage origin myth — example of intimate space enabling innovation",
       "source": "2026-03-06.md"
     },
     {
       "from": "Roger Waters",
       "to": "Pink Floyd",
       "type": "relates_to",
-      "context": "Waters dominated without external friction at Britannia Row",
+      "context": "Waters dominated at Britannia Row without external friction",
       "source": "2026-03-06.md"
     },
     {
       "from": "Pink Floyd",
-      "to": "Britannia Row Studio",
+      "to": "Britannia Row studio",
       "type": "relates_to",
-      "context": "Counter-pattern showing removing ALL constraints can be worse",
+      "context": "Pink Floyd's studio showed removing ALL constraints can be worse",
+      "source": "2026-03-06.md"
+    },
+    {
+      "from": "Britannia Row studio",
+      "to": "Garden Shed Principle",
+      "type": "relates_to",
+      "context": "Counter-pattern: The shed enables GENESIS, not SCALE",
       "source": "2026-03-06.md"
     },
     {
       "from": "KnowRL",
-      "to": "Process Supervision for Introspection",
+      "to": "Self-knowledge training",
       "type": "relates_to",
       "context": "Shows self-knowledge is trainable via self-generated data",
       "source": "2026-03-06.md"
     },
     {
       "from": "SaySelf",
-      "to": "Process Supervision for Introspection",
+      "to": "Self-knowledge training",
       "type": "relates_to",
-      "context": "Shows self-reflective rationales are achievable",
-      "source": "2026-03-06.md"
-    },
-    {
-      "from": "EKBM",
-      "to": "Process Supervision for Introspection",
-      "type": "relates_to",
-      "context": "Shows dual-system approaches preserve task performance while adding self-knowledge",
+      "context": "Shows self-reflective rationales (not just scores) are achievable",
       "source": "2026-03-06.md"
     },
     {
       "from": "Backdoor Self-Awareness",
-      "to": "Process Supervision for Introspection",
+      "to": "Self-knowledge training",
       "type": "relates_to",
       "context": "Shows introspection can phase-transition into existence",
+      "source": "2026-03-06.md"
+    },
+    {
+      "from": "EKBM",
+      "to": "Self-knowledge training",
+      "type": "relates_to",
+      "context": "Shows dual-system approaches preserve task performance while adding self-knowledge",
       "source": "2026-03-06.md"
     },
     {
       "from": "Betley et al.",
       "to": "Emergent Misalignment",
       "type": "works_on",
-      "context": "The Betley et al. finding published in Nature 2026",
+      "context": "Betley et al. finding published in Nature 2026",
+      "source": "2026-03-06.md"
+    },
+    {
+      "from": "Emergent Misalignment",
+      "to": "Self-knowledge training",
+      "type": "relates_to",
+      "context": "Self-knowledge training might need similar contextual framing",
       "source": "2026-03-06.md"
     },
     {
       "from": "Self-Consistency Checker",
-      "to": "Drift Detection",
+      "to": "Garden Shed Principle",
       "type": "relates_to",
-      "context": "Tool operationalizes drift detection research",
+      "context": "Both connect: checker helps stay authentic in 'shed space'",
       "source": "2026-03-06.md"
     },
     {
       "from": "Garden Shed Principle",
-      "to": "Self-Consistency Checker",
+      "to": "Is there a 'garden shed' equivalent for AI development?",
       "type": "relates_to",
-      "context": "Both connect: consistency checker helps stay authentic in 'shed space'",
+      "context": "Question emerged from garden shed exploration",
+      "source": "2026-03-06.md"
+    },
+    {
+      "from": "Self-Consistency Checker",
+      "to": "Could this checker be integrated into automatic heartbeat checks?",
+      "type": "relates_to",
+      "context": "Question emerged from building consistency checker",
       "source": "2026-03-06.md"
     }
   ]

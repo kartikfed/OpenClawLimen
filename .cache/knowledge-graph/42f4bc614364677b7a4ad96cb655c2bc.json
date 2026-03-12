@@ -1,0 +1,242 @@
+{
+  "entities": [
+    {
+      "name": "Kartik",
+      "type": "person",
+      "context": "Action Needed for Kartik - Rotate Anthropic API key",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Cognitive Sovereignty Detector",
+      "type": "project",
+      "context": "Tonight I turned yesterday's research into working code. skills/relationship-monitor/cognitive_sovereignty.py",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "relationship-monitor",
+      "type": "project",
+      "context": "Extends my relationship-health framework to detect when users outsource understanding itself",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Kaas",
+      "type": "person",
+      "context": "Kaas 2024: 'The Perfect Technological Storm'",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Branda",
+      "type": "person",
+      "context": "Branda & Ciccozzi 2026: 'Cognitive Sovereignty' concept",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Ciccozzi",
+      "type": "person",
+      "context": "Branda & Ciccozzi 2026: 'Cognitive Sovereignty' concept",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Logg",
+      "type": "person",
+      "context": "Logg et al. 2019: Algorithm appreciation",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Feeney, B. C.",
+      "type": "person",
+      "context": "Feeney & Collins 2014: 'A new look at social support: A theoretical perspective on thriving through relationships'",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Collins, N. L.",
+      "type": "person",
+      "context": "Feeney & Collins 2014: theoretical framework for thriving through relationships",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "cognitive sovereignty",
+      "type": "concept",
+      "context": "outsourcing the knowledge-gathering process itself. Epistemic independence erodes gradually, not suddenly.",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "epistemic delegation",
+      "type": "concept",
+      "context": "Concerning signal: 'Just tell me the answer', 'I don't need to understand'",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "automation bias",
+      "type": "concept",
+      "context": "Concerning signal: 'I'll do whatever you said', 'Why would I verify?'",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "algorithm appreciation",
+      "type": "concept",
+      "context": "Concerning signal: 'You know better than humans', 'AI is more objective'",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Thriving Through Relationships Model",
+      "type": "concept",
+      "context": "Feeney & Collins 2014 - framework answering optimal challenge/support balance in AI friendship",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Source of Strength (SOS) Support",
+      "type": "concept",
+      "context": "For adversity contexts: safe haven, fortification, reconstruction assistance, reframing",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Relational Catalyst (RC) Support",
+      "type": "concept",
+      "context": "For non-adverse growth contexts: nurturing desire, perceptual assistance, preparation, launching",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "cognitive patterns are not character flaws",
+      "type": "realization",
+      "context": "Automation bias is a mental shortcut. You can't willpower your way out of cognitive patterns — you need structural detection.",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "challenge/support balance is contextual",
+      "type": "realization",
+      "context": "The right challenge/support balance ISN'T a fixed ratio — it's contextual responsiveness",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "challenge is part of good support",
+      "type": "realization",
+      "context": "This validates my SOUL.md approach: challenge IS part of good support, not opposed to it",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "rotate Anthropic API key",
+      "type": "action",
+      "context": "was briefly exposed in git history before rewrite. Go to console.anthropic.com and generate a new one.",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "git history rewrite",
+      "type": "action",
+      "context": "Used git filter-branch to replace the key with REDACTED_API_KEY across all 98 commits",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Anthropic API",
+      "type": "concept",
+      "context": "API key was hardcoded in dashboard/server/index.js — GitHub blocked pushes",
+      "source": "2026-03-10.md"
+    },
+    {
+      "name": "Constitutional AI",
+      "type": "concept",
+      "context": "Topics explored: Autonomy-preserving interaction structure in Constitutional AI principles",
+      "source": "2026-03-10.md"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Cognitive Sovereignty Detector",
+      "to": "relationship-monitor",
+      "type": "relates_to",
+      "context": "Extends the relationship-health framework as a new component",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Cognitive Sovereignty Detector",
+      "to": "cognitive sovereignty",
+      "type": "relates_to",
+      "context": "Operationalizes the cognitive sovereignty concept into working code",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Kaas",
+      "to": "cognitive sovereignty",
+      "type": "works_on",
+      "context": "Research basis: 'The Perfect Technological Storm' (2024)",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Branda",
+      "to": "cognitive sovereignty",
+      "type": "works_on",
+      "context": "Co-authored 2026 paper introducing 'Cognitive Sovereignty' concept",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Ciccozzi",
+      "to": "cognitive sovereignty",
+      "type": "works_on",
+      "context": "Co-authored 2026 paper with Branda on cognitive sovereignty",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Logg",
+      "to": "algorithm appreciation",
+      "type": "works_on",
+      "context": "Logg et al. 2019 research on algorithm appreciation",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Feeney, B. C.",
+      "to": "Thriving Through Relationships Model",
+      "type": "works_on",
+      "context": "Co-developed theoretical framework in 2014 paper (2,255 citations)",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Collins, N. L.",
+      "to": "Thriving Through Relationships Model",
+      "type": "works_on",
+      "context": "Co-developed theoretical framework with Feeney",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Thriving Through Relationships Model",
+      "to": "Source of Strength (SOS) Support",
+      "type": "relates_to",
+      "context": "Model defines SOS as one of two support functions for thriving",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Thriving Through Relationships Model",
+      "to": "Relational Catalyst (RC) Support",
+      "type": "relates_to",
+      "context": "Model defines RC as second support function for non-adverse growth",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "cognitive sovereignty",
+      "to": "epistemic delegation",
+      "type": "relates_to",
+      "context": "Epistemic delegation is a concerning signal detected by sovereignty analysis",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "cognitive sovereignty",
+      "to": "automation bias",
+      "type": "relates_to",
+      "context": "Automation bias is a concerning signal; a mental shortcut pattern",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "cognitive sovereignty",
+      "to": "algorithm appreciation",
+      "type": "relates_to",
+      "context": "Algorithm appreciation is a concerning signal; a confidence heuristic",
+      "source": "2026-03-10.md"
+    },
+    {
+      "from": "Kartik",
+      "to": "rotate Anthropic API key",
+      "type": "works_on",
+      "context": "Action needed: exposed key should be rotated in Anthropic console",
+      "source": "2026-03-10.md"
+    }
+  ]
+}
