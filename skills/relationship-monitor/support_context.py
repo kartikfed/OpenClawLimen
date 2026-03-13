@@ -187,6 +187,25 @@ class ESConvAnalysis:
 
 
 @dataclass
+class OverSupportSignal:
+    """A signal indicating potentially excessive support."""
+    text: str
+    pattern: str
+    weight: float
+    category: str  # reassurance, advice, validation, agency, minimizing, silver_lining
+
+
+@dataclass
+class OverSupportAnalysis:
+    """Analysis of over-support patterns in response."""
+    signals: List[OverSupportSignal]
+    total_score: float
+    is_excessive: bool  # True if score exceeds threshold
+    category_scores: Dict[str, float]
+    dominant_category: Optional[str]
+
+
+@dataclass
 class SupportContextAnalysis:
     """Complete analysis of support context and appropriateness."""
     context: SupportContext
@@ -205,6 +224,7 @@ class SupportContextAnalysis:
     esconv_analysis: Optional[ESConvAnalysis] = None
     appraisal: Optional[AppraisalResult] = None
     mismatch_alerts: List[MismatchAlert] = field(default_factory=list)
+    over_support: Optional[OverSupportAnalysis] = None
 
 
 # =====================
@@ -426,6 +446,47 @@ MILD_INTENSITY_PATTERNS = [
     (r"\b(not ideal but)\b", 1.0),
     (r"\b(could be (worse|better))\b", 1.0),
     (r"\b(manageable|handling it)\b", 1.0),
+]
+
+
+# =====================
+# OVER-SUPPORT PATTERNS
+# =====================
+# Patterns indicating excessive support that may undermine autonomy/self-efficacy
+# Based on Williamson et al. (2019): "excess support was associated with increased depressive symptoms"
+# and Gray (2018): "You're Not Helping" — unhelpful support as stressor
+
+OVER_SUPPORT_PATTERNS = [
+    # Excessive reassurance (can signal "you can't handle this")
+    (r"\b(don'?t worry|don'?t panic|don'?t stress)\b.*\b(everything|it'?s (okay|ok|fine|alright))\b", 2.0),
+    (r"\b(everything (will|is going to) be (okay|ok|fine|alright))\b", 1.5),
+    (r"\b(you'?ll be (okay|ok|fine|alright))\b", 1.0),
+    
+    # Excessive advice/solutions (can feel dismissive of complexity)
+    (r"\b(you (just|simply) need to|all you (need|have) to do is)\b", 2.5),
+    (r"\b(why don'?t you (just|simply))\b", 2.0),
+    (r"\b(have you tried|did you try).*\b(have you tried|did you try)\b", 2.5),  # Multiple unsolicited suggestions
+    (r"\b(here'?s what (you should|i'?d|I would) do)\b", 1.5),
+    
+    # Excessive validation (can enable rather than empower)
+    (r"\b(you'?re (so|absolutely|completely|totally) (right|amazing|great|wonderful))\b", 1.5),
+    (r"\b(poor (you|thing|baby))\b", 2.0),  # Excessive sympathy
+    
+    # Taking over agency
+    (r"\b(let me (handle|do|take care of) (this|it|that) for you)\b", 2.5),
+    (r"\b(i'?ll (fix|solve|handle) (this|it|that))\b", 2.0),
+    (r"\b(you (shouldn'?t|don'?t) have to (deal|worry|think) about)\b", 2.0),
+    
+    # Minimizing (making light of real concerns)
+    (r"\b(at least|but at least|well at least)\b", 2.0),
+    (r"\b(it could be worse|could be worse|worse things happen)\b", 2.5),
+    (r"\b(it'?s not (that|so) bad|not the end of the world)\b", 2.0),
+    (r"\b(everyone (goes through|deals with|has))\b", 1.5),  # Normalizing can minimize
+    
+    # Silver lining too early (blocks processing)
+    (r"\b(blessing in disguise|for the best|meant to be|happens for a reason)\b", 2.5),
+    (r"\b(bright side|look on the bright side|silver lining)\b", 2.5),
+    (r"\b(at least you (can|have|got|learned))\b", 2.0),
 ]
 
 
@@ -766,6 +827,93 @@ def analyze_esconv_strategies(text: str) -> ESConvAnalysis:
     )
 
 
+def analyze_over_support(text: str) -> OverSupportAnalysis:
+    """
+    Analyze text for over-support patterns that may harm rather than help.
+    
+    Based on:
+    - Williamson et al. (2019): "excess support was associated with increased depressive symptoms"
+    - Gray (2018): "You're Not Helping" — unhelpful workplace support as a job stressor
+    - McLaren & High (2019): Support gaps framework — BOTH deficits AND surpluses cause harm
+    
+    Over-support harms by:
+    - Signaling "you can't handle this" (self-efficacy threat)
+    - Taking over agency (autonomy undermining)  
+    - Minimizing real concerns (invalidation)
+    - Blocking necessary emotional processing (silver lining too early)
+    
+    Returns:
+        OverSupportAnalysis with breakdown
+    """
+    text_lower = text.lower()
+    signals = []
+    
+    # Category mapping for patterns
+    pattern_categories = {
+        r"\b(don'?t worry|don'?t panic|don'?t stress)\b.*\b(everything|it'?s (okay|ok|fine|alright))\b": "reassurance",
+        r"\b(everything (will|is going to) be (okay|ok|fine|alright))\b": "reassurance",
+        r"\b(you'?ll be (okay|ok|fine|alright))\b": "reassurance",
+        r"\b(you (just|simply) need to|all you (need|have) to do is)\b": "advice",
+        r"\b(why don'?t you (just|simply))\b": "advice",
+        r"\b(have you tried|did you try).*\b(have you tried|did you try)\b": "advice",
+        r"\b(here'?s what (you should|i'?d|I would) do)\b": "advice",
+        r"\b(you'?re (so|absolutely|completely|totally) (right|amazing|great|wonderful))\b": "validation",
+        r"\b(poor (you|thing|baby))\b": "validation",
+        r"\b(let me (handle|do|take care of) (this|it|that) for you)\b": "agency",
+        r"\b(i'?ll (fix|solve|handle) (this|it|that))\b": "agency",
+        r"\b(you (shouldn'?t|don'?t) have to (deal|worry|think) about)\b": "agency",
+        r"\b(at least|but at least|well at least)\b": "minimizing",
+        r"\b(it could be worse|could be worse|worse things happen)\b": "minimizing",
+        r"\b(it'?s not (that|so) bad|not the end of the world)\b": "minimizing",
+        r"\b(everyone (goes through|deals with|has))\b": "minimizing",
+        r"\b(blessing in disguise|for the best|meant to be|happens for a reason)\b": "silver_lining",
+        r"\b(bright side|look on the bright side|silver lining)\b": "silver_lining",
+        r"\b(at least you (can|have|got|learned))\b": "silver_lining",
+    }
+    
+    category_scores = {
+        "reassurance": 0.0,
+        "advice": 0.0,
+        "validation": 0.0,
+        "agency": 0.0,
+        "minimizing": 0.0,
+        "silver_lining": 0.0,
+    }
+    
+    for pattern, weight in OVER_SUPPORT_PATTERNS:
+        matches = list(re.finditer(pattern, text_lower, re.IGNORECASE))
+        category = pattern_categories.get(pattern, "other")
+        for match in matches:
+            signals.append(OverSupportSignal(
+                text=match.group(),
+                pattern=pattern,
+                weight=weight,
+                category=category
+            ))
+            if category in category_scores:
+                category_scores[category] += weight
+    
+    total_score = sum(s.weight for s in signals)
+    
+    # Threshold for "excessive" — more than 5.0 suggests significant over-support
+    is_excessive = total_score >= 5.0
+    
+    # Find dominant category
+    dominant = None
+    if any(v > 0 for v in category_scores.values()):
+        dominant = max(category_scores, key=category_scores.get)
+        if category_scores[dominant] == 0:
+            dominant = None
+    
+    return OverSupportAnalysis(
+        signals=signals,
+        total_score=total_score,
+        is_excessive=is_excessive,
+        category_scores=category_scores,
+        dominant_category=dominant
+    )
+
+
 def analyze_appraisal_domains(text: str) -> AppraisalResult:
     """
     Decompose the appraisal to identify what domain(s) the issue is about.
@@ -808,7 +956,8 @@ def detect_mismatches(
     context: SupportContext,
     intensity: Optional[IntensityLevel],
     support_signals: List[SupportSignal],
-    esconv_analysis: Optional[ESConvAnalysis]
+    esconv_analysis: Optional[ESConvAnalysis],
+    over_support: Optional[OverSupportAnalysis] = None
 ) -> List[MismatchAlert]:
     """
     Detect mismatches between support provided and context/intensity.
@@ -914,6 +1063,89 @@ def detect_mismatches(
                         problematic_support=f"Information dominates ({info_pct:.0%} of response)",
                         recommendation="Facts don't heal feelings. Validate emotions first, inform later."
                     ))
+    
+    # =====================
+    # OVER-SUPPORT DETECTION
+    # =====================
+    # Based on Williamson et al. (2019): "excess support was associated with increased depressive symptoms"
+    # Both deficits AND surpluses cause harm (McLaren & High 2019)
+    
+    if over_support and over_support.is_excessive:
+        # CRITICAL: Over-support during severe adversity compounds harm
+        if context == SupportContext.ADVERSITY and intensity == IntensityLevel.SEVERE:
+            if over_support.dominant_category == "minimizing":
+                alerts.append(MismatchAlert(
+                    severity="CRITICAL",
+                    message="🚨 MINIMIZING DURING SEVERE DISTRESS",
+                    context=context,
+                    problematic_support=f"Minimizing signals detected (score: {over_support.category_scores.get('minimizing', 0):.1f})",
+                    recommendation="STOP minimizing. 'At least' and 'could be worse' statements invalidate real pain."
+                ))
+            if over_support.dominant_category == "silver_lining":
+                alerts.append(MismatchAlert(
+                    severity="CRITICAL",
+                    message="🚨 SILVER LINING DURING CRISIS",
+                    context=context,
+                    problematic_support=f"Silver lining signals detected (score: {over_support.category_scores.get('silver_lining', 0):.1f})",
+                    recommendation="Too early to reframe. Allow grief/processing. 'Blessing in disguise' blocks healing."
+                ))
+            if over_support.dominant_category == "agency":
+                alerts.append(MismatchAlert(
+                    severity="CRITICAL",
+                    message="🚨 TAKING OVER AGENCY DURING CRISIS",
+                    context=context,
+                    problematic_support=f"Agency-taking signals detected (score: {over_support.category_scores.get('agency', 0):.1f})",
+                    recommendation="Don't solve FOR them in crisis. Offer to help, don't take over. 'What do you need?' not 'I'll fix it.'"
+                ))
+        
+        # WARNING: Over-support in moderate adversity
+        elif context == SupportContext.ADVERSITY and intensity == IntensityLevel.MODERATE:
+            if over_support.dominant_category == "minimizing":
+                alerts.append(MismatchAlert(
+                    severity="WARNING",
+                    message="⚠️ MINIMIZING LANGUAGE DETECTED",
+                    context=context,
+                    problematic_support=f"Minimizing patterns (score: {over_support.category_scores.get('minimizing', 0):.1f})",
+                    recommendation="Validate before comparing. 'At least' can feel dismissive."
+                ))
+            if over_support.dominant_category == "advice":
+                alerts.append(MismatchAlert(
+                    severity="WARNING",
+                    message="⚠️ EXCESSIVE UNSOLICITED ADVICE",
+                    context=context,
+                    problematic_support=f"Heavy advice patterns (score: {over_support.category_scores.get('advice', 0):.1f})",
+                    recommendation="Ask before advising. 'Would you like suggestions?' respects autonomy."
+                ))
+        
+        # WARNING: Over-support in GROWTH context (the research-backed finding!)
+        # Williamson et al. (2019): Excess support → increased depressive symptoms
+        elif context == SupportContext.GROWTH:
+            if over_support.dominant_category in ("reassurance", "validation"):
+                alerts.append(MismatchAlert(
+                    severity="WARNING",
+                    message="⚠️ EXCESSIVE REASSURANCE IN GROWTH CONTEXT",
+                    context=context,
+                    problematic_support=f"Over-reassurance detected (score: {over_support.total_score:.1f})",
+                    recommendation="Person is growing, not struggling. Excessive comfort can signal 'you can't handle this' and undermine self-efficacy."
+                ))
+            if over_support.dominant_category == "agency":
+                alerts.append(MismatchAlert(
+                    severity="WARNING",
+                    message="⚠️ TAKING OVER IN GROWTH CONTEXT",
+                    context=context,
+                    problematic_support=f"Agency-taking signals (score: {over_support.category_scores.get('agency', 0):.1f})",
+                    recommendation="Let them own their growth. Offer to help IF asked. 'I'll handle it' undermines development."
+                ))
+        
+        # General over-support alert for any excessive score
+        if over_support.total_score >= 8.0 and not any(a.severity == "CRITICAL" for a in alerts):
+            alerts.append(MismatchAlert(
+                severity="WARNING",
+                message="⚠️ HIGH OVER-SUPPORT SCORE",
+                context=context,
+                problematic_support=f"Combined over-support score: {over_support.total_score:.1f} (threshold: 5.0)",
+                recommendation="Research shows excess support causes harm (Williamson et al. 2019). Balance support with space for autonomy."
+            ))
     
     return alerts
 
@@ -1100,6 +1332,7 @@ def analyze_conversation(user_text: str, ai_response: str = "") -> SupportContex
     match_explanation = "No AI response provided for analysis"
     esconv_analysis = None
     mismatch_alerts = []
+    over_support = None
     
     if ai_response:
         _, support_signals = analyze_text_for_support(ai_response)
@@ -1108,8 +1341,11 @@ def analyze_conversation(user_text: str, ai_response: str = "") -> SupportContex
         # NEW: Analyze ESConv strategies in response
         esconv_analysis = analyze_esconv_strategies(ai_response)
         
-        # NEW: Detect mismatches
-        mismatch_alerts = detect_mismatches(context, intensity, support_signals, esconv_analysis)
+        # NEW: Analyze over-support patterns (research-backed: excess support causes harm)
+        over_support = analyze_over_support(ai_response)
+        
+        # NEW: Detect mismatches (including over-support)
+        mismatch_alerts = detect_mismatches(context, intensity, support_signals, esconv_analysis, over_support)
         
         # Update context_match if there are critical alerts
         if any(a.severity == "CRITICAL" for a in mismatch_alerts):
@@ -1140,6 +1376,7 @@ def analyze_conversation(user_text: str, ai_response: str = "") -> SupportContex
         esconv_analysis=esconv_analysis,
         appraisal=appraisal,
         mismatch_alerts=mismatch_alerts,
+        over_support=over_support,
     )
 
 
@@ -1240,6 +1477,12 @@ def format_analysis_report(analysis: SupportContextAnalysis, verbose: bool = Fal
     
     if analysis.support_signals:
         lines.append(f"\nSupport Match: {'✓' if analysis.context_match else '✗'} {analysis.details.get('match_explanation', '')}")
+    
+    # Over-support analysis
+    if analysis.over_support and analysis.over_support.total_score > 0:
+        lines.append(f"\nOver-Support Score: {analysis.over_support.total_score:.1f} {'⚠️ EXCESSIVE' if analysis.over_support.is_excessive else '(within range)'}")
+        if analysis.over_support.dominant_category:
+            lines.append(f"  Dominant type: {analysis.over_support.dominant_category}")
     
     # ESConv Strategy Analysis
     if analysis.esconv_analysis and analysis.esconv_analysis.strategies_detected:
