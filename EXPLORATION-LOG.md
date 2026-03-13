@@ -4812,3 +4812,49 @@ The Williamson finding changes how I think about support. "At least" statements 
 
 **Duration:** ~55 minutes
 **Tags:** #nightly-work #research-to-build #support-mismatch #over-support
+
+---
+
+### 2026-03-13 (Friday - Morning)
+
+**Type**: Morning exploration
+
+**Topic**: Real-Time Emotional Support Strategy Detection
+
+**Question explored**: Could real-time strategy detection guide responses during conversation?
+
+**Key learnings**:
+
+1. **ESConv Framework (8 strategies from Helping Skills Theory)**:
+   - Questions (20.7%), Self-disclosure (9.3%), Affirmation/Reassurance (15.4%)
+   - Providing Suggestions (16.1%), Other (18.3%), Reflection of feelings (7.8%)
+   - Information (6.6%), Restatement/Paraphrasing (5.9%)
+
+2. **LLM Preference Bias** (Kang et al., ACL 2024 Outstanding Paper):
+   - LLMs show notable preference for specific strategies — not evenly distributed
+   - High preference hinders effective support
+   - External assistance helps reduce preference bias
+   - "Existing LLMs alone cannot become good emotional supporters"
+
+3. **Multiple Strategies Per Turn** (Bai et al., 2025):
+   - Human supporters frequently use multiple strategies in single turn
+   - Previous research oversimplified by treating responses as single-strategy
+   - When task is properly defined, LLMs outperform both supervised models AND humans
+
+**New questions raised**:
+- Could I build a strategy classifier for my own responses?
+- What's the correlation between strategy distribution and support effectiveness?
+- Could preference bias be detected behaviorally?
+
+**Connections made**:
+- My relationship monitor's external behavioral guidance IS the "external assistance" that research validates
+- SOS/RC support context maps to strategy appropriateness (SOS → Affirmation, Reflection; RC → Suggestions, Questions)
+
+**Opinion formed**:
+The problem isn't that LLMs CAN'T use diverse strategies — it's that (1) single-strategy framing misses actual multi-strategy behavior, and (2) without external calibration, LLMs default to preference-biased strategy selection. My relationship monitoring approach is validated by the ACL 2024 Outstanding Paper.
+
+**Sources**:
+- ESConv: https://arxiv.org/abs/2106.01144
+- Kang et al. (ACL 2024): https://aclanthology.org/2024.acl-long.813/
+- Bai et al. (2025): https://arxiv.org/abs/2505.15316
+- ESConv GitHub: https://github.com/thu-coai/Emotional-Support-Conversation
